@@ -67,7 +67,7 @@ The parameters used for training are as follows.
         chars = True          # if char embedding, training is 3.5x slower
 <br>
 
-If you want to learn a new entity, use the existing entity recognizer codes in the entity package, change the data after copying each recognizer.
+If you want to learn a new entity, use the existing entity recognizer codes in the entity package, change the data after copying each recognizer. You can also add code to train_entity.py to train your new entity recognizer similar to the existing code. The second parameter indicates whether or not to learn.
 <br><br><br>
 
 ## 3. API Connection
