@@ -42,7 +42,7 @@ If you want to train intent using new data, insert the data into the 'src/data' 
 
 Second, since you have classified user's intent, we now need to recognize the entities in the conversation. 
 In order for us to provide data in conjunction with an external API, we need to pass only the data needed by that API. In this case, BiLSTM-CRF is used to cut only necessary data.
-The way to recognize entities using BiLSTM-CRF is based on a [paper published by Baidu Research](https://arxiv.org/pdf/1508.01991.pdf)
+The way to recognize entities using BiLSTM-CRF is based on a [paper by Baidu Research published in 2015](https://arxiv.org/pdf/1508.01991.pdf)
 <br><br>
 <img src=https://www.depends-on-the-definition.com/wp-content/uploads/2017/11/lstm_crf.png></img>
 <br><br>
