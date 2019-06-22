@@ -22,7 +22,7 @@ Each file has example data for each intent, so if you want to use the new data, 
 First, if the user tries to talk, he or she must know the intent of the conversation.
 <br>
 <br>
-Because of this, Convolution neural networks are used to classify users intent. The way to classify sentences using the Convolution network is based on the [paper by Kim Yoon, published in 2014]([here](https://www.aclweb.org/anthology/D14-1181)).
+Because of this, Convolution neural networks are used to classify users intent. The way to classify sentences using the Convolution network is based on the [paper by Kim Yoon, published in 2014](https://www.aclweb.org/anthology/D14-1181).
 
 <img src=https://i.imgur.com/TNjCKHf.jpg></img> <br><br>
 
