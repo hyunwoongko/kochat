@@ -1,0 +1,1222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="75fcc748-fed8-4c22-b9c5-227c8fe63c48" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/application.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/crawler/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/crawler/dust.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/crawler/exchange.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/crawler/issue.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/crawler/news.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/crawler/restaurant.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/crawler/translation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/crawler/weather.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/crawler/wiki.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/crawler/wise.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/crawler/youtube.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/날씨.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/뉴스.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/달력.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/맛집.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/먼지.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/명언.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/번역.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/시간.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/위키.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/음악.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/이슈.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/인물.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/data/coNLL/kor/kor.train.iob" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/data/crawler/pos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/data/processed/kor/char.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/data/processed/kor/chars.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/data/processed/kor/tags.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/data/processed/kor/w2v.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/data/processed/kor/w2v3.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/data/processed/kor/words.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/data/w2v/model" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/entity_recognizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/kor_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/kor_model/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/kor_model/data_crawler/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/kor_model/data_crawler/mecab.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/kor_model/data_embed_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/kor_model/data_embed_model/build_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/kor_model/data_embed_model/data_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/kor_model/data_embed_model/model.vec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/kor_model/data_embed_model/word2vec.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/kor_model/general_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/kor_model/ner_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/kor_model/ner_model/lstmcrf_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/results/crf/events.out.tfevents.1553220388.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/results/crf/events.out.tfevents.1553220705.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/results/crf/events.out.tfevents.1553308854.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/results/crf/events.out.tfevents.1553325634.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/results/crf/events.out.tfevents.1553325740.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/results/crf/events.out.tfevents.1553328374.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/results/crf/events.out.tfevents.1553661371.MYCOM1-PC" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/results/crf/events.out.tfevents.1553674224.MYCOM1-PC" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/results/crf/events.out.tfevents.1553741163.MYCOM1-PC" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/results/crf/events.out.tfevents.1557801859.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/results/crf/model.weights/checkpoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/results/crf/model.weights/ner_model.ckpt.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/results/crf/model.weights/ner_model.ckpt.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/results/crf/model.weights/ner_model.ckpt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/news/train_entity.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/data/coNLL/kor/kor.train.iob" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/data/crawler/pos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/data/processed/kor/char.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/data/processed/kor/chars.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/data/processed/kor/tags.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/data/processed/kor/w2v.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/data/processed/kor/w2v3.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/data/processed/kor/words.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/data/w2v/model" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/entity_recognizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/kor_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/kor_model/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/kor_model/data_crawler/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/kor_model/data_crawler/mecab.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/kor_model/data_embed_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/kor_model/data_embed_model/build_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/kor_model/data_embed_model/data_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/kor_model/data_embed_model/model.vec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/kor_model/data_embed_model/word2vec.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/kor_model/general_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/kor_model/ner_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/kor_model/ner_model/lstmcrf_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/results/crf/events.out.tfevents.1553220388.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/results/crf/events.out.tfevents.1553220705.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/results/crf/events.out.tfevents.1553308854.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/results/crf/events.out.tfevents.1553325634.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/results/crf/events.out.tfevents.1553325740.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/results/crf/events.out.tfevents.1553328374.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/results/crf/events.out.tfevents.1553665199.MYCOM1-PC" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/results/crf/events.out.tfevents.1557802996.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/results/crf/model.weights/checkpoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/results/crf/model.weights/ner_model.ckpt.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/results/crf/model.weights/ner_model.ckpt.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/results/crf/model.weights/ner_model.ckpt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/restaurant/train_entity.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/data/coNLL/kor/kor.train.iob" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/data/crawler/pos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/data/processed/kor/char.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/data/processed/kor/chars.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/data/processed/kor/tags.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/data/processed/kor/w2v.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/data/processed/kor/w2v3.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/data/processed/kor/words.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/data/w2v/model" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/entity_recognizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/kor_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/kor_model/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/kor_model/data_crawler/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/kor_model/data_crawler/mecab.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/kor_model/data_embed_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/kor_model/data_embed_model/build_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/kor_model/data_embed_model/data_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/kor_model/data_embed_model/model.vec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/kor_model/data_embed_model/word2vec.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/kor_model/general_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/kor_model/ner_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/kor_model/ner_model/lstmcrf_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/results/crf/events.out.tfevents.1553220388.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/results/crf/events.out.tfevents.1553220705.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/results/crf/events.out.tfevents.1553308854.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/results/crf/events.out.tfevents.1553325475.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/results/crf/events.out.tfevents.1553325942.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/results/crf/events.out.tfevents.1553328373.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/results/crf/events.out.tfevents.1553661432.MYCOM1-PC" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/results/crf/events.out.tfevents.1554353620.MYCOM1-PC" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/results/crf/events.out.tfevents.1554353770.MYCOM1-PC" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/results/crf/events.out.tfevents.1554355189.MYCOM1-PC" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/results/crf/events.out.tfevents.1557802350.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/results/crf/events.out.tfevents.1557802587.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/results/crf/model.weights/checkpoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/results/crf/model.weights/ner_model.ckpt.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/results/crf/model.weights/ner_model.ckpt.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/results/crf/model.weights/ner_model.ckpt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/song/train_entity.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/data/coNLL/kor/kor.train.iob" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/data/crawler/pos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/data/processed/kor/char.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/data/processed/kor/chars.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/data/processed/kor/tags.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/data/processed/kor/w2v.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/data/processed/kor/w2v3.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/data/processed/kor/words.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/data/w2v/model" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/entity_recognizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/kor_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/kor_model/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/kor_model/data_crawler/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/kor_model/data_crawler/mecab.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/kor_model/data_embed_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/kor_model/data_embed_model/build_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/kor_model/data_embed_model/data_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/kor_model/data_embed_model/model.vec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/kor_model/data_embed_model/word2vec.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/kor_model/general_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/kor_model/ner_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/kor_model/ner_model/lstmcrf_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/results/crf/events.out.tfevents.1553220388.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/results/crf/events.out.tfevents.1553220705.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/results/crf/events.out.tfevents.1553308854.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/results/crf/events.out.tfevents.1553325943.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/results/crf/events.out.tfevents.1553328373.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/results/crf/events.out.tfevents.1553661445.MYCOM1-PC" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/results/crf/events.out.tfevents.1559623510.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/results/crf/model.weights/checkpoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/results/crf/model.weights/ner_model.ckpt.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/results/crf/model.weights/ner_model.ckpt.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/results/crf/model.weights/ner_model.ckpt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/translate/train_entity.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/data/coNLL/kor/kor.train.iob" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/data/crawler/pos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/data/processed/kor/char.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/data/processed/kor/chars.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/data/processed/kor/tags.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/data/processed/kor/w2v.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/data/processed/kor/w2v3.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/data/processed/kor/words.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/data/w2v/model" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/entity_recognizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/kor_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/kor_model/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/kor_model/data_crawler/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/kor_model/data_crawler/mecab.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/kor_model/data_embed_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/kor_model/data_embed_model/build_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/kor_model/data_embed_model/data_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/kor_model/data_embed_model/model.vec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/kor_model/data_embed_model/word2vec.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/kor_model/general_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/kor_model/ner_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/kor_model/ner_model/lstmcrf_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/results/crf/events.out.tfevents.1553220388.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/results/crf/events.out.tfevents.1553220705.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/results/crf/events.out.tfevents.1553308854.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/results/crf/events.out.tfevents.1553328374.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/results/crf/events.out.tfevents.1553661358.MYCOM1-PC" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/results/crf/events.out.tfevents.1554353769.MYCOM1-PC" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/results/crf/events.out.tfevents.1554355199.MYCOM1-PC" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/results/crf/events.out.tfevents.1557800788.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/results/crf/model.weights/checkpoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/results/crf/model.weights/ner_model.ckpt.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/results/crf/model.weights/ner_model.ckpt.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/results/crf/model.weights/ner_model.ckpt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/weather/train_entity.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/data/coNLL/kor/kor.train.iob" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/data/crawler/pos.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/data/processed/kor/char.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/data/processed/kor/chars.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/data/processed/kor/tags.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/data/processed/kor/w2v.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/data/processed/kor/w2v3.trimmed.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/data/processed/kor/words.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/data/w2v/model" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/entity_recognizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/kor_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/kor_model/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/kor_model/data_crawler/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/kor_model/data_crawler/mecab.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/kor_model/data_embed_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/kor_model/data_embed_model/build_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/kor_model/data_embed_model/data_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/kor_model/data_embed_model/model.vec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/kor_model/data_embed_model/word2vec.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/kor_model/general_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/kor_model/ner_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/kor_model/ner_model/lstmcrf_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/results/crf/events.out.tfevents.1553220388.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/results/crf/events.out.tfevents.1553220705.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/results/crf/events.out.tfevents.1553308854.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/results/crf/events.out.tfevents.1553325634.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/results/crf/events.out.tfevents.1553325740.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/results/crf/events.out.tfevents.1553328374.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/results/crf/events.out.tfevents.1553660966.MYCOM1-PC" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/results/crf/events.out.tfevents.1553661850.MYCOM1-PC" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/results/crf/events.out.tfevents.1557802436.DESKTOP-7N91TGT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/results/crf/model.weights/checkpoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/results/crf/model.weights/ner_model.ckpt.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/results/crf/model.weights/ner_model.ckpt.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/results/crf/model.weights/ner_model.ckpt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/wiki/train_entity.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity_train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/intent/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/intent/classifier.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/intent/configs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/intent/data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/intent/data_report.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/intent/preprocess.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/intent/train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/intent/train_intent.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/intent_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/intent_train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scenario/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scenario/date.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scenario/dust.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scenario/issue.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scenario/restaurant.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scenario/song.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scenario/time.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scenario/translate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scenario/weather.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scenario/wiki.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scenario/wise.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/hanspell/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/hanspell/constants.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/hanspell/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/hanspell/spell_checker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/hanspell/spell_dict.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/tokenizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="-158">
+                <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/application.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
+              <folding>
+                <element signature="e#75#136#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/crawler/restaurant.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/scenario/restaurant.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/scenario/song.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="28">
+              <caret line="4" column="37" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/scenario/weather.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="74">
+              <caret line="8" selection-start-line="8" selection-end-line="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/scenario/time.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/data/시간.csv">
+          <provider editor-type-id="csv-table-editor">
+            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+          </provider>
+          <provider selected="true" editor-type-id="csv-text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entity_train.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="23" column="90" selection-start-line="23" selection-start-column="90" selection-end-line="23" selection-end-column="90" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>self</find>
+      <find>chat</find>
+      <find>src</find>
+      <find>src/</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>src</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/entity/translate/kor_model/data_embed_model/build_data.py" />
+        <option value="$PROJECT_DIR$/src/entity/translate/kor_model/ner_model/lstmcrf_model.py" />
+        <option value="$PROJECT_DIR$/src/entity/translate/entity_recognizer.py" />
+        <option value="$PROJECT_DIR$/src/entity/weather/entity_recognizer.py" />
+        <option value="$PROJECT_DIR$/src/entity/weather/kor_model/ner_model/lstmcrf_model.py" />
+        <option value="$PROJECT_DIR$/src/entity/weather/kor_model/data_embed_model/build_data.py" />
+        <option value="$PROJECT_DIR$/src/entity/wiki/entity_recognizer.py" />
+        <option value="$PROJECT_DIR$/src/entity/wiki/kor_model/ner_model/lstmcrf_model.py" />
+        <option value="$PROJECT_DIR$/src/intent/data_report.py" />
+        <option value="$PROJECT_DIR$/src/intent/preprocess.py" />
+        <option value="$PROJECT_DIR$/src/train_intent.py" />
+        <option value="$PROJECT_DIR$/src/data_intent.py" />
+        <option value="$PROJECT_DIR$/src/intent_data.py" />
+        <option value="$PROJECT_DIR$/src/intent_train.py" />
+        <option value="$PROJECT_DIR$/src/data/비목적/비공개" />
+        <option value="$PROJECT_DIR$/src/intent/data.py" />
+        <option value="$PROJECT_DIR$/src/util/hanspell/spell_checker.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/src/intent/classifier.py" />
+        <option value="$PROJECT_DIR$/src/scenario.py" />
+        <option value="$PROJECT_DIR$/src/entity/weather/kor_model/config.py" />
+        <option value="$PROJECT_DIR$/src/entity/news/kor_model/config.py" />
+        <option value="$PROJECT_DIR$/src/entity/restaurant/kor_model/config.py" />
+        <option value="$PROJECT_DIR$/src/entity/song/kor_model/config.py" />
+        <option value="$PROJECT_DIR$/src/entity/translate/kor_model/config.py" />
+        <option value="$PROJECT_DIR$/src/entity/wiki/kor_model/config.py" />
+        <option value="$PROJECT_DIR$/src/crawler/dust.py" />
+        <option value="$PROJECT_DIR$/src/scenario/song.py" />
+        <option value="$PROJECT_DIR$/src/scenario/weather.py" />
+        <option value="$PROJECT_DIR$/src/scenario/wiki.py" />
+        <option value="$PROJECT_DIR$/src/scenario/wise.py" />
+        <option value="$PROJECT_DIR$/src/scenario/translate.py" />
+        <option value="$PROJECT_DIR$/src/context/translate_context.py" />
+        <option value="$PROJECT_DIR$/src/context/weather_context.py" />
+        <option value="$PROJECT_DIR$/src/intent/train_intent.csv" />
+        <option value="$PROJECT_DIR$/src/intent/model/checkpoint" />
+        <option value="$PROJECT_DIR$/src/intent/train.py" />
+        <option value="$PROJECT_DIR$/src/entity_recognizer.py" />
+        <option value="$PROJECT_DIR$/src/intent_classifier.py" />
+        <option value="$PROJECT_DIR$/src/preprocessor.py" />
+        <option value="$PROJECT_DIR$/src/util/hanspell/spell_dict.csv" />
+        <option value="$PROJECT_DIR$/src/scenario/dust.py" />
+        <option value="$PROJECT_DIR$/src/scenario/date.py" />
+        <option value="$PROJECT_DIR$/src/scenario/issue.py" />
+        <option value="$PROJECT_DIR$/src/intent/configs.py" />
+        <option value="$PROJECT_DIR$/src/entity_train.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/scenario/time.py" />
+        <option value="$PROJECT_DIR$/src/scenario/restaurant.py" />
+        <option value="$PROJECT_DIR$/src/main.py" />
+        <option value="$PROJECT_DIR$/src/application.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/encodings.xml" />
+        <option value="$PROJECT_DIR$/.idea/dictionaries/User.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="37" />
+    <option name="width" value="977" />
+    <option name="height" value="1050" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="crawler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+              <item name="translate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+              <item name="translate" type="462c0819:PsiDirectoryNode" />
+              <item name="results" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="intent" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="intent" type="462c0819:PsiDirectoryNode" />
+              <item name="fasttext" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="scenario" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="hanspell" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/data" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\Chatbot\src\data" />
+      <recent name="C:\Users\User\Desktop\Chatbot\src\crawler" />
+      <recent name="C:\Users\User\Desktop\Chatbot\src\util" />
+      <recent name="C:\Users\User\Desktop\Chatbot\src\intent" />
+      <recent name="C:\Users\User\Desktop\Chatbot\src\entity" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\Chatbot\src\scenario" />
+      <recent name="C:\Users\User\Desktop\Chatbot\src\data" />
+      <recent name="C:\Users\User\Desktop\Chatbot\src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="data" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Chatbot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/intent" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/intent/data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="intent_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Chatbot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/intent_data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="intent_train" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Chatbot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/intent_train.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Chatbot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.intent_train" />
+        <item itemvalue="Python.intent_data" />
+        <item itemvalue="Python.data" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="75fcc748-fed8-4c22-b9c5-227c8fe63c48" name="Default Changelist" comment="" />
+      <created>1561206011518</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1561206011518</updated>
+      <workItem from="1561206015884" duration="73000" />
+      <workItem from="1561206158384" duration="149000" />
+      <workItem from="1561206328581" duration="14643000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="14865000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="23" width="1550" height="848" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13440861" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32756132" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.43578643" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="SciView" order="8" />
+      <window_info anchor="right" id="Database" order="9" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Chatbot$data.coverage" NAME="data Coverage Results" MODIFIED="1561207267435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/intent" />
+    <SUITE FILE_PATH="coverage/Chatbot$intent_data.coverage" NAME="intent_data Coverage Results" MODIFIED="1561220210900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Chatbot$intent_train.coverage" NAME="intent_train Coverage Results" MODIFIED="1561220359407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Chatbot$main.coverage" NAME="main Coverage Results" MODIFIED="1561221291228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/entity/song/kor_model/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/translate/kor_model/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/weather/kor_model/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="6" column="32" lean-forward="true" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/wiki/kor_model/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/weather/entity_recognizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="93" column="25" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/weather/kor_model/ner_model/lstmcrf_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-41">
+          <caret line="369" column="8" selection-start-line="369" selection-start-column="8" selection-end-line="369" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crawler/dust.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crawler/wiki.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crawler/translation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" column="8" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scenario/translate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/context/translate_context.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crawler/weather.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="159" column="17" selection-start-line="159" selection-start-column="17" selection-end-line="159" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/날짜.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="-7980" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/context/weather_context.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/언어국가.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intent/data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-125">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding>
+            <element signature="e#74#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intent/preprocess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-121">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/날씨.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intent/data_report.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intent/train_intent.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state>
+          <caret column="15" selection-start-column="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Chatbot.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intent/model/checkpoint">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intent/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="208" column="33" selection-start-line="208" selection-start-column="33" selection-end-line="208" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity_recognizer.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intent_classifier.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intent_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/preprocessor.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/translate/entity_recognizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-252">
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/hanspell/spell_dict.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="255">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scenario/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scenario/dust.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scenario/date.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intent_train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scenario/wiki.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scenario/wise.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="6" selection-start-line="6" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scenario/issue.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/tokenizer.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intent/configs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crawler/issue.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/먼지.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/시간.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity_train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-158">
+            <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scenario/time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crawler/restaurant.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scenario/song.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="4" column="37" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scenario/weather.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="8" selection-start-line="8" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scenario/restaurant.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="23" column="90" selection-start-line="23" selection-start-column="90" selection-end-line="23" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
+          <folding>
+            <element signature="e#75#136#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>Python 3.6 (venv)</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Chatbot</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
