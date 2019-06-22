@@ -15,7 +15,7 @@ Each file has example data for each intent, so if you want to use the new data, 
   * CPU : Intel(R) Core(TM) i7-9700KF @ 3.60Ghz
   * RAM : Samsung 16GB
   * GPU : Ndivia RTX 2070
-<br><br>
+<br><br><br>
 
 ## 1. Intent Classification
 
@@ -36,7 +36,7 @@ The parameters used for training are as follows.
     fallback_score = 10
 <br>
 If you want to train intent using new data, insert the data into the 'src/data' folder and run intent_data.py located in the src folder. This will create a unified file named train_intent.csv. Next, run intent_train.py to start learning using the unified data file you just created. Detailed parameter settings can be reconfigured in configs.py to match your data.
-<br><br>
+<br><br><br>
 
 ## 2. Entity Recognition
 
@@ -68,15 +68,14 @@ The parameters used for training are as follows.
 <br>
 
 If you want to learn a new entity, use the existing entity recognizer codes in the entity package, change the data after copying each recognizer.
-
-<br><br>
+<br><br><br>
 
 ## 3. API Connection
 
 All the information for the API connection was collected. Finally, we can provide the information in combination with the template senetence which made the information provided by API beforehand.
 <br><br>
 Here I wrote a code to crawl websites such as Google Translator, Naver Weather, Dust, Sayings, Issues, Restaurants, YouTube Music, and Wikipedia.
-<br><br>
+<br><br><br>
 
 ## 4. Licence
 
