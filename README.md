@@ -1,4 +1,4 @@
-# Chatbot
+# Chatbot 💬
 
 
 This repository introduces a simple chatbot architecture based on Deep Learning. The architecture includes intent classification of conversations, entity recognition, and providing information through various API connection.
