@@ -169,7 +169,7 @@ Here I wrote a code to crawl websites such as Google Translator, Naver Weather, 
     User: Let me know fine dust tomorrow
     A.I: What area do you want me to tell you?
     User: Songpa
-    A.I'll let you know the fine dust information of Songpa tomorrow,
+    A.I : I'll let you know the fine dust information of Songpa tomorrow,
     Tomorrow morning fine dust condition is good, afternoon condition is good, 
     fine dust condition is good in the early morning of tomorrow,
     The afternoon is good, the morning ozone is normal, and the afternoon is bad.
