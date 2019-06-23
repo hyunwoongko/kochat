@@ -175,7 +175,7 @@ Here I wrote a code to crawl websites such as Google Translator, Naver Weather, 
     The afternoon is good, the morning ozone is normal, and the afternoon is bad.
     Wear a mask because the air condition is poor.
     
-    User: What do you want to see in Japanese?
+    User: I want to see you in Japanese?
     A.I : 見たいが
     
     User: Tell me your good word
