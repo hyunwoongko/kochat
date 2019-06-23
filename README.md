@@ -122,6 +122,15 @@ Here I wrote a code to crawl websites such as Google Translator, Naver Weather, 
     User : 블랙핑크 노래 들려줘
     A.I : https://www.youtube.com//watch?v=kcSkZRXbops
     
+    User : 오늘 며칠이더라
+    A.I : 오늘은 2019년 06월 23일입니다.
+    
+    User : 요즘 이슈 알려줘
+    A.I : 오늘의 이슈로는 , 김선우 , 홈플러스 휴무일 , 김병현 , 침향  , 성훈 드라마등 이있습니다.
+    
+    User : 바보가 무슨뜻이니
+    A.I : 어리석고 못나게 구는 사람을 얕잡거나 비난하여 이르는 말 또는 지능이 부족하고 어리석어서 정상적으로 판단하지 못하는 사람
+    
 <br><br><br>
 
 ## 5. Licence
