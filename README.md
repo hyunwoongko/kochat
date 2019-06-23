@@ -79,6 +79,8 @@ Here I wrote a code to crawl websites such as Google Translator, Naver Weather, 
 
 ## 4. Result
 
+#### 4-1. Korean
+
     AI is awakening now...
     Provided Feature : 날씨, 뉴스, 달력, 맛집, 미세먼지, 명언, 번역, 시간, 위키, 음악, 이슈, 인물
     
@@ -130,6 +132,64 @@ Here I wrote a code to crawl websites such as Google Translator, Naver Weather, 
     
     User : 바보가 무슨뜻이니
     A.I : 어리석고 못나게 구는 사람을 얕잡거나 비난하여 이르는 말 또는 지능이 부족하고 어리석어서 정상적으로 판단하지 못하는 사람
+    
+<br><br>
+
+4-2. English
+
+    AI is awakening now ...
+    Provided Feature: Weather, News, Calendar, Restaurant, Fine Dust, Words, Translation, Time, Wiki, Music, Issue, Person
+    
+    User: Let me know Jeonju weather today
+    A.I: Let me know the weather for Jeonju today. Today was the sunrise last week. It is very clear. 
+    The current temperature is 25 degrees higher than yesterday.
+    
+    User: Recommend Pusan Pork Restaurant
+    A.I: Why do not you go to the pig rice house near the Busan Station, the main pig?
+    It is a specialty of Pusan rice cooked in Busan, which is famous for its deep, clean pork taste of 45 years old tradition, 
+    which is 5 minutes away from Busan Station.
+    We bring long kimchi which is served as a side dish, and Chinese cabbage kimchi and leek kimchi, which are cut with scissors, 
+    match with pork rice soup in a caloric taste.
+    Pork cooked rice has a lot of pork, so it has a cool and refreshing taste and it has a lot of meat.
+    Pork rice house recommended by Busan locals, but plain but deep soup and refreshing pork are impressive.
+    The operating hours are from 08:30 to 21:30 every day, and the address is 
+    214, 3-8, Chungang-dong, Dong-gu, Busan, and the phone number is 051-441-2946.
+    
+    User: I love you in English
+    A.I: I love you.
+    
+    User: Who is Lee Myung Bak
+    A.I: Lee is the 17th President of the Republic of Korea. The main building is Gyeongju.
+    On October 26, 2005, when Cheonggyecheon Restoration Citizens' Committee
+    It changed to Cheonggye in accordance with the recommendation of Kim Jung-bae, an ancient alumni who attended the whole meeting.
+    On December 19, 1970, she married Kim Yoon-ok and had three male and one female.
+    
+    User: Let me know fine dust tomorrow
+    A.I: What area do you want me to tell you?
+    User: Songpa
+    A.I'll let you know the fine dust information of Songpa tomorrow,
+    Tomorrow morning fine dust condition is good, afternoon condition is good, 
+    fine dust condition is good in the early morning of tomorrow,
+    The afternoon is good, the morning ozone is normal, and the afternoon is bad.
+    Wear a mask because the air condition is poor.
+    
+    User: What do you want to see in Japanese?
+    A.I : 見たいが
+    
+    User: Tell me your good word
+    A.I: The front and back cover of this book are too far away.
+    
+    User: I want to listen Black Pink song
+    A.I: https://www.youtube.com//watch?v=kcSkZRXbops
+     
+    User: Let me know the date today
+    A.I: Today is June 23, 2019.
+    
+    User: Let me know the issues these days
+    A.I: Today's issues include Kim Sun-woo, Homeplus holiday, Kim Byung-hyun, Ao-hyang, and Sung-Hoon Drama.
+    
+    User: What does fool mean?
+    A.I: A person who does not know what to say or criticize because he is foolish,
     
 <br><br><br>
 
