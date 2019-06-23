@@ -14,7 +14,7 @@ Each file has example data for each intent, so if you want to use the new data, 
 * PC Specifications :
   * CPU : Intel(R) Core(TM) i7-9700KF @ 3.60Ghz
   * RAM : Samsung 16GB
-  * GPU : Ndivia RTX 2070
+  * GPU : Nvidia RTX 2070
 <br><br><br>
 
 ## 1. Intent Classification
