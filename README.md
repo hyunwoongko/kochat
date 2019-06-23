@@ -131,7 +131,8 @@ Here I wrote a code to crawl websites such as Google Translator, Naver Weather, 
     A.I : 오늘의 이슈로는 , 김선우 , 홈플러스 휴무일 , 김병현 , 침향  , 성훈 드라마등 이있습니다.
     
     User : 바보가 무슨뜻이니
-    A.I : 어리석고 못나게 구는 사람을 얕잡거나 비난하여 이르는 말 또는 지능이 부족하고 어리석어서 정상적으로 판단하지 못하는 사람
+    A.I : 어리석고 못나게 구는 사람을 얕잡거나 비난하여 이르는 말 또는 
+    지능이 부족하고 어리석어서 정상적으로 판단하지 못하는 사람
     
 <br><br>
 
@@ -146,10 +147,10 @@ Here I wrote a code to crawl websites such as Google Translator, Naver Weather, 
     
     User: Recommend Pusan Pork Restaurant
     A.I: Why do not you go to the pig rice house near the Busan Station, the main pig?
-    It is a specialty of Pusan rice cooked in Busan, which is famous for its deep, clean pork taste of 45 years old tradition, 
-    which is 5 minutes away from Busan Station.
-    We bring long kimchi which is served as a side dish, and Chinese cabbage kimchi and leek kimchi, which are cut with scissors, 
-    match with pork rice soup in a caloric taste.
+    It is a specialty of Pusan rice cooked in Busan, which is famous for its deep, 
+    clean pork taste of 45 years old tradition, which is 5 minutes away from Busan Station.
+    We bring long kimchi which is served as a side dish, and Chinese cabbage kimchi and leek kimchi, 
+    which are cut with scissors, match with pork rice soup in a caloric taste.
     Pork cooked rice has a lot of pork, so it has a cool and refreshing taste and it has a lot of meat.
     Pork rice house recommended by Busan locals, but plain but deep soup and refreshing pork are impressive.
     The operating hours are from 08:30 to 21:30 every day, and the address is 
@@ -161,7 +162,8 @@ Here I wrote a code to crawl websites such as Google Translator, Naver Weather, 
     User: Who is Lee Myung Bak
     A.I: Lee is the 17th President of the Republic of Korea. The main building is Gyeongju.
     On October 26, 2005, when Cheonggyecheon Restoration Citizens' Committee
-    It changed to Cheonggye in accordance with the recommendation of Kim Jung-bae, an ancient alumni who attended the whole meeting.
+    It changed to Cheonggye in accordance with the recommendation of Kim Jung-bae, 
+    an ancient alumni who attended the whole meeting.
     On December 19, 1970, she married Kim Yoon-ok and had three male and one female.
     
     User: Let me know fine dust tomorrow
