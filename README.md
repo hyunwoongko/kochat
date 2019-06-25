@@ -138,6 +138,9 @@ Here I wrote a code to crawl websites such as Google Translator, Naver Weather, 
 
 4-2. English
 
+It currently only works in Korean. The example below is translated to help understand foreigners and does not actually work like this
+
+
     AI is awakening now ...
     Provided Feature: Weather, News, Calendar, Restaurant, Fine Dust, Words, Translation, Time, Wiki, Music, Issue, Person
     
