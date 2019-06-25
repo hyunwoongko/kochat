@@ -15,7 +15,7 @@ def wiki(entity):
         if k[1] != 'O':
             words_list.append(k[0])
     if len(words_list) == 0:
-        print('인공지능 : ' + '어떤 말을 알려드릴까요?', end='')
-        print('사용자 : ')
+        print('A.I : ' + '어떤 말을 알려드릴까요?', end='')
+        print('User : ')
         words_list.append(input())
     return crawler(' '.join(words_list))
