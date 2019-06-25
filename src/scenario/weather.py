@@ -23,8 +23,8 @@ def weather(named_entity):
 
     if len(location) == 0:
         while len(location) == 0:
-            print('인공지능 : ' + '어떤 지역을 알려드릴까요?')
-            print('사용자 : ', end='', sep='')
+            print('A.I : ' + '어떤 지역을 알려드릴까요?')
+            print('User : ', end='', sep='')
             loc = input()
             if loc is not None and loc.replace(' ', '') != '':
                 location.append(loc)
