@@ -19,16 +19,16 @@ def translate(named_entity):
 
     if len(target) == 0:
         while len(target) == 0:
-            print('인공지능 : ' + '어떤 말을 번역해드릴까요?', end='')
-            print('사용자 : ')
+            print('A.I : ' + '어떤 말을 번역해드릴까요?', end='')
+            print('User : ')
             target_input = input()
             if target_input is not None and target_input.replace(' ', '') != '':
                 target.append(target_input)
 
     if lang is None or len(lang) == 0:
         while lang is None or len(lang) == 0:
-            print('인공지능 : ' + '어떤 언어로 번역해드릴까요?', end='')
-            print('사용자 : ')
+            print('A.I : ' + '어떤 언어로 번역해드릴까요?', end='')
+            print('User : ')
             lang_input = input()
             if lang_input is not None and lang_input.replace(' ', '') != '':
                 lang.append(lang_input)
