@@ -1,7 +1,6 @@
-# Chatbot 💬
+# Chatbot based on CNN & LSTM
 
-
-This repository introduces a simple chatbot architecture based on Deep Learning. The architecture includes intent classification of conversations, entity recognition, and providing information through various API connection.
+This repository introduces a simple chatbot architecture based on CNN & LSTM. The architecture includes intent classification of conversations, entity recognition, and providing information through various API connection.
 <br><br>
 In addition, all data and example applications are in Korean, and if you want to run this application in another language, you can modify the csv file in the 'src/data' folder. 
 Each file has example data for each intent, so if you want to use the new data, you can create a file for each conversation intent.
