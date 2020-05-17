@@ -29,7 +29,7 @@ class Config:
     # intent configs
     intent_lr = 1e-5  # learning rate for intent training
     intent_weight_decay = 1e-3  # weight decay for intent training
-    intent_epochs = 500  # num of epoch for intent training
+    intent_epochs = 100  # num of epoch for intent training
     intent_classes = 3  # num of intent class
     intent_ratio = 0.8  # intent train per test ratio
     intent_log_precision = 5  # floating point precision for logging
