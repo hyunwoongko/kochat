@@ -3,13 +3,12 @@
 @when : 5/11/2020
 @homepage : https://github.com/gusdnd852
 """
-import numpy as np
-from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib import font_manager, rc, rcParams
+from sklearn.manifold import TSNE
 
-from configs import FastTextConfigs, GlobalConfigs
-from embedding.embedding import Embedding
+from configs import FastTextConfigs
 
 
 class EmbeddingVisualizer:

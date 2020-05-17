@@ -3,11 +3,14 @@
 @when : 5/9/2020
 @homepage : https://github.com/gusdnd852
 """
-from configs import GlobalConfigs, TransformerClassifierConfigs
+import torch
+
+from configs import GlobalConfigs, ResNetConfigs
 from embedding.embedding import Embedding
 from embedding.visualization import EmbeddingVisualizer
 from intent.intent_trainer import IntentTrainer
-from intent.model.transformer import TransformerClassifier
+from intent.model.text_cnn import Model
+from torchsummary import summary
 
 
 class Trainer:
@@ -28,5 +31,5 @@ class Trainer:
 
 if __name__ == '__main__':
     trainer = Trainer()
-    trainer.train_intent(model=TransformerClassifier(),
-                         model_config=TransformerClassifierConfigs())
+    trainer.train_intent(model=Model(),
+                         model_config=ResNetConfigs())

@@ -12,6 +12,9 @@ class GlobalConfigs:
     intent_path = root_path + "data\\total_intent.csv"
     max_len = 16
     vector_size = 64
+    batch_size = 128
+    record_step = 1
+    classes = 3
 
 
 class FastTextConfigs:
@@ -22,13 +25,7 @@ class FastTextConfigs:
     iter = 500
 
 
-class TransformerClassifierConfigs:
-    d_model = 512
-    ffn_hidden = 1024
-    n_heads = 8
-    drop_prob = 0.1
-    n_layers = 6
-
-    epochs = 250
+class ResNetConfigs:
     lr = 1e-5
-    weight_decay = 0.01
+    weight_decay = 1e-3
+    epochs = 500

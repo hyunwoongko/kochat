@@ -22,9 +22,20 @@ class TrainDataLoader:
         question = [self.tok.tokenize(i, train=True) for i in question]
         return {'data': question, 'label': intent}
 
+    def load_intent_contrastive(self, data_path):
+        data = pd.read_csv(data_path)
+        intent = data['intent']
+        intent = intent.map(self.count_intent(intent))
+        intent = intent.tolist()
+
+        question = data['question']
+        question = [self.tok.tokenize(i, train=True) for i in question]
+
+        return {'data': question, 'label': intent}
+
     def count_intent(self, label):
         count = {}
-        index = 0
+        index = -1
 
         for lb in label:
             if lb not in count:
