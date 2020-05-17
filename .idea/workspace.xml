@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d122a472-58ee-4a2b-8505-15e95560cd02" name="Default Changelist" comment="" />
+    <list default="true" id="d122a472-58ee-4a2b-8505-15e95560cd02" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/configs.py" beforeDir="false" afterPath="$PROJECT_DIR$/configs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crawler/abstract_crawler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/embed/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/embedding/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/embedding/callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/embed/embed_callback.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/embedding/embedding.py" beforeDir="false" afterPath="$PROJECT_DIR$/embed/embed_processor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/embedding/visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/embed/embed_visualizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intent/intent_classifier.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/intent/intent_siamese_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/intent/intent_processor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intent/intent_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/intent/siamese_processor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intent/model/lstm-bidirectional.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/intent/model/lstm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/intent/model/lstm_unidirectional.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/intent/model/resnet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/intent/model/text_cnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/intent/model/text_cnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intent/model/transformer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/test_accuracy.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/test_accuracy.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/test_error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/test_error.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/train_accuracy.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/train_accuracy.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/train_error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/train_error.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/constant.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/graph_drawer.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/graph_drawer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/response.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/tokenizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/tokenizer.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,11 +59,15 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1bfFppX5BSuCF4RWh5ockmXtU93" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -46,18 +77,19 @@
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Github\Chatbot Deeplearning\intent" />
+      <recent name="C:\Users\User\Github\Chatbot\intent\model" />
+      <recent name="C:\Users\User\Github\Chatbot\intent" />
+      <recent name="C:\Users\User\Github\Chatbot\data\intent" />
+      <recent name="C:\Users\User\Github\Chatbot\data" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\Github\Chatbot\intent\loss" />
       <recent name="C:\Users\User\Github\Chatbot\intent\model" />
       <recent name="C:\Users\User\Github\Chatbot\embedding" />
       <recent name="C:\Users\User\Github\Chatbot\data" />
       <recent name="C:\Users\User\Github\Chatbot" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Github\Chatbot\intent\model" />
-      <recent name="C:\Users\User\Github\Chatbot\intent" />
-      <recent name="C:\Users\User\Github\Chatbot\data\intent" />
-      <recent name="C:\Users\User\Github\Chatbot\data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -72,29 +104,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.graph_drawer">
-    <configuration name="build_intent" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Chatbot" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/build_intent.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.train">
     <configuration name="graph_drawer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Chatbot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -109,28 +119,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/util/graph_drawer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="intent_trainer" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Chatbot" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/intent" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/intent/intent_trainer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -161,6 +149,50 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main_train" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Chatbot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\User\Github\Chatbot Deeplearning\train.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Chatbot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="trainer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Chatbot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -174,7 +206,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/trainer.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\User\Github\Chatbot Deeplearning\train.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -185,11 +217,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.train" />
+        <item itemvalue="Python.main_train" />
         <item itemvalue="Python.graph_drawer" />
         <item itemvalue="Python.trainer" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.intent_trainer" />
-        <item itemvalue="Python.build_intent" />
       </list>
     </recent_temporary>
   </component>
@@ -206,11 +238,23 @@
       <workItem from="1589015429650" duration="73788000" />
       <workItem from="1589465535449" duration="2034000" />
       <workItem from="1589675998332" duration="9447000" />
+      <workItem from="1589687436156" duration="3462000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -223,15 +267,19 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Chatbot$intent_trainer.coverage" NAME="intent_trainer Coverage Results" MODIFIED="1589213305776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intent" />
-    <SUITE FILE_PATH="coverage/Chatbot$trainer.coverage" NAME="trainer Coverage Results" MODIFIED="1589686565156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Chatbot$visualization__1_.coverage" NAME="visualization (1) Coverage Results" MODIFIED="1589202747121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/embedding" />
-    <SUITE FILE_PATH="coverage/Chatbot$build_intent.coverage" NAME="build_intent Coverage Results" MODIFIED="1589209930309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
-    <SUITE FILE_PATH="coverage/Chatbot$main.coverage" NAME="main Coverage Results" MODIFIED="1589213316017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chatbot_Deeplearning$main_train.coverage" NAME="main_train Coverage Results" MODIFIED="1589688975891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$build_intent_data.coverage" NAME="build_intent_data Coverage Results" MODIFIED="1589180310154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
     <SUITE FILE_PATH="coverage/Chatbot$visualization.coverage" NAME="visualization Coverage Results" MODIFIED="1589201703604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
     <SUITE FILE_PATH="coverage/Chatbot$make_intent_data.coverage" NAME="make_intent_data Coverage Results" MODIFIED="1589180179158" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
     <SUITE FILE_PATH="coverage/Chatbot$embedding.coverage" NAME="embedding Coverage Results" MODIFIED="1589191576476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/embedding" />
+    <SUITE FILE_PATH="coverage/Chatbot$intent_trainer.coverage" NAME="intent_trainer Coverage Results" MODIFIED="1589213305776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intent" />
+    <SUITE FILE_PATH="coverage/Chatbot$trainer.coverage" NAME="trainer Coverage Results" MODIFIED="1589686565156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chatbot_Deeplearning$train.coverage" NAME="train Coverage Results" MODIFIED="1589690554054" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chatbot$visualization__1_.coverage" NAME="visualization (1) Coverage Results" MODIFIED="1589202747121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/embedding" />
+    <SUITE FILE_PATH="coverage/Chatbot_Deeplearning$graph_drawer.coverage" NAME="graph_drawer Coverage Results" MODIFIED="1589687603122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/Chatbot_Deeplearning$trainer.coverage" NAME="trainer Coverage Results" MODIFIED="1589687549555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chatbot$build_intent.coverage" NAME="build_intent Coverage Results" MODIFIED="1589209930309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/Chatbot$main.coverage" NAME="main Coverage Results" MODIFIED="1589213316017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$graph_drawer.coverage" NAME="graph_drawer Coverage Results" MODIFIED="1589686849279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
   </component>
 </project>

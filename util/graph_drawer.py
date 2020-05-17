@@ -9,7 +9,6 @@ import matplotlib.pyplot as plt
 
 conf = GlobalConfigs()
 root_path = GlobalConfigs.root_path
-record_step = GlobalConfigs.record_step
 
 
 class GraphDrawer:

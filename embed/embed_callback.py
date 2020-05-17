@@ -7,7 +7,7 @@ from time import time
 from gensim.models.callbacks import CallbackAny2Vec
 
 
-class EmbeddingCallback(CallbackAny2Vec):
+class EmbedCallback(CallbackAny2Vec):
 
     def __init__(self):
         self.epoch = 0

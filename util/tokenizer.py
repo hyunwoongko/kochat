@@ -13,9 +13,34 @@ from collections import OrderedDict
 import requests
 from konlpy.tag import Okt
 
-from util.constant import CheckResult
-from util.constant import base_url
-from .response import Checked
+from collections import namedtuple
+
+base_url = 'https://m.search.naver.com/p/csearch/ocontent/spellchecker.nhn'
+_checked = namedtuple('Checked', ['result', 'original', 'checked', 'errors', 'words', 'time'])
+
+
+class CheckResult:
+    PASSED = 0
+    WRONG_SPELLING = 1
+    WRONG_SPACING = 2
+    AMBIGUOUS = 3
+
+
+class Checked(_checked):
+    def __new__(cls, result=False, original='', checked='', errors=0, words=[], time=0.0):
+        return super(Checked, cls).__new__(
+            cls, result, original, checked, errors, words, time)
+
+    def as_dict(self):
+        d = {
+            'result': self.result,
+            'original': self.original,
+            'checked': self.checked,
+            'errors': self.errors,
+            'words': self.words,
+            'time': self.time,
+        }
+        return d
 
 
 class Tokenizer:

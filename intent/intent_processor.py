@@ -12,22 +12,25 @@ from torch.utils.data import TensorDataset
 from torch.utils.data.dataloader import DataLoader
 
 from configs import GlobalConfigs
-from embedding.embedding import Embedding
-from util.loader import TrainDataLoader
+from util.dataset import TrainDataLoader
+from util.graph_drawer import GraphDrawer
 
 
-class IntentTrainer:
+class IntentProcessor:
     conf = GlobalConfigs()
     data_loader = TrainDataLoader()
-    emb = Embedding(conf.root_path + "models\\fasttext")
 
-    def __init__(self, model, model_config, data_path, ratio=0.8):
+    def __init__(self, emb, model, store_path, data_path):
+        self.emb = emb
+        self.store_path = store_path
+        self.ratio = self.conf.intent_ratio
+
+        self.model = model.Model().to(self.conf.device)
         self.dataset = self.data_loader.load_intent(data_path=data_path)
-        self.model_config = model_config
-        self.model = model.to(self.conf.device)
-        self.ratio = ratio
-        self.optimizer = Adam(model.parameters(), lr=model_config.lr, weight_decay=model_config.weight_decay)
-        self.loss = torch.nn.CrossEntropyLoss()
+        self.loss = self.conf.intent_loss
+        self.optimizer = Adam(self.model.parameters(),
+                              lr=self.conf.intent_lr,
+                              weight_decay=self.conf.intent_weight_decay)
 
     def pad_sequencing(self, sequence):
         if sequence.size()[0] > self.conf.max_len:
@@ -52,13 +55,13 @@ class IntentTrainer:
         embedded_train_dataset, embedded_test_dataset = [], []
         train_label, test_label = [], []
         for data, label in train_dataset:
-            data = self.emb.embed_single_row(data)
+            data = self.emb.embed(data)
             data = self.pad_sequencing(data)
             embedded_train_dataset.append(data.unsqueeze(0))
             train_label.append(torch.tensor(label).unsqueeze(0))
 
         for data, label in test_dataset:
-            data = self.emb.embed_single_row(data)
+            data = self.emb.embed(data)
             data = self.pad_sequencing(data)
             embedded_test_dataset.append(data.unsqueeze(0))
             test_label.append(torch.tensor(label).unsqueeze(0))
@@ -72,35 +75,39 @@ class IntentTrainer:
         train_set = DataLoader(train_set, batch_size=self.conf.batch_size, shuffle=True)
         test_set = TensorDataset(test_dataset, test_label)
         test_set = DataLoader(test_set, batch_size=self.conf.batch_size, shuffle=True)
+
         return train_set, test_set
 
-    def __call__(self):
+    def train(self):
         train_dataset, test_dataset = self.preprocess()
         train_errors, train_accuracies = [], []
         test_errors, test_accuracies = [], []
 
-        for i in range(self.model_config.epochs):
-            train_err, train_acc = self.train(self.model, train_dataset)
-            test_err, test_acc = self.test(self.model, test_dataset)
+        for i in range(self.conf.intent_epochs):
+            train_err, train_acc = self.__train_epoch(self.model, train_dataset)
+            test_err, test_acc = self.__test_epoch(self.model, test_dataset)
 
             train_accuracies.append(train_acc)
             train_errors.append(train_err)
             test_accuracies.append(test_acc)
             test_errors.append(test_err)
+
+            self.print_log(i, train_err, test_err, train_acc, test_acc)
             self.save_result('train_accuracy', train_accuracies)
             self.save_result('train_error', train_errors)
             self.save_result('test_accuracy', test_accuracies)
             self.save_result('test_error', test_errors)
-            print('step : {0} , train_error : {1} , test_error : {2}, train_acc : {3}, test_acc : {4}'.
-                  format(i, round(train_err, 5), round(test_err, 5), round(train_acc, 5), round(test_acc, 5)))
 
-    def train(self, model, train_set):
+        drawer = GraphDrawer()
+        drawer.draw_both()
+
+    def __train_epoch(self, model, train_set):
         model.train()
         errors, accuracies = [], []
         for train_feature, train_label in train_set:
             x = train_feature.float().cuda()
             y = train_label.long().cuda()
-            y_ = model(x.permute(0, 2, 1)).float()
+            y_ = model.forward_once(x.permute(0, 2, 1)).float()
 
             self.optimizer.zero_grad()
             error = self.loss(y_, y)
@@ -115,13 +122,13 @@ class IntentTrainer:
         accuracy = sum(accuracies) / len(accuracies)
         return error, accuracy
 
-    def test(self, model, test_set):
+    def __test_epoch(self, model, test_set):
         model.eval()
         errors, accuracies = [], []
         for test_feature, test_label in test_set:
             x = test_feature.float().cuda()
             y = test_label.long().cuda()
-            y_ = model(x.permute(0, 2, 1)).float()
+            y_ = model.forward_once(x.permute(0, 2, 1)).float()
 
             self.optimizer.zero_grad()
             error = self.loss(y_, y)
@@ -136,23 +143,34 @@ class IntentTrainer:
         accuracy = sum(accuracies) / len(accuracies)
         return error, accuracy
 
-    def initialize_weights(self, model):
+    def print_log(self, step, train_err, test_err, train_acc, test_acc):
+        print('step : {0} , train_error : {1} , test_error : {2}, train_acc : {3}, test_acc : {4}'
+              .format(step,
+                      round(train_err, self.conf.intent_log_precision),
+                      round(test_err, self.conf.intent_log_precision),
+                      round(train_acc, self.conf.intent_log_precision),
+                      round(test_acc, self.conf.intent_log_precision)))
+
+    def save_result(self, file_name, result):
+        f = open(self.conf.root_path + '\\log\\{0}.txt'.format(file_name), 'w')
+        f.write(str(result))
+        f.close()
+
+    @staticmethod
+    def initialize_weights(model):
         if hasattr(model, 'weight') and model.weight.dim() > 1:
             nn.init.kaiming_uniform(model.weight.data)
 
-    def get_lr(self, optimizer):
+    @staticmethod
+    def get_lr(optimizer):
         for param_group in optimizer.param_groups:
             return param_group['lr']
 
-    def get_accuracy(self, predict, label):
+    @staticmethod
+    def get_accuracy(predict, label):
         all, correct = 0, 0
         for i in zip(predict, label):
             all += 1
             if i[0] == i[1]:
                 correct += 1
         return correct / all
-
-    def save_result(self, file_name, result):
-        f = open(self.conf.root_path + '\\log\\{0}.txt'.format(file_name), 'w')
-        f.write(str(result))
-        f.close()

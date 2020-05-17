@@ -8,13 +8,11 @@ import numpy as np
 from matplotlib import font_manager, rc, rcParams
 from sklearn.manifold import TSNE
 
-from configs import FastTextConfigs
 
+class EmbedVisualizer:
 
-class EmbeddingVisualizer:
-    conf = FastTextConfigs()
-
-    def __init__(self):
+    def __init__(self, config):
+        self.conf = config
         font_path = 'C:/Windows/Fonts/batang.ttc'
         font_name = font_manager.FontProperties(fname=font_path).get_name()
         rc('font', family=font_name)
@@ -36,8 +34,7 @@ class EmbeddingVisualizer:
                          va='bottom')
         plt.savefig(filename)
 
-    def visualize(self, emb):
-        model = emb.load_model()
+    def visualize(self, model):
         words = []
         embedding = np.array([])
 

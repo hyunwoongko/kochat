@@ -26,9 +26,10 @@ class Model(nn.Module):
 
     def __init__(self):
         super().__init__()
-        self.conv = Conv(64, 512, kernel_size=1)
+        self.conf = GlobalConfigs()
+        self.conv = Conv(self.conf.vector_size, 512, kernel_size=1)
         self.pool = nn.MaxPool1d(kernel_size=2, stride=2)
-        self.out = nn.Linear(4096, GlobalConfigs().classes)
+        self.out = nn.Linear(4096, self.conf.intent_classes)
 
     def forward_once(self, x):
         x = self.conv(x)
