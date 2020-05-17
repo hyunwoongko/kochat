@@ -3,12 +3,12 @@
 @when : 2020-03-11
 @homepage : https://github.com/gusdnd852
 """
-from configs import GlobalConfigs
+from config import Config
 import re
 import matplotlib.pyplot as plt
 
-conf = GlobalConfigs()
-root_path = GlobalConfigs.root_path
+conf = Config()
+root_path = Config.root_path
 
 
 class GraphDrawer:

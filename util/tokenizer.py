@@ -144,7 +144,7 @@ class Tokenizer:
         if train:  # 모든 데이터의 맞춤법이 맞다고 가정
             return sentence.split()
 
-        else:
+        else:  # 유저 입력시 토크나이징
             sentence = self.check(sentence)
             pos_list = self.okt.pos(sentence)
             result = [word for word, pos in pos_list if word not in self.josa and pos != 'Punctuation']

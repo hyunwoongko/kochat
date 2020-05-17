@@ -4,22 +4,15 @@
 @homepage : https://github.com/gusdnd852
 """
 
-from configs import GlobalConfigs
+from config import Config
 from embed.embed_processor import EmbedProcessor
-from intent.intent_processor import IntentProcessor
+from intent.intent_classifier import IntentClassifier
 from intent.model import text_cnn
 
+conf = Config()
+embed = EmbedProcessor()
+intent = IntentClassifier(embed, model=text_cnn)
+
 if __name__ == '__main__':
-    global_conf = GlobalConfigs()
-
-    emb = EmbedProcessor(
-        store_path=global_conf.embed_storepath,
-        data_path=global_conf.intent_datapath)
-
-    intent = IntentProcessor(
-        emb=emb,
-        model=text_cnn,
-        store_path="",
-        data_path=global_conf.intent_datapath)
-
+    embed.train()
     intent.train()

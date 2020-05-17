@@ -4,7 +4,7 @@
 @homepage : https://github.com/gusdnd852
 """
 from torch import nn
-from configs import GlobalConfigs
+from config import Config
 
 
 class Conv(nn.Module):
@@ -26,7 +26,7 @@ class Model(nn.Module):
 
     def __init__(self):
         super().__init__()
-        self.conf = GlobalConfigs()
+        self.conf = Config()
         self.conv = Conv(self.conf.vector_size, 512, kernel_size=1)
         self.pool = nn.MaxPool1d(kernel_size=2, stride=2)
         self.out = nn.Linear(4096, self.conf.intent_classes)

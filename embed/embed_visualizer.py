@@ -33,6 +33,7 @@ class EmbedVisualizer:
                          ha='right',
                          va='bottom')
         plt.savefig(filename)
+        plt.show()
 
     def visualize(self, model):
         words = []

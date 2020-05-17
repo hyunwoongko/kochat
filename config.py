@@ -7,7 +7,7 @@ import torch
 from torch import nn
 
 
-class GlobalConfigs:
+class Config:
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     vector_size = 128  # word vector size
     batch_size = 128  # batch size for training
@@ -16,7 +16,8 @@ class GlobalConfigs:
     # path configs
     root_path = "C:\\Users\\User\\Github\\Chatbot Deeplearning\\"
     intent_datapath = root_path + "data\\total_intent.csv"
-    embed_storepath = root_path + "models\\fasttext"
+    embed_storepath = root_path + "models\\embed\\embed.model"
+    intent_storepath = root_path + "models\\intent\\intent.pth"
 
     # embed configs
     emb_window = 4  # window size for embedding training

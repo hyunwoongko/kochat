@@ -7,27 +7,24 @@ import os
 import torch
 from gensim.models import FastText
 
-from configs import GlobalConfigs
+from config import Config
 from embed.embed_callback import EmbedCallback
 from embed.embed_visualizer import EmbedVisualizer
-from util.dataset import TrainDataLoader
+from util.dataset import Dataset
 from util.tokenizer import Tokenizer
 
 
 class EmbedProcessor:
     tok = Tokenizer()
-    conf = GlobalConfigs()
+    conf = Config()
+    data = Dataset()
     model = None
-    dataset = None
-
-    def __init__(self, data_path, store_path):
-        self.data_path = data_path
-        self.store_path = store_path
 
     def train(self):
-        print("FAST_TEXT : start to train fasttext model")
-        self.dataset = self.make_dataset(self.data_path)
+        print('FAST_TEXT : start to make dataset')
+        dataset = self.data.embed_train(self.conf.intent_datapath)['data']
 
+        print("FAST_TEXT : start to train fasttext model")
         self.model = FastText(size=self.conf.vector_size,
                               window=self.conf.emb_window,
                               workers=self.conf.emb_workers,
@@ -35,10 +32,10 @@ class EmbedProcessor:
                               iter=self.conf.emb_iter)
 
         print('FAST_TEXT : start to build vocab')
-        self.model.build_vocab(self.dataset)
+        self.model.build_vocab(dataset)
 
         print('FAST_TEXT : start to train model')
-        self.model.train(self.dataset,
+        self.model.train(dataset,
                          total_examples=self.model.corpus_count,
                          epochs=self.model.epochs,
                          callbacks=[EmbedCallback()])
@@ -46,13 +43,6 @@ class EmbedProcessor:
         self.store_model()
         self.visualize()
         return self.model
-
-    def make_dataset(self, data_path):
-        print('FAST_TEXT : start to make dataset')
-        loader = TrainDataLoader()
-        intent = loader.load_intent(data_path)
-        dataset = intent['data']
-        return dataset
 
     def embed(self, text):
         if self.model is None:
@@ -71,7 +61,6 @@ class EmbedProcessor:
     def similar_word(self, word, n=10):
         if self.model is None:
             self.model = self.load_model()
-
         similar_words = self.model.similar_by_word(word, topn=n)
         print(word, "와 비슷한 단어 : ")
         print([word for word, cos in similar_words])
@@ -79,17 +68,17 @@ class EmbedProcessor:
 
     def load_model(self):
         if self.model is None:
-            self.model = FastText.load(self.store_path + "\\fasttext.model")
-
+            self.model = FastText.load(self.conf.embed_storepath)
         return self.model
 
     def store_model(self):
-        if not os.path.exists(self.store_path):
-            os.makedirs(self.store_path)
-
-        self.model.save(self.store_path + "\\fasttext.model")
+        if not os.path.exists(self.conf.embed_storepath):
+            os.makedirs(self.conf.embed_storepath)
+        self.model.save(self.conf.embed_storepath)
 
     def visualize(self):
+        if self.model is None:
+            self.model = FastText.load(self.conf.embed_storepath)
+        print("FAST_TEXT : start tsne visualization")
         emb_vis = EmbedVisualizer(self.conf)
-        print("FAST_TEXT : start t-sne visualization")
         emb_vis.visualize(self.model)
