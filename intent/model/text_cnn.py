@@ -43,7 +43,7 @@ class Model(nn.Module):
             Conv(512, 512, kernel_size=1),
             nn.MaxPool1d(kernel_size=2, stride=2))
 
-        self.out = nn.Linear(2048, self.conf.intent_classes)
+        self.out = nn.Linear(2048, 2)
 
     def forward_once(self, x):
         x = self.layer(x)

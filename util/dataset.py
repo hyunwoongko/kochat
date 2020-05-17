@@ -37,6 +37,13 @@ class Dataset:
         train_dataset = dataset[:split_point]
         test_dataset = dataset[split_point:]
 
+        # make even num of dataset for pairwise dataset
+        if len(train_dataset) % 2 != 0:
+            del train_dataset[len(test_dataset) - 1]
+
+        if len(test_dataset) % 2 != 0:
+            del test_dataset[len(test_dataset) - 1]
+
         # 3. embedding and pad sequencing
         train_embedded, test_embedded = [], []
         train_label, test_label = [], []
