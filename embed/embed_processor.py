@@ -9,7 +9,6 @@ from gensim.models import FastText
 
 from config import Config
 from embed.embed_callback import EmbedCallback
-from embed.embed_visualizer import EmbedVisualizer
 from util.dataset import Dataset
 from util.tokenizer import Tokenizer
 
@@ -41,7 +40,6 @@ class EmbedProcessor:
                          callbacks=[EmbedCallback()])
 
         self.store_model()
-        self.visualize()
         return self.model
 
     def embed(self, text):
@@ -75,10 +73,3 @@ class EmbedProcessor:
         if not os.path.exists(self.conf.embed_storepath):
             os.makedirs(self.conf.embed_storepath)
         self.model.save(self.conf.embed_storepath)
-
-    def visualize(self):
-        if self.model is None:
-            self.model = FastText.load(self.conf.embed_storepath)
-        print("FAST_TEXT : start tsne visualization")
-        emb_vis = EmbedVisualizer(self.conf)
-        emb_vis.visualize(self.model)

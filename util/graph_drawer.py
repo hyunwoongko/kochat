@@ -23,8 +23,8 @@ class GraphDrawer:
         return [float(i) for idx, i in enumerate(file.split(','))]
 
     def draw_accuracy(self):
-        train = self.read_file(root_path + 'log\\train_accuracy.txt')
-        test = self.read_file(root_path + 'log\\test_accuracy.txt')
+        train = self.read_file(root_path + 'log/train_accuracy.txt')
+        test = self.read_file(root_path + 'log/test_accuracy.txt')
         plt.plot(train, 'b', label='train acc')
         plt.plot(test, 'r', label='test acc')
         plt.xlabel('epochs')
@@ -32,11 +32,10 @@ class GraphDrawer:
         plt.title('training result')
         plt.legend(loc='lower left')
         plt.grid(True, which='both', axis='both')
-        plt.show()
 
     def draw_error(self):
-        train = self.read_file(root_path + 'log\\train_error.txt')
-        test = self.read_file(root_path + 'log\\test_error.txt')
+        train = self.read_file(root_path + 'log/train_error.txt')
+        test = self.read_file(root_path + 'log/test_error.txt')
         plt.plot(train, 'y', label='train error')
         plt.plot(test, 'g', label='test error')
         plt.xlabel('epochs')
@@ -44,7 +43,6 @@ class GraphDrawer:
         plt.title('training result')
         plt.legend(loc='lower left')
         plt.grid(True, which='both', axis='both')
-        plt.show()
 
     def draw_both(self):
         self.draw_error()
