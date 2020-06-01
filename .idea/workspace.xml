@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d122a472-58ee-4a2b-8505-15e95560cd02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/intent/model/text_cnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/intent/model/text_cnn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/test_accuracy.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/test_accuracy.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/test_error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/test_error.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/train_accuracy.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/train_accuracy.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/train_error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/train_error.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/graph_drawer.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/graph_drawer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intent/intent_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/intent/intent_classifier.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +47,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/intent" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TIL" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
@@ -220,7 +214,9 @@
       <workItem from="1589015429650" duration="73788000" />
       <workItem from="1589465535449" duration="2034000" />
       <workItem from="1589675998332" duration="9447000" />
-      <workItem from="1589687436156" duration="14235000" />
+      <workItem from="1589687436156" duration="14947000" />
+      <workItem from="1589803936284" duration="1218000" />
+      <workItem from="1590527906510" duration="46000" />
     </task>
     <servers />
   </component>
@@ -232,7 +228,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

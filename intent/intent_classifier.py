@@ -103,6 +103,12 @@ class IntentClassifier:
         f.write(str(result))
         f.close()
 
+    def store_model(self):
+        pass
+
+    def load_model(self):
+        pass
+
     @staticmethod
     def initialize_weights(model):
         if hasattr(model, 'weight') and model.weight.dim() > 1:
