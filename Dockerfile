@@ -50,4 +50,5 @@ RUN ln -s $(which python3) /usr/local/bin/python
 RUN apt install openjdk-11-jdk -y
 
 # 6. set up python packages
+COPY requirements.txt /
 RUN pip3 install --no-cache-dir -r requirements.txt
