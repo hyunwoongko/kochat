@@ -1,0 +1,598 @@
+question,entity
+날씨	 알려주겠니,O	O								
+날씨	 정보	 알려주세요,O	O	O						
+그	 때	 날씨	 어떨까,O	DATE	O	O				
+그	 때	 날씨	 좋으려나,O	DATE	O	O				
+날씨	 어떨	 것	 같은데,O	O	O	O				
+날씨	 어때,O	O								
+날씨	 말해줄래,O	O								
+날씨	 어떠니,O	O								
+구름	 많이	 꼈나,O	O	O						
+날씨	 어떠냐,O	O								
+야	 날씨	 어때,O	O	O						
+날씨	 시원하니,O	O								
+따뜻하니	 날씨,O	O								
+인천	 날씨	 따뜻해,LOCATION	O	O						
+부산	 시원해,LOCATION	O								
+부산	 시원하니,LOCATION	O								
+시원한	 날씨니,O	O								
+밀양	 지금	 날씨	 시원해,LOCATION	DATE	O	O				
+구름	 껴서	 날씨	 쌀쌀해,O	O	O	O				
+오늘	 날씨	 알려줘,DATE	O	O						
+날씨	 어떠려나,O	O								
+전주	 날씨	 어떤지	 말해줘,LOCATION	O	O	O				
+날씨	 궁금해서	 물어봤어,O	O	O						
+날씨	 알려주세요,O	O								
+기온	 어떠려나,O	O								
+체감	 기온	 어떠려나,O	O	O						
+오늘	 날씨	 알려주겠니,DATE	O	O						
+날씨	 궁금해,O	O								
+지금	 날씨	 어떤데,DATE	O	O						
+저기	 날씨	 어때,O	O	O						
+날씨	 완전	 문젠데,O	O	O						
+세종	 날씨	 시원할까,LOCATION	O	O						
+시원한	 날씨니,O	O								
+세종	 날씨	 한	 번	 알려줘,LOCATION	O	O	O	O		
+모레	 날씨	 궁금해,DATE	O	O						
+날씨	 궁금해요,O	O								
+날씨	 어떨까,O	O								
+하늘	 우박	 떨어지네,O	O	O						
+지금	 날씨	 어때,DATE	O	O						
+날씨	 좀	 알려줄래,O	O	O						
+궁금해	 날씨,O	O								
+어때	 좀	 날씨,O	O	O						
+내일	 근데	 날씨	 어떠려나,DATE	O	O	O				
+해	 떴니	 지금,O	O	DATE						
+하늘	 해	 떴니	 지금,O	O	O	DATE				
+기온	 어때	 지금,O	O	DATE						
+기온	 알려주세요,O	O								
+아	 날씨	 흐리네,O	O	O						
+어떤데	 날씨,O	O								
+날씨	 알려줬으면	 졸겠어,O	O	O						
+천둥	 치나,O	O								
+하늘	 구름	 많네,O	O	O						
+내일	 여행갈건데	 날씨	 알려줘,DATE	O	O	O				
+날씨	 궁금하네,O	O								
+오늘	 맑니,DATE	O								
+내일	 해	 뜰까,DATE	O	O						
+날씨	 많이	 흐리려나,O	O	O						
+알려주세요	 날씨,O	O								
+구름	 꼈나,O	O								
+구름	 끼었나,O	O								
+지금	 하늘	 구름	 많니,DATE	O	O	O				
+날씨	 알려주세요	 궁금해요,O	O	O						
+맑으려나	 내일,O	DATE								
+날씨	 궁금해서,O	O								
+비	 안	 내려야	 하는데,O	O	O	O				
+날씨	 따뜻하려나,O	O								
+기온	 따뜻하겠지,O	O								
+부천	 현재	 바람	 시원하니,LOCATION	DATE	O	O				
+기온	 알려주세요,O	O								
+내일	 맑겠지,DATE	O								
+서울	 다음 주	 날씨	 알려줄래요,LOCATION	DATE	DATE O	O
+부안	 날씨	 어떻게	 돼,LOCATION	O	O	O				
+오늘	 서천	 날씨	 좀	 알려줄수	 있니,DATE	LOCATION	O	O	O	O
+내일	 날씨	 영덕	 알려줄수	 있어,DATE	O	LOCATION	O	O		
+이번	 주	 가로수길	 날씨	 알려줄래,DATE	DATE	LOCATION	O	O
+구암	 다음	 주	 날씨	 알려줘,LOCATION	DATE	DATE	O	O		
+이번 주	 영등포	 날씨	 줘,DATE DATE LOCATION	O	O
+구로	 다음 주	 날씨	 알려줄래,LOCATION	DATE DATE	O	O
+일산	 날씨	 어떻게	 돼요,LOCATION	O	O	O				
+오늘	 안암	 날씨	 좀	 알려줄수	 있니,DATE	LOCATION	O	O	O	O
+내일	 날씨	 알려줄수	 있어,DATE	O	O	O				
+이번	 주	 홍대	 날씨	 알려줄래,DATE DATE LOCATION	O	O
+남구	 다음	 주	 날씨	 알려줘,LOCATION	DATE	DATE	O	O		
+이번 주	 보령	 날씨	 줘,DATE DATE	LOCATION	O	O
+하늘	 맑을까,O	O								
+하늘	 비	 내리니,O	O	O						
+지금	 온도	 많이	 덥니,DATE	O	O	O				
+많이	 덥니,O	O								
+날씨	 많이	 더울까,O	O	O						
+알려줘	 날씨,O	O								
+내일	 우산	 챙길까,DATE	O	O						
+우산	 써야하나,O	O								
+이번	 주	 날씨	 많이	 덥니,DATE	DATE	O	O	O		
+내일	 비오겠지,DATE	O								
+헉	 혹시	 더울까,O	O	O						
+내일	 혹시	 시원할까,DATE	O	O						
+바람	 살랑살랑	 부니,O	O	O						
+날씨	 춥니,O	O								
+내일	 추울까,DATE	O								
+춥겠지	 아마,O	O								
+비	 떨어지려나,O	O								
+오늘	 비	 오나,DATE	O	O						
+온도	 알려줘,O	O								
+내일	 추울까,DATE	O								
+추울까,O										
+혹시	 내일	 비오나	 우산	 챙길까,O	DATE	O	O	O		
+우산	 필요하니,O	O								
+내일	 우산	 필요할까,DATE	O	O						
+부천	 날씨	 시원하려나,LOCATION	O	O						
+우산	 챙겨야하나	 모르겠네,O	O	O						
+밀양	 추우면	 안되는데,O	O	O						
+맑을까	 그	 때,O	O	DATE						
+혹시	 비	 오니,O	O	O						
+그	 때	 혹시	 추울까,O	DATE	O	O				
+나	 내일	 여행가는데	 날씨	 알려줘,O	DATE	O	O	O		
+그	 때	 혹시	 흐리니,O	DATE	O	O				
+하늘	 흐리니,O	O								
+눈	 오려나,O	O
+구름	 꼈니,O	O								
+강남	 하늘	 흐릴까,O	O	O						
+우박	 떨어질까,O	O								
+그	 때	 하늘	 어떠려나,O	DATE	O	O				
+하늘	 많이	 흐리니	 그	 날,O	O	O	O	O		
+날씨	 어떨	 것	 같아,O	O	O	O				
+이번	 주	 맑겠지,DATE	DATE	O						
+많이	 더우면	 안될텐데,O	O	O						
+다음	 주	 기온	 알려줘,DATE	DATE	O	O				
+내일	 날씨	 흐릴까,DATE	O	O						
+내일	 혹시	 서대문구	 비	 오려나,DATE	O	LOCATION	O	O		
+오늘	 비오니,DATE	O								
+군산	 우박	 오려나,LOCATION	O	O						
+추울까	 정말,O	O								
+비올까,O										
+내일	 눈오겠지	 아마,DATE	O	O						
+내일	 눈	 오면	 안되는데,DATE	O	O	O				
+혹시	 눈	 안오겠지,O	O	O						
+의정부	 눈올까,LOCATION	O								
+내일	 우산	 필요해,DATE	O	O						
+우산	 쓸까,O	O								
+내일	 우산	 챙길까	 말까,DATE	O	O	O				
+날씨	 궁금한데	 알려주겠니,O	O	O						
+혹시	 날씨	 알려줘,O	O	O						
+내일모레	 동두천	 날씨	 궁금해요,DATE	LOCATION	O	O
+내일모레	 날씨	 궁금해,DATE	O	O						
+구름	 많이	 끼고	 추우려나,O	O	O	O				
+서울	 날씨	 알려주겠니,LOCATION	O	O						
+부산	 날씨	 정보	 알려주세요,LOCATION	O	O	O				
+혹시	 그	 때	 대구	 날씨	 어떨까,O	O	DATE	LOCATION	O	O
+그	 때	 대전	 날씨	 좋겠지,O	DATE	LOCATION	O	O		
+날씨	 어떨	 것	 같은데,O	O	O	O				
+울산	 날씨	 어떨까요,LOCATION	O	O						
+송파구	 날씨	 어때요,LOCATION	O	O						
+덕진구	 체감	 기온	 말해주겠니,LOCATION	O	O	O				
+청주	 날씨	 어떠니,LOCATION	O	O						
+오늘	 전주	 날씨	 알려줘,DATE	LOCATION	O	O				
+날씨	 어떠려나,O	O								
+그럼	 구리	 날씨	 어떨까,O	LOCATION	O	O
+창원	 날씨	 궁금해서	 물어봤어요,LOCATION	O	O	O				
+경기도	 날씨	 알려주세요,LOCATION	O	O						
+기온	 어떠려나,O	O								
+체감	 기온	 어떠려나,O	O	O						
+체감기온	 어떠려나,O	O								
+오늘	 날씨	 알려주겠니,DATE	O	O						
+날씨	 궁금해,O	O								
+지금	 날씨	 어떤데,DATE	O	O						
+저기	 북구	 날씨	 어때,O	LOCATION	O	O				
+지금	 인천	 날씨	 완전	 문젠데,DATE	LOCATION	O	O	O		
+완주	 모레	 동대구	 날씨	 궁금해,LOCATION	DATE	LOCATION	O	O		
+날씨	 궁금해요,O	O								
+완산구	 지금	 우박	 떨어진다네,LOCATION	DATE	O	O				
+지금	 날씨	 어때,DATE	O	O						
+송파구	 날씨	 좀	 알려줄래,LOCATION	O	O	O				
+궁금해	 부천	 날씨,O	LOCATION	O						
+어때	 좀	 안산	 날씨,O	O	LOCATION	O				
+내일	 근데	 원주	 날씨	 어떠려나,DATE	O	LOCATION	O	O		
+울산	 지금	 해	 떴니,LOCATION	DATE	O	O				
+하늘	 해	 떴니	 지금,O	O	O	DATE				
+광주	 기온	 알려주세요,LOCATION	O	O						
+어떤데	 날씨,O	O								
+날씨	 알려줬으면	 졸겠어,O	O	O						
+평창	 날씨	 알려줘,LOCATION	O	O						
+오늘	 천둥	 치나,DATE	O	O						
+내일	 여행갈건데	 날씨	 알려줘,DATE	O	O	O				
+날씨	 궁금하네,O	O								
+오늘	 맑니,DATE	O								
+내일	 해	 뜰까,DATE	O	O						
+알려주세요	 춘천	 날씨,O	LOCATION	O						
+광주	 북구	 날씨	 어떠려나,LOCATION	LOCATION	O	O				
+날씨	 알려주세요	 궁금해요,O	O	O						
+그	 날	 바람	 많이	 불겠지,O	O	O	O	O		
+맑으려나	 내일,O	DATE								
+날씨	 궁금해서,O	O								
+비	 안	 내려야	 하는데,O	O	O	O				
+무주	 기온	 알려주세요,LOCATION	O	O						
+내일	 맑겠지,DATE	O								
+완전	 덥겠다,O	O								
+하늘	 맑을까,O	O								
+하늘	 비	 내리니,O	O	O						
+지금	 남원	 온도	 많이	 덥니,DATE	LOCATION	O	O	O		
+지금	 남부	 지방	 많이	 쌀쌀할까,DATE	LOCATION	LOCATION	O	O		
+날씨	 많이	 더울까,O	O	O						
+알려줘	 은평구	 날씨,O	LOCATION	O						
+노원구	 날씨	 궁금하네,LOCATION	O	O						
+내일	 우산	 챙길까,DATE	O	O						
+진짜	 영덕	 그	 때	 더울까,O	LOCATION	O	DATE	O		
+임실	 내일	 혹시	 우산	 써야하나,LOCATION	DATE	O	O	O		
+이번	 주	 날씨	 많이	 덥니,DATE	DATE	O	O	O		
+내일	 비오겠지,DATE	O								
+홍대	 혹시	 더울까,LOCATION	O	O						
+서울	 춥니,LOCATION	O								
+구름	 껴서	 흐린가,O	O	O						
+춥진	 않겠지,O	O								
+너무	 춥지	 않으려나,O	O	O						
+우산	 아마	 챙겨야겠지,O	O	O						
+해운대	 내일	 비올까,LOCATION	DATE	O						
+오수	 춥겠지	 아마,LOCATION	O	O						
+그	 떄	 하늘	 흐릴까,O	O	O	O				
+비	 떨어지려나,O	O								
+온도	 알려줘,O	O								
+서귀포	 내일	 추울까,LOCATION	DATE	O						
+바람	 불면	 안되는데,O	O	O						
+제주	 많이	 추울까,LOCATION	O	O						
+바람	 너무	 세게	 부나,O	O	O	O				
+혹시	 내일	 비오나	 우산	 챙길까,O	DATE	O	O	O		
+여수	 지금	 우산	 필요하니,LOCATION	DATE	O	O				
+순천	 내일	 우산	 필요할까,LOCATION	DATE	O	O				
+우산	 챙겨야하나	 모르겠네,O	O	O						
+추우면	 안되는데,O	O								
+건대	 입구	 맑을까	 그	 때,LOCATION	O	O	O	DATE		
+혹시	 비	 오니,O	O	O						
+그	 때	 혹시	 추울까,O	DATE	O	O				
+나	 내일	 여행가는데	 날씨	 알려줘,O	DATE	O	O	O		
+그	 때	 혹시	 흐리니,O	DATE	O	O				
+하늘	 흐리니,O	O								
+지금	 바람	 부나,DATE	O	O						
+눈	 오려나,O	O								
+이번	 주	 흐릴까,DATE	DATE	O						
+우박	 떨어질까,O	O								
+그	 때	 하늘	 어떠려나,O	DATE	O	O				
+하늘	 많이	 흐리니	 그	 날,O	O	O	O	O		
+날씨	 어떨	 것	 같아,O	O	O	O				
+이번	 주	 맑겠지,DATE	DATE	O						
+많이	 더우면	 안될텐데,O	O	O						
+다음	 주	 기온	 알려줘,DATE	DATE	O	O				
+내일	 날씨	 흐릴까,DATE	O	O						
+바람	 많이	 부니,O	O	O						
+영월	 바람	 많이	 부려나,LOCATION	O	O	O				
+내일	 혹시	 비	 오려나,DATE	O	O	O				
+오늘	 비오니,DATE	O								
+우박	 오려나,O	O								
+1월	 1일	 비	 오나요,DATE	DATE	O	O				
+2월	 12일	 쌀쌀하려나,DATE	DATE	O						
+3월	 3일	 쌀쌀한가,DATE	DATE	O						
+4월	 14일	 비	 오나요,DATE	DATE	O	O				
+5월	 5일	 추워서	 쌀쌀한가,DATE	DATE	O	O				
+8일	 호성동	 날씨	 알려줘,DATE	LOCATION	O	O				
+6월	 22일	 비	 오나요,DATE	DATE	O	O				
+12월	 11일	 더워서	 어떠려나,DATE	DATE	O	O				
+3월	 2O일	 날씨	 비	 와,DATE	DATE	O	O	O		
+7월	 4일	 눈	 와,DATE	DATE	O	O				
+3월	 17일	 전주	 하늘	 맑니,DATE	DATE	LOCATION	O	O		
+4월	 12일	 날씨	 흐려서	 안	 되겠다,DATE	DATE	O	O	O	O
+이번 주	 토요일	 맑니,DATE	DATE	DATE	O						
+2월	 1O일	 날씨	 맑니,DATE	DATE	O	O				
+경주	 이번	 주	 드디어	 맑아,LOCATION	DATE	DATE	O	O		
+4월	 11일	 눈	 오나요,DATE	DATE	O	O				
+2월	 2O일	 날씨	 비	 와,DATE	DATE	O	O	O		
+8월	 4일	 눈	 와,DATE	DATE	O	O				
+1O월	 16일	 날씨	 맑니,DATE	DATE	O	O				
+이번 주	 토요일	 맑니,DATE	DATE	DATE	O						
+11월	 6일	 청원	 날씨	 맑니,DATE	DATE	LOCATION	O	O		
+이천	 이번	 주	 흐리려나	 하늘,LOCATION	DATE	DATE	O	O		
+비올까,O										
+내일	 오산	 눈오겠지	 아마,DATE	LOCATION	O	O				
+내일	 눈오니,DATE	O								
+혹시	 눈	 안오겠지,O	O	O						
+그	 날	 비와서	 힘들겠지,O	DATE	O	O				
+눈올까,O										
+약속	 잡았는데	 비	 오네,O	O	O	O				
+내일	 진주	 우산	 필요해,DATE	LOCATION	O	O				
+우산	 쓸까	 말해줘,O	O	O						
+울릉도	 내일	 우산	 챙길까	 말까,LOCATION	DATE	O	O	O		
+날씨	 궁금한데	 알려주겠니,O	O	O						
+혹시	 날씨	 알려줘,O	O	O						
+인천	 내일모레	 날씨	 궁금해요,LOCATION	DATE	O	O
+내일모레	 날씨	 궁금해,DATE	O	O
+내일	 맑겠지,DATE	O								
+이천	 하늘	 맑을까,LOCATION	O	O						
+화순	 하늘	 비	 내리니,LOCATION	O	O	O				
+지금	 남원	 온도	 많이	 덥니,DATE	LOCATION	O	O	O		
+지금	 남부	 지방	 많이	 덥니,DATE	LOCATION	LOCATION	O	O		
+날씨	 많이	 더울까,O	O	O						
+노원구	 날씨	 궁금하네,LOCATION	O	O						
+이따가	 우산	 챙길까,DATE	O	O						
+이태원	 우산	 써야하나,LOCATION	O	O						
+이번	 주	 날씨	 많이	 덥니,DATE	DATE	O	O	O		
+내일	 비오겠지,DATE	O								
+오늘	 날씨	 알려주세요,DATE	O	O						
+혹시	 이따	 날씨	 좀	 알려줄래요,O	DATE	O	O	O		
+내일	 날씨	 알려주세요,DATE	O	O						
+저번	 주	 날씨	 말해주세요,DATE	DATE	O	O				
+이번	 주	 날씨	 바람	 부니,DATE	DATE	O	O	O		
+날씨	 어떠냐,O	O								
+지금	 어떤데	 날씨,O	O	O						
+다음	 주	 광명	 날씨	 알려주세요,DATE	DATE	LOCATION	O	O		
+지금	 평택	 날씨	 알려주세요,DATE	LOCATION	O	O				
+이번	 주	 광주	 날씨	 말해주라,DATE	DATE	LOCATION	O	O		
+내일	 부산	 날씨,DATE	LOCATION	O						
+내일	 대구	 날씨	 말해,DATE	LOCATION	O	O				
+이따	 대전	 날씨	 말해줘,DATE	LOCATION	O	O				
+오늘	 날씨	 뭐야,DATE	O	O						
+내일	 부산	 날씨	 말해주라,DATE	LOCATION	O	O				
+부산	 날씨,LOCATION	O								
+경북	 내일	 날씨	 어때,LOCATION	DATE	O	O				
+익산	 날씨	 어떨	 것	 같은지	 말해줘,LOCATION	O	O	O	O	O
+2월	 2O일	 날씨	 알려주겠니,DATE	DATE	O	O				
+1월	 3O일	 날씨	 정보	 알려주세요,DATE	DATE	O	O	O		
+6월	 그	 때	 날씨	 어떨까,DATE	O	DATE	O	O		
+8월	 그	 때	 날씨	 좋으려나,DATE	O	DATE	O	O		
+호성동	 날씨	 어떨	 것	 같은데,LOCATION	O	O	O	O		
+덕진동	 날씨	 어때,LOCATION	O	O						
+송천동	 날씨	 말해줄래,LOCATION	O	O						
+나운동	 날씨	 어떠니,LOCATION	O	O						
+미룡동	 구름	 많이	 꼈나,LOCATION	O	O	O				
+조촌동	 날씨	 어떠냐,LOCATION	O	O						
+금천구	 야	 날씨	 어때,LOCATION	O	O	O				
+노원구	 오늘	 날씨	 알려줬으면,LOCATION	DATE	O	O				
+5월	 5일	 날씨	 어떠려나,DATE	DATE	O	O				
+4월	 8일	 음성	 날씨	 어떤지	 말해달라고,DATE	DATE	LOCATION	O	O	O
+1월	 11일	 날씨	 궁금해서	 물어봤는데,DATE	DATE	O	O	O		
+2월	 28일	 날씨	 좀	 알려주세요,DATE	DATE	O	O	O		
+오늘	 수원	 기온	 어떠려나,DATE	LOCATION	O	O				
+고양시	 체감	 기온	 어떠려나,LOCATION	O	O	O				
+용인	 오늘	 날씨	 알려주겠니,LOCATION	DATE	O	O				
+성남	 날씨	 궁금해,LOCATION	O	O						
+부천	 현재	 날씨	 어떤데,LOCATION	DATE	O	O				
+화성	 날씨	 어때,LOCATION	O	O						
+남양주	 날씨	 완전	 문젠데,LOCATION	O	O	O				
+세종	 날씨	 한	 번	 알려줘,LOCATION	O	O	O	O		
+천안	 모레	 날씨	 궁금해,LOCATION	DATE	O	O				
+안산	 날씨	 궁금해요,LOCATION	O	O						
+안양	 날씨	 어떨까,LOCATION	O	O						
+김해	 날씨	 어때,LOCATION	O	O						
+평택	 현재	 날씨	 어때,LOCATION	DATE	O	O				
+파주	 날씨	 좀	 알려줄래,LOCATION	O	O	O				
+궁금해	 의정부	 날씨,O	O	O						
+어때	 김포	 날씨,O	LOCATION	O						
+내일	 근데	 구미	 날씨	 어떠려나,DATE	O	LOCATION	O	O		
+양산	 해	 떴니	 현재,LOCATION	O	O	DATE				
+원주	 하늘	 해	 떴니	 현재,LOCATION	O	O	O	DATE		
+진주	 기온	 어때	 현재,LOCATION	O	O	DATE				
+세종	 기온	 알려주세요,LOCATION	O	O						
+아	 광명	 날씨	 흐리네,O	LOCATION	O	O				
+어떤데	 아산	 날씨,O	LOCATION	O						
+익산	 날씨	 알려줬으면	 졸겠어,LOCATION	O	O	O				
+춘천	 현재	 천둥	 치나,LOCATION	DATE	O	O				
+경산	 하늘	 구름	 많네,LOCATION	O	O	O				
+내일	 군포	 여행갈건데	 날씨	 알려줘,DATE	O	O	O	O		
+하남	 날씨	 궁금하네,LOCATION	O	O						
+오늘	 여수	 맑니,DATE	LOCATION	O						
+내일	 경주	 해	 뜰까,DATE	LOCATION	O	O				
+거제도	 날씨	 많이	 흐리려나,LOCATION	O	O	O				
+목포	 알려주세요	 날씨,LOCATION	O	O						
+이천	 구름	 꼈나,LOCATION	O	O						
+강릉	 구름	 끼었나,LOCATION	O	O						
+양주	 현재	 하늘	 구름	 많니,LOCATION	DATE	O	O	O		
+충주	 날씨	 알려주세요	 궁금해요,LOCATION	O	O	O				
+안성	 맑으려나	 내일,LOCATION	O	DATE						
+서산	 날씨	 궁금해서,LOCATION	O	O						
+구리	 내일	 비	 안	 내려야	 하는데,LOCATION	DATE	O	O	O	O
+서귀포	 기온	 알려주세요,LOCATION	O	O						
+당진	 내일	 맑겠지,LOCATION	DATE	O						
+안동	 다음 주	 날씨	 알려줄래요,LOCATION	DATE	DATE O	O
+포천	 날씨	 어떻게	 돼,LOCATION	O	O	O				
+오늘	 의왕	 날씨	 좀	 알려줄수	 있니,DATE	LOCATION	O	O	O	O
+내일	 날씨	 광양	 알려줄수	 있어,DATE	O	LOCATION	O	O		
+이번	 주	 제천	 날씨	 알려줄래,DATE	DATE	LOCATION	O	O		
+논산	 다음	 주	 날씨	 알려줘,LOCATION	DATE	DATE	O	O		
+이번 주	 칠곡	 날씨	 줘,DATE DATE	LOCATION	O	O
+여주	 다음 주	 날씨	 알려줄래,LOCATION	DATE DATE	O	O
+정읍	 날씨	 어떻게	 돼요,LOCATION	O	O	O				
+오늘	 음성군	 날씨	 좀	 알려줄수	 있니,DATE	LOCATION	O	O	O	O
+이번	 주	 공주	 날씨	 알려줄래,DATE	DATE	LOCATION	O	O		
+완주	 다음	 주	 날씨	 알려줘,LOCATION	DATE	DATE	O	O		
+이번 주	 상주	 날씨	 줘,DATE DATE	LOCATION	O	O
+영천	 내일	 하늘	 맑을까,LOCATION	DATE	O	O				
+동해	 오늘	 비	 내리니,LOCATION	DATE	O	O				
+김제	 현재	 온도	 많이	 덥니,LOCATION	DATE	O	O	O		
+무안	 많이	 덥니,LOCATION	O	O						
+진천	 날씨	 많이	 더울까,LOCATION	O	O	O				
+예산군	 날씨	 알려줘,LOCATION	O	O						
+문경	 내일	 우산	 챙길까,LOCATION	DATE	O	O				
+속초	 모레	 우산	 써야하나,LOCATION	DATE	O	O				
+이번	 주	 삼척	 날씨	 많이	 덥니,DATE	DATE	LOCATION	O	O	O
+홍천	 내일	 비오겠지,LOCATION	DATE	O						
+해남	 혹시	 더울까,LOCATION	O	O						
+창녕	 날씨	 춥니,LOCATION	O	O						
+내일	 태안	 추울까,DATE	LOCATION	O						
+고흥	 춥겠지	 아마,LOCATION	O	O						
+화순	 비	 떨어지려나,LOCATION	O	O						
+거창	 오늘	 비	 오나,LOCATION	DATE	O	O				
+가평	 온도	 알려줘,LOCATION	O	O						
+내일	 고창	 추울까,DATE	LOCATION	O						
+서천	 추울까,LOCATION	O								
+혹시	 내일	 금산	 비오나	 우산	 챙길까,O	DATE	LOCATION	O	O	O
+부안	 오늘	 우산	 필요하니,LOCATION	DATE	O	O				
+내일	 옥천	 우산	 필요할까,DATE	LOCATION	O	O				
+영광	 우산	 챙겨야하나	 모르겠네,LOCATION	O	O	O				
+울진	 추우면	 안되는데,LOCATION	O	O						
+완도	 맑을까	 그	 때,LOCATION	O	O	DATE				
+혹시	 담양	 이번	 주	 비	 오니,O	LOCATION	DATE	DATE	O	O
+그	 때	 횡성	 혹시	 추울까,O	DATE	LOCATION	O	O		
+나	 내일	 계룡	 여행가는데	 날씨	 알려줘,O	DATE	LOCATION	O	O	O
+그	 때	 혹시	 흐리니,O	DATE	O	O				
+장성	 하늘	 흐리니,LOCATION	O	O						
+청도	 이따가	 눈	 오려나,LOCATION	DATE	O	O				
+괴산	 구름	 꼈니,LOCATION	O	O						
+강남	 하늘	 흐릴까,LOCATION	O	O						
+함양	 오늘	 비	 내리나,LOCATION	DATE	O	O				
+그	 때	 하늘	 어떠려나,O	DATE	O	O				
+증평	 하늘	 많이	 흐리니	 그	 날,LOCATION	O	O	O	O	DATE
+영월	 날씨	 어떨	 것	 같아,LOCATION	O	O	O	O		
+이번	 주	 장흥	 맑겠지,DATE	DATE	LOCATION	O				
+영덕	 많이	 더우면	 안될텐데,LOCATION	O	O	O				
+다음	 주	 정선	 기온	 알려줘,DATE	DATE	LOCATION	O	O		
+내일	 강진	 날씨	 흐릴까,DATE	LOCATION	O	O				
+내일	 혹시	 보은	 비	 오려나,DATE	O	LOCATION	O	O		
+오늘	 인제	 비오니,DATE	LOCATION	O						
+진도	 우박	 오려나,LOCATION	O	O						
+군산	 날씨	 추울까	 정말,LOCATION	O	O	O				
+곡성	 비올까,LOCATION	O								
+내일	 단양	 눈	 오겠지	 아마,DATE	LOCATION	O	O	O		
+내일	 순창	 눈	 오면	 안되는데,DATE	LOCATION	O	O	O		
+혹시	 의령	 눈	 안오겠지,O	LOCATION	O	O				
+양양	 의정부	 눈올까,LOCATION	LOCATION	O						
+내일	 화천	 우산	 필요해,DATE	LOCATION	O	O				
+청송	 우산	 쓸까,LOCATION	O	O						
+내일	 구례	 우산	 챙길까	 말까,DATE	LOCATION	O	O	O		
+무주	 날씨	 궁금한데	 알려주겠니,LOCATION	O	O	O				
+진안	 혹시	 날씨	 알려줘,LOCATION	O	O	O				
+내일모레	 양구	 날씨	 궁금해요,DATE	LOCATION	O	O
+내일모레	 군위	 날씨	 궁금해,DATE	LOCATION	O	O
+장수	 구름	 많이	 끼고	 추우려나,LOCATION	O	O	O	O		
+영양	 날씨	 알려주겠니,LOCATION	O	O						
+울릉	 날씨	 정보	 알려주세요,LOCATION	O	O	O				
+혹시	 그	 때	 종로구	 날씨	 어떨까,O	O	DATE	LOCATION	O	O
+혹시	 날씨	 시원할까,O	O	O						
+그	 때	 관악구	 날씨	 좋겠지,O	DATE	LOCATION	O	O		
+서초구	 날씨	 어떨	 것	 같은데,LOCATION	O	O	O	O		
+강동구	 날씨	 어떨까요,LOCATION	O	O						
+도봉구	 날씨	 어때요,LOCATION	O	O						
+중랑구	 체감	 기온	 말해주겠니,LOCATION	O	O	O				
+광진구	 청주	 날씨	 어떠니,LOCATION	LOCATION	O	O				
+오늘	 용산구	 날씨	 알려줘,DATE	LOCATION	O	O				
+마포구	 날씨	 어떨까,LOCATION	O	O						
+그럼	 강남	 날씨	 어떨까,O	LOCATION	O	O				
+강동	 날씨	 어떤지	 좀	 말해줘,LOCATION	O	O	O	O		
+동작구	 날씨	 궁금해서	 물어봤어요,LOCATION	O	O	O				
+경상도	 날씨	 알려주세요,LOCATION	O	O						
+경남	 기온	 어떠려나,LOCATION	O	O						
+전북	 체감	 기온	 어떠려나,LOCATION	O	O	O				
+전남	 날씨	 어떠려나,LOCATION	O	O						
+오늘	 전북	 날씨	 알려주겠니,DATE	LOCATION	O	O				
+영등포	 날씨	 궁금해,LOCATION	O	O						
+현재	 양천구	 날씨	 어떤데,DATE	LOCATION	O	O				
+저기	 마포구	 날씨	 어때,O	LOCATION	O	O				
+현재	 성북구	 날씨	 완전	 문젠데,DATE	LOCATION	O	O	O		
+중랑구	 날씨	 궁금해,LOCATION	O	O						
+용산구	 날씨	 궁금해요,LOCATION	O	O						
+종로구	 현재	 우박	 떨어진다네,LOCATION	DATE	O	O				
+현재	 날씨	 어때,DATE	O	O						
+송파구	 날씨	 좀	 알려줄래,LOCATION	O	O	O				
+궁금해	 마포구	 날씨,O	LOCATION	O						
+상당구	 날씨	 궁금해,LOCATION	O	O						
+중구	 날씨	 알려줘,LOCATION	O	O						
+가평군	 날씨	 어떨까,LOCATION	O	O						
+고양시	 덕양구	 날씨	 알려줘,LOCATION	LOCATION	O	O				
+광명시	 날씨	 궁금해,LOCATION	O	O						
+구리시	 날씨	 어때,LOCATION	O	O						
+군포시	 날씨	 어때,LOCATION	O	O						
+화성시	 날씨	 어떨까,LOCATION	O	O						
+하남시	 날씨	 궁금해서	 물어볼게,LOCATION	O	O	O				
+이천시	 날씨	 어때,LOCATION	O	O						
+연천군	 날씨	 어떨까,LOCATION	O	O
+내일모레	 마포구	 날씨	 알려줘,DATE	LOCATION	O	O
+내일	 합정동	 날씨	 알려줘,DATE	LOCATION	O	O				
+안성시	 날씨	 어때,LOCATION	O	O						
+양주시	 날씨	 궁금해,LOCATION	O	O						
+동두천시	 날씨	 알려줘,LOCATION	O	O						
+수원시	 팔달구	 날씨	 어떨까,LOCATION	LOCATION	O	O				
+내일	 안성시	 날씨	 알려줘,DATE	LOCATION	O	O				
+부산	 강서구	 날씨	 알려줘,LOCATION	LOCATION	O	O				
+금정구	 날씨	 어때,LOCATION	O	O						
+오늘	 동래구	 날씨	 알려줘,DATE	LOCATION	O	O				
+내일	 북구	 날씨	 어때,DATE	LOCATION	O	O				
+해운대구	 날씨	 어떠려나,LOCATION	O	O						
+사하구	 날씨	 알려줘,LOCATION	O	O						
+미추홀구	 날씨	 알려줘,LOCATION	O	O						
+연수구	 날씨	 뭐야,LOCATION	O	O						
+인천	 서구	 날씨	 알려줘,LOCATION	LOCATION	O	O				
+오늘	 부평구	 날씨	 어때,DATE	LOCATION	O	O				
+계양구	 날씨	 알려줘,LOCATION	O	O						
+울산	 북구	 날씨	 어때,LOCATION	LOCATION	O	O				
+강릉시	 날씨	 알려줘,LOCATION	O	O						
+속초시	 날씨	 어때,LOCATION	O	O						
+내일	 서초구	 날씨	 어때,DATE	LOCATION	O	O				
+영월군	 날씨	 궁금해요,LOCATION	O	O						
+원주시	 날씨	 궁금해요,LOCATION	O	O						
+홍천군	 날씨	 궁금해,LOCATION	O	O						
+화천군	 날씨	 물어볼게,LOCATION	O	O						
+내일모레	 제천시	 날씨	 알려줘,DATE	LOCATION	O	O
+증평군	 날씨	 알려줘,LOCATION	O	O						
+진천군	 날씨	 궁금해,LOCATION	O	O						
+청주시	 흥덕구	 날씨	 알려줘,LOCATION	LOCATION	O	O				
+계룡시	 날씨	 알려줘	 오늘,LOCATION	O	O	DATE				
+논산시	 날씨	 알려줘,LOCATION	O	O						
+태안군	 날씨	 알려줘,LOCATION	O	O						
+봉화군	 날씨	 알려줘,LOCATION	O	O						
+구미시	 날씨	 어때,LOCATION	O	O						
+내일	 영천시	 날씨	 알려줘,DATE	LOCATION	O	O				
+내일	 울진군	 날씨	 알려줘,DATE	LOCATION	O	O				
+오늘	 의성군	 날씨	 궁금해,DATE	LOCATION	O	O				
+거제시	 날씨	 어때,LOCATION	O	O						
+고성군	 날씨	 어때,LOCATION	O	O						
+창녕군	 날씨	 알려줘,LOCATION	O	O						
+내일	 함안군	 날씨	 어때,DATE	LOCATION	O	O				
+합천군	 날씨	 알려줘,LOCATION	O	O						
+제주시	 날씨	 알려줘,LOCATION	O	O						
+내일	 설악산	 근처	 날씨	 어때,DATE	LOCATION	O	O	O		
+오늘	 망리단길	 근처	 날씨	 어때,DATE	LOCATION	O	O	O		
+오늘	 경리단길	 근처	 날씨	 어때,DATE	LOCATION	O	O	O		
+내일	 을왕리	 날씨	 어때,DATE	LOCATION	O	O				
+내일	 한라산	 가는데	 날씨	 알려줘,DATE	LOCATION	O	O	O		
+해운대	 가는데	 날씨	 어때,LOCATION	O	O	O				
+남산	 가려는데	 날씨	 어때,LOCATION	O	O	O				
+남대문	 가려는데	 날씨	 어때,LOCATION	O	O	O				
+장충체육관	 가려는데	 날씨	 궁금해,LOCATION	O	O	O				
+천안유관순체육관	 가려는데	 날씨	 어떠니,LOCATION	O	O	O				
+상암월드컵경기장	 가는데	 날씨	 알려줄래,LOCATION	O	O	O				
+서울가락시장	 가려는데	 날씨	 어때,LOCATION	O	O	O				
+성미산	 가려는데	 날씨	 궁금해,LOCATION	O	O	O				
+서울통인시장	 가려는데	 날씨	 궁금해,LOCATION	O	O	O				
+대구서문시장	 가는데	 날씨	 어떠니,LOCATION	O	O	O				
+청계천	 가는데	 날씨	 궁금해,LOCATION	O	O	O				
+화곡시장	 가는데	 날씨	 궁금해,LOCATION	O	O	O				
+강화풍물시장	 가는데	 날씨	 궁금해,LOCATION	O	O	O				
+안동구시장	 가는데	 날씨	 알려줘,LOCATION	O	O	O				
+문정동	 가는데	 날씨	 어때,LOCATION	O	O	O				
+여의도	 가는데	 오늘	 날씨	 어때,LOCATION	O	DATE	O	O		
+내일	 월계동	 가는데	 날씨	 궁금해,DATE	LOCATION	O	O	O		
+선유도공원	 가는데	 날씨	 알려줘,LOCATION	O	O	O				
+가락동	 가는데	 날씨	 알려줘,LOCATION	O	O	O				
+잠실체육관	 가는데	 날씨	 알려줘,LOCATION	O	O	O				
+신수동	 가는데	 날씨	 알려줄래,LOCATION	O	O	O				
+개봉동	 가는데	 날씨	 궁금해요,LOCATION	O	O	O				
+삼성동	 가는데	 날씨	 궁금해,LOCATION	O	O	O				
+내일	 논현동	 가려는데	 날씨좀	 알려줘,DATE	LOCATION	O	O	O		
+내일	 상암동	 가려는데	 날씨	 어때,DATE	LOCATION	O	O	O		
+방배동	 가려는데	 오늘	 날씨	 알려줘,LOCATION	O	DATE	O	O		
+내일	 부평구	 가려는데	 날씨	 알려줘,DATE	LOCATION	O	O	O		
+울릉도	 가려는데	 내일	 날씨	 알려줘,LOCATION	O	DATE	O	O		
+독도	 가려는데	 내일	 날씨	 궁금해,LOCATION	O	DATE	O	O		
+대부도	 가려는데	 내일	 날씨	 어때,LOCATION	O	DATE	O	O		
+강화도	 가려는데	 오늘	 날씨	 궁금해요,LOCATION	O	DATE	O	O		
+안면도	 가려는데	 오늘	 날씨	 알려줄래,LOCATION	O	DATE	O	O		
+백령도	 가려는데	 내일	 날씨	 알려주세요,LOCATION	O	DATE	O	O		
+흑산도	 가려는데	 오늘	 날씨	 어때,LOCATION	O	DATE	O	O		
+거문도	 가려는데	 오늘	 날씨	 어때요,LOCATION	O	DATE	O	O		
+내일	 마라도	 가는데	 날씨	 궁금해,DATE	LOCATION	O	O	O		
+보길도	 가는데	 내일	 날씨	 알려줘,LOCATION	O	DATE	O	O		
+청산도	 가려는데	 내일	 날씨	 궁금해요,LOCATION	O	DATE	O	O		
+내일	 가거도	 날씨	 알려줘,DATE	LOCATION	O	O				
+오늘	 자은도	 날씨	 알려줘,DATE	LOCATION	O	O				
+내일	 금오도	 날씨	 궁금해요,DATE	LOCATION	O	O				
+오늘	 거제도	 날씨	 알려줄래,DATE	LOCATION	O	O				
+내일	 도초도	 날씨	 알려줘,DATE	LOCATION	O	O				
+내일	 중도	 날씨	 알려줘,DATE	LOCATION	O	O				
+영흥도	 오늘	 날씨	 알려줘,LOCATION	DATE	O	O				
+선유도	 오늘	 날씨	 알려줘,LOCATION	DATE	O	O				
+내일	 우도	 가는데	 날씨	 알려줘,DATE	LOCATION	O	O	O		
+오늘	 외나로도	 날씨	 알려줘,DATE	LOCATION	O	O				
+팔금도	 오늘	 날씨	 궁금해,LOCATION	DATE	O	O				
+사랑도	 내일	 날씨	 알려줘,LOCATION	DATE	O	O				
+신의도	 내일	 날씨	 알려줄래,LOCATION	DATE	O	O				
+석모도	 오늘	 날씨	 알려줘,LOCATION	DATE	O	O				
+가덕도	 가는데	 오늘	 날씨	 알려줘,LOCATION	O	DATE	O	O		
+외도	 가는데	 내일	 날씨	 알려줄래,LOCATION	O	DATE	O	O		
+임태도	 가려는데	 내일	 날씨	 알려줘,LOCATION	O	DATE	O	O		
+오늘	 죽도	 날씨	 알려줘,DATE	LOCATION	O	O				
+안도	 내일	 날씨	 어때,LOCATION	DATE	O	O				
+원산도	 내일	 날씨	 알려줘,LOCATION	DATE	O	O				
+오늘	 생일도	 가려는데	 날씨	 알려줄래,DATE	LOCATION	O	O	O		
+대연평도	 가려는데	 오늘	 날씨	 어때,LOCATION	O	DATE	O	O		
+압해도	 가는데	 오늘	 날씨	 궁금해요,LOCATION	O	DATE	O	O		
+자은도	 가려는데	 내일	 날씨	 궁금해요,LOCATION	O	DATE	O	O		
+교동도	 가는데	 오늘	 날씨	 어때,LOCATION	O	DATE	O	O		
+내일	 임자도	 날씨	 알려줘,DATE	LOCATION	O	O				

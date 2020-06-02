@@ -37,13 +37,6 @@ class Dataset:
         train_dataset = dataset[:split_point]
         test_dataset = dataset[split_point:]
 
-        # make even num of dataset for pairwise dataset
-        if len(train_dataset) % 2 != 0:
-            del train_dataset[len(test_dataset) - 1]
-
-        if len(test_dataset) % 2 != 0:
-            del test_dataset[len(test_dataset) - 1]
-
         # 3. embedding and pad sequencing
         train_embedded, test_embedded = [], []
         train_label, test_label = [], []
@@ -62,7 +55,90 @@ class Dataset:
         train_label = torch.cat(train_label, dim=0)
         test_label = torch.cat(test_label, dim=0)
 
-        # 4. make mini - batch
+        # 4. make mini batch
+        train_set = TensorDataset(train_dataset, train_label)
+        train_set = DataLoader(train_set, batch_size=self.conf.batch_size, shuffle=True)
+        test_set = TensorDataset(test_dataset, test_label)
+        test_set = DataLoader(test_set, batch_size=self.conf.batch_size, shuffle=True)
+
+        return train_set, test_set
+
+    def siamese_train(self, emb, data_path):
+        # 1. load data from csv files
+        dataset = self.embed_train(data_path)
+        data, label = dataset['data'], dataset['label']
+        dataset = [zipped for zipped in zip(data, label)]
+
+        # 2. split data to train / test
+        random.shuffle(dataset)
+        split_point = int(len(dataset) * self.conf.intent_ratio)
+        train_dataset = dataset[:split_point]
+        test_dataset = dataset[split_point:]
+
+        # 3. make even num of dataset for pairwise dataset
+        if len(train_dataset) % 2 != 0:
+            del train_dataset[len(test_dataset) - 1]
+
+        if len(test_dataset) % 2 != 0:
+            del test_dataset[len(test_dataset) - 1]
+
+        # 4. make positive & negative pairs
+        data_cache = None
+        train_pos_pair, train_neg_pair = [], []
+        test_pos_pair, test_neg_pair = [], []
+        for i, data in enumerate(train_dataset):
+            if i != 0:
+                if data_cache[1] == data[1]:
+                    train_pos_pair.append((data_cache[0], data[0]))
+                else:
+                    train_neg_pair.append((data_cache[0], data[0]))
+            data_cache = data
+
+        for i, data in enumerate(test_dataset):
+            if i != 0:
+                if data_cache[1] == data[1]:
+                    test_pos_pair.append((data_cache[0], data[0]))
+                else:
+                    test_neg_pair.append((data_cache[0], data[0]))
+            data_cache = data
+
+        # 5. embedding and pad sequencing
+        train_embedded, test_embedded = [], []
+        train_label, test_label = [], []
+        for data in train_pos_pair:
+            d1, d2 = data[0], data[1]
+            d1 = self.pad_sequencing(emb.embed(d1)).unsqueeze(0)
+            d2 = self.pad_sequencing(emb.embed(d2)).unsqueeze(0)
+            train_embedded.append(torch.cat([d1, d2], dim=0).unsqueeze(0))
+            train_label.append(torch.tensor(1).unsqueeze(0))  # pos's label => 1
+
+        for data in train_neg_pair:
+            d1, d2 = data[0], data[1]
+            d1 = self.pad_sequencing(emb.embed(d1)).unsqueeze(0)
+            d2 = self.pad_sequencing(emb.embed(d2)).unsqueeze(0)
+            train_embedded.append(torch.cat([d1, d2], dim=0).unsqueeze(0))
+            train_label.append(torch.tensor(0).unsqueeze(0))  # neg's label => 1
+
+        for data in test_pos_pair:
+            d1, d2 = data[0], data[1]
+            d1 = self.pad_sequencing(emb.embed(d1)).unsqueeze(0)
+            d2 = self.pad_sequencing(emb.embed(d2)).unsqueeze(0)
+            test_embedded.append(torch.cat([d1, d2], dim=0).unsqueeze(0))
+            test_label.append(torch.tensor(1).unsqueeze(0))  # pos's label => 1
+
+        for data in test_neg_pair:
+            d1, d2 = data[0], data[1]
+            d1 = self.pad_sequencing(emb.embed(d1)).unsqueeze(0)
+            d2 = self.pad_sequencing(emb.embed(d2)).unsqueeze(0)
+            test_embedded.append(torch.cat([d1, d2], dim=0).unsqueeze(0))
+            test_label.append(torch.tensor(0).unsqueeze(0))  # neg's label => 1
+
+        train_dataset = torch.cat(train_embedded, dim=0)
+        test_dataset = torch.cat(test_embedded, dim=0)
+        train_label = torch.cat(train_label, dim=0)
+        test_label = torch.cat(test_label, dim=0)
+
+        # 4. make mini batch
         train_set = TensorDataset(train_dataset, train_label)
         train_set = DataLoader(train_set, batch_size=self.conf.batch_size, shuffle=True)
         test_set = TensorDataset(test_dataset, test_label)

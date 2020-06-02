@@ -22,37 +22,18 @@ class GraphDrawer:
 
         return [float(i) for idx, i in enumerate(file.split(','))]
 
-    def draw_accuracy(self):
-        train = self.read_file(root_path + 'log/train_accuracy.txt')
-        test = self.read_file(root_path + 'log/test_accuracy.txt')
-        plt.plot(train, 'b', label='train acc')
-        plt.plot(test, 'r', label='test acc')
+    def draw(self, mode, color):
+        array = self.read_file(root_path + 'log/train_{}.txt'.format(mode))
+        plt.plot(array, color[0], label='train_{}'.format(mode))
         plt.xlabel('epochs')
-        plt.ylabel('accuracy')
-        plt.title('training result')
-        plt.legend(loc='lower left')
+        plt.ylabel(mode)
+        plt.title('train ' + mode)
         plt.grid(True, which='both', axis='both')
-        plt.savefig('log/accuracy')
+        plt.savefig('log/{}'.format(mode))
         plt.close()
-
-    def draw_error(self):
-        train = self.read_file(root_path + 'log/train_error.txt')
-        test = self.read_file(root_path + 'log/test_error.txt')
-        plt.plot(train, 'y', label='train error')
-        plt.plot(test, 'g', label='test error')
-        plt.xlabel('epochs')
-        plt.ylabel('error')
-        plt.title('training result')
-        plt.legend(loc='lower left')
-        plt.grid(True, which='both', axis='both')
-        plt.savefig('log/error')
-        plt.close()
-
-    def draw_both(self):
-        self.draw_error()
-        self.draw_accuracy()
 
 
 if __name__ == '__main__':
     drawer = GraphDrawer()
-    drawer.draw_both()
+    drawer.draw('accuracy', 'red')
+    drawer.draw('error', 'blue')

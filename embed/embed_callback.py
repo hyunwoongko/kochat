@@ -17,6 +17,6 @@ class EmbedCallback(CallbackAny2Vec):
         self.eta = time()
 
     def on_epoch_end(self, model):
-        print('FAST_TEXT : Epoch {} was finished - EAT : {} sec.'.format(self.epoch, time() - self.eta))
+        print('FAST_TEXT : Epoch {} was finished - ETA : {} sec.'.format(self.epoch, time() - self.eta))
         self.epoch += 1
         self.eta = 0

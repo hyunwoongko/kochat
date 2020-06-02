@@ -32,22 +32,32 @@ class Model(nn.Module):
         super().__init__()
         self.conf = Config()
         self.layer = nn.Sequential(
-            Conv(self.conf.vector_size, 512, kernel_size=1),
-            Conv(512, 512, kernel_size=1),
+            Conv(self.conf.vector_size, 256, kernel_size=1),
+            Conv(256, 256, kernel_size=1),
+            Conv(256, 256, kernel_size=1),
+            Conv(256, 512, kernel_size=1),
             nn.MaxPool1d(kernel_size=2, stride=2),
             Conv(512, 512, kernel_size=1),
             Conv(512, 512, kernel_size=1),
+            Conv(512, 512, kernel_size=1),
+            Conv(512, 1024, kernel_size=1),
             nn.MaxPool1d(kernel_size=2, stride=2))
 
-        self.out = nn.Linear(1024, 3)
+        self.out = nn.Sequential(
+            nn.Dropout(0.5),
+            nn.Linear(2048, self.conf.intent_classes))
 
     def forward_once(self, x):
         x = self.layer(x)
         x = x.view(x.size(0), -1)
-        x = self.out(x.squeeze())
         return x
 
-    def forward(self, x1, x2):
-        x1 = self.forward_once(x1)
-        x2 = self.forward_once(x2)
-        return x1, x2
+    def forward(self, siamese, x1, x2=None):
+        if siamese:
+            x1 = self.forward_once(x1)
+            x2 = self.forward_once(x2)
+            return x1, x2
+        else:
+            x1 = self.forward_once(x1)
+            x1 = self.out(x1.squeeze())
+            return x1
