@@ -66,10 +66,10 @@ class EmbedProcessor:
 
     def load_model(self):
         if self.model is None:
-            self.model = FastText.load(self.conf.embed_storepath)
+            self.model = FastText.load(self.conf.embed_storefile)
         return self.model
 
     def store_model(self):
         if not os.path.exists(self.conf.embed_storepath):
             os.makedirs(self.conf.embed_storepath)
-        self.model.save(self.conf.embed_storepath)
+        self.model.save(self.conf.embed_storefile)

@@ -10,6 +10,6 @@ from intent.model import text_cnn
 
 if __name__ == '__main__':
     embed = EmbedProcessor()
-    embed.train()
-    # intent = IntentClassifier(embed, model=text_cnn)
-    # intent.train()
+    # embed.train()
+    intent = IntentClassifier(embed, model=text_cnn)
+    intent.train()

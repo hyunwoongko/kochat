@@ -32,6 +32,8 @@ class GraphDrawer:
         plt.title('training result')
         plt.legend(loc='lower left')
         plt.grid(True, which='both', axis='both')
+        plt.savefig('log/accuracy')
+        plt.close()
 
     def draw_error(self):
         train = self.read_file(root_path + 'log/train_error.txt')
@@ -43,6 +45,8 @@ class GraphDrawer:
         plt.title('training result')
         plt.legend(loc='lower left')
         plt.grid(True, which='both', axis='both')
+        plt.savefig('log/error')
+        plt.close()
 
     def draw_both(self):
         self.draw_error()

@@ -34,16 +34,17 @@ class IntentClassifier:
             train_err, train_acc = self.__train_epoch(self.model, train_data)
             test_err, test_acc = self.__test_epoch(self.model, test_data)
 
-            train_accuracies.append(train_acc)
-            train_errors.append(train_err)
-            test_accuracies.append(test_acc)
-            test_errors.append(test_err)
+            if i % 10 == 0:
+                train_accuracies.append(train_acc)
+                train_errors.append(train_err)
+                test_accuracies.append(test_acc)
+                test_errors.append(test_err)
 
-            self.print_log(i, train_err, test_err, train_acc, test_acc)
-            self.save_result('train_accuracy', train_accuracies)
-            self.save_result('train_error', train_errors)
-            self.save_result('test_accuracy', test_accuracies)
-            self.save_result('test_error', test_errors)
+                self.print_log(i, train_err, test_err, train_acc, test_acc)
+                self.save_result('train_accuracy', train_accuracies)
+                self.save_result('train_error', train_errors)
+                self.save_result('test_accuracy', test_accuracies)
+                self.save_result('test_error', test_errors)
 
         drawer = GraphDrawer()
         drawer.draw_both()
@@ -99,15 +100,9 @@ class IntentClassifier:
                       round(test_acc, self.conf.intent_log_precision)))
 
     def save_result(self, file_name, result):
-        f = open(self.conf.root_path + '\\log\\{0}.txt'.format(file_name), 'w')
+        f = open(self.conf.root_path + '/log/{0}.txt'.format(file_name), 'w')
         f.write(str(result))
         f.close()
-
-    def store_model(self):
-        pass
-
-    def load_model(self):
-        pass
 
     @staticmethod
     def initialize_weights(model):

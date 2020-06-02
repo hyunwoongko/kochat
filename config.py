@@ -10,13 +10,14 @@ from torch import nn
 class Config:
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     vector_size = 256  # word vector size
-    batch_size = 128  # batch size for training
-    max_len = 16  # max length for pad sequencing
+    batch_size = 32  # batch size for training
+    max_len = 8  # max length for pad sequencing
 
     # path configs
     root_path = "/home/gusdnd852/Github/Chatbot/"
     intent_datapath = root_path + "data/total_intent.csv"
-    embed_storepath = root_path + "models/embed/embed.model"
+    embed_storepath = root_path + "models/embed"
+    embed_storefile = embed_storepath + '/embed.model'
     intent_storepath = root_path + "models/intent/intent.pth"
 
     # embed configs
@@ -27,9 +28,9 @@ class Config:
     emb_iter = 1000  # num of iteration for embedding training
 
     # intent configs
-    intent_lr = 1e-3  # learning rate for intent training
+    intent_lr = 1e-5  # learning rate for intent training
     intent_weight_decay = 1e-3  # weight decay for intent training
-    intent_epochs = 1500  # num of epoch for intent training
+    intent_epochs = 100  # num of epoch for intent training
     intent_classes = 3  # num of intent class
     intent_ratio = 0.8  # intent train per test ratio
     intent_log_precision = 5  # floating point precision for logging

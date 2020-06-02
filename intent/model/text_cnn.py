@@ -18,16 +18,12 @@ class Conv(nn.Module):
         self.norm = nn.BatchNorm1d(_out)
         self.relu = nn.ReLU()
 
-    def residual(self, x, _x):
-        return x + _x if x.size() == _x.size() else x
-
     def forward(self, x):
         _x = x
         x = self.conv(x)
         x = self.norm(x)
-        x = self.residual(x, _x)
         x = self.relu(x)
-        return x
+        return x + _x if x.size() == _x.size() else x
 
 
 class Model(nn.Module):
@@ -36,14 +32,14 @@ class Model(nn.Module):
         super().__init__()
         self.conf = Config()
         self.layer = nn.Sequential(
-            Conv(self.conf.vector_size, 256, kernel_size=1),
-            Conv(256, 256, kernel_size=1),
+            Conv(self.conf.vector_size, 512, kernel_size=1),
+            Conv(512, 512, kernel_size=1),
             nn.MaxPool1d(kernel_size=2, stride=2),
-            Conv(256, 512, kernel_size=1),
+            Conv(512, 512, kernel_size=1),
             Conv(512, 512, kernel_size=1),
             nn.MaxPool1d(kernel_size=2, stride=2))
 
-        self.out = nn.Linear(2048, 2)
+        self.out = nn.Linear(1024, 3)
 
     def forward_once(self, x):
         x = self.layer(x)
