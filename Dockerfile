@@ -50,11 +50,4 @@ RUN ln -s $(which python3) /usr/local/bin/python
 RUN apt install openjdk-11-jdk -y
 
 # 6. set up python packages
-# do seperate to save time when you extend dockerfile
-# make one package into one layer to use cached layer
-RUN python3 -m pip install --no-cache-dir matplotlib
-RUN python3 -m pip install --no-cache-dir pandas
-RUN python3 -m pip install --no-cache-dir torch
-RUN python3 -m pip install --no-cache-dir gensim
-RUN python3 -m pip install --no-cache-dir konlpy
-RUN python3 -m pip install --no-cache-dir flask
+RUN pip3 install --no-cache-dir -r requirements.txt
