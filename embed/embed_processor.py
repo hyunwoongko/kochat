@@ -42,12 +42,12 @@ class EmbedProcessor:
         self.store_model()
         return self.model
 
-    def embed(self, text):
+    def embed(self, tokenized_text):
         if self.model is None:
             self.model = self.load_model()
 
         sentence_vector = []
-        for word in text:
+        for word in tokenized_text:
             word_vector = self.model.wv[word]
             word_vector = torch.tensor(word_vector)
             word_vector = torch.unsqueeze(word_vector, dim=0)
@@ -59,6 +59,7 @@ class EmbedProcessor:
     def similar_word(self, word, n=10):
         if self.model is None:
             self.model = self.load_model()
+
         similar_words = self.model.similar_by_word(word, topn=n)
         print(word, "와 비슷한 단어 : ")
         print([word for word, cos in similar_words])

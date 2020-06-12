@@ -31,16 +31,8 @@ class Model(nn.Module):
         return (torch.autograd.Variable(torch.randn(self.layer * self.direction, batch_size, self.hidden_size).cuda()),
                 torch.autograd.Variable(torch.randn(self.layer * self.direction, batch_size, self.hidden_size).cuda()))
 
-    def forward_once(self, x):
+    def forward(self, x):
         b, v, l = x.size()
         x = x.permute(2, 0, 1)
         x, (h_s, c_s) = self.lstm(x, self.init_hidden(b))
         return h_s[-1]
-
-    def forward(self, siamese, x1, x2=None):
-        if siamese:
-            x1 = self.forward_once(x1)
-            x2 = self.forward_once(x2)
-            return x1, x2
-        else:
-            return self.out(self.forward_once(x1))

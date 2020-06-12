@@ -1,0 +1,1572 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f686044b8f0, pid=1, tid=36
+#
+# JRE version: OpenJDK Runtime Environment (11.0.7+10) (build 11.0.7+10-post-Ubuntu-2ubuntu218.04)
+# Java VM: OpenJDK 64-Bit Server VM (11.0.7+10-post-Ubuntu-2ubuntu218.04, mixed mode, sharing, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libc.so.6+0x408f0]  abort+0x230
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport %p %s %c %d %P %E" (or dumping to /home/gusdnd852/Github/chatbot/core.1)
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugs.launchpad.net/ubuntu/+source/openjdk-lts
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=UTF8 -ea -Xmx1024m 
+
+Host: Intel(R) Core(TM) i7-9700KF CPU @ 3.60GHz, 8 cores, 15G, Ubuntu 18.04.3 LTS
+Time: Thu Jun 11 13:19:14 2020 UTC elapsed time: 2 seconds (0d 0h 0m 2s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000006bb7800):  JavaThread "Thread-0" daemon [_thread_in_native, id=36, stack(0x00007f67d17c9000,0x00007f67d18ca000)]
+
+Stack: [0x00007f67d17c9000,0x00007f67d18ca000],  sp=0x00007f67d18c86b0,  free space=1021k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libc.so.6+0x408f0]  abort+0x230
+C  [libc.so.6+0x8992a]
+j  org.jpype.ref.JPypeReferenceQueue$Worker.run()V+49
+j  java.lang.Thread.run()V+11 java.base@11.0.7
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x84e319]
+V  [libjvm.so+0x84c45d]
+V  [libjvm.so+0x8f62ec]
+V  [libjvm.so+0xd8918f]
+V  [libjvm.so+0xd85acf]
+V  [libjvm.so+0xbd59de]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  org.jpype.ref.JPypeReferenceQueue.wake(J)V+0
+j  org.jpype.ref.JPypeReferenceQueue$Worker.run()V+49
+j  java.lang.Thread.run()V+11 java.base@11.0.7
+v  ~StubRoutines::call_stub
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 128 (SI_KERNEL), si_addr: 0x0000000000000000
+
+Register to memory mapping:
+
+RAX=0x0000000000000004 is an unknown value
+RBX=0x00007f67d18c87e0 is pointing into the stack for thread: 0x0000000006bb7800
+RCX=0x0 is NULL
+RDX=0x0 is NULL
+RSP=0x00007f67d18c86b0 is pointing into the stack for thread: 0x0000000006bb7800
+RBP=0x00007f67d18c88a0 is pointing into the stack for thread: 0x0000000006bb7800
+RSI=0x00007f67d18c8590 is pointing into the stack for thread: 0x0000000006bb7800
+RDI=0x0000000000000002 is an unknown value
+R8 =0x0 is NULL
+R9 =0x00007f67d18c8590 is pointing into the stack for thread: 0x0000000006bb7800
+R10=0x0000000000000008 is an unknown value
+R11=0x0000000000000246 is an unknown value
+R12=0x0000000000001000 is an unknown value
+R13=0x0 is NULL
+R14=0x00007f67d18c8958 is pointing into the stack for thread: 0x0000000006bb7800
+R15=0x0000000006bb7800 is a thread
+
+
+Registers:
+RAX=0x0000000000000004, RBX=0x00007f67d18c87e0, RCX=0x0000000000000000, RDX=0x0000000000000000
+RSP=0x00007f67d18c86b0, RBP=0x00007f67d18c88a0, RSI=0x00007f67d18c8590, RDI=0x0000000000000002
+R8 =0x0000000000000000, R9 =0x00007f67d18c8590, R10=0x0000000000000008, R11=0x0000000000000246
+R12=0x0000000000001000, R13=0x0000000000000000, R14=0x00007f67d18c8958, R15=0x0000000006bb7800
+RIP=0x00007f686044b8f0, EFLAGS=0x0000000000010246, CSGSFS=0x002b000000000033, ERR=0x0000000000000000
+  TRAPNO=0x000000000000000d
+
+Top of Stack: (sp=0x00007f67d18c86b0)
+0x00007f67d18c86b0:   0000000000000020 0000000000000000
+0x00007f67d18c86c0:   0000000000000000 0000000000000000
+0x00007f67d18c86d0:   0000000000000000 0000000000000000
+0x00007f67d18c86e0:   0000000000000000 0000000000000000 
+
+Instructions: (pc=0x00007f686044b8f0)
+0x00007f686044b7f0:   48 81 c4 80 00 00 00 bf 06 00 00 00 e8 cf e5 ff
+0x00007f686044b800:   ff 64 48 8b 14 25 10 00 00 00 48 39 15 27 c5 3a
+0x00007f686044b810:   00 74 46 be 01 00 00 00 31 c0 83 3d d7 00 3b 00
+0x00007f686044b820:   00 74 0c f0 0f b1 35 05 c5 3a 00 75 0b eb 23 0f
+0x00007f686044b830:   b1 35 fa c4 3a 00 74 1a 48 8d 3d f1 c4 3a 00 48
+0x00007f686044b840:   81 ec 80 00 00 00 e8 45 fe 0e 00 48 81 c4 80 00
+0x00007f686044b850:   00 00 48 89 15 df c4 3a 00 83 05 d4 c4 3a 00 01
+0x00007f686044b860:   48 8d b4 24 80 00 00 00 31 c0 b9 26 00 00 00 c7
+0x00007f686044b870:   05 c7 c4 3a 00 03 00 00 00 48 8d 56 08 48 89 f7
+0x00007f686044b880:   f3 ab b8 ff ff ff ff 48 89 d7 b9 80 00 00 00 31
+0x00007f686044b890:   d2 c7 84 24 08 01 00 00 00 00 00 00 f3 aa bf 06
+0x00007f686044b8a0:   00 00 00 e8 68 e8 ff ff 8b 05 92 c4 3a 00 e9 cd
+0x00007f686044b8b0:   fe ff ff bf 7f 00 00 00 c7 05 7e c4 3a 00 06 00
+0x00007f686044b8c0:   00 00 e8 09 45 0a 00 bf 06 00 00 00 c7 05 6a c4
+0x00007f686044b8d0:   3a 00 04 00 00 00 e8 f5 e4 ff ff 8b 05 5f c4 3a
+0x00007f686044b8e0:   00 e9 a3 fe ff ff c7 05 50 c4 3a 00 05 00 00 00
+0x00007f686044b8f0:   f4 8b 05 49 c4 3a 00 e9 96 fe ff ff 0f 1f 40 00
+0x00007f686044b900:   41 57 41 56 41 55 41 54 55 53 48 83 ec 18 48 85
+0x00007f686044b910:   d2 48 89 3c 24 48 89 74 24 08 74 49 49 89 d4 49
+0x00007f686044b920:   89 cd 4d 89 c6 31 ed eb 12 0f 1f 80 00 00 00 00
+0x00007f686044b930:   74 36 48 8d 6b 01 49 39 ec 76 2a 4a 8d 5c 25 00
+0x00007f686044b940:   48 8b 3c 24 48 d1 eb 49 89 df 4d 0f af fd 4c 03
+0x00007f686044b950:   7c 24 08 4c 89 fe 41 ff d6 85 c0 79 d3 49 89 dc
+0x00007f686044b960:   49 39 ec 77 d6 45 31 ff 48 83 c4 18 4c 89 f8 5b
+0x00007f686044b970:   5d 41 5c 41 5d 41 5e 41 5f c3 66 0f 1f 44 00 00
+0x00007f686044b980:   41 57 41 56 41 55 41 54 55 53 48 81 ec 88 04 00
+0x00007f686044b990:   00 64 48 8b 04 25 28 00 00 00 48 89 84 24 78 04
+0x00007f686044b9a0:   00 00 31 c0 48 85 f6 48 89 7c 24 48 0f 84 8d 05
+0x00007f686044b9b0:   00 00 48 8d 04 95 00 00 00 00 49 89 d7 48 89 cd
+0x00007f686044b9c0:   4d 89 c4 48 89 44 24 38 48 8d 46 ff 48 0f af c2
+0x00007f686044b9d0:   48 01 f8 48 83 fe 04 48 89 44 24 20 0f 86 59 01
+0x00007f686044b9e0:   00 00 48 89 44 24 18 48 8d 44 24 70 48 89 d3 66 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x0000000000000020 is an unknown value
+stack at sp + 1 slots: 0x0 is NULL
+stack at sp + 2 slots: 0x0 is NULL
+stack at sp + 3 slots: 0x0 is NULL
+stack at sp + 4 slots: 0x0 is NULL
+stack at sp + 5 slots: 0x0 is NULL
+stack at sp + 6 slots: 0x0 is NULL
+stack at sp + 7 slots: 0x0 is NULL
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x0000000006bb7320, length=12, elements={
+0x000000000581e800, 0x0000000006a8f800, 0x0000000006a91800, 0x0000000006a96000,
+0x0000000006a98000, 0x0000000006a9a000, 0x0000000006a9c800, 0x0000000006afa800,
+0x0000000006b02000, 0x00007f6780036000, 0x00007f6780038000, 0x0000000006bb7800
+}
+
+Java Threads: ( => current thread )
+  0x000000000581e800 JavaThread "main" [_thread_in_native, id=1, stack(0x00007ffdd4c93000,0x00007ffdd4d93000)]
+  0x0000000006a8f800 JavaThread "Reference Handler" daemon [_thread_blocked, id=25, stack(0x00007f67d26fd000,0x00007f67d27fe000)]
+  0x0000000006a91800 JavaThread "Finalizer" daemon [_thread_blocked, id=26, stack(0x00007f67d25fc000,0x00007f67d26fd000)]
+  0x0000000006a96000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=27, stack(0x00007f67d24fb000,0x00007f67d25fc000)]
+  0x0000000006a98000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=28, stack(0x00007f67d23fa000,0x00007f67d24fb000)]
+  0x0000000006a9a000 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=29, stack(0x00007f67d22f9000,0x00007f67d23fa000)]
+  0x0000000006a9c800 JavaThread "Sweeper thread" daemon [_thread_blocked, id=30, stack(0x00007f67d21f8000,0x00007f67d22f9000)]
+  0x0000000006afa800 JavaThread "Service Thread" daemon [_thread_blocked, id=31, stack(0x00007f67d20f7000,0x00007f67d21f8000)]
+  0x0000000006b02000 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=33, stack(0x00007f67d1ef4000,0x00007f67d1ff5000)]
+  0x00007f6780036000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=34, stack(0x00007f67d1df3000,0x00007f67d1ef4000)]
+  0x00007f6780038000 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=35, stack(0x00007f67d1cf2000,0x00007f67d1df3000)]
+=>0x0000000006bb7800 JavaThread "Thread-0" daemon [_thread_in_native, id=36, stack(0x00007f67d17c9000,0x00007f67d18ca000)]
+
+Other Threads:
+  0x0000000006a8c800 VMThread "VM Thread" [stack: 0x00007f67d2800000,0x00007f67d2900000] [id=24]
+  0x0000000006afd000 WatcherThread [stack: 0x00007f67d1ff7000,0x00007f67d20f7000] [id=32]
+  0x000000000582d800 GCTaskThread "GC Thread#0" [stack: 0x00007f67d7b4d000,0x00007f67d7c4d000] [id=19]
+  0x00007f678c001000 GCTaskThread "GC Thread#1" [stack: 0x00007f67d1689000,0x00007f67d1789000] [id=37]
+  0x00007f678c003000 GCTaskThread "GC Thread#2" [stack: 0x00007f67d1587000,0x00007f67d1687000] [id=38]
+  0x00007f678c004800 GCTaskThread "GC Thread#3" [stack: 0x00007f67d1485000,0x00007f67d1585000] [id=39]
+  0x00007f678c006000 GCTaskThread "GC Thread#4" [stack: 0x00007f67d1383000,0x00007f67d1483000] [id=40]
+  0x00007f678c007800 GCTaskThread "GC Thread#5" [stack: 0x00007f67d1281000,0x00007f67d1381000] [id=41]
+  0x0000000006047000 ConcurrentGCThread "G1 Main Marker" [stack: 0x00007f67d5408000,0x00007f67d5508000] [id=20]
+  0x0000000006048000 ConcurrentGCThread "G1 Conc#0" [stack: 0x00007f67d5306000,0x00007f67d5406000] [id=21]
+  0x0000000006920800 ConcurrentGCThread "G1 Refine#0" [stack: 0x00007f67d3204000,0x00007f67d3304000] [id=22]
+  0x0000000006921800 ConcurrentGCThread "G1 Young RemSet Sampling" [stack: 0x00007f67d3102000,0x00007f67d3202000] [id=23]
+
+Threads with active compile tasks:
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x00000000c0000000, size: 1024 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000800000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000840000000
+
+Heap:
+ garbage-first heap   total 14336K, used 1990K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 1 young (1024K), 0 survivors (0K)
+ Metaspace       used 1385K, capacity 4711K, committed 4864K, reserved 1056768K
+  class space    used 120K, capacity 438K, committed 512K, reserved 1048576K
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, A=archive, TAMS=top-at-mark-start (previous, next)
+|   0|0x00000000c0000000, 0x00000000c00bf438, 0x00000000c0100000| 74%| O|  |TAMS 0x00000000c0000000, 0x00000000c0000000| Untracked 
+|   1|0x00000000c0100000, 0x00000000c0181580, 0x00000000c0200000| 50%| O|  |TAMS 0x00000000c0100000, 0x00000000c0100000| Untracked 
+|   2|0x00000000c0200000, 0x00000000c0200000, 0x00000000c0300000|  0%| F|  |TAMS 0x00000000c0200000, 0x00000000c0200000| Untracked 
+|   3|0x00000000c0300000, 0x00000000c0300000, 0x00000000c0400000|  0%| F|  |TAMS 0x00000000c0300000, 0x00000000c0300000| Untracked 
+|   4|0x00000000c0400000, 0x00000000c0400000, 0x00000000c0500000|  0%| F|  |TAMS 0x00000000c0400000, 0x00000000c0400000| Untracked 
+|   5|0x00000000c0500000, 0x00000000c0500000, 0x00000000c0600000|  0%| F|  |TAMS 0x00000000c0500000, 0x00000000c0500000| Untracked 
+|   6|0x00000000c0600000, 0x00000000c0600000, 0x00000000c0700000|  0%| F|  |TAMS 0x00000000c0600000, 0x00000000c0600000| Untracked 
+|   7|0x00000000c0700000, 0x00000000c0700000, 0x00000000c0800000|  0%| F|  |TAMS 0x00000000c0700000, 0x00000000c0700000| Untracked 
+|   8|0x00000000c0800000, 0x00000000c0800000, 0x00000000c0900000|  0%| F|  |TAMS 0x00000000c0800000, 0x00000000c0800000| Untracked 
+|   9|0x00000000c0900000, 0x00000000c0900000, 0x00000000c0a00000|  0%| F|  |TAMS 0x00000000c0900000, 0x00000000c0900000| Untracked 
+|  10|0x00000000c0a00000, 0x00000000c0a00000, 0x00000000c0b00000|  0%| F|  |TAMS 0x00000000c0a00000, 0x00000000c0a00000| Untracked 
+|  11|0x00000000c0b00000, 0x00000000c0b147e0, 0x00000000c0c00000|  8%| E|  |TAMS 0x00000000c0b00000, 0x00000000c0b00000| Complete 
+|1022|0x00000000ffe00000, 0x00000000ffe47000, 0x00000000fff00000| 27%|OA|  |TAMS 0x00000000ffe00000, 0x00000000ffe00000| Untracked 
+|1023|0x00000000fff00000, 0x00000000fff6a000, 0x0000000100000000| 41%|CA|  |TAMS 0x00000000fff00000, 0x00000000fff00000| Untracked 
+
+Card table byte_map: [0x00007f67d774b000,0x00007f67d794b000] _byte_map_base: 0x00007f67d714b000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x0000000006042778, (CMBitMap*) 0x00000000060427b0
+ Prev Bits: [0x00007f67d654b000, 0x00007f67d754b000)
+ Next Bits: [0x00007f67d554b000, 0x00007f67d654b000)
+
+Polling page: 0x00007f6860824000
+
+Metaspace:
+
+Usage:
+  Non-class:      4.17 MB capacity,     1.24 MB ( 30%) used,     2.94 MB ( 70%) free+waste,     1.94 KB ( <1%) overhead. 
+      Class:    438.00 KB capacity,   120.96 KB ( 28%) used,   315.85 KB ( 72%) free+waste,     1.19 KB ( <1%) overhead. 
+       Both:      4.60 MB capacity,     1.35 MB ( 29%) used,     3.24 MB ( 71%) free+waste,     3.12 KB ( <1%) overhead. 
+
+Virtual space:
+  Non-class space:        8.00 MB reserved,       4.25 MB ( 53%) committed 
+      Class space:        1.00 GB reserved,     512.00 KB ( <1%) committed 
+             Both:        1.01 GB reserved,       4.75 MB ( <1%) committed 
+
+Chunk freelists:
+   Non-Class:  15.00 KB
+       Class:  10.00 KB
+        Both:  25.00 KB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+
+CodeHeap 'non-profiled nmethods': size=120032Kb used=125Kb max_used=125Kb free=119906Kb
+ bounds [0x00007f67b03d5000, 0x00007f67b0645000, 0x00007f67b790d000]
+CodeHeap 'profiled nmethods': size=120028Kb used=674Kb max_used=674Kb free=119353Kb
+ bounds [0x00007f67a8e9e000, 0x00007f67a910e000, 0x00007f67b03d5000]
+CodeHeap 'non-nmethods': size=5700Kb used=1054Kb max_used=1068Kb free=4645Kb
+ bounds [0x00007f67a890d000, 0x00007f67a8b7d000, 0x00007f67a8e9e000]
+ total_blobs=872 nmethods=410 adapters=256
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 0.258 Thread 0x0000000006a9a000 nmethod 402 0x00007f67a8f3ed90 code [0x00007f67a8f3efc0, 0x00007f67a8f3f5e8]
+Event: 0.258 Thread 0x0000000006a9a000  403       3       org.jpype.manager.MethodResolution::isAssignableTo (71 bytes)
+Event: 0.258 Thread 0x0000000006a9a000 nmethod 403 0x00007f67a8f3f790 code [0x00007f67a8f3f9a0, 0x00007f67a8f40038]
+Event: 0.258 Thread 0x0000000006a9a000  404       3       java.util.TreeMap::successor (66 bytes)
+Event: 0.258 Thread 0x00007f6780036000 nmethod 371 0x00007f67b03f3810 code [0x00007f67b03f39e0, 0x00007f67b03f40f8]
+Event: 0.259 Thread 0x0000000006a9a000 nmethod 404 0x00007f67a8f40210 code [0x00007f67a8f403e0, 0x00007f67a8f40770]
+Event: 0.259 Thread 0x0000000006a9a000  409       3       org.jpype.manager.TypeManager::isCallerSensitive (88 bytes)
+Event: 0.259 Thread 0x0000000006a9a000 nmethod 409 0x00007f67a8f40910 code [0x00007f67a8f40ba0, 0x00007f67a8f41a28]
+Event: 0.259 Thread 0x0000000006a9a000  405       3       java.lang.reflect.AccessibleObject::getAnnotations (5 bytes)
+Event: 0.259 Thread 0x0000000006a9a000 nmethod 405 0x00007f67a8f41d90 code [0x00007f67a8f41f40, 0x00007f67a8f42188]
+Event: 0.259 Thread 0x0000000006a9a000  406       3       java.lang.reflect.Method::getDeclaredAnnotations (5 bytes)
+Event: 0.259 Thread 0x0000000006a9a000 nmethod 406 0x00007f67a8f42210 code [0x00007f67a8f42400, 0x00007f67a8f42928]
+Event: 0.259 Thread 0x0000000006a9a000  407       3       java.lang.reflect.Executable::getDeclaredAnnotations (8 bytes)
+Event: 0.259 Thread 0x0000000006a9a000 nmethod 407 0x00007f67a8f42a90 code [0x00007f67a8f42c80, 0x00007f67a8f43148]
+Event: 0.259 Thread 0x0000000006a9a000  410       3       org.jpype.manager.TypeManager::createMethods (380 bytes)
+Event: 0.260 Thread 0x0000000006a9a000 nmethod 410 0x00007f67a8f43290 code [0x00007f67a8f43640, 0x00007f67a8f45358]
+Event: 0.260 Thread 0x0000000006a9a000  408       3       sun.reflect.annotation.AnnotationParser::toArray (18 bytes)
+Event: 0.260 Thread 0x0000000006a9a000 nmethod 408 0x00007f67a8f45d90 code [0x00007f67a8f45f60, 0x00007f67a8f46358]
+Event: 0.260 Thread 0x0000000006a9a000  401       3       java.util.TreeSet::add (22 bytes)
+Event: 0.260 Thread 0x0000000006a9a000 nmethod 401 0x00007f67a8f46490 code [0x00007f67a8f46660, 0x00007f67a8f46908]
+
+GC Heap History (4 events):
+Event: 0.238 GC heap before
+{Heap before GC invocations=0 (full 0):
+ garbage-first heap   total 258048K, used 3780K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 4 young (4096K), 0 survivors (0K)
+ Metaspace       used 1315K, capacity 4704K, committed 4864K, reserved 1056768K
+  class space    used 117K, capacity 437K, committed 512K, reserved 1048576K
+}
+Event: 0.248 GC heap after
+{Heap after GC invocations=1 (full 1):
+ garbage-first heap   total 20480K, used 1786K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 1315K, capacity 4704K, committed 4864K, reserved 1056768K
+  class space    used 117K, capacity 437K, committed 512K, reserved 1048576K
+}
+Event: 2.071 GC heap before
+{Heap before GC invocations=1 (full 1):
+ garbage-first heap   total 20480K, used 1786K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 1 young (1024K), 0 survivors (0K)
+ Metaspace       used 1385K, capacity 4711K, committed 4864K, reserved 1056768K
+  class space    used 120K, capacity 438K, committed 512K, reserved 1048576K
+}
+Event: 2.073 GC heap after
+{Heap after GC invocations=2 (full 2):
+ garbage-first heap   total 14336K, used 1990K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 1385K, capacity 4711K, committed 4864K, reserved 1056768K
+  class space    used 120K, capacity 438K, committed 512K, reserved 1048576K
+}
+
+Deoptimization events (16 events):
+Event: 0.250 Thread 0x000000000581e800 Uncommon trap: trap_request=0xffffffbe fr.pc=0x00007f67b03ee820 relative=0x0000000000000540
+Event: 0.250 Thread 0x000000000581e800 Uncommon trap: reason=profile_predicate action=maybe_recompile pc=0x00007f67b03ee820 method=java.lang.PublicMethods$MethodList.filter([Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class;Z)Ljava/lang/PublicMethods$MethodList; @ 21 c2
+Event: 0.250 Thread 0x000000000581e800 DEOPT PACKING pc=0x00007f67b03ee820 sp=0x00007ffdd4d8ad70
+Event: 0.250 Thread 0x000000000581e800 DEOPT UNPACKING pc=0x00007f67a8935a25 sp=0x00007ffdd4d8ad28 mode 2
+Event: 0.250 Thread 0x000000000581e800 Uncommon trap: trap_request=0xffffffbe fr.pc=0x00007f67b03ee820 relative=0x0000000000000540
+Event: 0.250 Thread 0x000000000581e800 Uncommon trap: reason=profile_predicate action=maybe_recompile pc=0x00007f67b03ee820 method=java.lang.PublicMethods$MethodList.filter([Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class;Z)Ljava/lang/PublicMethods$MethodList; @ 21 c2
+Event: 0.250 Thread 0x000000000581e800 DEOPT PACKING pc=0x00007f67b03ee820 sp=0x00007ffdd4d8acc0
+Event: 0.250 Thread 0x000000000581e800 DEOPT UNPACKING pc=0x00007f67a8935a25 sp=0x00007ffdd4d8ac78 mode 2
+Event: 0.250 Thread 0x000000000581e800 Uncommon trap: trap_request=0xffffffbe fr.pc=0x00007f67b03ee820 relative=0x0000000000000540
+Event: 0.250 Thread 0x000000000581e800 Uncommon trap: reason=profile_predicate action=maybe_recompile pc=0x00007f67b03ee820 method=java.lang.PublicMethods$MethodList.filter([Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class;Z)Ljava/lang/PublicMethods$MethodList; @ 21 c2
+Event: 0.250 Thread 0x000000000581e800 DEOPT PACKING pc=0x00007f67b03ee820 sp=0x00007ffdd4d8ad70
+Event: 0.250 Thread 0x000000000581e800 DEOPT UNPACKING pc=0x00007f67a8935a25 sp=0x00007ffdd4d8ad28 mode 2
+Event: 0.250 Thread 0x000000000581e800 Uncommon trap: trap_request=0xffffffbe fr.pc=0x00007f67b03ee820 relative=0x0000000000000540
+Event: 0.250 Thread 0x000000000581e800 Uncommon trap: reason=profile_predicate action=maybe_recompile pc=0x00007f67b03ee820 method=java.lang.PublicMethods$MethodList.filter([Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class;Z)Ljava/lang/PublicMethods$MethodList; @ 21 c2
+Event: 0.250 Thread 0x000000000581e800 DEOPT PACKING pc=0x00007f67b03ee820 sp=0x00007ffdd4d8acc0
+Event: 0.250 Thread 0x000000000581e800 DEOPT UNPACKING pc=0x00007f67a8935a25 sp=0x00007ffdd4d8ac78 mode 2
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (4 events):
+Event: 0.177 Thread 0x000000000581e800 Exception <a 'java/security/PrivilegedActionException'{0x00000000cf82ec00}> (0x00000000cf82ec00) thrown at [./src/hotspot/share/prims/jvm.cpp, line 1297]
+Event: 0.177 Thread 0x000000000581e800 Exception <a 'java/security/PrivilegedActionException'{0x00000000cf82eed0}> (0x00000000cf82eed0) thrown at [./src/hotspot/share/prims/jvm.cpp, line 1297]
+Event: 0.187 Thread 0x000000000581e800 Exception <a 'java/security/PrivilegedActionException'{0x00000000cf8df940}> (0x00000000cf8df940) thrown at [./src/hotspot/share/prims/jvm.cpp, line 1297]
+Event: 0.187 Thread 0x000000000581e800 Exception <a 'java/security/PrivilegedActionException'{0x00000000cf8dfc10}> (0x00000000cf8dfc10) thrown at [./src/hotspot/share/prims/jvm.cpp, line 1297]
+
+Events (20 events):
+Event: 0.230 loading class java/lang/NumberFormatException
+Event: 0.230 loading class java/lang/NumberFormatException done
+Event: 0.234 loading class java/lang/Character$UnicodeScript
+Event: 0.235 loading class java/lang/Character$UnicodeScript done
+Event: 0.235 loading class java/lang/Character$UnicodeBlock
+Event: 0.235 loading class java/lang/Character$Subset
+Event: 0.235 loading class java/lang/Character$Subset done
+Event: 0.235 loading class java/lang/Character$UnicodeBlock done
+Event: 0.237 loading class java/io/ObjectStreamException
+Event: 0.237 loading class java/io/ObjectStreamException done
+Event: 0.237 Executing VM operation: G1CollectFull
+Event: 0.248 Executing VM operation: G1CollectFull done
+Event: 0.252 loading class java/lang/Short$ShortCache
+Event: 0.252 loading class java/lang/Short$ShortCache done
+Event: 0.258 loading class kr/lucypark/okt/OktInterface
+Event: 0.258 loading class kr/lucypark/okt/OktInterface done
+Event: 0.259 loading class jdk/internal/loader/URLClassPath$FileLoader$1
+Event: 0.259 loading class jdk/internal/loader/URLClassPath$FileLoader$1 done
+Event: 2.071 Executing VM operation: G1CollectFull
+Event: 2.073 Executing VM operation: G1CollectFull done
+
+
+Dynamic libraries:
+00400000-007b4000 r-xp 00000000 08:02 15076781                           /usr/bin/python3.6
+009b3000-009b4000 r--p 003b3000 08:02 15076781                           /usr/bin/python3.6
+009b4000-00a51000 rw-p 003b4000 08:02 15076781                           /usr/bin/python3.6
+00a51000-00a84000 rw-p 00000000 00:00 0 
+02943000-66796000 rw-p 00000000 00:00 0                                  [heap]
+c0000000-c0c00000 rw-p 00000000 00:00 0 
+c0c00000-ffe00000 ---p 00000000 00:00 0 
+ffe00000-ffe47000 rw-p 0110b000 08:02 15731748                           /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+ffe47000-fff00000 rw-p 00000000 00:00 0 
+fff00000-fff6a000 rw-p 010a1000 08:02 15731748                           /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+fff6a000-100000000 rw-p 00000000 00:00 0 
+200000000-200200000 ---p 00000000 00:00 0 
+200200000-200400000 rw-s 00000000 00:06 499                              /dev/nvidiactl
+200400000-200600000 rw-s 00000000 00:06 500                              /dev/nvidia0
+200600000-203e00000 rw-s 00000000 00:06 499                              /dev/nvidiactl
+203e00000-204000000 rw-s 00000000 00:06 500                              /dev/nvidia0
+204000000-204a00000 ---p 00000000 00:00 0 
+204a00000-204c00000 rw-s 00000000 00:06 499                              /dev/nvidiactl
+204c00000-204e00000 rw-s 00000000 00:06 499                              /dev/nvidiactl
+204e00000-205000000 rw-s 204e00000 00:06 492                             /dev/nvidia-uvm
+205000000-205200000 rw-s 00000000 00:06 499                              /dev/nvidiactl
+205200000-205400000 ---p 00000000 00:00 0 
+205400000-205600000 rw-s 00000000 00:06 499                              /dev/nvidiactl
+205600000-300200000 ---p 00000000 00:00 0 
+800000000-800002000 rwxp 00001000 08:02 15731748                         /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+800002000-8003b8000 rw-p 00003000 08:02 15731748                         /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+8003b8000-800a93000 r--p 003b9000 08:02 15731748                         /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+800a93000-800a94000 rw-p 00a94000 08:02 15731748                         /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+800a94000-8010a0000 r--p 00a95000 08:02 15731748                         /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+840000000-840080000 rw-p 00000000 00:00 0 
+840080000-880000000 ---p 00000000 00:00 0 
+10000000000-10004000000 ---p 00000000 00:00 0 
+7f6708000000-7f6720000000 ---p 00000000 00:00 0 
+7f67202c3000-7f6722000000 rw-p 00000000 00:00 0 
+7f6722000000-7f6728000000 ---p 00000000 00:00 0 
+7f67294ea000-7f672ea75000 rw-p 00000000 00:00 0 
+7f6730ef3000-7f6732000000 rw-p 00000000 00:00 0 
+7f6732000000-7f6738e00000 ---p 00000000 00:00 0 
+7f6738e00000-7f6739000000 rw-s 00000000 00:01 3072389                    /dev/zero (deleted)
+7f6739000000-7f6744000000 ---p 00000000 00:00 0 
+7f6744000000-7f6744021000 rw-p 00000000 00:00 0 
+7f6744021000-7f6748000000 ---p 00000000 00:00 0 
+7f674919f000-7f674a000000 rw-p 00000000 00:00 0 
+7f674a000000-7f674a400000 ---p 00000000 00:00 0 
+7f674a400000-7f674a600000 rw-s 00000000 00:01 3072384                    /dev/zero (deleted)
+7f674a600000-7f674a800000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f674a800000-7f674aa00000 rw-s 00000000 00:01 3072385                    /dev/zero (deleted)
+7f674aa00000-7f674ae00000 ---p 00000000 00:00 0 
+7f674ae00000-7f674b000000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f674b000000-7f674b200000 ---p 00000000 00:00 0 
+7f674b200000-7f674b400000 rw-s 00000000 00:01 3072387                    /dev/zero (deleted)
+7f674b400000-7f674b4e7000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f674b4e7000-7f674c000000 ---p 00000000 00:00 0 
+7f674c000000-7f674c021000 rw-p 00000000 00:00 0 
+7f674c021000-7f6750000000 ---p 00000000 00:00 0 
+7f6750000000-7f6750021000 rw-p 00000000 00:00 0 
+7f6750021000-7f6754000000 ---p 00000000 00:00 0 
+7f6754000000-7f6754021000 rw-p 00000000 00:00 0 
+7f6754021000-7f6758000000 ---p 00000000 00:00 0 
+7f6758000000-7f6758021000 rw-p 00000000 00:00 0 
+7f6758021000-7f675c000000 ---p 00000000 00:00 0 
+7f675c000000-7f675c021000 rw-p 00000000 00:00 0 
+7f675c021000-7f6760000000 ---p 00000000 00:00 0 
+7f6760000000-7f6760021000 rw-p 00000000 00:00 0 
+7f6760021000-7f6764000000 ---p 00000000 00:00 0 
+7f6764000000-7f6764179000 rw-p 00000000 00:00 0 
+7f6764179000-7f6768000000 ---p 00000000 00:00 0 
+7f6768000000-7f67681c3000 rw-p 00000000 00:00 0 
+7f67681c3000-7f676c000000 ---p 00000000 00:00 0 
+7f676c000000-7f676c021000 rw-p 00000000 00:00 0 
+7f676c021000-7f6770000000 ---p 00000000 00:00 0 
+7f6770000000-7f6770021000 rw-p 00000000 00:00 0 
+7f6770021000-7f6774000000 ---p 00000000 00:00 0 
+7f6774000000-7f6774021000 rw-p 00000000 00:00 0 
+7f6774021000-7f6778000000 ---p 00000000 00:00 0 
+7f6778000000-7f6778021000 rw-p 00000000 00:00 0 
+7f6778021000-7f677c000000 ---p 00000000 00:00 0 
+7f677c000000-7f677c224000 rw-p 00000000 00:00 0 
+7f677c224000-7f6780000000 ---p 00000000 00:00 0 
+7f6780000000-7f6780097000 rw-p 00000000 00:00 0 
+7f6780097000-7f6784000000 ---p 00000000 00:00 0 
+7f6784000000-7f6784021000 rw-p 00000000 00:00 0 
+7f6784021000-7f6788000000 ---p 00000000 00:00 0 
+7f6788000000-7f6788021000 rw-p 00000000 00:00 0 
+7f6788021000-7f678c000000 ---p 00000000 00:00 0 
+7f678c000000-7f678ca0f000 rw-p 00000000 00:00 0 
+7f678ca0f000-7f6790000000 ---p 00000000 00:00 0 
+7f6790000000-7f6790021000 rw-p 00000000 00:00 0 
+7f6790021000-7f6794000000 ---p 00000000 00:00 0 
+7f6794000000-7f6794021000 rw-p 00000000 00:00 0 
+7f6794021000-7f6798000000 ---p 00000000 00:00 0 
+7f6798000000-7f6798021000 rw-p 00000000 00:00 0 
+7f6798021000-7f679c000000 ---p 00000000 00:00 0 
+7f679c000000-7f679c021000 rw-p 00000000 00:00 0 
+7f679c021000-7f67a0000000 ---p 00000000 00:00 0 
+7f67a0000000-7f67a0021000 rw-p 00000000 00:00 0 
+7f67a0021000-7f67a4000000 ---p 00000000 00:00 0 
+7f67a4000000-7f67a4021000 rw-p 00000000 00:00 0 
+7f67a4021000-7f67a8000000 ---p 00000000 00:00 0 
+7f67a890d000-7f67a8b7d000 rwxp 00000000 00:00 0 
+7f67a8b7d000-7f67a8e9e000 ---p 00000000 00:00 0 
+7f67a8e9e000-7f67a910e000 rwxp 00000000 00:00 0 
+7f67a910e000-7f67b03d5000 ---p 00000000 00:00 0 
+7f67b03d5000-7f67b0645000 rwxp 00000000 00:00 0 
+7f67b0645000-7f67b790d000 ---p 00000000 00:00 0 
+7f67b790d000-7f67c0000000 r--s 00000000 08:02 15731737                   /usr/lib/jvm/java-11-openjdk-amd64/lib/modules
+7f67c0000000-7f67d0000000 ---p 00000000 00:00 0 
+7f67d103f000-7f67d123f000 rw-s 00000000 00:01 3072386                    /dev/zero (deleted)
+7f67d123f000-7f67d127f000 rw-p 00000000 00:00 0 
+7f67d127f000-7f67d1280000 ---p 00000000 00:00 0 
+7f67d1280000-7f67d1381000 rw-p 00000000 00:00 0 
+7f67d1381000-7f67d1382000 ---p 00000000 00:00 0 
+7f67d1382000-7f67d1483000 rw-p 00000000 00:00 0 
+7f67d1483000-7f67d1484000 ---p 00000000 00:00 0 
+7f67d1484000-7f67d1585000 rw-p 00000000 00:00 0 
+7f67d1585000-7f67d1586000 ---p 00000000 00:00 0 
+7f67d1586000-7f67d1687000 rw-p 00000000 00:00 0 
+7f67d1687000-7f67d1688000 ---p 00000000 00:00 0 
+7f67d1688000-7f67d17c9000 rw-p 00000000 00:00 0 
+7f67d17c9000-7f67d17cd000 ---p 00000000 00:00 0 
+7f67d17cd000-7f67d18ca000 rw-p 00000000 00:00 0 
+7f67d18ca000-7f67d18e0000 r-xp 00000000 08:02 15729835                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libnet.so
+7f67d18e0000-7f67d1adf000 ---p 00016000 08:02 15729835                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libnet.so
+7f67d1adf000-7f67d1ae0000 r--p 00015000 08:02 15729835                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libnet.so
+7f67d1ae0000-7f67d1ae1000 rw-p 00016000 08:02 15729835                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libnet.so
+7f67d1ae1000-7f67d1af1000 r-xp 00000000 08:02 15729836                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libnio.so
+7f67d1af1000-7f67d1cf0000 ---p 00010000 08:02 15729836                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libnio.so
+7f67d1cf0000-7f67d1cf1000 r--p 0000f000 08:02 15729836                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libnio.so
+7f67d1cf1000-7f67d1cf2000 rw-p 00010000 08:02 15729836                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libnio.so
+7f67d1cf2000-7f67d1cf6000 ---p 00000000 00:00 0 
+7f67d1cf6000-7f67d1df3000 rw-p 00000000 00:00 0 
+7f67d1df3000-7f67d1df7000 ---p 00000000 00:00 0 
+7f67d1df7000-7f67d1ef4000 rw-p 00000000 00:00 0 
+7f67d1ef4000-7f67d1ef8000 ---p 00000000 00:00 0 
+7f67d1ef8000-7f67d1ff5000 rw-p 00000000 00:00 0 
+7f67d1ff5000-7f67d1ff6000 ---p 00000000 00:00 0 
+7f67d1ff6000-7f67d20f7000 rw-p 00000000 00:00 0 
+7f67d20f7000-7f67d20fb000 ---p 00000000 00:00 0 
+7f67d20fb000-7f67d21f8000 rw-p 00000000 00:00 0 
+7f67d21f8000-7f67d21fc000 ---p 00000000 00:00 0 
+7f67d21fc000-7f67d22f9000 rw-p 00000000 00:00 0 
+7f67d22f9000-7f67d22fd000 ---p 00000000 00:00 0 
+7f67d22fd000-7f67d23fa000 rw-p 00000000 00:00 0 
+7f67d23fa000-7f67d23fe000 ---p 00000000 00:00 0 
+7f67d23fe000-7f67d24fb000 rw-p 00000000 00:00 0 
+7f67d24fb000-7f67d24ff000 ---p 00000000 00:00 0 
+7f67d24ff000-7f67d25fc000 rw-p 00000000 00:00 0 
+7f67d25fc000-7f67d2600000 ---p 00000000 00:00 0 
+7f67d2600000-7f67d26fd000 rw-p 00000000 00:00 0 
+7f67d26fd000-7f67d2701000 ---p 00000000 00:00 0 
+7f67d2701000-7f67d27fe000 rw-p 00000000 00:00 0 
+7f67d27fe000-7f67d27ff000 ---p 00000000 00:00 0 
+7f67d27ff000-7f67d2d40000 rw-p 00000000 00:00 0 
+7f67d2d40000-7f67d3100000 ---p 00000000 00:00 0 
+7f67d3100000-7f67d3101000 ---p 00000000 00:00 0 
+7f67d3101000-7f67d3202000 rw-p 00000000 00:00 0 
+7f67d3202000-7f67d3203000 ---p 00000000 00:00 0 
+7f67d3203000-7f67d5304000 rw-p 00000000 00:00 0 
+7f67d5304000-7f67d5305000 ---p 00000000 00:00 0 
+7f67d5305000-7f67d5406000 rw-p 00000000 00:00 0 
+7f67d5406000-7f67d5407000 ---p 00000000 00:00 0 
+7f67d5407000-7f67d557b000 rw-p 00000000 00:00 0 
+7f67d557b000-7f67d6543000 ---p 00000000 00:00 0 
+7f67d6543000-7f67d657b000 rw-p 00000000 00:00 0 
+7f67d657b000-7f67d7543000 ---p 00000000 00:00 0 
+7f67d7543000-7f67d7551000 rw-p 00000000 00:00 0 
+7f67d7551000-7f67d774a000 ---p 00000000 00:00 0 
+7f67d774a000-7f67d7751000 rw-p 00000000 00:00 0 
+7f67d7751000-7f67d794a000 ---p 00000000 00:00 0 
+7f67d794a000-7f67d7951000 rw-p 00000000 00:00 0 
+7f67d7951000-7f67d7b4a000 ---p 00000000 00:00 0 
+7f67d7b4a000-7f67d7b4b000 rw-p 00000000 00:00 0 
+7f67d7b4b000-7f67d7b4c000 ---p 00000000 00:00 0 
+7f67d7b4c000-7f67d7c52000 rw-p 00000000 00:00 0 
+7f67d7c52000-7f67d7d38000 ---p 00000000 00:00 0 
+7f67d7d38000-7f67d7d3d000 rw-p 00000000 00:00 0 
+7f67d7d3d000-7f67d7e23000 ---p 00000000 00:00 0 
+7f67d7e23000-7f67d7e28000 r-xp 00000000 08:02 15729827                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so
+7f67d7e28000-7f67d8027000 ---p 00005000 08:02 15729827                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so
+7f67d8027000-7f67d8028000 r--p 00004000 08:02 15729827                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so
+7f67d8028000-7f67d8029000 rw-p 00005000 08:02 15729827                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so
+7f67d8029000-7f67d8030000 r-xp 00000000 08:02 15731736                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libzip.so
+7f67d8030000-7f67d822f000 ---p 00007000 08:02 15731736                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libzip.so
+7f67d822f000-7f67d8230000 r--p 00006000 08:02 15731736                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libzip.so
+7f67d8230000-7f67d8231000 rw-p 00007000 08:02 15731736                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libzip.so
+7f67d8231000-7f67d823c000 r-xp 00000000 08:02 12714439                   /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7f67d823c000-7f67d843b000 ---p 0000b000 08:02 12714439                   /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7f67d843b000-7f67d843c000 r--p 0000a000 08:02 12714439                   /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7f67d843c000-7f67d843d000 rw-p 0000b000 08:02 12714439                   /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7f67d843d000-7f67d8443000 rw-p 00000000 00:00 0 
+7f67d8443000-7f67d845a000 r-xp 00000000 08:02 12714433                   /lib/x86_64-linux-gnu/libnsl-2.27.so
+7f67d845a000-7f67d8659000 ---p 00017000 08:02 12714433                   /lib/x86_64-linux-gnu/libnsl-2.27.so
+7f67d8659000-7f67d865a000 r--p 00016000 08:02 12714433                   /lib/x86_64-linux-gnu/libnsl-2.27.so
+7f67d865a000-7f67d865b000 rw-p 00017000 08:02 12714433                   /lib/x86_64-linux-gnu/libnsl-2.27.so
+7f67d865b000-7f67d865d000 rw-p 00000000 00:00 0 
+7f67d865d000-7f67d8668000 r-xp 00000000 08:02 12714443                   /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7f67d8668000-7f67d8867000 ---p 0000b000 08:02 12714443                   /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7f67d8867000-7f67d8868000 r--p 0000a000 08:02 12714443                   /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7f67d8868000-7f67d8869000 rw-p 0000b000 08:02 12714443                   /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7f67d8869000-7f67d8871000 r-xp 00000000 08:02 12714435                   /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7f67d8871000-7f67d8a71000 ---p 00008000 08:02 12714435                   /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7f67d8a71000-7f67d8a72000 r--p 00008000 08:02 12714435                   /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7f67d8a72000-7f67d8a73000 rw-p 00009000 08:02 12714435                   /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7f67d8a73000-7f67d8a9c000 r-xp 00000000 08:02 15729823                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libjava.so
+7f67d8a9c000-7f67d8c9b000 ---p 00029000 08:02 15729823                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libjava.so
+7f67d8c9b000-7f67d8c9c000 r--p 00028000 08:02 15729823                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libjava.so
+7f67d8c9c000-7f67d8c9e000 rw-p 00029000 08:02 15729823                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libjava.so
+7f67d8c9e000-7f67d8cab000 r-xp 00000000 08:02 15729844                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libverify.so
+7f67d8cab000-7f67d8eaa000 ---p 0000d000 08:02 15729844                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libverify.so
+7f67d8eaa000-7f67d8eac000 r--p 0000c000 08:02 15729844                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libverify.so
+7f67d8eac000-7f67d8ead000 rw-p 0000e000 08:02 15729844                   /usr/lib/jvm/java-11-openjdk-amd64/lib/libverify.so
+7f67d8ead000-7f67d9f8a000 r-xp 00000000 08:02 15731750                   /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so
+7f67d9f8a000-7f67da189000 ---p 010dd000 08:02 15731750                   /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so
+7f67da189000-7f67da246000 r--p 010dc000 08:02 15731750                   /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so
+7f67da246000-7f67da280000 rw-p 01199000 08:02 15731750                   /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so
+7f67da280000-7f67da316000 rw-p 00000000 00:00 0 
+7f67da316000-7f67da344000 r-xp 00000000 08:02 17045526                   /usr/local/lib/python3.6/dist-packages/lxml/_elementpath.cpython-36m-x86_64-linux-gnu.so
+7f67da344000-7f67da543000 ---p 0002e000 08:02 17045526                   /usr/local/lib/python3.6/dist-packages/lxml/_elementpath.cpython-36m-x86_64-linux-gnu.so
+7f67da543000-7f67da548000 rw-p 0002d000 08:02 17045526                   /usr/local/lib/python3.6/dist-packages/lxml/_elementpath.cpython-36m-x86_64-linux-gnu.so
+7f67da548000-7f67da589000 rw-p 00000000 00:00 0 
+7f67da589000-7f67daa5b000 r-xp 00000000 08:02 17045532                   /usr/local/lib/python3.6/dist-packages/lxml/etree.cpython-36m-x86_64-linux-gnu.so
+7f67daa5b000-7f67dac5b000 ---p 004d2000 08:02 17045532                   /usr/local/lib/python3.6/dist-packages/lxml/etree.cpython-36m-x86_64-linux-gnu.so
+7f67dac5b000-7f67dac9f000 rw-p 004d2000 08:02 17045532                   /usr/local/lib/python3.6/dist-packages/lxml/etree.cpython-36m-x86_64-linux-gnu.so
+7f67dac9f000-7f67dae6a000 rw-p 00000000 00:00 0 
+7f67dae6a000-7f67daf00000 r-xp 00000000 08:02 16782325                   /usr/local/lib/python3.6/dist-packages/_jpype.cpython-36m-x86_64-linux-gnu.so
+7f67daf00000-7f67db100000 ---p 00096000 08:02 16782325                   /usr/local/lib/python3.6/dist-packages/_jpype.cpython-36m-x86_64-linux-gnu.so
+7f67db100000-7f67db103000 r--p 00096000 08:02 16782325                   /usr/local/lib/python3.6/dist-packages/_jpype.cpython-36m-x86_64-linux-gnu.so
+7f67db103000-7f67db10e000 rw-p 00099000 08:02 16782325                   /usr/local/lib/python3.6/dist-packages/_jpype.cpython-36m-x86_64-linux-gnu.so
+7f67db10e000-7f67e110e000 ---p 00000000 00:00 0 
+7f67e110e000-7f67e1fd7000 r-xp 00000000 08:02 28055471                   /usr/lib/x86_64-linux-gnu/libcuda.so.440.59
+7f67e1fd7000-7f67e21d7000 ---p 00ec9000 08:02 28055471                   /usr/lib/x86_64-linux-gnu/libcuda.so.440.59
+7f67e21d7000-7f67e22f2000 rw-p 00ec9000 08:02 28055471                   /usr/lib/x86_64-linux-gnu/libcuda.so.440.59
+7f67e22f2000-7f67e2347000 rw-p 00000000 00:00 0 
+7f67e2347000-7f67e2356000 r-xp 00000000 08:02 17043525                   /usr/local/lib/python3.6/dist-packages/gensim/models/fasttext_corpusfile.cpython-36m-x86_64-linux-gnu.so
+7f67e2356000-7f67e2556000 ---p 0000f000 08:02 17043525                   /usr/local/lib/python3.6/dist-packages/gensim/models/fasttext_corpusfile.cpython-36m-x86_64-linux-gnu.so
+7f67e2556000-7f67e2558000 rw-p 0000f000 08:02 17043525                   /usr/local/lib/python3.6/dist-packages/gensim/models/fasttext_corpusfile.cpython-36m-x86_64-linux-gnu.so
+7f67e2558000-7f67e256b000 r-xp 00000000 08:02 17043528                   /usr/local/lib/python3.6/dist-packages/gensim/models/fasttext_inner.cpython-36m-x86_64-linux-gnu.so
+7f67e256b000-7f67e276a000 ---p 00013000 08:02 17043528                   /usr/local/lib/python3.6/dist-packages/gensim/models/fasttext_inner.cpython-36m-x86_64-linux-gnu.so
+7f67e276a000-7f67e276c000 rw-p 00012000 08:02 17043528                   /usr/local/lib/python3.6/dist-packages/gensim/models/fasttext_inner.cpython-36m-x86_64-linux-gnu.so
+7f67e276c000-7f67e27ee000 rw-p 00000000 00:00 0 
+7f67e27ee000-7f67e2802000 r-xp 00000000 08:02 17043516                   /usr/local/lib/python3.6/dist-packages/gensim/models/doc2vec_corpusfile.cpython-36m-x86_64-linux-gnu.so
+7f67e2802000-7f67e2a01000 ---p 00014000 08:02 17043516                   /usr/local/lib/python3.6/dist-packages/gensim/models/doc2vec_corpusfile.cpython-36m-x86_64-linux-gnu.so
+7f67e2a01000-7f67e2a05000 rw-p 00013000 08:02 17043516                   /usr/local/lib/python3.6/dist-packages/gensim/models/doc2vec_corpusfile.cpython-36m-x86_64-linux-gnu.so
+7f67e2a05000-7f67e2a1c000 r-xp 00000000 08:02 17043519                   /usr/local/lib/python3.6/dist-packages/gensim/models/doc2vec_inner.cpython-36m-x86_64-linux-gnu.so
+7f67e2a1c000-7f67e2c1c000 ---p 00017000 08:02 17043519                   /usr/local/lib/python3.6/dist-packages/gensim/models/doc2vec_inner.cpython-36m-x86_64-linux-gnu.so
+7f67e2c1c000-7f67e2c20000 rw-p 00017000 08:02 17043519                   /usr/local/lib/python3.6/dist-packages/gensim/models/doc2vec_inner.cpython-36m-x86_64-linux-gnu.so
+7f67e2c20000-7f67e2c60000 rw-p 00000000 00:00 0 
+7f67e2c60000-7f67e2c85000 r-xp 00000000 08:02 17043557                   /usr/local/lib/python3.6/dist-packages/gensim/models/word2vec_corpusfile.cpython-36m-x86_64-linux-gnu.so
+7f67e2c85000-7f67e2e84000 ---p 00025000 08:02 17043557                   /usr/local/lib/python3.6/dist-packages/gensim/models/word2vec_corpusfile.cpython-36m-x86_64-linux-gnu.so
+7f67e2e84000-7f67e2e88000 rw-p 00024000 08:02 17043557                   /usr/local/lib/python3.6/dist-packages/gensim/models/word2vec_corpusfile.cpython-36m-x86_64-linux-gnu.so
+7f67e2e88000-7f67e2e9f000 r-xp 00000000 08:02 17043561                   /usr/local/lib/python3.6/dist-packages/gensim/models/word2vec_inner.cpython-36m-x86_64-linux-gnu.so
+7f67e2e9f000-7f67e309f000 ---p 00017000 08:02 17043561                   /usr/local/lib/python3.6/dist-packages/gensim/models/word2vec_inner.cpython-36m-x86_64-linux-gnu.so
+7f67e309f000-7f67e30a2000 rw-p 00017000 08:02 17043561                   /usr/local/lib/python3.6/dist-packages/gensim/models/word2vec_inner.cpython-36m-x86_64-linux-gnu.so
+7f67e30a2000-7f67e3124000 rw-p 00000000 00:00 0 
+7f67e3124000-7f67e312e000 r-xp 00000000 08:02 17043491                   /usr/local/lib/python3.6/dist-packages/gensim/models/_utils_any2vec.cpython-36m-x86_64-linux-gnu.so
+7f67e312e000-7f67e332d000 ---p 0000a000 08:02 17043491                   /usr/local/lib/python3.6/dist-packages/gensim/models/_utils_any2vec.cpython-36m-x86_64-linux-gnu.so
+7f67e332d000-7f67e332f000 rw-p 00009000 08:02 17043491                   /usr/local/lib/python3.6/dist-packages/gensim/models/_utils_any2vec.cpython-36m-x86_64-linux-gnu.so
+7f67e332f000-7f67e33af000 rw-p 00000000 00:00 0 
+7f67e33af000-7f67e33cb000 r-xp 00000000 08:02 17043439                   /usr/local/lib/python3.6/dist-packages/gensim/corpora/_mmreader.cpython-36m-x86_64-linux-gnu.so
+7f67e33cb000-7f67e35cb000 ---p 0001c000 08:02 17043439                   /usr/local/lib/python3.6/dist-packages/gensim/corpora/_mmreader.cpython-36m-x86_64-linux-gnu.so
+7f67e35cb000-7f67e35ce000 rw-p 0001c000 08:02 17043439                   /usr/local/lib/python3.6/dist-packages/gensim/corpora/_mmreader.cpython-36m-x86_64-linux-gnu.so
+7f67e35ce000-7f67e3605000 r-xp 00000000 08:02 17043419                   /usr/local/lib/python3.6/dist-packages/gensim/_matutils.cpython-36m-x86_64-linux-gnu.so
+7f67e3605000-7f67e3805000 ---p 00037000 08:02 17043419                   /usr/local/lib/python3.6/dist-packages/gensim/_matutils.cpython-36m-x86_64-linux-gnu.so
+7f67e3805000-7f67e3809000 rw-p 00037000 08:02 17043419                   /usr/local/lib/python3.6/dist-packages/gensim/_matutils.cpython-36m-x86_64-linux-gnu.so
+7f67e3809000-7f67e384a000 rw-p 00000000 00:00 0 
+7f67e384a000-7f67e385d000 r-xp 00000000 08:02 17828586                   /usr/local/lib/python3.6/dist-packages/scipy/stats/mvn.cpython-36m-x86_64-linux-gnu.so
+7f67e385d000-7f67e3a5c000 ---p 00013000 08:02 17828586                   /usr/local/lib/python3.6/dist-packages/scipy/stats/mvn.cpython-36m-x86_64-linux-gnu.so
+7f67e3a5c000-7f67e3a5e000 rw-p 00012000 08:02 17828586                   /usr/local/lib/python3.6/dist-packages/scipy/stats/mvn.cpython-36m-x86_64-linux-gnu.so
+7f67e3a5e000-7f67e3b55000 rw-p 00000000 00:00 0 
+7f67e3b55000-7f67e3b56000 rw-p 00015000 08:02 17828586                   /usr/local/lib/python3.6/dist-packages/scipy/stats/mvn.cpython-36m-x86_64-linux-gnu.so
+7f67e3b56000-7f67e3b57000 rw-p 00016000 08:02 17828586                   /usr/local/lib/python3.6/dist-packages/scipy/stats/mvn.cpython-36m-x86_64-linux-gnu.so
+7f67e3b57000-7f67e3b61000 r-xp 00000000 08:02 17828588                   /usr/local/lib/python3.6/dist-packages/scipy/stats/statlib.cpython-36m-x86_64-linux-gnu.so
+7f67e3b61000-7f67e3d60000 ---p 0000a000 08:02 17828588                   /usr/local/lib/python3.6/dist-packages/scipy/stats/statlib.cpython-36m-x86_64-linux-gnu.so
+7f67e3d60000-7f67e3d62000 rw-p 00009000 08:02 17828588                   /usr/local/lib/python3.6/dist-packages/scipy/stats/statlib.cpython-36m-x86_64-linux-gnu.so
+7f67e3d62000-7f67e3d63000 rw-p 0000c000 08:02 17828588                   /usr/local/lib/python3.6/dist-packages/scipy/stats/statlib.cpython-36m-x86_64-linux-gnu.so
+7f67e3d63000-7f67e3d64000 rw-p 0000d000 08:02 17828588                   /usr/local/lib/python3.6/dist-packages/scipy/stats/statlib.cpython-36m-x86_64-linux-gnu.so
+7f67e3d64000-7f67e3ee4000 rw-p 00000000 00:00 0 
+7f67e3ee4000-7f67e3f57000 r-xp 00000000 08:02 17828576                   /usr/local/lib/python3.6/dist-packages/scipy/stats/_stats.cpython-36m-x86_64-linux-gnu.so
+7f67e3f57000-7f67e4157000 ---p 00073000 08:02 17828576                   /usr/local/lib/python3.6/dist-packages/scipy/stats/_stats.cpython-36m-x86_64-linux-gnu.so
+7f67e4157000-7f67e415d000 rw-p 00073000 08:02 17828576                   /usr/local/lib/python3.6/dist-packages/scipy/stats/_stats.cpython-36m-x86_64-linux-gnu.so
+7f67e415d000-7f67e415f000 rw-p 00000000 00:00 0 
+7f67e415f000-7f67e41b3000 r-xp 00000000 08:02 17827171                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/interpnd.cpython-36m-x86_64-linux-gnu.so
+7f67e41b3000-7f67e43b3000 ---p 00054000 08:02 17827171                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/interpnd.cpython-36m-x86_64-linux-gnu.so
+7f67e43b3000-7f67e43b8000 rw-p 00054000 08:02 17827171                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/interpnd.cpython-36m-x86_64-linux-gnu.so
+7f67e43b8000-7f67e43f9000 rw-p 00000000 00:00 0 
+7f67e43f9000-7f67e4449000 r-xp 00000000 08:02 17827167                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/_ppoly.cpython-36m-x86_64-linux-gnu.so
+7f67e4449000-7f67e4649000 ---p 00050000 08:02 17827167                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/_ppoly.cpython-36m-x86_64-linux-gnu.so
+7f67e4649000-7f67e464f000 rw-p 00050000 08:02 17827167                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/_ppoly.cpython-36m-x86_64-linux-gnu.so
+7f67e464f000-7f67e4650000 rw-p 00000000 00:00 0 
+7f67e4650000-7f67e468d000 r-xp 00000000 08:02 17827161                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/_bspl.cpython-36m-x86_64-linux-gnu.so
+7f67e468d000-7f67e488c000 ---p 0003d000 08:02 17827161                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/_bspl.cpython-36m-x86_64-linux-gnu.so
+7f67e488c000-7f67e4892000 rw-p 0003c000 08:02 17827161                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/_bspl.cpython-36m-x86_64-linux-gnu.so
+7f67e4892000-7f67e4893000 rw-p 00000000 00:00 0 
+7f67e4893000-7f67e4894000 rw-p 00043000 08:02 17827161                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/_bspl.cpython-36m-x86_64-linux-gnu.so
+7f67e4894000-7f67e4896000 rw-p 00044000 08:02 17827161                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/_bspl.cpython-36m-x86_64-linux-gnu.so
+7f67e4896000-7f67e48f4000 r-xp 00000000 08:02 17827168                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/dfitpack.cpython-36m-x86_64-linux-gnu.so
+7f67e48f4000-7f67e4af4000 ---p 0005e000 08:02 17827168                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/dfitpack.cpython-36m-x86_64-linux-gnu.so
+7f67e4af4000-7f67e4afb000 rw-p 0005e000 08:02 17827168                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/dfitpack.cpython-36m-x86_64-linux-gnu.so
+7f67e4afb000-7f67e4afc000 rw-p 00066000 08:02 17827168                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/dfitpack.cpython-36m-x86_64-linux-gnu.so
+7f67e4afc000-7f67e4afd000 rw-p 00067000 08:02 17827168                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/dfitpack.cpython-36m-x86_64-linux-gnu.so
+7f67e4afd000-7f67e4b31000 r-xp 00000000 08:02 17827164                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/_fitpack.cpython-36m-x86_64-linux-gnu.so
+7f67e4b31000-7f67e4d31000 ---p 00034000 08:02 17827164                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/_fitpack.cpython-36m-x86_64-linux-gnu.so
+7f67e4d31000-7f67e4d32000 rw-p 00034000 08:02 17827164                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/_fitpack.cpython-36m-x86_64-linux-gnu.so
+7f67e4d32000-7f67e4d33000 rw-p 00036000 08:02 17827164                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/_fitpack.cpython-36m-x86_64-linux-gnu.so
+7f67e4d33000-7f67e4d34000 rw-p 00037000 08:02 17827164                   /usr/local/lib/python3.6/dist-packages/scipy/interpolate/_fitpack.cpython-36m-x86_64-linux-gnu.so
+7f67e4d34000-7f67e4e34000 rw-p 00000000 00:00 0 
+7f67e4e34000-7f67e4e4d000 r-xp 00000000 08:02 17827119                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/lsoda.cpython-36m-x86_64-linux-gnu.so
+7f67e4e4d000-7f67e504c000 ---p 00019000 08:02 17827119                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/lsoda.cpython-36m-x86_64-linux-gnu.so
+7f67e504c000-7f67e504e000 rw-p 00018000 08:02 17827119                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/lsoda.cpython-36m-x86_64-linux-gnu.so
+7f67e504e000-7f67e504f000 rw-p 0001a000 08:02 17827119                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/lsoda.cpython-36m-x86_64-linux-gnu.so
+7f67e504f000-7f67e5050000 rw-p 0001b000 08:02 17827119                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/lsoda.cpython-36m-x86_64-linux-gnu.so
+7f67e5050000-7f67e5051000 rw-p 0001c000 08:02 17827119                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/lsoda.cpython-36m-x86_64-linux-gnu.so
+7f67e5051000-7f67e506c000 r-xp 00000000 08:02 17827092                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/_dop.cpython-36m-x86_64-linux-gnu.so
+7f67e506c000-7f67e526b000 ---p 0001b000 08:02 17827092                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/_dop.cpython-36m-x86_64-linux-gnu.so
+7f67e526b000-7f67e526d000 rw-p 0001a000 08:02 17827092                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/_dop.cpython-36m-x86_64-linux-gnu.so
+7f67e526d000-7f67e526e000 rw-p 0001d000 08:02 17827092                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/_dop.cpython-36m-x86_64-linux-gnu.so
+7f67e526e000-7f67e5270000 rw-p 0001e000 08:02 17827092                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/_dop.cpython-36m-x86_64-linux-gnu.so
+7f67e5270000-7f67e52a1000 r-xp 00000000 08:02 17827144                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/vode.cpython-36m-x86_64-linux-gnu.so
+7f67e52a1000-7f67e54a0000 ---p 00031000 08:02 17827144                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/vode.cpython-36m-x86_64-linux-gnu.so
+7f67e54a0000-7f67e54a2000 rw-p 00030000 08:02 17827144                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/vode.cpython-36m-x86_64-linux-gnu.so
+7f67e54a2000-7f67e54a3000 rw-p 00000000 00:00 0 
+7f67e54a3000-7f67e54a4000 rw-p 00033000 08:02 17827144                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/vode.cpython-36m-x86_64-linux-gnu.so
+7f67e54a4000-7f67e54a6000 rw-p 00034000 08:02 17827144                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/vode.cpython-36m-x86_64-linux-gnu.so
+7f67e54a6000-7f67e54a7000 rw-p 00036000 08:02 17827144                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/vode.cpython-36m-x86_64-linux-gnu.so
+7f67e54a7000-7f67e54c1000 r-xp 00000000 08:02 17827116                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/_quadpack.cpython-36m-x86_64-linux-gnu.so
+7f67e54c1000-7f67e56c1000 ---p 0001a000 08:02 17827116                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/_quadpack.cpython-36m-x86_64-linux-gnu.so
+7f67e56c1000-7f67e56c2000 rw-p 0001a000 08:02 17827116                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/_quadpack.cpython-36m-x86_64-linux-gnu.so
+7f67e56c2000-7f67e56c3000 rw-p 0001c000 08:02 17827116                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/_quadpack.cpython-36m-x86_64-linux-gnu.so
+7f67e56c3000-7f67e56c4000 rw-p 0001d000 08:02 17827116                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/_quadpack.cpython-36m-x86_64-linux-gnu.so
+7f67e56c4000-7f67e56c5000 rw-p 0001e000 08:02 17827116                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/_quadpack.cpython-36m-x86_64-linux-gnu.so
+7f67e56c5000-7f67e56db000 r-xp 00000000 08:02 17827114                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/_odepack.cpython-36m-x86_64-linux-gnu.so
+7f67e56db000-7f67e58da000 ---p 00016000 08:02 17827114                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/_odepack.cpython-36m-x86_64-linux-gnu.so
+7f67e58da000-7f67e58db000 rw-p 00015000 08:02 17827114                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/_odepack.cpython-36m-x86_64-linux-gnu.so
+7f67e58db000-7f67e58dc000 rw-p 00000000 00:00 0 
+7f67e58dc000-7f67e58dd000 rw-p 00017000 08:02 17827114                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/_odepack.cpython-36m-x86_64-linux-gnu.so
+7f67e58dd000-7f67e58de000 rw-p 00018000 08:02 17827114                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/_odepack.cpython-36m-x86_64-linux-gnu.so
+7f67e58de000-7f67e58df000 rw-p 00019000 08:02 17827114                   /usr/local/lib/python3.6/dist-packages/scipy/integrate/_odepack.cpython-36m-x86_64-linux-gnu.so
+7f67e58df000-7f67e591f000 rw-p 00000000 00:00 0 
+7f67e591f000-7f67e5922000 r-xp 00000000 08:02 17827791                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_lsap_module.cpython-36m-x86_64-linux-gnu.so
+7f67e5922000-7f67e5b22000 ---p 00003000 08:02 17827791                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_lsap_module.cpython-36m-x86_64-linux-gnu.so
+7f67e5b22000-7f67e5b23000 rw-p 00003000 08:02 17827791                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_lsap_module.cpython-36m-x86_64-linux-gnu.so
+7f67e5b23000-7f67e5b65000 r-xp 00000000 08:02 17827776                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_bglu_dense.cpython-36m-x86_64-linux-gnu.so
+7f67e5b65000-7f67e5d64000 ---p 00042000 08:02 17827776                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_bglu_dense.cpython-36m-x86_64-linux-gnu.so
+7f67e5d64000-7f67e5d69000 rw-p 00041000 08:02 17827776                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_bglu_dense.cpython-36m-x86_64-linux-gnu.so
+7f67e5d69000-7f67e5daa000 rw-p 00000000 00:00 0 
+7f67e5daa000-7f67e5db4000 r-xp 00000000 08:02 17827815                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_nnls.cpython-36m-x86_64-linux-gnu.so
+7f67e5db4000-7f67e5fb4000 ---p 0000a000 08:02 17827815                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_nnls.cpython-36m-x86_64-linux-gnu.so
+7f67e5fb4000-7f67e5fb5000 rw-p 0000a000 08:02 17827815                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_nnls.cpython-36m-x86_64-linux-gnu.so
+7f67e5fb5000-7f67e5fb6000 rw-p 0000c000 08:02 17827815                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_nnls.cpython-36m-x86_64-linux-gnu.so
+7f67e5fb6000-7f67e5fb7000 rw-p 0000d000 08:02 17827815                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_nnls.cpython-36m-x86_64-linux-gnu.so
+7f67e5fb7000-7f67e5fba000 r-xp 00000000 08:02 17827877                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_zeros.cpython-36m-x86_64-linux-gnu.so
+7f67e5fba000-7f67e61b9000 ---p 00003000 08:02 17827877                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_zeros.cpython-36m-x86_64-linux-gnu.so
+7f67e61b9000-7f67e61ba000 rw-p 00002000 08:02 17827877                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_zeros.cpython-36m-x86_64-linux-gnu.so
+7f67e61ba000-7f67e61fa000 rw-p 00000000 00:00 0 
+7f67e61fa000-7f67e6221000 r-xp 00000000 08:02 17827807                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_lsq/givens_elimination.cpython-36m-x86_64-linux-gnu.so
+7f67e6221000-7f67e6420000 ---p 00027000 08:02 17827807                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_lsq/givens_elimination.cpython-36m-x86_64-linux-gnu.so
+7f67e6420000-7f67e6424000 rw-p 00026000 08:02 17827807                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_lsq/givens_elimination.cpython-36m-x86_64-linux-gnu.so
+7f67e6424000-7f67e6443000 r-xp 00000000 08:02 17827814                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_minpack.cpython-36m-x86_64-linux-gnu.so
+7f67e6443000-7f67e6643000 ---p 0001f000 08:02 17827814                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_minpack.cpython-36m-x86_64-linux-gnu.so
+7f67e6643000-7f67e6644000 rw-p 0001f000 08:02 17827814                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_minpack.cpython-36m-x86_64-linux-gnu.so
+7f67e6644000-7f67e6645000 rw-p 00020000 08:02 17827814                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_minpack.cpython-36m-x86_64-linux-gnu.so
+7f67e6645000-7f67e6646000 rw-p 00021000 08:02 17827814                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_minpack.cpython-36m-x86_64-linux-gnu.so
+7f67e6646000-7f67e665e000 r-xp 00000000 08:02 17827830                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_slsqp.cpython-36m-x86_64-linux-gnu.so
+7f67e665e000-7f67e685d000 ---p 00018000 08:02 17827830                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_slsqp.cpython-36m-x86_64-linux-gnu.so
+7f67e685d000-7f67e685f000 rw-p 00017000 08:02 17827830                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_slsqp.cpython-36m-x86_64-linux-gnu.so
+7f67e685f000-7f67e6860000 rw-p 00019000 08:02 17827830                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_slsqp.cpython-36m-x86_64-linux-gnu.so
+7f67e6860000-7f67e6861000 rw-p 0001a000 08:02 17827830                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_slsqp.cpython-36m-x86_64-linux-gnu.so
+7f67e6861000-7f67e687f000 r-xp 00000000 08:02 17827777                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_cobyla.cpython-36m-x86_64-linux-gnu.so
+7f67e687f000-7f67e6a7f000 ---p 0001e000 08:02 17827777                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_cobyla.cpython-36m-x86_64-linux-gnu.so
+7f67e6a7f000-7f67e6a80000 rw-p 0001e000 08:02 17827777                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_cobyla.cpython-36m-x86_64-linux-gnu.so
+7f67e6a80000-7f67e6a81000 rw-p 00020000 08:02 17827777                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_cobyla.cpython-36m-x86_64-linux-gnu.so
+7f67e6a81000-7f67e6a82000 rw-p 00021000 08:02 17827777                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_cobyla.cpython-36m-x86_64-linux-gnu.so
+7f67e6a82000-7f67e6a8e000 r-xp 00000000 08:02 17827893                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/moduleTNC.cpython-36m-x86_64-linux-gnu.so
+7f67e6a8e000-7f67e6c8d000 ---p 0000c000 08:02 17827893                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/moduleTNC.cpython-36m-x86_64-linux-gnu.so
+7f67e6c8d000-7f67e6c8e000 rw-p 0000b000 08:02 17827893                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/moduleTNC.cpython-36m-x86_64-linux-gnu.so
+7f67e6c8e000-7f67e6cab000 r-xp 00000000 08:02 17827784                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_lbfgsb.cpython-36m-x86_64-linux-gnu.so
+7f67e6cab000-7f67e6eab000 ---p 0001d000 08:02 17827784                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_lbfgsb.cpython-36m-x86_64-linux-gnu.so
+7f67e6eab000-7f67e6eac000 rw-p 0001d000 08:02 17827784                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_lbfgsb.cpython-36m-x86_64-linux-gnu.so
+7f67e6eac000-7f67e6ead000 rw-p 0001f000 08:02 17827784                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_lbfgsb.cpython-36m-x86_64-linux-gnu.so
+7f67e6ead000-7f67e6eae000 rw-p 00020000 08:02 17827784                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_lbfgsb.cpython-36m-x86_64-linux-gnu.so
+7f67e6eae000-7f67e6eaf000 rw-p 00021000 08:02 17827784                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_lbfgsb.cpython-36m-x86_64-linux-gnu.so
+7f67e6eaf000-7f67e6eef000 rw-p 00000000 00:00 0 
+7f67e6eef000-7f67e6f1a000 r-xp 00000000 08:02 17827782                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_group_columns.cpython-36m-x86_64-linux-gnu.so
+7f67e6f1a000-7f67e711a000 ---p 0002b000 08:02 17827782                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_group_columns.cpython-36m-x86_64-linux-gnu.so
+7f67e711a000-7f67e711d000 rw-p 0002b000 08:02 17827782                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_group_columns.cpython-36m-x86_64-linux-gnu.so
+7f67e711d000-7f67e715e000 rw-p 00000000 00:00 0 
+7f67e715e000-7f67e71e6000 r-xp 00000000 08:02 17828186                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/linalg/eigen/arpack/_arpack.cpython-36m-x86_64-linux-gnu.so
+7f67e71e6000-7f67e73e6000 ---p 00088000 08:02 17828186                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/linalg/eigen/arpack/_arpack.cpython-36m-x86_64-linux-gnu.so
+7f67e73e6000-7f67e73f1000 rw-p 00088000 08:02 17828186                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/linalg/eigen/arpack/_arpack.cpython-36m-x86_64-linux-gnu.so
+7f67e73f1000-7f67e73f3000 rw-p 00000000 00:00 0 
+7f67e73f3000-7f67e73f4000 rw-p 00094000 08:02 17828186                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/linalg/eigen/arpack/_arpack.cpython-36m-x86_64-linux-gnu.so
+7f67e73f4000-7f67e73f6000 rw-p 00095000 08:02 17828186                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/linalg/eigen/arpack/_arpack.cpython-36m-x86_64-linux-gnu.so
+7f67e73f6000-7f67e73f7000 rw-p 00097000 08:02 17828186                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/linalg/eigen/arpack/_arpack.cpython-36m-x86_64-linux-gnu.so
+7f67e73f7000-7f67e7444000 r-xp 00000000 08:02 17828164                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/linalg/dsolve/_superlu.cpython-36m-x86_64-linux-gnu.so
+7f67e7444000-7f67e7643000 ---p 0004d000 08:02 17828164                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/linalg/dsolve/_superlu.cpython-36m-x86_64-linux-gnu.so
+7f67e7643000-7f67e7645000 rw-p 0004c000 08:02 17828164                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/linalg/dsolve/_superlu.cpython-36m-x86_64-linux-gnu.so
+7f67e7645000-7f67e7646000 rw-p 0004f000 08:02 17828164                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/linalg/dsolve/_superlu.cpython-36m-x86_64-linux-gnu.so
+7f67e7646000-7f67e7648000 rw-p 00050000 08:02 17828164                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/linalg/dsolve/_superlu.cpython-36m-x86_64-linux-gnu.so
+7f67e7648000-7f67e7688000 rw-p 00000000 00:00 0 
+7f67e7688000-7f67e76b9000 r-xp 00000000 08:02 17828224                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/linalg/isolve/_iterative.cpython-36m-x86_64-linux-gnu.so
+7f67e76b9000-7f67e78b9000 ---p 00031000 08:02 17828224                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/linalg/isolve/_iterative.cpython-36m-x86_64-linux-gnu.so
+7f67e78b9000-7f67e78c0000 rw-p 00031000 08:02 17828224                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/linalg/isolve/_iterative.cpython-36m-x86_64-linux-gnu.so
+7f67e78c0000-7f67e78c2000 rw-p 00000000 00:00 0 
+7f67e78c2000-7f67e78c3000 rw-p 00039000 08:02 17828224                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/linalg/isolve/_iterative.cpython-36m-x86_64-linux-gnu.so
+7f67e78c3000-7f67e78c4000 rw-p 0003a000 08:02 17828224                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/linalg/isolve/_iterative.cpython-36m-x86_64-linux-gnu.so
+7f67e78c4000-7f67e78c5000 rw-p 0003b000 08:02 17828224                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/linalg/isolve/_iterative.cpython-36m-x86_64-linux-gnu.so
+7f67e78c5000-7f67e790e000 r-xp 00000000 08:02 17827837                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_trlib/_trlib.cpython-36m-x86_64-linux-gnu.so
+7f67e790e000-7f67e7b0e000 ---p 00049000 08:02 17827837                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_trlib/_trlib.cpython-36m-x86_64-linux-gnu.so
+7f67e7b0e000-7f67e7b12000 rw-p 00049000 08:02 17827837                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_trlib/_trlib.cpython-36m-x86_64-linux-gnu.so
+7f67e7b12000-7f67e7b13000 rw-p 00000000 00:00 0 
+7f67e7b13000-7f67e7b14000 rw-p 0004e000 08:02 17827837                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_trlib/_trlib.cpython-36m-x86_64-linux-gnu.so
+7f67e7b14000-7f67e7b17000 rw-p 0004f000 08:02 17827837                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/_trlib/_trlib.cpython-36m-x86_64-linux-gnu.so
+7f67e7b17000-7f67e7b20000 r-xp 00000000 08:02 17827892                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/minpack2.cpython-36m-x86_64-linux-gnu.so
+7f67e7b20000-7f67e7d20000 ---p 00009000 08:02 17827892                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/minpack2.cpython-36m-x86_64-linux-gnu.so
+7f67e7d20000-7f67e7d21000 rw-p 00009000 08:02 17827892                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/minpack2.cpython-36m-x86_64-linux-gnu.so
+7f67e7d21000-7f67e7d22000 rw-p 0000b000 08:02 17827892                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/minpack2.cpython-36m-x86_64-linux-gnu.so
+7f67e7d22000-7f67e7d23000 rw-p 0000c000 08:02 17827892                   /usr/local/lib/python3.6/dist-packages/scipy/optimize/minpack2.cpython-36m-x86_64-linux-gnu.so
+7f67e7d23000-7f67e7da3000 rw-p 00000000 00:00 0 
+7f67e7da3000-7f67e7dec000 r-xp 00000000 08:02 17827682                   /usr/local/lib/python3.6/dist-packages/scipy/ndimage/_ni_label.cpython-36m-x86_64-linux-gnu.so
+7f67e7dec000-7f67e7fec000 ---p 00049000 08:02 17827682                   /usr/local/lib/python3.6/dist-packages/scipy/ndimage/_ni_label.cpython-36m-x86_64-linux-gnu.so
+7f67e7fec000-7f67e7ff0000 rw-p 00049000 08:02 17827682                   /usr/local/lib/python3.6/dist-packages/scipy/ndimage/_ni_label.cpython-36m-x86_64-linux-gnu.so
+7f67e7ff0000-7f67e7ff2000 rw-p 00000000 00:00 0 
+7f67e7ff2000-7f67e800d000 r-xp 00000000 08:02 17827680                   /usr/local/lib/python3.6/dist-packages/scipy/ndimage/_nd_image.cpython-36m-x86_64-linux-gnu.so
+7f67e800d000-7f67e820d000 ---p 0001b000 08:02 17827680                   /usr/local/lib/python3.6/dist-packages/scipy/ndimage/_nd_image.cpython-36m-x86_64-linux-gnu.so
+7f67e820d000-7f67e820e000 rw-p 0001b000 08:02 17827680                   /usr/local/lib/python3.6/dist-packages/scipy/ndimage/_nd_image.cpython-36m-x86_64-linux-gnu.so
+7f67e820e000-7f67e828e000 rw-p 00000000 00:00 0 
+7f67e828e000-7f67e82a0000 r-xp 00000000 08:02 17828415                   /usr/local/lib/python3.6/dist-packages/scipy/special/_ellip_harm_2.cpython-36m-x86_64-linux-gnu.so
+7f67e82a0000-7f67e84a0000 ---p 00012000 08:02 17828415                   /usr/local/lib/python3.6/dist-packages/scipy/special/_ellip_harm_2.cpython-36m-x86_64-linux-gnu.so
+7f67e84a0000-7f67e84a2000 rw-p 00012000 08:02 17828415                   /usr/local/lib/python3.6/dist-packages/scipy/special/_ellip_harm_2.cpython-36m-x86_64-linux-gnu.so
+7f67e84a2000-7f67e84a3000 rw-p 00014000 08:02 17828415                   /usr/local/lib/python3.6/dist-packages/scipy/special/_ellip_harm_2.cpython-36m-x86_64-linux-gnu.so
+7f67e84a3000-7f67e84a5000 rw-p 00015000 08:02 17828415                   /usr/local/lib/python3.6/dist-packages/scipy/special/_ellip_harm_2.cpython-36m-x86_64-linux-gnu.so
+7f67e84a5000-7f67e84ab000 r-xp 00000000 08:02 17828413                   /usr/local/lib/python3.6/dist-packages/scipy/special/_comb.cpython-36m-x86_64-linux-gnu.so
+7f67e84ab000-7f67e86ab000 ---p 00006000 08:02 17828413                   /usr/local/lib/python3.6/dist-packages/scipy/special/_comb.cpython-36m-x86_64-linux-gnu.so
+7f67e86ab000-7f67e86ac000 rw-p 00006000 08:02 17828413                   /usr/local/lib/python3.6/dist-packages/scipy/special/_comb.cpython-36m-x86_64-linux-gnu.so
+7f67e86ac000-7f67e8761000 r-xp 00000000 08:02 17828456                   /usr/local/lib/python3.6/dist-packages/scipy/special/specfun.cpython-36m-x86_64-linux-gnu.so
+7f67e8761000-7f67e8961000 ---p 000b5000 08:02 17828456                   /usr/local/lib/python3.6/dist-packages/scipy/special/specfun.cpython-36m-x86_64-linux-gnu.so
+7f67e8961000-7f67e8968000 rw-p 000b5000 08:02 17828456                   /usr/local/lib/python3.6/dist-packages/scipy/special/specfun.cpython-36m-x86_64-linux-gnu.so
+7f67e8968000-7f67e8969000 rw-p 000bc000 08:02 17828456                   /usr/local/lib/python3.6/dist-packages/scipy/special/specfun.cpython-36m-x86_64-linux-gnu.so
+7f67e8969000-7f67e896a000 rw-p 000bd000 08:02 17828456                   /usr/local/lib/python3.6/dist-packages/scipy/special/specfun.cpython-36m-x86_64-linux-gnu.so
+7f67e896a000-7f67e89aa000 rw-p 00000000 00:00 0 
+7f67e89aa000-7f67e89c7000 r-xp 00000000 08:02 17828447                   /usr/local/lib/python3.6/dist-packages/scipy/special/_ufuncs_cxx.cpython-36m-x86_64-linux-gnu.so
+7f67e89c7000-7f67e8bc7000 ---p 0001d000 08:02 17828447                   /usr/local/lib/python3.6/dist-packages/scipy/special/_ufuncs_cxx.cpython-36m-x86_64-linux-gnu.so
+7f67e8bc7000-7f67e8bc8000 rw-p 0001d000 08:02 17828447                   /usr/local/lib/python3.6/dist-packages/scipy/special/_ufuncs_cxx.cpython-36m-x86_64-linux-gnu.so
+7f67e8bc8000-7f67e8bc9000 rw-p 00000000 00:00 0 
+7f67e8bc9000-7f67e8d6c000 r-xp 00000000 08:02 17828446                   /usr/local/lib/python3.6/dist-packages/scipy/special/_ufuncs.cpython-36m-x86_64-linux-gnu.so
+7f67e8d6c000-7f67e8f6c000 ---p 001a3000 08:02 17828446                   /usr/local/lib/python3.6/dist-packages/scipy/special/_ufuncs.cpython-36m-x86_64-linux-gnu.so
+7f67e8f6c000-7f67e8f76000 rw-p 001a3000 08:02 17828446                   /usr/local/lib/python3.6/dist-packages/scipy/special/_ufuncs.cpython-36m-x86_64-linux-gnu.so
+7f67e8f76000-7f67e8f7f000 rw-p 00000000 00:00 0 
+7f67e8f7f000-7f67e8f80000 rw-p 001ae000 08:02 17828446                   /usr/local/lib/python3.6/dist-packages/scipy/special/_ufuncs.cpython-36m-x86_64-linux-gnu.so
+7f67e8f80000-7f67e8f83000 rw-p 001af000 08:02 17828446                   /usr/local/lib/python3.6/dist-packages/scipy/special/_ufuncs.cpython-36m-x86_64-linux-gnu.so
+7f67e8f83000-7f67e8f84000 rw-p 001b2000 08:02 17828446                   /usr/local/lib/python3.6/dist-packages/scipy/special/_ufuncs.cpython-36m-x86_64-linux-gnu.so
+7f67e8f84000-7f67e8fae000 r-xp 00000000 08:02 17828310                   /usr/local/lib/python3.6/dist-packages/scipy/spatial/_hausdorff.cpython-36m-x86_64-linux-gnu.so
+7f67e8fae000-7f67e91ae000 ---p 0002a000 08:02 17828310                   /usr/local/lib/python3.6/dist-packages/scipy/spatial/_hausdorff.cpython-36m-x86_64-linux-gnu.so
+7f67e91ae000-7f67e91b1000 rw-p 0002a000 08:02 17828310                   /usr/local/lib/python3.6/dist-packages/scipy/spatial/_hausdorff.cpython-36m-x86_64-linux-gnu.so
+7f67e91b1000-7f67e91b2000 rw-p 00000000 00:00 0 
+7f67e91b2000-7f67e91c9000 r-xp 00000000 08:02 17828309                   /usr/local/lib/python3.6/dist-packages/scipy/spatial/_distance_wrap.cpython-36m-x86_64-linux-gnu.so
+7f67e91c9000-7f67e93c9000 ---p 00017000 08:02 17828309                   /usr/local/lib/python3.6/dist-packages/scipy/spatial/_distance_wrap.cpython-36m-x86_64-linux-gnu.so
+7f67e93c9000-7f67e93ca000 rw-p 00017000 08:02 17828309                   /usr/local/lib/python3.6/dist-packages/scipy/spatial/_distance_wrap.cpython-36m-x86_64-linux-gnu.so
+7f67e93ca000-7f67e940a000 rw-p 00000000 00:00 0 
+7f67e940a000-7f67e94a4000 r-xp 00000000 08:02 17827572                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/cython_lapack.cpython-36m-x86_64-linux-gnu.so
+7f67e94a4000-7f67e96a3000 ---p 0009a000 08:02 17827572                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/cython_lapack.cpython-36m-x86_64-linux-gnu.so
+7f67e96a3000-7f67e96a7000 rw-p 00099000 08:02 17827572                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/cython_lapack.cpython-36m-x86_64-linux-gnu.so
+7f67e96a7000-7f67e96ab000 rw-p 0009e000 08:02 17827572                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/cython_lapack.cpython-36m-x86_64-linux-gnu.so
+7f67e96ab000-7f67e96b8000 rw-p 000a2000 08:02 17827572                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/cython_lapack.cpython-36m-x86_64-linux-gnu.so
+7f67e96b8000-7f67e96bc000 rw-p 000af000 08:02 17827572                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/cython_lapack.cpython-36m-x86_64-linux-gnu.so
+7f67e96bc000-7f67e96f5000 r-xp 00000000 08:02 17827570                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/cython_blas.cpython-36m-x86_64-linux-gnu.so
+7f67e96f5000-7f67e98f5000 ---p 00039000 08:02 17827570                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/cython_blas.cpython-36m-x86_64-linux-gnu.so
+7f67e98f5000-7f67e98f9000 rw-p 00039000 08:02 17827570                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/cython_blas.cpython-36m-x86_64-linux-gnu.so
+7f67e98f9000-7f67e98fa000 rw-p 0003d000 08:02 17827570                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/cython_blas.cpython-36m-x86_64-linux-gnu.so
+7f67e98fa000-7f67e98fd000 rw-p 0003e000 08:02 17827570                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/cython_blas.cpython-36m-x86_64-linux-gnu.so
+7f67e98fd000-7f67e98ff000 rw-p 00041000 08:02 17827570                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/cython_blas.cpython-36m-x86_64-linux-gnu.so
+7f67e98ff000-7f67e9947000 r-xp 00000000 08:02 17827553                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_decomp_update.cpython-36m-x86_64-linux-gnu.so
+7f67e9947000-7f67e9b47000 ---p 00048000 08:02 17827553                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_decomp_update.cpython-36m-x86_64-linux-gnu.so
+7f67e9b47000-7f67e9b4d000 rw-p 00048000 08:02 17827553                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_decomp_update.cpython-36m-x86_64-linux-gnu.so
+7f67e9b4d000-7f67e9b8e000 rw-p 00000000 00:00 0 
+7f67e9b8e000-7f67e9bc2000 r-xp 00000000 08:02 17827565                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_solve_toeplitz.cpython-36m-x86_64-linux-gnu.so
+7f67e9bc2000-7f67e9dc2000 ---p 00034000 08:02 17827565                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_solve_toeplitz.cpython-36m-x86_64-linux-gnu.so
+7f67e9dc2000-7f67e9dc6000 rw-p 00034000 08:02 17827565                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_solve_toeplitz.cpython-36m-x86_64-linux-gnu.so
+7f67e9dc6000-7f67e9dc7000 rw-p 00000000 00:00 0 
+7f67e9dc7000-7f67e9dd4000 r-xp 00000000 08:02 17827557                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_flinalg.cpython-36m-x86_64-linux-gnu.so
+7f67e9dd4000-7f67e9fd4000 ---p 0000d000 08:02 17827557                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_flinalg.cpython-36m-x86_64-linux-gnu.so
+7f67e9fd4000-7f67e9fd7000 rw-p 0000d000 08:02 17827557                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_flinalg.cpython-36m-x86_64-linux-gnu.so
+7f67e9fd7000-7f67e9fd8000 rw-p 00011000 08:02 17827557                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_flinalg.cpython-36m-x86_64-linux-gnu.so
+7f67e9fd8000-7f67e9fd9000 rw-p 00012000 08:02 17827557                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_flinalg.cpython-36m-x86_64-linux-gnu.so
+7f67e9fd9000-7f67e9fda000 rw-p 00013000 08:02 17827557                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_flinalg.cpython-36m-x86_64-linux-gnu.so
+7f67e9fda000-7f67ea01a000 rw-p 00000000 00:00 0 
+7f67ea01a000-7f67ea138000 r-xp 00000000 08:02 17827556                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_flapack.cpython-36m-x86_64-linux-gnu.so
+7f67ea138000-7f67ea337000 ---p 0011e000 08:02 17827556                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_flapack.cpython-36m-x86_64-linux-gnu.so
+7f67ea337000-7f67ea3a1000 rw-p 0011d000 08:02 17827556                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_flapack.cpython-36m-x86_64-linux-gnu.so
+7f67ea3a1000-7f67ea3a2000 rw-p 00000000 00:00 0 
+7f67ea3a2000-7f67ea3a4000 rw-p 00188000 08:02 17827556                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_flapack.cpython-36m-x86_64-linux-gnu.so
+7f67ea3a4000-7f67ea3a9000 rw-p 0018a000 08:02 17827556                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_flapack.cpython-36m-x86_64-linux-gnu.so
+7f67ea3a9000-7f67ea3ab000 rw-p 0018f000 08:02 17827556                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_flapack.cpython-36m-x86_64-linux-gnu.so
+7f67ea3ab000-7f67ea417000 r-xp 00000000 08:02 17827555                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_fblas.cpython-36m-x86_64-linux-gnu.so
+7f67ea417000-7f67ea617000 ---p 0006c000 08:02 17827555                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_fblas.cpython-36m-x86_64-linux-gnu.so
+7f67ea617000-7f67ea63d000 rw-p 0006c000 08:02 17827555                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_fblas.cpython-36m-x86_64-linux-gnu.so
+7f67ea63d000-7f67ea63e000 rw-p 00093000 08:02 17827555                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_fblas.cpython-36m-x86_64-linux-gnu.so
+7f67ea63e000-7f67ea640000 rw-p 00094000 08:02 17827555                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_fblas.cpython-36m-x86_64-linux-gnu.so
+7f67ea640000-7f67ea641000 rw-p 00096000 08:02 17827555                   /usr/local/lib/python3.6/dist-packages/scipy/linalg/_fblas.cpython-36m-x86_64-linux-gnu.so
+7f67ea641000-7f67ea66a000 r-xp 00000000 08:02 17828314                   /usr/local/lib/python3.6/dist-packages/scipy/spatial/_voronoi.cpython-36m-x86_64-linux-gnu.so
+7f67ea66a000-7f67ea86a000 ---p 00029000 08:02 17828314                   /usr/local/lib/python3.6/dist-packages/scipy/spatial/_voronoi.cpython-36m-x86_64-linux-gnu.so
+7f67ea86a000-7f67ea86d000 rw-p 00029000 08:02 17828314                   /usr/local/lib/python3.6/dist-packages/scipy/spatial/_voronoi.cpython-36m-x86_64-linux-gnu.so
+7f67ea86d000-7f67ea86e000 rw-p 00000000 00:00 0 
+7f67ea86e000-7f67ea877000 r-xp 00000000 08:02 17826918                   /usr/local/lib/python3.6/dist-packages/scipy/_lib/messagestream.cpython-36m-x86_64-linux-gnu.so
+7f67ea877000-7f67eaa76000 ---p 00009000 08:02 17826918                   /usr/local/lib/python3.6/dist-packages/scipy/_lib/messagestream.cpython-36m-x86_64-linux-gnu.so
+7f67eaa76000-7f67eaa78000 rw-p 00008000 08:02 17826918                   /usr/local/lib/python3.6/dist-packages/scipy/_lib/messagestream.cpython-36m-x86_64-linux-gnu.so
+7f67eaa78000-7f67eaab8000 rw-p 00000000 00:00 0 
+7f67eaab8000-7f67eaba3000 r-xp 00000000 08:02 17828318                   /usr/local/lib/python3.6/dist-packages/scipy/spatial/qhull.cpython-36m-x86_64-linux-gnu.so
+7f67eaba3000-7f67eada2000 ---p 000eb000 08:02 17828318                   /usr/local/lib/python3.6/dist-packages/scipy/spatial/qhull.cpython-36m-x86_64-linux-gnu.so
+7f67eada2000-7f67eadab000 rw-p 000ea000 08:02 17828318                   /usr/local/lib/python3.6/dist-packages/scipy/spatial/qhull.cpython-36m-x86_64-linux-gnu.so
+7f67eadab000-7f67eadae000 rw-p 00000000 00:00 0 
+7f67eadae000-7f67eadaf000 rw-p 000f4000 08:02 17828318                   /usr/local/lib/python3.6/dist-packages/scipy/spatial/qhull.cpython-36m-x86_64-linux-gnu.so
+7f67eadaf000-7f67eadb2000 rw-p 000f5000 08:02 17828318                   /usr/local/lib/python3.6/dist-packages/scipy/spatial/qhull.cpython-36m-x86_64-linux-gnu.so
+7f67eadb2000-7f67eae62000 r-xp 00000000 08:02 17828315                   /usr/local/lib/python3.6/dist-packages/scipy/spatial/ckdtree.cpython-36m-x86_64-linux-gnu.so
+7f67eae62000-7f67eb061000 ---p 000b0000 08:02 17828315                   /usr/local/lib/python3.6/dist-packages/scipy/spatial/ckdtree.cpython-36m-x86_64-linux-gnu.so
+7f67eb061000-7f67eb06b000 rw-p 000af000 08:02 17828315                   /usr/local/lib/python3.6/dist-packages/scipy/spatial/ckdtree.cpython-36m-x86_64-linux-gnu.so
+7f67eb06b000-7f67eb5ad000 rw-p 00000000 00:00 0 
+7f67eb5ad000-7f67eb5b1000 r-xp 00000000 08:02 15340851                   /usr/lib/python3.6/lib-dynload/termios.cpython-36m-x86_64-linux-gnu.so
+7f67eb5b1000-7f67eb7b0000 ---p 00004000 08:02 15340851                   /usr/lib/python3.6/lib-dynload/termios.cpython-36m-x86_64-linux-gnu.so
+7f67eb7b0000-7f67eb7b1000 r--p 00003000 08:02 15340851                   /usr/lib/python3.6/lib-dynload/termios.cpython-36m-x86_64-linux-gnu.so
+7f67eb7b1000-7f67eb7b3000 rw-p 00004000 08:02 15340851                   /usr/lib/python3.6/lib-dynload/termios.cpython-36m-x86_64-linux-gnu.so
+7f67eb7b3000-7f67eb873000 rw-p 00000000 00:00 0 
+7f67eb873000-7f67eb8ae000 r-xp 00000000 08:02 17828106                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_reordering.cpython-36m-x86_64-linux-gnu.so
+7f67eb8ae000-7f67ebaae000 ---p 0003b000 08:02 17828106                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_reordering.cpython-36m-x86_64-linux-gnu.so
+7f67ebaae000-7f67ebab3000 rw-p 0003b000 08:02 17828106                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_reordering.cpython-36m-x86_64-linux-gnu.so
+7f67ebab3000-7f67ebab4000 rw-p 00000000 00:00 0 
+7f67ebab4000-7f67ebae2000 r-xp 00000000 08:02 17828104                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_matching.cpython-36m-x86_64-linux-gnu.so
+7f67ebae2000-7f67ebce2000 ---p 0002e000 08:02 17828104                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_matching.cpython-36m-x86_64-linux-gnu.so
+7f67ebce2000-7f67ebce6000 rw-p 0002e000 08:02 17828104                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_matching.cpython-36m-x86_64-linux-gnu.so
+7f67ebce6000-7f67ebce7000 rw-p 00000000 00:00 0 
+7f67ebce7000-7f67ebd1f000 r-xp 00000000 08:02 17828102                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_flow.cpython-36m-x86_64-linux-gnu.so
+7f67ebd1f000-7f67ebf1f000 ---p 00038000 08:02 17828102                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_flow.cpython-36m-x86_64-linux-gnu.so
+7f67ebf1f000-7f67ebf25000 rw-p 00038000 08:02 17828102                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_flow.cpython-36m-x86_64-linux-gnu.so
+7f67ebf25000-7f67ebf26000 rw-p 00000000 00:00 0 
+7f67ebf26000-7f67ebf51000 r-xp 00000000 08:02 17828105                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_min_spanning_tree.cpython-36m-x86_64-linux-gnu.so
+7f67ebf51000-7f67ec151000 ---p 0002b000 08:02 17828105                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_min_spanning_tree.cpython-36m-x86_64-linux-gnu.so
+7f67ec151000-7f67ec155000 rw-p 0002b000 08:02 17828105                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_min_spanning_tree.cpython-36m-x86_64-linux-gnu.so
+7f67ec155000-7f67ec156000 rw-p 00000000 00:00 0 
+7f67ec156000-7f67ec177000 r-xp 00000000 08:02 17828109                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_traversal.cpython-36m-x86_64-linux-gnu.so
+7f67ec177000-7f67ec376000 ---p 00021000 08:02 17828109                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_traversal.cpython-36m-x86_64-linux-gnu.so
+7f67ec376000-7f67ec37b000 rw-p 00020000 08:02 17828109                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_traversal.cpython-36m-x86_64-linux-gnu.so
+7f67ec37b000-7f67ec39d000 r-xp 00000000 08:02 17828108                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_tools.cpython-36m-x86_64-linux-gnu.so
+7f67ec39d000-7f67ec59d000 ---p 00022000 08:02 17828108                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_tools.cpython-36m-x86_64-linux-gnu.so
+7f67ec59d000-7f67ec5a2000 rw-p 00022000 08:02 17828108                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_tools.cpython-36m-x86_64-linux-gnu.so
+7f67ec5a2000-7f67ec5a3000 rw-p 00000000 00:00 0 
+7f67ec5a3000-7f67ec600000 r-xp 00000000 08:02 17828107                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_shortest_path.cpython-36m-x86_64-linux-gnu.so
+7f67ec600000-7f67ec7ff000 ---p 0005d000 08:02 17828107                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_shortest_path.cpython-36m-x86_64-linux-gnu.so
+7f67ec7ff000-7f67ec808000 rw-p 0005c000 08:02 17828107                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/csgraph/_shortest_path.cpython-36m-x86_64-linux-gnu.so
+7f67ec808000-7f67ec80a000 rw-p 00000000 00:00 0 
+7f67ec80a000-7f67ec876000 r-xp 00000000 08:02 17828085                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/_csparsetools.cpython-36m-x86_64-linux-gnu.so
+7f67ec876000-7f67eca75000 ---p 0006c000 08:02 17828085                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/_csparsetools.cpython-36m-x86_64-linux-gnu.so
+7f67eca75000-7f67eca7b000 rw-p 0006b000 08:02 17828085                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/_csparsetools.cpython-36m-x86_64-linux-gnu.so
+7f67eca7b000-7f67eca7d000 rw-p 00000000 00:00 0 
+7f67eca7d000-7f67ecdc6000 r-xp 00000000 08:02 17828088                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/_sparsetools.cpython-36m-x86_64-linux-gnu.so
+7f67ecdc6000-7f67ecfc6000 ---p 00349000 08:02 17828088                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/_sparsetools.cpython-36m-x86_64-linux-gnu.so
+7f67ecfc6000-7f67ecfc7000 rw-p 00349000 08:02 17828088                   /usr/local/lib/python3.6/dist-packages/scipy/sparse/_sparsetools.cpython-36m-x86_64-linux-gnu.so
+7f67ecfc7000-7f67ed079000 r-xp 00000000 08:02 17827011                   /usr/local/lib/python3.6/dist-packages/scipy/fft/_pocketfft/pypocketfft.cpython-36m-x86_64-linux-gnu.so
+7f67ed079000-7f67ed279000 ---p 000b2000 08:02 17827011                   /usr/local/lib/python3.6/dist-packages/scipy/fft/_pocketfft/pypocketfft.cpython-36m-x86_64-linux-gnu.so
+7f67ed279000-7f67ed27b000 rw-p 000b2000 08:02 17827011                   /usr/local/lib/python3.6/dist-packages/scipy/fft/_pocketfft/pypocketfft.cpython-36m-x86_64-linux-gnu.so
+7f67ed27b000-7f67ed500000 rw-p 00000000 00:00 0 
+7f67ed500000-7f67ed509000 r-xp 00000000 08:02 17826911                   /usr/local/lib/python3.6/dist-packages/scipy/_lib/_uarray/_uarray.cpython-36m-x86_64-linux-gnu.so
+7f67ed509000-7f67ed709000 ---p 00009000 08:02 17826911                   /usr/local/lib/python3.6/dist-packages/scipy/_lib/_uarray/_uarray.cpython-36m-x86_64-linux-gnu.so
+7f67ed709000-7f67ed70a000 rw-p 00009000 08:02 17826911                   /usr/local/lib/python3.6/dist-packages/scipy/_lib/_uarray/_uarray.cpython-36m-x86_64-linux-gnu.so
+7f67ed70a000-7f67ed74a000 rw-p 00000000 00:00 0 
+7f67ed74a000-7f67ed759000 r-xp 00000000 08:02 17826894                   /usr/local/lib/python3.6/dist-packages/scipy/_lib/_ccallback_c.cpython-36m-x86_64-linux-gnu.so
+7f67ed759000-7f67ed959000 ---p 0000f000 08:02 17826894                   /usr/local/lib/python3.6/dist-packages/scipy/_lib/_ccallback_c.cpython-36m-x86_64-linux-gnu.so
+7f67ed959000-7f67ed95b000 rw-p 0000f000 08:02 17826894                   /usr/local/lib/python3.6/dist-packages/scipy/_lib/_ccallback_c.cpython-36m-x86_64-linux-gnu.so
+7f67ed95b000-7f67edb9b000 rw-p 00000000 00:00 0 
+7f67edb9b000-7f67edb9e000 r-xp 00000000 08:02 15340836                   /usr/lib/python3.6/lib-dynload/_multiprocessing.cpython-36m-x86_64-linux-gnu.so
+7f67edb9e000-7f67edd9d000 ---p 00003000 08:02 15340836                   /usr/lib/python3.6/lib-dynload/_multiprocessing.cpython-36m-x86_64-linux-gnu.so
+7f67edd9d000-7f67edd9e000 r--p 00002000 08:02 15340836                   /usr/lib/python3.6/lib-dynload/_multiprocessing.cpython-36m-x86_64-linux-gnu.so
+7f67edd9e000-7f67edd9f000 rw-p 00003000 08:02 15340836                   /usr/lib/python3.6/lib-dynload/_multiprocessing.cpython-36m-x86_64-linux-gnu.so
+7f67edd9f000-7f67ee19f000 rw-p 00000000 00:00 0 
+7f67ee19f000-7f67ee29f000 rwxp 00000000 00:00 0 
+7f67ee29f000-7f67ee2ea000 r-xp 00000000 08:02 17830424                   /usr/local/lib/python3.6/dist-packages/torch/lib/libc10.so
+7f67ee2ea000-7f67ee4ea000 ---p 0004b000 08:02 17830424                   /usr/local/lib/python3.6/dist-packages/torch/lib/libc10.so
+7f67ee4ea000-7f67ee4eb000 r--p 0004b000 08:02 17830424                   /usr/local/lib/python3.6/dist-packages/torch/lib/libc10.so
+7f67ee4eb000-7f67ee4ec000 rw-p 0004c000 08:02 17830424                   /usr/local/lib/python3.6/dist-packages/torch/lib/libc10.so
+7f67ee4ec000-7f67ee4ee000 rw-p 00000000 00:00 0 
+7f67ee4ee000-7f67ee4f9000 rw-p 00069000 08:02 17830424                   /usr/local/lib/python3.6/dist-packages/torch/lib/libc10.so
+7f67ee4f9000-7f67ee51e000 r-xp 00000000 08:02 17830425                   /usr/local/lib/python3.6/dist-packages/torch/lib/libc10_cuda.so
+7f67ee51e000-7f67ee71d000 ---p 00025000 08:02 17830425                   /usr/local/lib/python3.6/dist-packages/torch/lib/libc10_cuda.so
+7f67ee71d000-7f67ee71e000 r--p 00024000 08:02 17830425                   /usr/local/lib/python3.6/dist-packages/torch/lib/libc10_cuda.so
+7f67ee71e000-7f67ee723000 rw-p 00025000 08:02 17830425                   /usr/local/lib/python3.6/dist-packages/torch/lib/libc10_cuda.so
+7f67ee723000-7f67ee726000 rw-p 00032000 08:02 17830425                   /usr/local/lib/python3.6/dist-packages/torch/lib/libc10_cuda.so
+7f67ee726000-7f67ee728000 rw-p 00035000 08:02 17830425                   /usr/local/lib/python3.6/dist-packages/torch/lib/libc10_cuda.so
+7f67ee728000-7f6827b6e000 r-xp 00000000 08:02 17830781                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_cuda.so
+7f6827b6e000-7f6827d6d000 ---p 39446000 08:02 17830781                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_cuda.so
+7f6827d6d000-7f6827e7a000 r--p 39445000 08:02 17830781                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_cuda.so
+7f6827e7a000-7f6829277000 rw-p 39552000 08:02 17830781                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_cuda.so
+7f6829277000-7f68299b1000 rw-p 00000000 00:00 0 
+7f68299b1000-7f682a2e6000 rw-p 3dde0000 08:02 17830781                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_cuda.so
+7f682a2e6000-7f682abb1000 rw-p 3e715000 08:02 17830781                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_cuda.so
+7f682abb1000-7f6838f44000 r-xp 00000000 08:02 17830437                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_cpu.so
+7f6838f44000-7f6839143000 ---p 0e393000 08:02 17830437                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_cpu.so
+7f6839143000-7f6839251000 r--p 0e392000 08:02 17830437                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_cpu.so
+7f6839251000-7f683934d000 rw-p 0e4a0000 08:02 17830437                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_cpu.so
+7f683934d000-7f6839392000 rw-p 00000000 00:00 0 
+7f6839392000-7f68396a0000 rw-p 0f912000 08:02 17830437                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_cpu.so
+7f68396a0000-7f683994d000 rw-p 0fc20000 08:02 17830437                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_cpu.so
+7f683994d000-7f683995f000 r-xp 00000000 08:02 17830436                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch.so
+7f683995f000-7f6839b5f000 ---p 00012000 08:02 17830436                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch.so
+7f6839b5f000-7f6839b60000 r--p 00012000 08:02 17830436                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch.so
+7f6839b60000-7f6839b61000 rw-p 00013000 08:02 17830436                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch.so
+7f6839b61000-7f683a717000 r-xp 00000000 08:02 17832593                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_python.so
+7f683a717000-7f683a916000 ---p 00bb6000 08:02 17832593                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_python.so
+7f683a916000-7f683a92c000 r--p 00bb5000 08:02 17832593                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_python.so
+7f683a92c000-7f683a949000 rw-p 00bcb000 08:02 17832593                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_python.so
+7f683a949000-7f683a99f000 rw-p 00000000 00:00 0 
+7f683a99f000-7f683aa47000 rw-p 00f1d000 08:02 17832593                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_python.so
+7f683aa47000-7f683aa4e000 r-xp 00000000 08:02 17830435                   /usr/local/lib/python3.6/dist-packages/torch/lib/libshm.so
+7f683aa4e000-7f683ac4d000 ---p 00007000 08:02 17830435                   /usr/local/lib/python3.6/dist-packages/torch/lib/libshm.so
+7f683ac4d000-7f683ac4e000 r--p 00006000 08:02 17830435                   /usr/local/lib/python3.6/dist-packages/torch/lib/libshm.so
+7f683ac4e000-7f683ac4f000 rw-p 00007000 08:02 17830435                   /usr/local/lib/python3.6/dist-packages/torch/lib/libshm.so
+7f683ac4f000-7f683ac63000 r-xp 00000000 08:02 16783109                   /usr/local/lib/python3.6/dist-packages/torch/_C.cpython-36m-x86_64-linux-gnu.so
+7f683ac63000-7f683ae63000 ---p 00014000 08:02 16783109                   /usr/local/lib/python3.6/dist-packages/torch/_C.cpython-36m-x86_64-linux-gnu.so
+7f683ae63000-7f683ae64000 r--p 00014000 08:02 16783109                   /usr/local/lib/python3.6/dist-packages/torch/_C.cpython-36m-x86_64-linux-gnu.so
+7f683ae64000-7f683ae65000 rw-p 00015000 08:02 16783109                   /usr/local/lib/python3.6/dist-packages/torch/_C.cpython-36m-x86_64-linux-gnu.so
+7f683ae65000-7f683ae6c000 rw-p 00026000 08:02 16783109                   /usr/local/lib/python3.6/dist-packages/torch/_C.cpython-36m-x86_64-linux-gnu.so
+7f683ae6c000-7f683ae91000 r-xp 00000000 08:02 17830431                   /usr/local/lib/python3.6/dist-packages/torch/lib/libgomp-7c85b1e2.so.1
+7f683ae91000-7f683b090000 ---p 00025000 08:02 17830431                   /usr/local/lib/python3.6/dist-packages/torch/lib/libgomp-7c85b1e2.so.1
+7f683b090000-7f683b091000 r--p 00024000 08:02 17830431                   /usr/local/lib/python3.6/dist-packages/torch/lib/libgomp-7c85b1e2.so.1
+7f683b091000-7f683b092000 rw-p 00025000 08:02 17830431                   /usr/local/lib/python3.6/dist-packages/torch/lib/libgomp-7c85b1e2.so.1
+7f683b092000-7f683b096000 rw-p 00026000 08:02 17830431                   /usr/local/lib/python3.6/dist-packages/torch/lib/libgomp-7c85b1e2.so.1
+7f683b096000-7f683b09d000 r-xp 00000000 08:02 12714462                   /lib/x86_64-linux-gnu/librt-2.27.so
+7f683b09d000-7f683b29c000 ---p 00007000 08:02 12714462                   /lib/x86_64-linux-gnu/librt-2.27.so
+7f683b29c000-7f683b29d000 r--p 00006000 08:02 12714462                   /lib/x86_64-linux-gnu/librt-2.27.so
+7f683b29d000-7f683b29e000 rw-p 00007000 08:02 12714462                   /lib/x86_64-linux-gnu/librt-2.27.so
+7f683b29e000-7f683b317000 r-xp 00000000 08:02 17830430                   /usr/local/lib/python3.6/dist-packages/torch/lib/libcudart-80664282.so.10.2
+7f683b317000-7f683b516000 ---p 00079000 08:02 17830430                   /usr/local/lib/python3.6/dist-packages/torch/lib/libcudart-80664282.so.10.2
+7f683b516000-7f683b51a000 rw-p 00078000 08:02 17830430                   /usr/local/lib/python3.6/dist-packages/torch/lib/libcudart-80664282.so.10.2
+7f683b51a000-7f683b51c000 rw-p 00000000 00:00 0 
+7f683b51c000-7f683b51f000 rw-p 0007d000 08:02 17830430                   /usr/local/lib/python3.6/dist-packages/torch/lib/libcudart-80664282.so.10.2
+7f683b51f000-7f683b527000 r-xp 00000000 08:02 17830432                   /usr/local/lib/python3.6/dist-packages/torch/lib/libnvToolsExt-3965bdd0.so.1
+7f683b527000-7f683b727000 ---p 00008000 08:02 17830432                   /usr/local/lib/python3.6/dist-packages/torch/lib/libnvToolsExt-3965bdd0.so.1
+7f683b727000-7f683b728000 rw-p 00008000 08:02 17830432                   /usr/local/lib/python3.6/dist-packages/torch/lib/libnvToolsExt-3965bdd0.so.1
+7f683b728000-7f683b729000 rw-p 0000a000 08:02 17830432                   /usr/local/lib/python3.6/dist-packages/torch/lib/libnvToolsExt-3965bdd0.so.1
+7f683b729000-7f683b72a000 r-xp 00000000 08:02 17832592                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_global_deps.so
+7f683b72a000-7f683b929000 ---p 00001000 08:02 17832592                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_global_deps.so
+7f683b929000-7f683b92a000 r--p 00000000 08:02 17832592                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_global_deps.so
+7f683b92a000-7f683b92b000 rw-p 00001000 08:02 17832592                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_global_deps.so
+7f683b92b000-7f683b92c000 rw-p 00002000 08:02 17832592                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_global_deps.so
+7f683b92c000-7f683b92d000 rw-p 00003000 08:02 17832592                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_global_deps.so
+7f683b92d000-7f683b92e000 rw-p 00004000 08:02 17832592                   /usr/local/lib/python3.6/dist-packages/torch/lib/libtorch_global_deps.so
+7f683b92e000-7f683b9ae000 rw-p 00000000 00:00 0 
+7f683b9ae000-7f683ba2e000 r-xp 00000000 08:02 13238382                   /usr/lib/x86_64-linux-gnu/libssl.so.1.1
+7f683ba2e000-7f683bc2e000 ---p 00080000 08:02 13238382                   /usr/lib/x86_64-linux-gnu/libssl.so.1.1
+7f683bc2e000-7f683bc37000 r--p 00080000 08:02 13238382                   /usr/lib/x86_64-linux-gnu/libssl.so.1.1
+7f683bc37000-7f683bc3b000 rw-p 00089000 08:02 13238382                   /usr/lib/x86_64-linux-gnu/libssl.so.1.1
+7f683bc3b000-7f683bc53000 r-xp 00000000 08:02 15340839                   /usr/lib/python3.6/lib-dynload/_ssl.cpython-36m-x86_64-linux-gnu.so
+7f683bc53000-7f683be52000 ---p 00018000 08:02 15340839                   /usr/lib/python3.6/lib-dynload/_ssl.cpython-36m-x86_64-linux-gnu.so
+7f683be52000-7f683be53000 r--p 00017000 08:02 15340839                   /usr/lib/python3.6/lib-dynload/_ssl.cpython-36m-x86_64-linux-gnu.so
+7f683be53000-7f683be58000 rw-p 00018000 08:02 15340839                   /usr/lib/python3.6/lib-dynload/_ssl.cpython-36m-x86_64-linux-gnu.so
+7f683be58000-7f683bf58000 rw-p 00000000 00:00 0 
+7f683bf58000-7f683bf6b000 r-xp 00000000 08:02 17699151                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/testing.cpython-36m-x86_64-linux-gnu.so
+7f683bf6b000-7f683c16b000 ---p 00013000 08:02 17699151                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/testing.cpython-36m-x86_64-linux-gnu.so
+7f683c16b000-7f683c16d000 rw-p 00013000 08:02 17699151                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/testing.cpython-36m-x86_64-linux-gnu.so
+7f683c16d000-7f683c26d000 rw-p 00000000 00:00 0 
+7f683c26d000-7f683c281000 r-xp 00000000 08:02 17699141                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/json.cpython-36m-x86_64-linux-gnu.so
+7f683c281000-7f683c481000 ---p 00014000 08:02 17699141                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/json.cpython-36m-x86_64-linux-gnu.so
+7f683c481000-7f683c482000 rw-p 00014000 08:02 17699141                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/json.cpython-36m-x86_64-linux-gnu.so
+7f683c482000-7f683c4c2000 rw-p 00000000 00:00 0 
+7f683c4c2000-7f683c549000 r-xp 00000000 08:02 17699146                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/parsers.cpython-36m-x86_64-linux-gnu.so
+7f683c549000-7f683c748000 ---p 00087000 08:02 17699146                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/parsers.cpython-36m-x86_64-linux-gnu.so
+7f683c748000-7f683c750000 rw-p 00086000 08:02 17699146                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/parsers.cpython-36m-x86_64-linux-gnu.so
+7f683c750000-7f683c813000 rw-p 00000000 00:00 0 
+7f683c813000-7f683c869000 r-xp 00000000 08:02 17699148                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/reduction.cpython-36m-x86_64-linux-gnu.so
+7f683c869000-7f683ca68000 ---p 00056000 08:02 17699148                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/reduction.cpython-36m-x86_64-linux-gnu.so
+7f683ca68000-7f683ca6e000 rw-p 00055000 08:02 17699148                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/reduction.cpython-36m-x86_64-linux-gnu.so
+7f683ca6e000-7f683ca6f000 rw-p 00000000 00:00 0 
+7f683ca6f000-7f683cba2000 r-xp 00000000 08:02 17699080                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/groupby.cpython-36m-x86_64-linux-gnu.so
+7f683cba2000-7f683cda2000 ---p 00133000 08:02 17699080                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/groupby.cpython-36m-x86_64-linux-gnu.so
+7f683cda2000-7f683cdab000 rw-p 00133000 08:02 17699080                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/groupby.cpython-36m-x86_64-linux-gnu.so
+7f683cdab000-7f683ce2f000 rw-p 00000000 00:00 0 
+7f683ce2f000-7f683ce58000 r-xp 00000000 08:02 17699178                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/window/indexers.cpython-36m-x86_64-linux-gnu.so
+7f683ce58000-7f683d057000 ---p 00029000 08:02 17699178                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/window/indexers.cpython-36m-x86_64-linux-gnu.so
+7f683d057000-7f683d05a000 rw-p 00028000 08:02 17699178                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/window/indexers.cpython-36m-x86_64-linux-gnu.so
+7f683d05a000-7f683d05b000 rw-p 00000000 00:00 0 
+7f683d05b000-7f683d0c0000 r-xp 00000000 08:02 17699177                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/window/aggregations.cpython-36m-x86_64-linux-gnu.so
+7f683d0c0000-7f683d2bf000 ---p 00065000 08:02 17699177                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/window/aggregations.cpython-36m-x86_64-linux-gnu.so
+7f683d2bf000-7f683d2c5000 rw-p 00064000 08:02 17699177                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/window/aggregations.cpython-36m-x86_64-linux-gnu.so
+7f683d2c5000-7f683d307000 rw-p 00000000 00:00 0 
+7f683d307000-7f683d343000 r-xp 00000000 08:02 17699149                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/reshape.cpython-36m-x86_64-linux-gnu.so
+7f683d343000-7f683d542000 ---p 0003c000 08:02 17699149                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/reshape.cpython-36m-x86_64-linux-gnu.so
+7f683d542000-7f683d547000 rw-p 0003b000 08:02 17699149                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/reshape.cpython-36m-x86_64-linux-gnu.so
+7f683d547000-7f683d588000 rw-p 00000000 00:00 0 
+7f683d588000-7f683d58d000 r-xp 00000000 08:02 15340845                   /usr/lib/python3.6/lib-dynload/mmap.cpython-36m-x86_64-linux-gnu.so
+7f683d58d000-7f683d78c000 ---p 00005000 08:02 15340845                   /usr/lib/python3.6/lib-dynload/mmap.cpython-36m-x86_64-linux-gnu.so
+7f683d78c000-7f683d78d000 r--p 00004000 08:02 15340845                   /usr/lib/python3.6/lib-dynload/mmap.cpython-36m-x86_64-linux-gnu.so
+7f683d78d000-7f683d78e000 rw-p 00005000 08:02 15340845                   /usr/lib/python3.6/lib-dynload/mmap.cpython-36m-x86_64-linux-gnu.so
+7f683d78e000-7f683d80e000 rw-p 00000000 00:00 0 
+7f683d80e000-7f683d84e000 r-xp 00000000 08:02 17699091                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/internals.cpython-36m-x86_64-linux-gnu.so
+7f683d84e000-7f683da4d000 ---p 00040000 08:02 17699091                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/internals.cpython-36m-x86_64-linux-gnu.so
+7f683da4d000-7f683da52000 rw-p 0003f000 08:02 17699091                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/internals.cpython-36m-x86_64-linux-gnu.so
+7f683da52000-7f683da53000 rw-p 00000000 00:00 0 
+7f683da53000-7f683da85000 r-xp 00000000 08:02 17699179                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/writers.cpython-36m-x86_64-linux-gnu.so
+7f683da85000-7f683dc85000 ---p 00032000 08:02 17699179                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/writers.cpython-36m-x86_64-linux-gnu.so
+7f683dc85000-7f683dc89000 rw-p 00032000 08:02 17699179                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/writers.cpython-36m-x86_64-linux-gnu.so
+7f683dc89000-7f683dcca000 rw-p 00000000 00:00 0 
+7f683dcca000-7f683dcd3000 r-xp 00000000 08:02 17699090                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/indexing.cpython-36m-x86_64-linux-gnu.so
+7f683dcd3000-7f683ded2000 ---p 00009000 08:02 17699090                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/indexing.cpython-36m-x86_64-linux-gnu.so
+7f683ded2000-7f683ded4000 rw-p 00008000 08:02 17699090                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/indexing.cpython-36m-x86_64-linux-gnu.so
+7f683ded4000-7f683e054000 rw-p 00000000 00:00 0 
+7f683e054000-7f683e137000 r-xp 00000000 08:02 17699150                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/sparse.cpython-36m-x86_64-linux-gnu.so
+7f683e137000-7f683e336000 ---p 000e3000 08:02 17699150                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/sparse.cpython-36m-x86_64-linux-gnu.so
+7f683e336000-7f683e33d000 rw-p 000e2000 08:02 17699150                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/sparse.cpython-36m-x86_64-linux-gnu.so
+7f683e33d000-7f683e3bf000 rw-p 00000000 00:00 0 
+7f683e3bf000-7f683e645000 r-xp 00000000 08:02 17699111                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/join.cpython-36m-x86_64-linux-gnu.so
+7f683e645000-7f683e844000 ---p 00286000 08:02 17699111                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/join.cpython-36m-x86_64-linux-gnu.so
+7f683e844000-7f683e84d000 rw-p 00285000 08:02 17699111                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/join.cpython-36m-x86_64-linux-gnu.so
+7f683e84d000-7f683e852000 rw-p 00000000 00:00 0 
+7f683e852000-7f683e8f7000 r-xp 00000000 08:02 17699088                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/index.cpython-36m-x86_64-linux-gnu.so
+7f683e8f7000-7f683eaf7000 ---p 000a5000 08:02 17699088                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/index.cpython-36m-x86_64-linux-gnu.so
+7f683eaf7000-7f683eb00000 rw-p 000a5000 08:02 17699088                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/index.cpython-36m-x86_64-linux-gnu.so
+7f683eb00000-7f683eb03000 rw-p 00000000 00:00 0 
+7f683eb03000-7f683eb38000 r-xp 00000000 08:02 17699144                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/ops.cpython-36m-x86_64-linux-gnu.so
+7f683eb38000-7f683ed37000 ---p 00035000 08:02 17699144                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/ops.cpython-36m-x86_64-linux-gnu.so
+7f683ed37000-7f683ed3b000 rw-p 00034000 08:02 17699144                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/ops.cpython-36m-x86_64-linux-gnu.so
+7f683ed3b000-7f683ed3c000 rw-p 00000000 00:00 0 
+7f683ed3c000-7f683ed67000 r-xp 00000000 08:02 17699081                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/hashing.cpython-36m-x86_64-linux-gnu.so
+7f683ed67000-7f683ef67000 ---p 0002b000 08:02 17699081                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/hashing.cpython-36m-x86_64-linux-gnu.so
+7f683ef67000-7f683ef6a000 rw-p 0002b000 08:02 17699081                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/hashing.cpython-36m-x86_64-linux-gnu.so
+7f683ef6a000-7f683ef6b000 rw-p 00000000 00:00 0 
+7f683ef6b000-7f683ef78000 r-xp 00000000 08:02 17699147                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/properties.cpython-36m-x86_64-linux-gnu.so
+7f683ef78000-7f683f178000 ---p 0000d000 08:02 17699147                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/properties.cpython-36m-x86_64-linux-gnu.so
+7f683f178000-7f683f17a000 rw-p 0000d000 08:02 17699147                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/properties.cpython-36m-x86_64-linux-gnu.so
+7f683f17a000-7f683f31f000 r-xp 00000000 08:02 17699079                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/algos.cpython-36m-x86_64-linux-gnu.so
+7f683f31f000-7f683f51f000 ---p 001a5000 08:02 17699079                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/algos.cpython-36m-x86_64-linux-gnu.so
+7f683f51f000-7f683f52b000 rw-p 001a5000 08:02 17699079                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/algos.cpython-36m-x86_64-linux-gnu.so
+7f683f52b000-7f683f530000 rw-p 00000000 00:00 0 
+7f683f530000-7f683f666000 r-xp 00000000 08:02 17699092                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/interval.cpython-36m-x86_64-linux-gnu.so
+7f683f666000-7f683f865000 ---p 00136000 08:02 17699092                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/interval.cpython-36m-x86_64-linux-gnu.so
+7f683f865000-7f683f873000 rw-p 00135000 08:02 17699092                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/interval.cpython-36m-x86_64-linux-gnu.so
+7f683f873000-7f683f875000 rw-p 00000000 00:00 0 
+7f683f875000-7f683f8c2000 r-xp 00000000 08:02 17699152                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslib.cpython-36m-x86_64-linux-gnu.so
+7f683f8c2000-7f683fac2000 ---p 0004d000 08:02 17699152                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslib.cpython-36m-x86_64-linux-gnu.so
+7f683fac2000-7f683fac7000 rw-p 0004d000 08:02 17699152                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslib.cpython-36m-x86_64-linux-gnu.so
+7f683fac7000-7f683fac9000 rw-p 00000000 00:00 0 
+7f683fac9000-7f683fb54000 r-xp 00000000 08:02 17699142                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/lib.cpython-36m-x86_64-linux-gnu.so
+7f683fb54000-7f683fd53000 ---p 0008b000 08:02 17699142                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/lib.cpython-36m-x86_64-linux-gnu.so
+7f683fd53000-7f683fd5f000 rw-p 0008a000 08:02 17699142                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/lib.cpython-36m-x86_64-linux-gnu.so
+7f683fd5f000-7f683fd63000 rw-p 00000000 00:00 0 
+7f683fd63000-7f683fdf2000 r-xp 00000000 08:02 17699084                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/hashtable.cpython-36m-x86_64-linux-gnu.so
+7f683fdf2000-7f683fff2000 ---p 0008f000 08:02 17699084                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/hashtable.cpython-36m-x86_64-linux-gnu.so
+7f683fff2000-7f683fffe000 rw-p 0008f000 08:02 17699084                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/hashtable.cpython-36m-x86_64-linux-gnu.so
+7f683fffe000-7f6840000000 rw-p 00000000 00:00 0 
+7f6840000000-7f6840021000 rw-p 00000000 00:00 0 
+7f6840021000-7f6844000000 ---p 00000000 00:00 0 
+7f6844006000-7f68441c6000 rw-p 00000000 00:00 0 
+7f68441c6000-7f6844200000 r-xp 00000000 08:02 17699167                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/resolution.cpython-36m-x86_64-linux-gnu.so
+7f6844200000-7f6844400000 ---p 0003a000 08:02 17699167                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/resolution.cpython-36m-x86_64-linux-gnu.so
+7f6844400000-7f6844405000 rw-p 0003a000 08:02 17699167                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/resolution.cpython-36m-x86_64-linux-gnu.so
+7f6844405000-7f6844406000 rw-p 00000000 00:00 0 
+7f6844406000-7f684444b000 r-xp 00000000 08:02 17699170                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/timestamps.cpython-36m-x86_64-linux-gnu.so
+7f684444b000-7f684464b000 ---p 00045000 08:02 17699170                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/timestamps.cpython-36m-x86_64-linux-gnu.so
+7f684464b000-7f6844653000 rw-p 00045000 08:02 17699170                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/timestamps.cpython-36m-x86_64-linux-gnu.so
+7f6844653000-7f6844655000 rw-p 00000000 00:00 0 
+7f6844655000-7f68446c1000 r-xp 00000000 08:02 17699166                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/period.cpython-36m-x86_64-linux-gnu.so
+7f68446c1000-7f68448c0000 ---p 0006c000 08:02 17699166                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/period.cpython-36m-x86_64-linux-gnu.so
+7f68448c0000-7f68448c9000 rw-p 0006b000 08:02 17699166                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/period.cpython-36m-x86_64-linux-gnu.so
+7f68448c9000-7f68448cb000 rw-p 00000000 00:00 0 
+7f68448cb000-7f68448ea000 r-xp 00000000 08:02 17699161                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/frequencies.cpython-36m-x86_64-linux-gnu.so
+7f68448ea000-7f6844aea000 ---p 0001f000 08:02 17699161                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/frequencies.cpython-36m-x86_64-linux-gnu.so
+7f6844aea000-7f6844aed000 rw-p 0001f000 08:02 17699161                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/frequencies.cpython-36m-x86_64-linux-gnu.so
+7f6844aed000-7f6844aee000 rw-p 00000000 00:00 0 
+7f6844aee000-7f6844b55000 r-xp 00000000 08:02 17699165                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/parsing.cpython-36m-x86_64-linux-gnu.so
+7f6844b55000-7f6844d55000 ---p 00067000 08:02 17699165                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/parsing.cpython-36m-x86_64-linux-gnu.so
+7f6844d55000-7f6844d5d000 rw-p 00067000 08:02 17699165                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/parsing.cpython-36m-x86_64-linux-gnu.so
+7f6844d5d000-7f6844d5f000 rw-p 00000000 00:00 0 
+7f6844d5f000-7f6844d9b000 r-xp 00000000 08:02 17699160                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/fields.cpython-36m-x86_64-linux-gnu.so
+7f6844d9b000-7f6844f9a000 ---p 0003c000 08:02 17699160                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/fields.cpython-36m-x86_64-linux-gnu.so
+7f6844f9a000-7f6844f9f000 rw-p 0003b000 08:02 17699160                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/fields.cpython-36m-x86_64-linux-gnu.so
+7f6844f9f000-7f6844fa0000 rw-p 00000000 00:00 0 
+7f6844fa0000-7f6845006000 r-xp 00000000 08:02 17699168                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/strptime.cpython-36m-x86_64-linux-gnu.so
+7f6845006000-7f6845205000 ---p 00066000 08:02 17699168                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/strptime.cpython-36m-x86_64-linux-gnu.so
+7f6845205000-7f684520d000 rw-p 00065000 08:02 17699168                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/strptime.cpython-36m-x86_64-linux-gnu.so
+7f684520d000-7f684520f000 rw-p 00000000 00:00 0 
+7f684520f000-7f684521c000 r-xp 00000000 08:02 17699158                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/ccalendar.cpython-36m-x86_64-linux-gnu.so
+7f684521c000-7f684541b000 ---p 0000d000 08:02 17699158                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/ccalendar.cpython-36m-x86_64-linux-gnu.so
+7f684541b000-7f684541e000 rw-p 0000c000 08:02 17699158                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/ccalendar.cpython-36m-x86_64-linux-gnu.so
+7f684541e000-7f6845481000 r-xp 00000000 08:02 17699164                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/offsets.cpython-36m-x86_64-linux-gnu.so
+7f6845481000-7f6845680000 ---p 00063000 08:02 17699164                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/offsets.cpython-36m-x86_64-linux-gnu.so
+7f6845680000-7f684568a000 rw-p 00062000 08:02 17699164                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/offsets.cpython-36m-x86_64-linux-gnu.so
+7f684568a000-7f684568c000 rw-p 00000000 00:00 0 
+7f684568c000-7f68456ff000 r-xp 00000000 08:02 17699169                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/timedeltas.cpython-36m-x86_64-linux-gnu.so
+7f68456ff000-7f68458fe000 ---p 00073000 08:02 17699169                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/timedeltas.cpython-36m-x86_64-linux-gnu.so
+7f68458fe000-7f6845906000 rw-p 00072000 08:02 17699169                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/timedeltas.cpython-36m-x86_64-linux-gnu.so
+7f6845906000-7f6845909000 rw-p 00000000 00:00 0 
+7f6845909000-7f6845953000 r-xp 00000000 08:02 17699172                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/tzconversion.cpython-36m-x86_64-linux-gnu.so
+7f6845953000-7f6845b53000 ---p 0004a000 08:02 17699172                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/tzconversion.cpython-36m-x86_64-linux-gnu.so
+7f6845b53000-7f6845b58000 rw-p 0004a000 08:02 17699172                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/tzconversion.cpython-36m-x86_64-linux-gnu.so
+7f6845b58000-7f6845b59000 rw-p 00000000 00:00 0 
+7f6845b59000-7f6845b5a000 ---p 00000000 00:00 0 
+7f6845b5a000-7f684659a000 rw-p 00000000 00:00 0 
+7f684659a000-7f68465c7000 r-xp 00000000 08:02 17045788                   /usr/local/lib/python3.6/dist-packages/matplotlib/_path.cpython-36m-x86_64-linux-gnu.so
+7f68465c7000-7f68467c7000 ---p 0002d000 08:02 17045788                   /usr/local/lib/python3.6/dist-packages/matplotlib/_path.cpython-36m-x86_64-linux-gnu.so
+7f68467c7000-7f68467c8000 rw-p 0002d000 08:02 17045788                   /usr/local/lib/python3.6/dist-packages/matplotlib/_path.cpython-36m-x86_64-linux-gnu.so
+7f68467c8000-7f6846849000 rw-p 00000000 00:00 0 
+7f6846849000-7f6846886000 r-xp 00000000 08:02 16783077                   /usr/local/lib/python3.6/dist-packages/kiwisolver.cpython-36m-x86_64-linux-gnu.so
+7f6846886000-7f6846a86000 ---p 0003d000 08:02 16783077                   /usr/local/lib/python3.6/dist-packages/kiwisolver.cpython-36m-x86_64-linux-gnu.so
+7f6846a86000-7f6846a88000 rw-p 0003d000 08:02 16783077                   /usr/local/lib/python3.6/dist-packages/kiwisolver.cpython-36m-x86_64-linux-gnu.so
+7f6846a88000-7f6846a9f000 r-xp 00000000 08:02 15076653                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f6846a9f000-7f6846c9e000 ---p 00017000 08:02 15076653                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f6846c9e000-7f6846c9f000 r--p 00016000 08:02 15076653                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f6846c9f000-7f6846ca0000 rw-p 00017000 08:02 15076653                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f6846ca0000-7f6846e19000 r-xp 00000000 08:02 15341546                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+7f6846e19000-7f6847019000 ---p 00179000 08:02 15341546                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+7f6847019000-7f6847023000 r--p 00179000 08:02 15341546                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+7f6847023000-7f6847025000 rw-p 00183000 08:02 15341546                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+7f6847025000-7f6847029000 rw-p 00000000 00:00 0 
+7f6847029000-7f6847102000 r-xp 00000000 08:02 17045951                   /usr/local/lib/python3.6/dist-packages/matplotlib/ft2font.cpython-36m-x86_64-linux-gnu.so
+7f6847102000-7f6847302000 ---p 000d9000 08:02 17045951                   /usr/local/lib/python3.6/dist-packages/matplotlib/ft2font.cpython-36m-x86_64-linux-gnu.so
+7f6847302000-7f6847309000 rw-p 000d9000 08:02 17045951                   /usr/local/lib/python3.6/dist-packages/matplotlib/ft2font.cpython-36m-x86_64-linux-gnu.so
+7f6847309000-7f684734a000 rw-p 00000000 00:00 0 
+7f684734a000-7f684735b000 r-xp 00000000 08:02 15340832                   /usr/lib/python3.6/lib-dynload/_json.cpython-36m-x86_64-linux-gnu.so
+7f684735b000-7f684755a000 ---p 00011000 08:02 15340832                   /usr/lib/python3.6/lib-dynload/_json.cpython-36m-x86_64-linux-gnu.so
+7f684755a000-7f684755b000 r--p 00010000 08:02 15340832                   /usr/lib/python3.6/lib-dynload/_json.cpython-36m-x86_64-linux-gnu.so
+7f684755b000-7f684755c000 rw-p 00011000 08:02 15340832                   /usr/lib/python3.6/lib-dynload/_json.cpython-36m-x86_64-linux-gnu.so
+7f684755c000-7f684789c000 rw-p 00000000 00:00 0 
+7f684789c000-7f6847940000 r-xp 00000000 08:02 17303590                   /usr/local/lib/python3.6/dist-packages/numpy/random/_generator.cpython-36m-x86_64-linux-gnu.so
+7f6847940000-7f6847b40000 ---p 000a4000 08:02 17303590                   /usr/local/lib/python3.6/dist-packages/numpy/random/_generator.cpython-36m-x86_64-linux-gnu.so
+7f6847b40000-7f6847b64000 rw-p 000a4000 08:02 17303590                   /usr/local/lib/python3.6/dist-packages/numpy/random/_generator.cpython-36m-x86_64-linux-gnu.so
+7f6847b64000-7f6847b67000 rw-p 00000000 00:00 0 
+7f6847b67000-7f6847b73000 r-xp 00000000 08:02 17303595                   /usr/local/lib/python3.6/dist-packages/numpy/random/_sfc64.cpython-36m-x86_64-linux-gnu.so
+7f6847b73000-7f6847d72000 ---p 0000c000 08:02 17303595                   /usr/local/lib/python3.6/dist-packages/numpy/random/_sfc64.cpython-36m-x86_64-linux-gnu.so
+7f6847d72000-7f6847d74000 rw-p 0000b000 08:02 17303595                   /usr/local/lib/python3.6/dist-packages/numpy/random/_sfc64.cpython-36m-x86_64-linux-gnu.so
+7f6847d74000-7f6847d83000 r-xp 00000000 08:02 17303592                   /usr/local/lib/python3.6/dist-packages/numpy/random/_pcg64.cpython-36m-x86_64-linux-gnu.so
+7f6847d83000-7f6847f83000 ---p 0000f000 08:02 17303592                   /usr/local/lib/python3.6/dist-packages/numpy/random/_pcg64.cpython-36m-x86_64-linux-gnu.so
+7f6847f83000-7f6847f85000 rw-p 0000f000 08:02 17303592                   /usr/local/lib/python3.6/dist-packages/numpy/random/_pcg64.cpython-36m-x86_64-linux-gnu.so
+7f6847f85000-7f6847f97000 r-xp 00000000 08:02 17303593                   /usr/local/lib/python3.6/dist-packages/numpy/random/_philox.cpython-36m-x86_64-linux-gnu.so
+7f6847f97000-7f6848196000 ---p 00012000 08:02 17303593                   /usr/local/lib/python3.6/dist-packages/numpy/random/_philox.cpython-36m-x86_64-linux-gnu.so
+7f6848196000-7f6848198000 rw-p 00011000 08:02 17303593                   /usr/local/lib/python3.6/dist-packages/numpy/random/_philox.cpython-36m-x86_64-linux-gnu.so
+7f6848198000-7f6848199000 rw-p 00000000 00:00 0 
+7f6848199000-7f68481b1000 r-xp 00000000 08:02 17303591                   /usr/local/lib/python3.6/dist-packages/numpy/random/_mt19937.cpython-36m-x86_64-linux-gnu.so
+7f68481b1000-7f68483b1000 ---p 00018000 08:02 17303591                   /usr/local/lib/python3.6/dist-packages/numpy/random/_mt19937.cpython-36m-x86_64-linux-gnu.so
+7f68483b1000-7f68483b3000 rw-p 00018000 08:02 17303591                   /usr/local/lib/python3.6/dist-packages/numpy/random/_mt19937.cpython-36m-x86_64-linux-gnu.so
+7f68483b3000-7f68483b4000 rw-p 00000000 00:00 0 
+7f68483b4000-7f6848410000 r-xp 00000000 08:02 17303562                   /usr/local/lib/python3.6/dist-packages/numpy/random/_bounded_integers.cpython-36m-x86_64-linux-gnu.so
+7f6848410000-7f684860f000 ---p 0005c000 08:02 17303562                   /usr/local/lib/python3.6/dist-packages/numpy/random/_bounded_integers.cpython-36m-x86_64-linux-gnu.so
+7f684860f000-7f6848611000 rw-p 0005b000 08:02 17303562                   /usr/local/lib/python3.6/dist-packages/numpy/random/_bounded_integers.cpython-36m-x86_64-linux-gnu.so
+7f6848611000-7f6848613000 rw-p 00000000 00:00 0 
+7f6848613000-7f684864f000 r-xp 00000000 08:02 17303569                   /usr/local/lib/python3.6/dist-packages/numpy/random/_common.cpython-36m-x86_64-linux-gnu.so
+7f684864f000-7f684884e000 ---p 0003c000 08:02 17303569                   /usr/local/lib/python3.6/dist-packages/numpy/random/_common.cpython-36m-x86_64-linux-gnu.so
+7f684884e000-7f6848850000 rw-p 0003b000 08:02 17303569                   /usr/local/lib/python3.6/dist-packages/numpy/random/_common.cpython-36m-x86_64-linux-gnu.so
+7f6848850000-7f6848851000 rw-p 00000000 00:00 0 
+7f6848851000-7f684887a000 r-xp 00000000 08:02 17303560                   /usr/local/lib/python3.6/dist-packages/numpy/random/_bit_generator.cpython-36m-x86_64-linux-gnu.so
+7f684887a000-7f6848a7a000 ---p 00029000 08:02 17303560                   /usr/local/lib/python3.6/dist-packages/numpy/random/_bit_generator.cpython-36m-x86_64-linux-gnu.so
+7f6848a7a000-7f6848a7f000 rw-p 00029000 08:02 17303560                   /usr/local/lib/python3.6/dist-packages/numpy/random/_bit_generator.cpython-36m-x86_64-linux-gnu.so
+7f6848a7f000-7f6848a80000 rw-p 00000000 00:00 0 
+7f6848a80000-7f6848b04000 r-xp 00000000 08:02 17303596                   /usr/local/lib/python3.6/dist-packages/numpy/random/mtrand.cpython-36m-x86_64-linux-gnu.so
+7f6848b04000-7f6848d04000 ---p 00084000 08:02 17303596                   /usr/local/lib/python3.6/dist-packages/numpy/random/mtrand.cpython-36m-x86_64-linux-gnu.so
+7f6848d04000-7f6848d2a000 rw-p 00084000 08:02 17303596                   /usr/local/lib/python3.6/dist-packages/numpy/random/mtrand.cpython-36m-x86_64-linux-gnu.so
+7f6848d2a000-7f6848d6d000 rw-p 00000000 00:00 0 
+7f6848d6d000-7f6848d83000 r-xp 00000000 08:02 17303301                   /usr/local/lib/python3.6/dist-packages/numpy/fft/_pocketfft_internal.cpython-36m-x86_64-linux-gnu.so
+7f6848d83000-7f6848f82000 ---p 00016000 08:02 17303301                   /usr/local/lib/python3.6/dist-packages/numpy/fft/_pocketfft_internal.cpython-36m-x86_64-linux-gnu.so
+7f6848f82000-7f6848f83000 rw-p 00015000 08:02 17303301                   /usr/local/lib/python3.6/dist-packages/numpy/fft/_pocketfft_internal.cpython-36m-x86_64-linux-gnu.so
+7f6848f83000-7f6848fc3000 rw-p 00000000 00:00 0 
+7f6848fc3000-7f6848ffa000 r-xp 00000000 08:02 15341495                   /usr/lib/x86_64-linux-gnu/libmpdec.so.2.4.2
+7f6848ffa000-7f68491f9000 ---p 00037000 08:02 15341495                   /usr/lib/x86_64-linux-gnu/libmpdec.so.2.4.2
+7f68491f9000-7f68491fa000 r--p 00036000 08:02 15341495                   /usr/lib/x86_64-linux-gnu/libmpdec.so.2.4.2
+7f68491fa000-7f68491fb000 rw-p 00037000 08:02 15341495                   /usr/lib/x86_64-linux-gnu/libmpdec.so.2.4.2
+7f68491fb000-7f684921d000 r-xp 00000000 08:02 15340830                   /usr/lib/python3.6/lib-dynload/_decimal.cpython-36m-x86_64-linux-gnu.so
+7f684921d000-7f684941c000 ---p 00022000 08:02 15340830                   /usr/lib/python3.6/lib-dynload/_decimal.cpython-36m-x86_64-linux-gnu.so
+7f684941c000-7f684941d000 r--p 00021000 08:02 15340830                   /usr/lib/python3.6/lib-dynload/_decimal.cpython-36m-x86_64-linux-gnu.so
+7f684941d000-7f6849426000 rw-p 00022000 08:02 15340830                   /usr/lib/python3.6/lib-dynload/_decimal.cpython-36m-x86_64-linux-gnu.so
+7f6849426000-7f68494e6000 rw-p 00000000 00:00 0 
+7f68494e6000-7f6849511000 r-xp 00000000 08:02 17303431                   /usr/local/lib/python3.6/dist-packages/numpy/linalg/_umath_linalg.cpython-36m-x86_64-linux-gnu.so
+7f6849511000-7f6849711000 ---p 0002b000 08:02 17303431                   /usr/local/lib/python3.6/dist-packages/numpy/linalg/_umath_linalg.cpython-36m-x86_64-linux-gnu.so
+7f6849711000-7f6849713000 rw-p 0002b000 08:02 17303431                   /usr/local/lib/python3.6/dist-packages/numpy/linalg/_umath_linalg.cpython-36m-x86_64-linux-gnu.so
+7f6849713000-7f6849715000 rw-p 000d4000 08:02 17303431                   /usr/local/lib/python3.6/dist-packages/numpy/linalg/_umath_linalg.cpython-36m-x86_64-linux-gnu.so
+7f6849715000-7f6849716000 rw-p 000d6000 08:02 17303431                   /usr/local/lib/python3.6/dist-packages/numpy/linalg/_umath_linalg.cpython-36m-x86_64-linux-gnu.so
+7f6849716000-7f684971a000 r-xp 00000000 08:02 17303432                   /usr/local/lib/python3.6/dist-packages/numpy/linalg/lapack_lite.cpython-36m-x86_64-linux-gnu.so
+7f684971a000-7f684991a000 ---p 00004000 08:02 17303432                   /usr/local/lib/python3.6/dist-packages/numpy/linalg/lapack_lite.cpython-36m-x86_64-linux-gnu.so
+7f684991a000-7f684991b000 rw-p 00004000 08:02 17303432                   /usr/local/lib/python3.6/dist-packages/numpy/linalg/lapack_lite.cpython-36m-x86_64-linux-gnu.so
+7f684991b000-7f684991c000 rw-p 00019000 08:02 17303432                   /usr/local/lib/python3.6/dist-packages/numpy/linalg/lapack_lite.cpython-36m-x86_64-linux-gnu.so
+7f684991c000-7f684991d000 rw-p 0001a000 08:02 17303432                   /usr/local/lib/python3.6/dist-packages/numpy/linalg/lapack_lite.cpython-36m-x86_64-linux-gnu.so
+7f684992e000-7f68499ee000 rw-p 00000000 00:00 0 
+7f68499ee000-7f68499f5000 r-xp 00000000 08:02 12715164                   /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f68499f5000-7f6849bf4000 ---p 00007000 08:02 12715164                   /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f6849bf4000-7f6849bf5000 r--p 00006000 08:02 12715164                   /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f6849bf5000-7f6849bf6000 rw-p 00007000 08:02 12715164                   /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f6849bf6000-7f6849c11000 r-xp 00000000 08:02 15340825                   /usr/lib/python3.6/lib-dynload/_ctypes.cpython-36m-x86_64-linux-gnu.so
+7f6849c11000-7f6849e10000 ---p 0001b000 08:02 15340825                   /usr/lib/python3.6/lib-dynload/_ctypes.cpython-36m-x86_64-linux-gnu.so
+7f6849e10000-7f6849e11000 r--p 0001a000 08:02 15340825                   /usr/lib/python3.6/lib-dynload/_ctypes.cpython-36m-x86_64-linux-gnu.so
+7f6849e11000-7f6849e15000 rw-p 0001b000 08:02 15340825                   /usr/lib/python3.6/lib-dynload/_ctypes.cpython-36m-x86_64-linux-gnu.so
+7f6849e15000-7f6849e34000 r-xp 00000000 08:02 17047009                   /usr/local/lib/python3.6/dist-packages/numpy/core/_multiarray_tests.cpython-36m-x86_64-linux-gnu.so
+7f6849e34000-7f684a034000 ---p 0001f000 08:02 17047009                   /usr/local/lib/python3.6/dist-packages/numpy/core/_multiarray_tests.cpython-36m-x86_64-linux-gnu.so
+7f684a034000-7f684a036000 rw-p 0001f000 08:02 17047009                   /usr/local/lib/python3.6/dist-packages/numpy/core/_multiarray_tests.cpython-36m-x86_64-linux-gnu.so
+7f684a036000-7f6854176000 rw-p 00000000 00:00 0 
+7f6854176000-7f6854177000 ---p 00000000 00:00 0 
+7f6854177000-7f6854977000 rw-p 00000000 00:00 0 
+7f6854977000-7f6854978000 ---p 00000000 00:00 0 
+7f6854978000-7f6857178000 rw-p 00000000 00:00 0 
+7f6857178000-7f6857179000 ---p 00000000 00:00 0 
+7f6857179000-7f6859979000 rw-p 00000000 00:00 0 
+7f6859986000-7f685998b000 rw-p 00000000 00:00 0 
+7f685998b000-7f6859992000 ---p 00000000 00:00 0 
+7f6859992000-7f6859ad2000 rw-p 00000000 00:00 0 
+7f6859ad2000-7f6859b0a000 r-xp 00000000 08:02 17699171                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/timezones.cpython-36m-x86_64-linux-gnu.so
+7f6859b0a000-7f6859d0a000 ---p 00038000 08:02 17699171                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/timezones.cpython-36m-x86_64-linux-gnu.so
+7f6859d0a000-7f6859d0e000 rw-p 00038000 08:02 17699171                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/timezones.cpython-36m-x86_64-linux-gnu.so
+7f6859d0e000-7f6859d0f000 rw-p 00000000 00:00 0 
+7f6859d0f000-7f6859d1a000 r-xp 00000000 08:02 17699145                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/ops_dispatch.cpython-36m-x86_64-linux-gnu.so
+7f6859d1a000-7f6859f1a000 ---p 0000b000 08:02 17699145                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/ops_dispatch.cpython-36m-x86_64-linux-gnu.so
+7f6859f1a000-7f6859f1c000 rw-p 0000b000 08:02 17699145                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/ops_dispatch.cpython-36m-x86_64-linux-gnu.so
+7f6859f1c000-7f6859f27000 r-xp 00000000 08:02 17699163                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/np_datetime.cpython-36m-x86_64-linux-gnu.so
+7f6859f27000-7f685a127000 ---p 0000b000 08:02 17699163                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/np_datetime.cpython-36m-x86_64-linux-gnu.so
+7f685a127000-7f685a128000 rw-p 0000b000 08:02 17699163                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/np_datetime.cpython-36m-x86_64-linux-gnu.so
+7f685a128000-7f685a151000 r-xp 00000000 08:02 17699143                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/missing.cpython-36m-x86_64-linux-gnu.so
+7f685a151000-7f685a351000 ---p 00029000 08:02 17699143                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/missing.cpython-36m-x86_64-linux-gnu.so
+7f685a351000-7f685a356000 rw-p 00029000 08:02 17699143                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/missing.cpython-36m-x86_64-linux-gnu.so
+7f685a356000-7f685a357000 rw-p 00000000 00:00 0 
+7f685a357000-7f685a381000 r-xp 00000000 08:02 17699162                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/nattype.cpython-36m-x86_64-linux-gnu.so
+7f685a381000-7f685a581000 ---p 0002a000 08:02 17699162                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/nattype.cpython-36m-x86_64-linux-gnu.so
+7f685a581000-7f685a586000 rw-p 0002a000 08:02 17699162                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/nattype.cpython-36m-x86_64-linux-gnu.so
+7f685a586000-7f685a587000 rw-p 00000000 00:00 0 
+7f685a587000-7f685a5c5000 r-xp 00000000 08:02 17699157                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/c_timestamp.cpython-36m-x86_64-linux-gnu.so
+7f685a5c5000-7f685a7c4000 ---p 0003e000 08:02 17699157                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/c_timestamp.cpython-36m-x86_64-linux-gnu.so
+7f685a7c4000-7f685a7c9000 rw-p 0003d000 08:02 17699157                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/c_timestamp.cpython-36m-x86_64-linux-gnu.so
+7f685a7c9000-7f685a7ca000 rw-p 00000000 00:00 0 
+7f685a7ca000-7f685a811000 r-xp 00000000 08:02 17699159                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/conversion.cpython-36m-x86_64-linux-gnu.so
+7f685a811000-7f685aa11000 ---p 00047000 08:02 17699159                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/conversion.cpython-36m-x86_64-linux-gnu.so
+7f685aa11000-7f685aa16000 rw-p 00047000 08:02 17699159                   /usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/conversion.cpython-36m-x86_64-linux-gnu.so
+7f685aa16000-7f685aa97000 rw-p 00000000 00:00 0 
+7f685aa97000-7f685aaee000 r-xp 00000000 08:02 17045847                   /usr/local/lib/python3.6/dist-packages/matplotlib/backends/_backend_agg.cpython-36m-x86_64-linux-gnu.so
+7f685aaee000-7f685acee000 ---p 00057000 08:02 17045847                   /usr/local/lib/python3.6/dist-packages/matplotlib/backends/_backend_agg.cpython-36m-x86_64-linux-gnu.so
+7f685acee000-7f685acef000 rw-p 00057000 08:02 17045847                   /usr/local/lib/python3.6/dist-packages/matplotlib/backends/_backend_agg.cpython-36m-x86_64-linux-gnu.so
+7f685acef000-7f685ae70000 rw-p 00000000 00:00 0 
+7f685ae70000-7f685ae77000 r-xp 00000000 08:02 15340824                   /usr/lib/python3.6/lib-dynload/_csv.cpython-36m-x86_64-linux-gnu.so
+7f685ae77000-7f685b076000 ---p 00007000 08:02 15340824                   /usr/lib/python3.6/lib-dynload/_csv.cpython-36m-x86_64-linux-gnu.so
+7f685b076000-7f685b077000 r--p 00006000 08:02 15340824                   /usr/lib/python3.6/lib-dynload/_csv.cpython-36m-x86_64-linux-gnu.so
+7f685b077000-7f685b079000 rw-p 00007000 08:02 15340824                   /usr/lib/python3.6/lib-dynload/_csv.cpython-36m-x86_64-linux-gnu.so
+7f685b079000-7f685b179000 rw-p 00000000 00:00 0 
+7f685b179000-7f685b17f000 r-xp 00000000 08:02 12714483                   /lib/x86_64-linux-gnu/libuuid.so.1.3.0
+7f685b17f000-7f685b37e000 ---p 00006000 08:02 12714483                   /lib/x86_64-linux-gnu/libuuid.so.1.3.0
+7f685b37e000-7f685b37f000 r--p 00005000 08:02 12714483                   /lib/x86_64-linux-gnu/libuuid.so.1.3.0
+7f685b37f000-7f685b380000 rw-p 00006000 08:02 12714483                   /lib/x86_64-linux-gnu/libuuid.so.1.3.0
+7f685b380000-7f685b400000 rw-p 00000000 00:00 0 
+7f685b400000-7f685b43a000 r-xp 00000000 08:02 17045785                   /usr/local/lib/python3.6/dist-packages/matplotlib/_image.cpython-36m-x86_64-linux-gnu.so
+7f685b43a000-7f685b63a000 ---p 0003a000 08:02 17045785                   /usr/local/lib/python3.6/dist-packages/matplotlib/_image.cpython-36m-x86_64-linux-gnu.so
+7f685b63a000-7f685b63b000 rw-p 0003a000 08:02 17045785                   /usr/local/lib/python3.6/dist-packages/matplotlib/_image.cpython-36m-x86_64-linux-gnu.so
+7f685b63b000-7f685b97d000 rw-p 00000000 00:00 0 
+7f685b97d000-7f685ba6d000 r-xp 00000000 08:02 17303696                   /usr/local/lib/python3.6/dist-packages/numpy.libs/libgfortran-ed201abd.so.3.0.0
+7f685ba6d000-7f685bc6c000 ---p 000f0000 08:02 17303696                   /usr/local/lib/python3.6/dist-packages/numpy.libs/libgfortran-ed201abd.so.3.0.0
+7f685bc6c000-7f685bc6e000 rw-p 000ef000 08:02 17303696                   /usr/local/lib/python3.6/dist-packages/numpy.libs/libgfortran-ed201abd.so.3.0.0
+7f685bc6e000-7f685bc6f000 rw-p 00000000 00:00 0 
+7f685bc6f000-7f685bc77000 rw-p 000f2000 08:02 17303696                   /usr/local/lib/python3.6/dist-packages/numpy.libs/libgfortran-ed201abd.so.3.0.0
+7f685bc77000-7f685d76d000 r-xp 00000000 08:02 17303697                   /usr/local/lib/python3.6/dist-packages/numpy.libs/libopenblasp-r0-34a18dc3.3.7.so
+7f685d76d000-7f685d96c000 ---p 01af6000 08:02 17303697                   /usr/local/lib/python3.6/dist-packages/numpy.libs/libopenblasp-r0-34a18dc3.3.7.so
+7f685d96c000-7f685d985000 rw-p 01af5000 08:02 17303697                   /usr/local/lib/python3.6/dist-packages/numpy.libs/libopenblasp-r0-34a18dc3.3.7.so
+7f685d985000-7f685d990000 rw-p 00000000 00:00 0 
+7f685d990000-7f685d9d7000 rw-p 01be1000 08:02 17303697                   /usr/local/lib/python3.6/dist-packages/numpy.libs/libopenblasp-r0-34a18dc3.3.7.so
+7f685d9d7000-7f685da08000 rw-p 01c28000 08:02 17303697                   /usr/local/lib/python3.6/dist-packages/numpy.libs/libopenblasp-r0-34a18dc3.3.7.so
+7f685da08000-7f685ddad000 r-xp 00000000 08:02 17047010                   /usr/local/lib/python3.6/dist-packages/numpy/core/_multiarray_umath.cpython-36m-x86_64-linux-gnu.so
+7f685ddad000-7f685dfac000 ---p 003a5000 08:02 17047010                   /usr/local/lib/python3.6/dist-packages/numpy/core/_multiarray_umath.cpython-36m-x86_64-linux-gnu.so
+7f685dfac000-7f685dfcb000 rw-p 003a4000 08:02 17047010                   /usr/local/lib/python3.6/dist-packages/numpy/core/_multiarray_umath.cpython-36m-x86_64-linux-gnu.so
+7f685dfcb000-7f685dfec000 rw-p 00000000 00:00 0 
+7f685dfec000-7f685dff0000 rw-p 01475000 08:02 17047010                   /usr/local/lib/python3.6/dist-packages/numpy/core/_multiarray_umath.cpython-36m-x86_64-linux-gnu.so
+7f685dff0000-7f685dff3000 rw-p 01479000 08:02 17047010                   /usr/local/lib/python3.6/dist-packages/numpy/core/_multiarray_umath.cpython-36m-x86_64-linux-gnu.so
+7f685dff3000-7f685e073000 rw-p 00000000 00:00 0 
+7f685e073000-7f685e30e000 r-xp 00000000 08:02 13238354                   /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
+7f685e30e000-7f685e50d000 ---p 0029b000 08:02 13238354                   /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
+7f685e50d000-7f685e539000 r--p 0029a000 08:02 13238354                   /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
+7f685e539000-7f685e53b000 rw-p 002c6000 08:02 13238354                   /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
+7f685e53b000-7f685e53e000 rw-p 00000000 00:00 0 
+7f685e53e000-7f685e544000 r-xp 00000000 08:02 15340831                   /usr/lib/python3.6/lib-dynload/_hashlib.cpython-36m-x86_64-linux-gnu.so
+7f685e544000-7f685e743000 ---p 00006000 08:02 15340831                   /usr/lib/python3.6/lib-dynload/_hashlib.cpython-36m-x86_64-linux-gnu.so
+7f685e743000-7f685e744000 r--p 00005000 08:02 15340831                   /usr/lib/python3.6/lib-dynload/_hashlib.cpython-36m-x86_64-linux-gnu.so
+7f685e744000-7f685e745000 rw-p 00006000 08:02 15340831                   /usr/lib/python3.6/lib-dynload/_hashlib.cpython-36m-x86_64-linux-gnu.so
+7f685e745000-7f685e785000 rw-p 00000000 00:00 0 
+7f685e785000-7f685e7a9000 r-xp 00000000 08:02 12714421                   /lib/x86_64-linux-gnu/liblzma.so.5.2.2
+7f685e7a9000-7f685e9a9000 ---p 00024000 08:02 12714421                   /lib/x86_64-linux-gnu/liblzma.so.5.2.2
+7f685e9a9000-7f685e9aa000 r--p 00024000 08:02 12714421                   /lib/x86_64-linux-gnu/liblzma.so.5.2.2
+7f685e9aa000-7f685e9ab000 rw-p 00025000 08:02 12714421                   /lib/x86_64-linux-gnu/liblzma.so.5.2.2
+7f685e9ab000-7f685e9b1000 r-xp 00000000 08:02 15340834                   /usr/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so
+7f685e9b1000-7f685ebb0000 ---p 00006000 08:02 15340834                   /usr/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so
+7f685ebb0000-7f685ebb1000 r--p 00005000 08:02 15340834                   /usr/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so
+7f685ebb1000-7f685ebb3000 rw-p 00006000 08:02 15340834                   /usr/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so
+7f685ebb3000-7f685ebc2000 r-xp 00000000 08:02 12714396                   /lib/x86_64-linux-gnu/libbz2.so.1.0.4
+7f685ebc2000-7f685edc1000 ---p 0000f000 08:02 12714396                   /lib/x86_64-linux-gnu/libbz2.so.1.0.4
+7f685edc1000-7f685edc2000 r--p 0000e000 08:02 12714396                   /lib/x86_64-linux-gnu/libbz2.so.1.0.4
+7f685edc2000-7f685edc3000 rw-p 0000f000 08:02 12714396                   /lib/x86_64-linux-gnu/libbz2.so.1.0.4
+7f685edc3000-7f685edc7000 r-xp 00000000 08:02 15340816                   /usr/lib/python3.6/lib-dynload/_bz2.cpython-36m-x86_64-linux-gnu.so
+7f685edc7000-7f685efc6000 ---p 00004000 08:02 15340816                   /usr/lib/python3.6/lib-dynload/_bz2.cpython-36m-x86_64-linux-gnu.so
+7f685efc6000-7f685efc7000 r--p 00003000 08:02 15340816                   /usr/lib/python3.6/lib-dynload/_bz2.cpython-36m-x86_64-linux-gnu.so
+7f685efc7000-7f685efc8000 rw-p 00004000 08:02 15340816                   /usr/lib/python3.6/lib-dynload/_bz2.cpython-36m-x86_64-linux-gnu.so
+7f685efc8000-7f685f0c8000 rw-p 00000000 00:00 0 
+7f685f0c8000-7f685f0c9000 r-xp 00000000 08:02 15340837                   /usr/lib/python3.6/lib-dynload/_opcode.cpython-36m-x86_64-linux-gnu.so
+7f685f0c9000-7f685f2c8000 ---p 00001000 08:02 15340837                   /usr/lib/python3.6/lib-dynload/_opcode.cpython-36m-x86_64-linux-gnu.so
+7f685f2c8000-7f685f2c9000 r--p 00000000 08:02 15340837                   /usr/lib/python3.6/lib-dynload/_opcode.cpython-36m-x86_64-linux-gnu.so
+7f685f2c9000-7f685f2ca000 rw-p 00001000 08:02 15340837                   /usr/lib/python3.6/lib-dynload/_opcode.cpython-36m-x86_64-linux-gnu.so
+7f685f2ca000-7f685f2cb000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f2cb000-7f685f2cc000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f2cc000-7f685f2cd000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f2cd000-7f685f2ce000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f2ce000-7f685f2cf000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f2cf000-7f685f2d0000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f2d0000-7f685f2d1000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f2d1000-7f685f2d2000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f2d2000-7f685f2d3000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f2d3000-7f685f4d3000 rw-p 00000000 00:00 0 
+7f685f4d3000-7f685f4d4000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f4d4000-7f685f4d5000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f4d5000-7f685f4d6000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f4d6000-7f685f4d7000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f4d7000-7f685f4d8000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f4d8000-7f685f4d9000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f4d9000-7f685f4da000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f4da000-7f685f4db000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f4db000-7f685f4dc000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f4dc000-7f685f4dd000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f4dd000-7f685f4de000 rw-s 00000000 00:06 499                        /dev/nvidiactl
+7f685f4de000-7f685f4e0000 r--s 00007000 08:02 15861260                   /usr/share/java/java-atk-wrapper.jar
+7f685f4e0000-7f685f4e8000 rw-s 00000000 08:02 18219325                   /tmp/hsperfdata_root/1
+7f685f4e8000-7f685f4f8000 -w-s 00000000 00:06 500                        /dev/nvidia0
+7f685f4f8000-7f685f5f8000 rw-p 00000000 00:00 0 
+7f685f5f8000-7f685f795000 r-xp 00000000 08:02 12714422                   /lib/x86_64-linux-gnu/libm-2.27.so
+7f685f795000-7f685f994000 ---p 0019d000 08:02 12714422                   /lib/x86_64-linux-gnu/libm-2.27.so
+7f685f994000-7f685f995000 r--p 0019c000 08:02 12714422                   /lib/x86_64-linux-gnu/libm-2.27.so
+7f685f995000-7f685f996000 rw-p 0019d000 08:02 12714422                   /lib/x86_64-linux-gnu/libm-2.27.so
+7f685f996000-7f685f9b2000 r-xp 00000000 08:02 12714485                   /lib/x86_64-linux-gnu/libz.so.1.2.11
+7f685f9b2000-7f685fbb1000 ---p 0001c000 08:02 12714485                   /lib/x86_64-linux-gnu/libz.so.1.2.11
+7f685fbb1000-7f685fbb2000 r--p 0001b000 08:02 12714485                   /lib/x86_64-linux-gnu/libz.so.1.2.11
+7f685fbb2000-7f685fbb3000 rw-p 0001c000 08:02 12714485                   /lib/x86_64-linux-gnu/libz.so.1.2.11
+7f685fbb3000-7f685fbe2000 r-xp 00000000 08:02 15076652                   /lib/x86_64-linux-gnu/libexpat.so.1.6.7
+7f685fbe2000-7f685fde2000 ---p 0002f000 08:02 15076652                   /lib/x86_64-linux-gnu/libexpat.so.1.6.7
+7f685fde2000-7f685fde4000 r--p 0002f000 08:02 15076652                   /lib/x86_64-linux-gnu/libexpat.so.1.6.7
+7f685fde4000-7f685fde5000 rw-p 00031000 08:02 15076652                   /lib/x86_64-linux-gnu/libexpat.so.1.6.7
+7f685fde5000-7f685fde7000 r-xp 00000000 08:02 12714480                   /lib/x86_64-linux-gnu/libutil-2.27.so
+7f685fde7000-7f685ffe6000 ---p 00002000 08:02 12714480                   /lib/x86_64-linux-gnu/libutil-2.27.so
+7f685ffe6000-7f685ffe7000 r--p 00001000 08:02 12714480                   /lib/x86_64-linux-gnu/libutil-2.27.so
+7f685ffe7000-7f685ffe8000 rw-p 00002000 08:02 12714480                   /lib/x86_64-linux-gnu/libutil-2.27.so
+7f685ffe8000-7f685ffeb000 r-xp 00000000 08:02 12714407                   /lib/x86_64-linux-gnu/libdl-2.27.so
+7f685ffeb000-7f68601ea000 ---p 00003000 08:02 12714407                   /lib/x86_64-linux-gnu/libdl-2.27.so
+7f68601ea000-7f68601eb000 r--p 00002000 08:02 12714407                   /lib/x86_64-linux-gnu/libdl-2.27.so
+7f68601eb000-7f68601ec000 rw-p 00003000 08:02 12714407                   /lib/x86_64-linux-gnu/libdl-2.27.so
+7f68601ec000-7f6860206000 r-xp 00000000 08:02 12714458                   /lib/x86_64-linux-gnu/libpthread-2.27.so
+7f6860206000-7f6860405000 ---p 0001a000 08:02 12714458                   /lib/x86_64-linux-gnu/libpthread-2.27.so
+7f6860405000-7f6860406000 r--p 00019000 08:02 12714458                   /lib/x86_64-linux-gnu/libpthread-2.27.so
+7f6860406000-7f6860407000 rw-p 0001a000 08:02 12714458                   /lib/x86_64-linux-gnu/libpthread-2.27.so
+7f6860407000-7f686040b000 rw-p 00000000 00:00 0 
+7f686040b000-7f68605f2000 r-xp 00000000 08:02 12714397                   /lib/x86_64-linux-gnu/libc-2.27.so
+7f68605f2000-7f68607f2000 ---p 001e7000 08:02 12714397                   /lib/x86_64-linux-gnu/libc-2.27.so
+7f68607f2000-7f68607f6000 r--p 001e7000 08:02 12714397                   /lib/x86_64-linux-gnu/libc-2.27.so
+7f68607f6000-7f68607f8000 rw-p 001eb000 08:02 12714397                   /lib/x86_64-linux-gnu/libc-2.27.so
+7f68607f8000-7f68607fc000 rw-p 00000000 00:00 0 
+7f68607fc000-7f6860823000 r-xp 00000000 08:02 12714379                   /lib/x86_64-linux-gnu/ld-2.27.so
+7f6860823000-7f6860824000 r--p 00000000 00:00 0 
+7f6860824000-7f6860825000 ---p 00000000 00:00 0 
+7f6860825000-7f6860826000 r--p 00000000 00:00 0 
+7f6860826000-7f6860827000 rwxp 00000000 00:00 0 
+7f6860827000-7f6860867000 rw-p 00000000 00:00 0 
+7f6860867000-7f6860898000 r--p 00000000 08:02 12714875                   /usr/lib/locale/C.UTF-8/LC_CTYPE
+7f6860898000-7f6860899000 r--p 00000000 08:02 12714882                   /usr/lib/locale/C.UTF-8/LC_NUMERIC
+7f6860899000-7f686089a000 r--p 00000000 08:02 12714885                   /usr/lib/locale/C.UTF-8/LC_TIME
+7f686089a000-7f6860a0d000 r--p 00000000 08:02 12714874                   /usr/lib/locale/C.UTF-8/LC_COLLATE
+7f6860a0d000-7f6860a0e000 r--p 00000000 08:02 12714880                   /usr/lib/locale/C.UTF-8/LC_MONETARY
+7f6860a0e000-7f6860a15000 r--s 00000000 08:02 12715149                   /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+7f6860a15000-7f6860a1c000 rw-p 00000000 00:00 0 
+7f6860a1c000-7f6860a1d000 r--p 00000000 08:02 12714879                   /usr/lib/locale/C.UTF-8/LC_MESSAGES/SYS_LC_MESSAGES
+7f6860a1d000-7f6860a1e000 r--p 00000000 08:02 12714883                   /usr/lib/locale/C.UTF-8/LC_PAPER
+7f6860a1e000-7f6860a1f000 r--p 00000000 08:02 12714881                   /usr/lib/locale/C.UTF-8/LC_NAME
+7f6860a1f000-7f6860a20000 r--p 00000000 08:02 12714873                   /usr/lib/locale/C.UTF-8/LC_ADDRESS
+7f6860a20000-7f6860a21000 r--p 00000000 08:02 12714884                   /usr/lib/locale/C.UTF-8/LC_TELEPHONE
+7f6860a21000-7f6860a22000 r--p 00000000 08:02 12714877                   /usr/lib/locale/C.UTF-8/LC_MEASUREMENT
+7f6860a22000-7f6860a23000 r--p 00000000 08:02 12714876                   /usr/lib/locale/C.UTF-8/LC_IDENTIFICATION
+7f6860a23000-7f6860a24000 r--p 00027000 08:02 12714379                   /lib/x86_64-linux-gnu/ld-2.27.so
+7f6860a24000-7f6860a25000 rw-p 00028000 08:02 12714379                   /lib/x86_64-linux-gnu/ld-2.27.so
+7f6860a25000-7f6860a26000 rw-p 00000000 00:00 0 
+7ffdd4c93000-7ffdd4c97000 ---p 00000000 00:00 0 
+7ffdd4c97000-7ffdd4d93000 rw-p 00000000 00:00 0                          [stack]
+7ffdd4dc6000-7ffdd4dc9000 r--p 00000000 00:00 0                          [vvar]
+7ffdd4dc9000-7ffdd4dca000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF8 -ea -Xmx1024m 
+java_command: <unknown>
+java_class_path (initial): /usr/local/lib/python3.6/dist-packages/konlpy/java:/usr/local/lib/python3.6/dist-packages/konlpy/java/bin:/usr/local/lib/python3.6/dist-packages/konlpy/java/*:/usr/local/lib/python3.6/dist-packages/konlpy/java/jhannanum-0.8.4.jar:/usr/local/lib/python3.6/dist-packages/konlpy/java/kkma-2.0.jar:/usr/local/lib/python3.6/dist-packages/konlpy/java/aho-corasick.jar:/usr/local/lib/python3.6/dist-packages/konlpy/java/shineware-common-1.0.jar:/usr/local/lib/python3.6/dist-packages/konlpy/java/shineware-ds-1.0.jar:/usr/local/lib/python3.6/dist-packages/konlpy/java/komoran-3.0.jar:/usr/local/lib/python3.6/dist-packages/konlpy/java/snakeyaml-1.12.jar:/usr/local/lib/python3.6/dist-packages/konlpy/java/scala-library-2.12.3.jar:/usr/local/lib/python3.6/dist-packages/konlpy/java/open-korean-text-2.1.0.jar:/usr/local/lib/python3.6/dist-packages/konlpy/java/twitter-text-1.14.7.jar:/usr/local/lib/python3.6/dist-packages/konlpy/java/*
+Launcher Type: generic
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 262144000                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 1073741824                                {product} {command line}
+   size_t MaxNewSize                               = 643825664                                 {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5836300                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122910970                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122910970                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xdf8d00], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xdf8d00], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0xdf8d00], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0xbcbc30], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0xbcbc30], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0xdf8d00], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR2: [libjvm.so+0xbcbad0], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0xbcbe30], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: [libjvm.so+0xbcbe30], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0xbcbe30], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=18.04
+DISTRIB_CODENAME=bionic
+DISTRIB_DESCRIPTION="Ubuntu 18.04.3 LTS"
+uname:Linux 5.3.0-53-generic #47~18.04.1-Ubuntu SMP Thu May 7 13:10:50 UTC 2020 x86_64
+OS uptime: 6 days 23:35 hours
+libc:glibc 2.27 NPTL 2.27 
+rlimit: STACK 8192k, CORE infinity, NPROC infinity, NOFILE 1048576, AS infinity, CPU infinity, DATA infinity, FSIZE infinity
+load average:1.32 0.58 0.21
+
+/proc/meminfo:
+MemTotal:       16327352 kB
+MemFree:         1872604 kB
+MemAvailable:   13434380 kB
+Buffers:          140948 kB
+Cached:         11027760 kB
+SwapCached:            0 kB
+Active:          4250736 kB
+Inactive:        9055112 kB
+Active(anon):    2130476 kB
+Inactive(anon):    11992 kB
+Active(file):    2120260 kB
+Inactive(file):  9043120 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:       2097148 kB
+SwapFree:        2097148 kB
+Dirty:               964 kB
+Writeback:             0 kB
+AnonPages:       2138376 kB
+Mapped:           773636 kB
+Shmem:             13300 kB
+KReclaimable:     744540 kB
+Slab:             899276 kB
+SReclaimable:     744540 kB
+SUnreclaim:       154736 kB
+KernelStack:        7504 kB
+PageTables:        23220 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    10260824 kB
+Committed_AS:    4857444 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       58572 kB
+VmallocChunk:          0 kB
+Percpu:             7008 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:      2048 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:      393348 kB
+DirectMap2M:    10022912 kB
+DirectMap1G:     6291456 kB
+
+
+/proc/sys/kernel/threads-max (system-wide limit on the number of threads):
+127176
+
+
+/proc/sys/vm/max_map_count (maximum number of memory map areas a process may have):
+65530
+
+
+/proc/sys/kernel/pid_max (system-wide limit on number of process identifiers):
+32768
+
+
+
+container (cgroup) information:
+container_type: cgroupv1
+cpu_cpuset_cpus: 0-7
+cpu_memory_nodes: 0
+active_processor_count: 8
+cpu_quota: -1
+cpu_period: 100000
+cpu_shares: -1
+memory_limit_in_bytes: -1
+memory_and_swap_limit_in_bytes: -2
+memory_soft_limit_in_bytes: -1
+memory_usage_in_bytes: 1959800832
+memory_max_usage_in_bytes: 1961058304
+
+Steal ticks since vm start: 0
+Steal ticks percentage since vm start:  0.000
+
+CPU:total 8 (initial active 8) (8 cores per cpu, 1 threads per core) family 6 model 158 stepping 12, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, rtm, 3dnowpref, lzcnt, tsc, tscinvbit, bmi1, bmi2, adx, fma
+CPU Model and flags from /proc/cpuinfo:
+model name	: Intel(R) Core(TM) i7-9700KF CPU @ 3.60GHz
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp md_clear flush_l1d arch_capabilities
+
+Memory: 4k page, physical 16327352k(1872864k free), swap 2097148k(2097148k free)
+
+vm_info: OpenJDK 64-Bit Server VM (11.0.7+10-post-Ubuntu-2ubuntu218.04) for linux-amd64 JRE (11.0.7+10-post-Ubuntu-2ubuntu218.04), built on Apr 15 2020 21:12:54 by "unknown" with gcc 7.5.0
+
+END.

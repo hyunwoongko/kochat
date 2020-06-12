@@ -23,13 +23,13 @@ class GraphDrawer:
         return [float(i) for idx, i in enumerate(file.split(','))]
 
     def draw(self, mode, color):
-        array = self.read_file(root_path + 'log/train_{}.txt'.format(mode))
+        array = self.read_file(root_path + 'log/{}.txt'.format(mode))
         plt.plot(array, color[0], label='train_{}'.format(mode))
         plt.xlabel('epochs')
         plt.ylabel(mode)
         plt.title('train ' + mode)
         plt.grid(True, which='both', axis='both')
-        plt.savefig('log/{}'.format(mode))
+        plt.savefig(root_path + 'log/{}.png'.format(mode))
         plt.close()
 
 

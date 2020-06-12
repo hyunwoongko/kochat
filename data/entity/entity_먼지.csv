@@ -66,7 +66,7 @@ question,entity
 구로 다음 주 먼지 알려줄래,LOCATION DATE DATE O O
 일산 먼지 상태 어떻게 돼요,LOCATION O O O O
 오늘 안암 공기 상태 좀 알려줄수 있니,DATE LOCATION O O O
-내일 먼지 알려줄수 있어,DATE O O O
+내일 먼지 알려줄 수 있어,DATE O O O ㅒ
 이번 주 홍대 먼지 알려줄래,DATE DATE LOCATION O O
 남구 다음 주 먼지 알려줘,LOCATION DATE DATE O O
 이번 주 보령 먼지 줘,DATE DATE LOCATION O O
@@ -394,7 +394,7 @@ question,entity
 부안 오늘 마스크 필요하니,LOCATION DATE O O
 내일 옥천 마스크 필요할까,DATE LOCATION O O
 영광 마스크 챙겨야하나 모르겠네,LOCATION O O O
-울진 미세먼지  심하면 안되는데,LOCATION O O O
+울진 미세먼지 심하면 안되는데,LOCATION O O O
 완도 공기 맑을까 그 때,LOCATION O O O O
 혹시 담양 이번 주 미세먼지 심하니,O LOCATION DATE DATE O O
 그 때 횡성 혹시 공기 상태 나쁠까,O O LOCATION O O

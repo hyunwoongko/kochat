@@ -17,25 +17,10 @@ def check_entity_data(q, e):
 
 
 def convert():
-    f = pd.read_csv('data/convert/testfile.csv', delimiter=',', encoding='utf-8')
-    question = [re.sub('\t', '', s) for s in f['question'].tolist()]
-    entity = []
-    for i, e in enumerate(f['entity'].tolist()):
-        while '\t\t' in e:
-            e = re.sub('\t\t', '\t', str(e))
-            print(i)
-
-        if e[len(e) - 1] == '\t':
-            e = e[0:len(e) - 1]
-
-        e = re.sub('\t', ' ', e)
-        entity.append(e)
-
-    if check_entity_data(question, entity) != 0:
-        raise Exception("number of token and entity must be same !")
-
-    f = pd.DataFrame(data=zip(question, entity))
-    f.to_csv('data/convert/testfile_convert.csv', index=False)
+    df = pd.read_csv('convert/testfile.csv', delimiter='|').values.tolist()
+    df = [[i[0], '여행지'] for i in df]
+    df = pd.DataFrame(df)
+    df.to_csv('convert/testfile_convert.csv', header=['question', 'intent'], index=False)
 
 
 if __name__ == '__main__':

@@ -42,17 +42,7 @@ class Model(nn.Module):
             nn.Dropout(0.5),
             nn.Linear(1024, self.conf.intent_classes))
 
-    def forward_once(self, x):
+    def forward(self, x):
         x = self.layer(x)
         x = x.view(x.size(0), -1)
         return x
-
-    def forward(self, siamese, x1, x2=None):
-        if siamese:
-            x1 = self.forward_once(x1)
-            x2 = self.forward_once(x2)
-            return x1, x2
-        else:
-            x1 = self.forward_once(x1)
-            x1 = self.out(x1.squeeze())
-            return x1
