@@ -26,23 +26,20 @@ class Conv(nn.Module):
         self.relu = nn.ReLU()
 
     def forward(self, x):
+        _x = x
         x = self.conv(x)
         x = self.norm(x)
         x = self.relu(x)
-        return x
+
+        return x + _x if x.size() == _x.size() else x
+        # residual connection
 
 
 class Net(nn.Module):
 
     def __init__(self):
         """
-        인텐트 리트리벌 모델입니다.
-        현재 보유한 데이터셋이 매우 작기 때문에 깊게 설계하지 않고 가볍게 설계했습니다.
-        Convolution 블록 1층만 태우고, 이 feature를 Linear 레이어에서 분류합니다.
-
-        인퍼런스 시에는 classifier를 사용하지 않고 distance 기반으로 metric learning된
-        feature를 사용하여 nearest neighbors 탐색하여 인텐트를 검색합니다.
-        threshold를 줘서 일정 거리 안에 유효한 샘플들이 없다면 Fallback처리를 수행합니다.
+        인텐트 리트리벌 CNN 모델입니다.
         """
 
         super().__init__()

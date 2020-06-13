@@ -8,17 +8,11 @@ from util.tokenizer import Tokenizer
 
 
 class IntentClassifier:
-    """
-    리트리벌 모델을 사용하지 않고 학습된 Softmax 분류기를 이용해 분류합니다.
-    Out of distribution 능력이 없습니다.
-    calibrate 되지 않은 softmax score와 metric learning의
-    인텐트 검출시 ood 탐지 능력을 비교하기 위해 구현하였습니다.
-    """
 
     def __init__(self, embed, model):
+        self.data = Dataset()
         self.conf = Config()
         self.tok = Tokenizer()
-        self.pad_sequencing = Dataset().pad_sequencing
         self.model = model.Net().cuda()
         self.model.load_state_dict(torch.load(self.conf.intent_storefile))
         self.model.eval()
@@ -39,9 +33,8 @@ class IntentClassifier:
     def classify(self, text):
         tokenized = self.tok.tokenize(text)
         embedded = self.embed.embed(tokenized)
-        sequence = self.pad_sequencing(embedded)
+        sequence = self.data.pad_sequencing(embedded)
         sequence = sequence.unsqueeze(0).cuda()
-
         output = self.model(sequence).float()
         output = self.model.classifier(output.squeeze())
         output = self.softmax(output)

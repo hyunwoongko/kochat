@@ -1,9 +1,8 @@
 from embed.embed_processor import EmbedProcessor
 from entity import entity_model
 from entity.entity_recognizer import EntityRecognizer
-from util.dataset import Dataset
 
-embed = EmbedProcessor()
-entity_recognizer = EntityRecognizer(embed, entity_model)
-output = entity_recognizer.recognize("전주 날씨 알려줘")
-print(output)
+emb = EmbedProcessor()
+ett = EntityRecognizer(emb, entity_model)
+out = ett.recognize("오늘 부산 날씨 어떠니")
+print(out)

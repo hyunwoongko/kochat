@@ -21,7 +21,8 @@ class Config:
     embed_storepath = root_path + "models/embed"
     embed_storefile = embed_storepath + '/embed.model'
     intent_storepath = root_path + "models/intent"
-    intent_storefile = intent_storepath + '/intent.pth'
+    intent_clf_storefile = intent_storepath + '/intent_clf.pth'
+    intent_rt_storefile = intent_storepath + '/intent_rt.pth'
     entity_storepath = root_path + "models/entity"
     entity_storefile = entity_storepath + '/entity.pth'
 
@@ -50,7 +51,7 @@ class Config:
     non_tag = 'O'  # empty or none tag
     entity_lr = 1e-4  # learning rate for entity training
     entity_weight_decay = 1e-4  # weight decay for entity training
-    entity_epochs = 500  # num of epoch for entity training
+    entity_epochs = 100  # num of epoch for entity training
     entity_ratio = 0.8  # entity train per test ratio
     entity_net_dim = 128  # entity network's hidden dimension
     entity_net_layers = 1  # number of layer for intent training
