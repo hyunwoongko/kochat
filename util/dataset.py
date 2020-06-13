@@ -23,6 +23,7 @@ class Dataset:
         self.data_builder.build_intent()
         self.data_builder.build_entity()
         self.label_dict = {}
+        self.label_list = []
         # label mapping dictionary
 
     def embed_train(self):
@@ -40,12 +41,12 @@ class Dataset:
         return self.make_dataset(emb, dataset, self.conf.intent_ratio)
 
     def entity_train(self, emb):
-        label_set = self.data_builder.entity_set
-        label_set = list(label_set)
-        label_set = sorted(label_set)
+        self.label_list = self.data_builder.entity_set
+        self.label_list = list(self.label_list)
+        self.label_list = sorted(self.label_list)
         # 항상 동일한 결과를 보여주려면 정렬해놔야 함
 
-        for i, entity in enumerate(label_set):
+        for i, entity in enumerate(self.label_list):
             self.label_dict[entity] = i
         print("ENTITY : MAKING LABEL DICT DONE")
 
@@ -59,7 +60,6 @@ class Dataset:
             entity = [self.label_dict[e] for e in entity]
             entity_labelset.append(entity)
         print("ENTITY : LABEL MAPPING DONE")
-        print(self.label_dict)
 
         entity_dataset = []
         for data in zip(entity_questionset, entity_labelset):
@@ -76,12 +76,12 @@ class Dataset:
         split_point = int(len(dataset) * ratio)
         train_dataset = dataset[:split_point]
         test_dataset = dataset[split_point:]
-        print("INTENT : CUTTING DONE")
+        print("DATASET : CUTTING DONE")
 
         # 2. do embedding & pad sequencing
         train_embedded, train_label = self.__embedding(emb, train_dataset)
         test_embedded, test_label = self.__embedding(emb, test_dataset)
-        print("INTENT : EMBEDDING DONE")
+        print("DATASET : EMBEDDING DONE")
 
         # 3. concatenate list → torch.tensor
         train_dataset, test_dataset = \
@@ -89,19 +89,31 @@ class Dataset:
 
         train_label, test_label = \
             torch.cat(train_label, dim=0), torch.cat(test_label, dim=0)
-        print("INTENT : CONCATENATING DONE")
+        print("DATASET : CONCATENATING DONE")
 
         # 4. make mini batch
         train_set = TensorDataset(train_dataset, train_label)
         train_set = DataLoader(train_set, batch_size=self.conf.batch_size, shuffle=True)
         test_set = (test_dataset, test_label)  # for onetime test
-        print("INTENT : MINI BATCH DONE")
+        print("DATASET : MINI BATCH DONE")
         return train_set, test_set
+
+    def pad_sequencing(self, sequence):
+        size = sequence.size()[0]
+        if size > self.conf.max_len:
+            sequence = sequence[:self.conf.max_len]
+        else:
+            pad = torch.zeros(self.conf.max_len, self.conf.vector_size)
+            for i in range(size):
+                pad[i] = sequence[i]
+            sequence = pad
+
+        return sequence
 
     def __embedding(self, emb, input_dataset):
         embedded_list, label_list = [], []
         for i, (input_data, input_label) in enumerate(input_dataset):
-            input_data = self.__pad_sequencing(emb.embed(input_data))
+            input_data = self.pad_sequencing(emb.embed(input_data))
             embedded_list.append(input_data.unsqueeze(0))
 
             input_label = torch.tensor(input_label)
@@ -109,6 +121,8 @@ class Dataset:
                 # INTENT의 경우 라벨의 차원이 0(스칼라)임
                 # e.g. (0) or (3) or (2)...
                 label_list.append(input_label.unsqueeze(0))
+                return embedded_list, label_list
+
             else:
                 # ENTITY의 경우 라벨의 차원이 1(벡터)임
                 # 길이가 모두 다르기 때문에, pad sequencing 필요
@@ -121,20 +135,9 @@ class Dataset:
                         non_tag_tensor = torch.tensor(non_tag).unsqueeze(0)
                         input_label = torch.cat([input_label, non_tag_tensor])
 
-                label_list.append(input_label.unsqueeze(0))
+            label_list.append(input_label.unsqueeze(0))
 
         return embedded_list, label_list
-
-    def __pad_sequencing(self, sequence):
-        if sequence.size()[0] > self.conf.max_len:
-            sequence = sequence[:self.conf.max_len]
-        else:
-            pad = torch.zeros(self.conf.max_len, self.conf.vector_size)
-            for i in range(sequence.size()[0]):
-                pad[i] = sequence[i]
-            sequence = pad
-
-        return sequence
 
     @staticmethod
     def __count_intent(label):

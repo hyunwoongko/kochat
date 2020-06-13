@@ -40,6 +40,7 @@ class Config:
     intent_epochs = 5000  # num of epoch for intent training
     intent_ratio = 0.8  # intent train per test ratio
     intent_net_dim = 128  # last linear layer's dimension
+    intent_net_layers = 1  # number of layer for intent training
     reg_lambda = 0.5  # intra loss weighting factor
     reg_gamma = 0.5  # inter loss weighting factor
 
@@ -49,5 +50,7 @@ class Config:
     non_tag = 'O'  # empty or none tag
     entity_lr = 1e-4  # learning rate for entity training
     entity_weight_decay = 1e-4  # weight decay for entity training
-    entity_epochs = 5000  # num of epoch for entity training
+    entity_epochs = 500  # num of epoch for entity training
     entity_ratio = 0.8  # entity train per test ratio
+    entity_net_dim = 128  # entity network's hidden dimension
+    entity_net_layers = 2  # number of layer for intent training

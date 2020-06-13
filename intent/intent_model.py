@@ -49,8 +49,11 @@ class Net(nn.Module):
         self.conf = Config()
         self.dim = self.conf.intent_net_dim // self.conf.max_len
         self.validate(self.dim)
-        self.feature = Conv(self.conf.vector_size, self.dim, kernel_size=1)
-        self.classifier = nn.Linear(self.conf.intent_net_dim, self.conf.intent_classes)
+        self.stem = Conv(self.conf.vector_size, self.dim, kernel_size=1)
+        self.feature = nn.Sequential(*[Conv(self.dim, self.dim, kernel_size=1)
+                                       for _ in range(self.conf.intent_net_layers - 1)])
+        self.classifier = nn.Sequential(nn.Dropout(0.5),
+                                        nn.Linear(self.conf.intent_net_dim, self.conf.intent_classes))
 
     def validate(self, dim):
         valid_list = [2 ** i for i in range(100)]

@@ -23,6 +23,7 @@ class IntentTrainer:
 
     def __init__(self, embed, model):
         self.embed = embed
+        self.load_dataset(self.embed)
         self.model = model.Net().cuda()
         self.initialize_weights(self.model)
         self.intra_class_loss = MarginSoftmaxLoss()
@@ -40,10 +41,8 @@ class IntentTrainer:
 
     def train(self):
         errs, accs = [], []
-        print("INTENT : LOAD DATASET...")
-        self.load_dataset(self.embed)
 
-        print("INTENT : START TRAIN !")
+        print("INTENT : start train !")
         for i in range(self.conf.intent_epochs):
             err, acc = self.__train_epoch(self.train_data)
             accs.append(acc)
@@ -66,12 +65,9 @@ class IntentTrainer:
         pass
 
     def test_classification(self):
-        print("test start ...")
+        print("INTENT : test start ...")
         self.model.load_state_dict(torch.load(self.conf.intent_storefile))
         self.model.eval()
-
-        if self.test_data is None:
-            self.load_dataset(self.embed)
 
         test_feature, test_label = self.test_data
         x = test_feature.float().cuda()
@@ -81,7 +77,7 @@ class IntentTrainer:
 
         _, predict = torch.max(classification, dim=1)
         acc = self.get_accuracy(y, predict)
-        print("test accuracy is {}".format(acc))
+        print("INTENT : test accuracy is {}".format(acc))
 
     def __train_epoch(self, train_set):
         errors, accuracies = [], []

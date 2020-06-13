@@ -17,9 +17,9 @@ class EntityTrainer:
         self.conf = Config()
         self.data = Dataset()
         self.embed = embed
-        self.model = model.Net().cuda()
+        self.load_dataset(embed)
+        self.model = model.Net(len(self.data.label_list)).cuda()
         self.initialize_weights(self.model)
-
         self.loss = CrossEntropyLoss()
         self.optimizer = Adam(
             params=self.model.parameters(),
@@ -52,8 +52,20 @@ class EntityTrainer:
 
         torch.save(self.model.state_dict(), self.conf.entity_storefile)
 
-    def test(self):
-        self.load_dataset(self.embed)
+    def test_classification(self):
+        print("INTENT : test start ...")
+        self.model.load_state_dict(torch.load(self.conf.intent_storefile))
+        self.model.eval()
+
+        test_feature, test_label = self.test_data
+        x = test_feature.float().cuda()
+        y = test_label.long().cuda()
+        y_ = self.model(x.permute(0, 2, 1)).float()
+        y_ = y_.permute(1, 2, 0)
+
+        _, predict = y_.max(dim=1)
+        acc = self.get_accuracy(y, predict)
+        print("INTENT : test accuracy is {}".format(acc))
 
     def __train_epoch(self, model, train_set):
         errors, accuracies = [], []
@@ -61,6 +73,7 @@ class EntityTrainer:
             x = train_feature.float().cuda()
             y = train_label.long().cuda()
             y_ = model(x.permute(0, 2, 1)).float()
+            y_ = y_.permute(1, 2, 0)
 
             self.optimizer.zero_grad()
             error = self.loss(y_, y)
@@ -68,7 +81,7 @@ class EntityTrainer:
             self.optimizer.step()
 
             errors.append(error.item())
-            _, predict = torch.max(y_, dim=1)
+            _, predict = y_.max(dim=1)
             accuracies.append(self.get_accuracy(y, predict))
 
         error = sum(errors) / len(errors)
@@ -94,7 +107,8 @@ class EntityTrainer:
     def get_accuracy(predict, label):
         all, correct = 0, 0
         for i in zip(predict, label):
-            all += 1
-            if i[0] == i[1]:
-                correct += 1
+            for j in zip(i[0], i[1]):
+                all += 1
+                if j[0] == j[1]:
+                    correct += 1
         return correct / all

@@ -50,7 +50,7 @@ class IntentClassifier:
         report = []
         for i, o in enumerate(output):
             label = self.label_set[i]
-            logit = round(o.item(), self.conf.intent_logging_precision)
+            logit = round(o.item(), self.conf.logging_precision)
             report.append((label, logit))
 
         print(report)
