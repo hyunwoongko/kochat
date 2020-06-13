@@ -23,7 +23,7 @@ class Config:
     intent_storepath = root_path + "models/intent"
     intent_storefile = intent_storepath + '/intent.pth'
     entity_storepath = root_path + "models/entity"
-    entity_storefile = intent_storepath + '/entity.pth'
+    entity_storefile = entity_storepath + '/entity.pth'
 
     # embed configs
     emb_window = 4  # window size for embedding training

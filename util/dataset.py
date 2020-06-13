@@ -23,7 +23,6 @@ class Dataset:
         self.data_builder.build_intent()
         self.data_builder.build_entity()
         self.label_dict = {}
-        self.label_list = []
         # label mapping dictionary
 
     def embed_train(self):
@@ -41,12 +40,12 @@ class Dataset:
         return self.make_dataset(emb, dataset, self.conf.intent_ratio)
 
     def entity_train(self, emb):
-        self.label_list = self.data_builder.entity_set
-        self.label_list = list(self.label_list)
-        self.label_list = sorted(self.label_list)
+        label_set = self.data_builder.entity_set
+        label_set = list(label_set)
+        label_set = sorted(label_set)
         # 항상 동일한 결과를 보여주려면 정렬해놔야 함
 
-        for i, entity in enumerate(self.label_list):
+        for i, entity in enumerate(label_set):
             self.label_dict[entity] = i
         print("ENTITY : MAKING LABEL DICT DONE")
 

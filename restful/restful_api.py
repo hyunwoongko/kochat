@@ -18,7 +18,7 @@ def init():
 def intent():
     user_input = request.args.get('intent', None)
     model_output = intent_classifier.classify(user_input)
-    return model_output
+    return {"input": user_input, "output": model_output}
 
 
 if __name__ == "__main__":

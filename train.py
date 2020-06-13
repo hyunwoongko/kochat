@@ -24,3 +24,4 @@ embed = EmbedProcessor()
 # entity train
 entity_trainer = EntityTrainer(embed, model=entity_model)
 entity_trainer.train()
+entity_trainer.test()

@@ -22,6 +22,7 @@ class Net(nn.Module):
         self.lstm = nn.LSTM(input_size=self.conf.vector_size,
                             hidden_size=self.hidden_size,
                             num_layers=self.layer,
+                            batch_first=True,
                             bidirectional=True if self.direction == 2 else False)
 
         self.out = nn.Linear(self.hidden_size * 2, self.label_size)
@@ -32,9 +33,8 @@ class Net(nn.Module):
 
     def forward(self, x):
         b, v, l = x.size()
-        x = x.permute(2, 0, 1)
         # [max_len, batch_size, vector_size]
-
         out, _ = self.lstm(x, self.init_hidden(b))
         out = self.out(out)
+        out = out.permute(0, 2, 1)
         return out

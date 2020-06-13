@@ -18,7 +18,7 @@ class EntityTrainer:
         self.data = Dataset()
         self.embed = embed
         self.load_dataset(embed)
-        self.model = model.Net(len(self.data.label_list)).cuda()
+        self.model = model.Net(len(self.data.label_dict)).cuda()
         self.initialize_weights(self.model)
         self.loss = CrossEntropyLoss()
         self.optimizer = Adam(
@@ -52,28 +52,26 @@ class EntityTrainer:
 
         torch.save(self.model.state_dict(), self.conf.entity_storefile)
 
-    def test_classification(self):
-        print("INTENT : test start ...")
-        self.model.load_state_dict(torch.load(self.conf.intent_storefile))
+    def test(self):
+        print("ENTITY : test start ...")
+        self.model.load_state_dict(torch.load(self.conf.entity_storefile))
         self.model.eval()
 
         test_feature, test_label = self.test_data
         x = test_feature.float().cuda()
         y = test_label.long().cuda()
         y_ = self.model(x.permute(0, 2, 1)).float()
-        y_ = y_.permute(1, 2, 0)
 
         _, predict = y_.max(dim=1)
         acc = self.get_accuracy(y, predict)
-        print("INTENT : test accuracy is {}".format(acc))
+        print("ENTITY : test accuracy is {}".format(acc))
 
     def __train_epoch(self, model, train_set):
         errors, accuracies = [], []
         for train_feature, train_label in train_set:
             x = train_feature.float().cuda()
             y = train_label.long().cuda()
-            y_ = model(x.permute(0, 2, 1)).float()
-            y_ = y_.permute(1, 2, 0)
+            y_ = model(x).float()
 
             self.optimizer.zero_grad()
             error = self.loss(y_, y)

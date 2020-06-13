@@ -85,7 +85,7 @@ class IntentTrainer:
 
             x = train_feature.float().cuda()
             y = train_label.long().cuda()
-            feature = self.model(x.permute(0, 2, 1)).float()
+            feature = self.model(x).float()
             classification = self.model.classifier(feature)
 
             error = self.intra_class_loss(classification, y)
@@ -112,7 +112,7 @@ class IntentTrainer:
         return error, accuracy
 
     def print_log(self, step, train_err, train_acc):
-        p = self.conf.intent_logging_precision
+        p = self.conf.logging_precision
         print('step : {0} , train_error : {1} , train_acc : {2}'
               .format(step, round(train_err, p), round(train_acc, p)))
 

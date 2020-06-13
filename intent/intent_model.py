@@ -64,6 +64,7 @@ class Net(nn.Module):
                             .format(self.dim, self.conf.intent_net_dim, self.conf.max_len))
 
     def forward(self, x):
+        x = x.permute(0, 2, 1)
         x = self.feature(x)
         x = x.view(x.size(0), -1)
         return x
