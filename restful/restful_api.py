@@ -2,11 +2,11 @@ from flask import Flask, request
 
 from embed.embed_processor import EmbedProcessor
 from intent.intent_classifier import IntentClassifier
-from intent.model import intent_net
+from intent import intent_model
 
 app = Flask(__name__)
 embed = EmbedProcessor()
-intent_classifier = IntentClassifier(embed, model=intent_net)
+intent_classifier = IntentClassifier(embed, model=intent_model)
 
 
 @app.route('/')

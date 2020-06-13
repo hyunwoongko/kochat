@@ -27,17 +27,16 @@ class IntentTrainer:
         self.initialize_weights(self.model)
         self.intra_class_loss = MarginSoftmaxLoss()
         self.inter_class_loss = CenterLoss()
-
         self.parameter_set = list(self.model.parameters()) + list(self.inter_class_loss.parameters())
-        self.inter_class_optimizer = SGD(self.inter_class_loss.parameters(), self.conf.intent_inter_lr)
+        self.inter_class_optimizer = SGD(params=self.inter_class_loss.parameters(), lr=self.conf.intent_inter_lr)
         self.intra_class_optimizer = Adam(
-            lr=self.conf.intent_intra_lr,
             params=self.parameter_set,
+            lr=self.conf.intent_intra_lr,
             weight_decay=self.conf.intent_weight_decay)
 
     def load_dataset(self, embed):
         self.train_data, self.test_data = \
-            self.data.intent_train(embed, self.conf.intent_datapath)
+            self.data.intent_train(embed)
 
     def train(self):
         errs, accs = [], []
@@ -63,7 +62,10 @@ class IntentTrainer:
 
         torch.save(self.model.state_dict(), self.conf.intent_storefile)
 
-    def test(self):
+    def test_retrieval(self):
+        pass
+
+    def test_classification(self):
         print("test start ...")
         self.model.load_state_dict(torch.load(self.conf.intent_storefile))
         self.model.eval()
@@ -74,10 +76,10 @@ class IntentTrainer:
         test_feature, test_label = self.test_data
         x = test_feature.float().cuda()
         y = test_label.long().cuda()
-        y_ = self.model(x.permute(0, 2, 1)).float()
-        out = self.model.out(y_)
+        feature = self.model(x.permute(0, 2, 1)).float()
+        classification = self.model.classifier(feature)
 
-        _, predict = torch.max(out, dim=1)
+        _, predict = torch.max(classification, dim=1)
         acc = self.get_accuracy(y, predict)
         print("test accuracy is {}".format(acc))
 
@@ -87,16 +89,16 @@ class IntentTrainer:
 
             x = train_feature.float().cuda()
             y = train_label.long().cuda()
-            y_ = self.model(x.permute(0, 2, 1)).float()
-            out = self.model.out(y_)
+            feature = self.model(x.permute(0, 2, 1)).float()
+            classification = self.model.classifier(feature)
 
-            self.intra_class_optimizer.zero_grad()
-            error = self.intra_class_loss(out, y)
-            error += self.inter_class_loss(y_, y)
+            error = self.intra_class_loss(classification, y)
+            error += self.inter_class_loss(feature, y)
             self.intra_class_optimizer.zero_grad()
             self.inter_class_optimizer.zero_grad()
             error.backward()
 
+            # Center Loss의 Center 위치 옮겨주기
             for param in self.inter_class_loss.parameters():
                 param.grad.data *= (self.conf.intent_inter_lr
                                     / (self.inter_class_loss.reg_gamma
@@ -104,10 +106,8 @@ class IntentTrainer:
 
             self.intra_class_optimizer.step()
             self.inter_class_optimizer.step()
-
             errors.append(error.item())
-            _, predict = torch.max(out, dim=1)
-
+            _, predict = torch.max(classification, dim=1)
             acc = self.get_accuracy(y, predict)
             accuracies.append(acc)
 
@@ -116,7 +116,7 @@ class IntentTrainer:
         return error, accuracy
 
     def print_log(self, step, train_err, train_acc):
-        p = self.conf.intent_log_precision
+        p = self.conf.intent_logging_precision
         print('step : {0} , train_error : {1} , train_acc : {2}'
               .format(step, round(train_err, p), round(train_acc, p)))
 

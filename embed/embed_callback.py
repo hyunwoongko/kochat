@@ -8,6 +8,10 @@ from gensim.models.callbacks import CallbackAny2Vec
 
 
 class EmbedCallback(CallbackAny2Vec):
+    """
+    GENSIM 임베딩 학습시 로그를 출력합니다.
+    fasttext의 경우 Loss는 표시되지 않고 ETA만 표시 가능합니다.
+    """
 
     def __init__(self):
         self.epoch = 0

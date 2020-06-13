@@ -3,7 +3,7 @@ question,label
 먼지 정보 알려주세요,O O O
 그 때 먼지 어떨까,O O O O
 그 때 먼지 좋으려나,O O O O
-미세먼지 어떨 것 같은데,O O O O O
+미세먼지 어떨 것 같은데,O O O O
 먼지 어때,O O
 미세먼지 말해줄래,O O
 먼지 어떠니,O O
@@ -58,47 +58,47 @@ question,label
 내일 공기 깨끗하니,S-DATE O O
 서울 다음 주 먼지 알려줄래요,S-LOCATION B-DATE E-DATE O O
 부안 먼지 어떻게 돼,S-LOCATION O O O
-오늘 서천 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O
-내일 먼지상태 알려줄수 있어,S-DATE O O O
-이번 주 가로수길 먼지 알려줄래,B-DATE E-DATE S-LOCATION O O
-구암 다음 주 먼지 알려줘,S-LOCATION B-DATE E-DATE O O
-이번 주 영등포 먼지 말해줘,B-DATE E-DATE S-LOCATION O O
-구로 다음 주 먼지 알려줄래,S-LOCATION B-DATE E-DATE O O
-일산 먼지 상태 어떻게 돼요,S-LOCATION O O O O
-오늘 안암 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O
-내일 먼지 알려줄 수 있어,S-DATE O O O O
-이번 주 홍대 먼지 알려줄래,B-DATE E-DATE S-LOCATION O O
-남구 다음 주 먼지 알려줘,S-LOCATION B-DATE E-DATE O O
-이번 주 보령 먼지 줘,B-DATE E-DATE S-LOCATION O O
+오늘 서천 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O O O
+내일 공기상태 알려줄수 있어,S-DATE O O O
+이번 주 가로수길 공기 알려줄래,B-DATE E-DATE S-LOCATION O O
+구암 다음 주 공기 알려줘,S-LOCATION B-DATE E-DATE O O
+이번 주 영등포 공기 말해줘,B-DATE E-DATE S-LOCATION O O
+구로 다음 주 공기 알려줄래,S-LOCATION B-DATE E-DATE O O
+일산 공기 상태 어떻게 돼요,S-LOCATION O O O O
+오늘 안암 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O O O
+내일 공기 알려줄 수 있어,S-DATE O O O O
+이번 주 홍대 공기 알려줄래,B-DATE E-DATE S-LOCATION O O
+남구 다음 주 공기 알려줘,S-LOCATION B-DATE E-DATE O O
+이번 주 보령 공기 줘,B-DATE E-DATE S-LOCATION O O
 공기 맑을까,O O
-공기 먼지 심하니,O O O
+공기 공기 심하니,O O O
 현재 미세먼지 많이 없니,S-DATE O O O
 먼지 많이 없니,O O O
 공기 많이 깨끗하지,O O O
 먼지 많이 심할까,O O O
-알려줘 먼지,O O
+알려줘 공기,O O
 내일 마스크 챙길까,S-DATE O O
 마스크 써야하나,O O
-이번 주 먼지 많이 없니,B-DATE E-DATE O O O
-내일 먼지 심하겠지,S-DATE O O
-헉 혹시 먼지 심할까,O O O O
+이번 주 공기 많이 없니,B-DATE E-DATE O O O
+내일 공기 심하겠지,S-DATE O O
+헉 혹시 공기 심할까,O O O O
 먼지 심하니,O O
 내일 공기 상태 나쁠까,S-DATE O O O
 먼지 심하겠지 아마,O O O
 먼지 심해지려나,O O
-오늘 먼지 심하니,S-DATE O O
+오늘 공기 심하니,S-DATE O O
 미세먼지 알려줘,O O
 내일 공기 상태 나쁠까,S-DATE O O O
 공기 상태 나쁠까,O O O
-혹시 내일 먼지 심하니 마스크 챙길까,O S-DATE O O O O
+혹시 내일 공기 심하니 마스크 챙길까,O S-DATE O O O O
 마스크 필요하니,O O
 내일 마스크 필요할까,S-DATE O O
 마스크 챙겨야하나 모르겠네,O O O
-밀양 먼지 심하면 안되는데,S-LOCATION O O O
+밀양 공기 심하면 안되는데,S-LOCATION O O O
 공기 맑을까 그 때,O O O O
-혹시 먼지 심하니,O O O
+혹시 공기 심하니,O O O
 그 때 혹시 공기 상태 나쁠까,O O O O O O
-나 내일 여행가는데 먼지 알려줘,O S-DATE O O O
+나 내일 여행가는데 공기 알려줘,O S-DATE O O O
 그 때 혹시 심하니,O O O O
 하늘 심하니,O O
 미세먼지 없으려,O O
@@ -109,10 +109,10 @@ question,label
 하늘 미세먼지 많이 심하니 그 날,O O O O O O
 먼지 어떨 것 같아,O O O O
 이번 주 공기 깨끗하니,B-DATE E-DATE O O
-많이 먼지 심하면 안될텐데,O O O O
+많이 공기 심하면 안될텐데,O O O O
 다음 주 공기 알려줘,B-DATE E-DATE O O
-내일 먼지 심할까,S-DATE O O
-내일 혹시 서대문구 먼지 없으려나,S-DATE O S-LOCATION O O
+내일 공기 심할까,S-DATE O O
+내일 혹시 서대문구 공기 없으려나,S-DATE O S-LOCATION O O
 오늘 미세먼지 심하니,S-DATE O O
 군산 공기 상태 좋으려나,S-LOCATION O O O
 공기 상태 나쁠까 정말,O O O O
@@ -125,52 +125,52 @@ question,label
 마스크 쓸까,O O
 내일 마스크 챙길까 말까,S-DATE O O O
 먼지 궁금한데 알려주겠니,O O O
-혹시 먼지 알려줘,O O O
-내일모레 동두천 먼지 궁금해요,S-DATE S-LOCATION O O
-내일모레 먼지 궁금해,S-DATE O O
+혹시 공기 알려줘,O O O
+내일모레 동두천 공기 궁금해요,S-DATE S-LOCATION O O
+내일모레 공기 궁금해,S-DATE O O
 먼지 많이 심한가,O O O
-서울 먼지 알려주겠니,S-LOCATION O O
-부산 먼지 정보 알려주세요,S-LOCATION O O O
-혹시 그 때 대구 먼지 어떨까,O O O S-LOCATION O O
-그 때 대전 먼지 좋겠지,O O S-LOCATION O O
+서울 공기 알려주겠니,S-LOCATION O O
+부산 공기 정보 알려주세요,S-LOCATION O O O
+혹시 그 때 대구 공기 어떨까,O O O S-LOCATION O O
+그 때 대전 공기 좋겠지,O O S-LOCATION O O
 먼지 어떨 것 같은데,O O O O
-울산 먼지 어떨까요,S-LOCATION O O
-송파구 먼지 어때요,S-LOCATION O O
+울산 공기 어떨까요,S-LOCATION O O
+송파구 황사 어때요,S-LOCATION O O
 덕진구 현재 공기 말해주겠니,S-LOCATION S-DATE O O
-청주 먼지 어떠니,S-LOCATION O O
-오늘 전주 먼지 알려줘,S-DATE S-LOCATION O O
+청주 황사 어떠니,S-LOCATION O O
+오늘 전주 황사 알려줘,S-DATE S-LOCATION O O
 먼지 어떠려나,O O
-그럼 구리 먼지 어떨까,O S-LOCATION O O
-전주 먼지 어떤지 좀 말해줘,S-LOCATION O O O O
-창원 먼지 궁금해서 물어봤어요,S-LOCATION O O O
-경기도 먼지 알려주세요,S-LOCATION O O
+그럼 구리 황사 어떨까,O S-LOCATION O O
+전주 황사 어떤지 좀 말해줘,S-LOCATION O O O O
+창원 황사 궁금해서 물어봤어요,S-LOCATION O O O
+경기도 황사 알려주세요,S-LOCATION O O
 공기 어떠려나,O O
 현재 공기 어떠려나,S-DATE O O
 현재공기 어떠려나,O O
-오늘 먼지 알려주겠니,S-DATE O O
+오늘 황사 알려주겠니,S-DATE O O
 먼지 궁금해,O O
-현재 먼지 어떤데,S-DATE O O
-저기 북구 먼지 어때,O S-LOCATION O O
-현재 인천 먼지 완전 문젠데,S-DATE S-LOCATION O O O
-완주 모레 동대구 먼지 궁금해,S-LOCATION S-DATE S-LOCATION O O
+현재 황사 어떤데,S-DATE O O
+저기 북구 황사 어때,O S-LOCATION O O
+현재 인천 황사 완전 문젠데,S-DATE S-LOCATION O O O
+완주 모레 동대구 황사 궁금해,S-LOCATION S-DATE S-LOCATION O O
 먼지 궁금해요,O O
 완산구 현재 공기 상태 좋니,S-LOCATION S-DATE O O O
-지금 먼지 어때,S-DATE O O
+지금 황사 어때,S-DATE O O
 송파구 공기 상태 좀 알려줄래,S-LOCATION O O O O
 궁금해 부천 먼지,O S-LOCATION O
 어때 좀 안산 먼지,O O S-LOCATION O
-내일 근데 원주 먼지 어떠려나,S-DATE O S-LOCATION O O
+내일 근데 원주 황사 어떠려나,S-DATE O S-LOCATION O O
 울산 지금 미세먼지 없니,S-LOCATION S-DATE O O
 하늘 미세먼지 없니 지금,O O O S-DATE
 광주 공기상태 알려줘,S-LOCATION O O
 어떤데 먼지,O O
 먼지 알려줬으면 졸겠어,O O O
-평창 먼지 알려줘,S-LOCATION O O
+평창 황사 알려줘,S-LOCATION O O
 오늘 미세먼지 없나,S-DATE O O
 모레 여행갈건데 먼지 알려줘,S-DATE O O O
 먼지 궁금하네,O O
 오늘 먼지 심하니,S-DATE O O
-내일 미세먼지 어떨까,S-DATE O O
+내일 오존 어떨까,S-DATE O O
 알려주세요 춘천 먼지,O S-LOCATION O
 광주 북구 먼지 어떠려나,B-LOCATION E-LOCATION O O
 먼지 알려주세요 궁금해요,O O O
@@ -183,8 +183,8 @@ question,label
 완전 덥겠다,O O
 하늘 공기 맑을까,O O O
 하늘 먼지 심하니,O O O
-지금 남원 미세먼지 많이 없니,S-DATE S-LOCATION O O O
-지금 경부 지방 많이 미세먼지 심할까,S-DATE B-LOCATION E-LOCATION O O O
+지금 남원 오존 많이 없니,S-DATE S-LOCATION O O O
+지금 경부 지방 많이 오존 심할까,S-DATE B-LOCATION E-LOCATION O O O
 먼지 많이 심할까,O O O
 알려줘 은평구 먼지,O S-LOCATION O
 노원구 먼지 궁금하네,S-LOCATION O O
@@ -193,7 +193,7 @@ question,label
 임실 내일 혹시 마스크 써야하나,S-LOCATION S-DATE O O O
 이번 주 먼지 많이 없니,B-DATE E-DATE O O O
 내일 먼지 심하겠지,S-DATE O O
-홍대 혹시 미세먼지 심할까,S-LOCATION O O O
+홍대 혹시 오존 심할까,S-LOCATION O O O
 서울 먼지 심하니,S-LOCATION O O
 먼지 껴서 흐린가,O O O
 먼지 심하진 않겠지,O O O
@@ -201,9 +201,9 @@ question,label
 마스크 아마 챙겨야겠지,O O O
 해운대 내일 먼지 없을까,S-LOCATION S-DATE O O
 오수 먼지 심하겠지 아마,S-LOCATION O O O
-그 떄 미세먼지 심할까,O O O O
+그 떄 오존 심할까,O O O O
 먼지 심해지려나,O O
-미세먼지 알려줘,O O
+오존 알려줘,O O
 서귀포 내일 공기 상태 나쁠까,S-LOCATION S-DATE O O O
 먼지 심하면 안되는데,O O O
 제주 많이 공기 상태 나쁠까,S-LOCATION O O O O
@@ -220,53 +220,53 @@ question,label
 그 때 혹시 심하니,O O O O
 하늘 심하니,O O
 지금 먼지 없나,S-DATE O O
-미세먼지 없으려나,O O
+오존 없으려나,O O
 이번 주 심할까,B-DATE E-DATE O
 공기 상태 심해질까,O O O
 그 때 하늘 어떠려나,O O O O
-하늘 미세먼지 많이 심하니 그 날,O O O O O O
+하늘 오존 많이 심하니 그 날,O O O O O O
 먼지 어떨 것 같아,O O O O
 이번 주 공기 깨끗하니,B-DATE E-DATE O O
 많이 먼지 심하면 안될텐데,O O O O
 다음 주 공기 알려줘,B-DATE E-DATE O O
 내일 먼지 심할까,S-DATE O O
-먼지 많이 심하니OOO,nan
+먼지 많이 심하니,O O O
 영월 먼지 많이 심한가,S-LOCATION O O O
 내일 혹시 먼지 없으려나,S-DATE O O O
-오늘 미세먼지 심하니,S-DATE O O
+오늘 오존 심하니,S-DATE O O
 공기 상태 좋으려나,O O O
 1월 1일 먼지 심한가요,B-DATE E-DATE O O
-2월 12일 미세먼지 심하려나,B-DATE E-DATE O O
-3월 3일 미세먼지 심한가,B-DATE E-DATE O O
+2월 12일 오존 심하려나,B-DATE E-DATE O O
+3월 3일 오존 심한가,B-DATE E-DATE O O
 4월 14일 먼지 심한가요,B-DATE E-DATE O O
-5월 5일 추워서 미세먼지 심한가,B-DATE E-DATE O O O
+5월 5일 추워서 오존 심한가,B-DATE E-DATE O O O
 8일 호성동 먼지 알려줘,S-DATE S-LOCATION O O
 6월 22일 먼지 심한가요,B-DATE E-DATE O O
 12월 11일 더워서 어떠려나,B-DATE E-DATE O O
 3월 2O일 먼지 와,B-DATE E-DATE O O
-7월 4일 미세먼지 와,B-DATE E-DATE O O
+7월 4일 오존 와,B-DATE E-DATE O O
 3월 17일 전주 하늘 먼지 심하니,B-DATE E-DATE S-LOCATION O O O
 4월 12일 먼지 흐려서 안 되겠다,B-DATE E-DATE O O O O
 이번 주 토요일 먼지 심하니,B-DATE I-DATE E-DATE O O
 2월 1O일 먼지 심하니,B-DATE E-DATE O O
 경주 이번 주 드디어 맑아,S-LOCATION B-DATE E-DATE O O
-4월 11일 미세먼지 심한가요,B-DATE E-DATE O O
+4월 11일 오존 심한가요,B-DATE E-DATE O O
 2월 2O일 먼지 와,B-DATE E-DATE O O
-8월 4일 미세먼지 와,B-DATE E-DATE O O
+8월 4일 오존 와,B-DATE E-DATE O O
 1O월 16일 먼지 심하니,B-DATE E-DATE O O
 이번 주 수요일 먼지 심하니,B-DATE I-DATE E-DATE O O
 11월 6일 청원 먼지 심하니,B-DATE E-DATE S-LOCATION O O
 이천 이번 주 심하려나 하늘,S-LOCATION B-DATE E-DATE O O
 먼지 없을까,O O
-내일 오산 미세먼지 심하겠지 아마,S-DATE S-LOCATION O O O
-내일 미세먼지 심하니,S-DATE O O
-혹시 미세먼지 안심하겠지,O O O
+내일 오산 오존 심하겠지 아마,S-DATE S-LOCATION O O O
+내일 오존 심하니,S-DATE O O
+혹시 오존 안심하겠지,O O O
 그 날 먼지와서 힘들겠지,O O O O
-미세먼지 없을까,O O
+오존 없을까,O O
 약속 잡았는데 먼지 오네,O O O O
 내일 진주 마스크 필요해,S-DATE S-LOCATION O O
 마스크 쓸까 말해줘,O O O
-울릉도 내일 마스크 챙길까 말까,S-LOCATION S-DATE O O
+울릉도 내일 마스크 챙길까 말까,S-LOCATION S-DATE O O O
 먼지 궁금한데 알려주겠니,O O O
 혹시 먼지 알려줘,O O O
 인천 내일모레 먼지 궁금해요,S-LOCATION S-DATE O O
@@ -274,7 +274,7 @@ question,label
 내일 공기 깨끗하니,S-DATE O O
 이천 하늘 공기 맑을까,S-LOCATION O O O
 화순 하늘 먼지 심하니,S-LOCATION O O O
-지금 남원 미세먼지 많이 없니,S-DATE S-LOCATION O O O
+지금 남원 오존 많이 없니,S-DATE S-LOCATION O O O
 지금 경부 지방 먼지 많이 없니,S-DATE B-LOCATION E-LOCATION O O O
 공기 깨끗하니,O O
 노원구 먼지 궁금하네,S-LOCATION O O
@@ -293,7 +293,7 @@ question,label
 지금 평택 먼지 알려주세요,S-DATE S-LOCATION O O
 이번 주 광주 먼지 말해주라,B-DATE E-DATE S-LOCATION O O
 내일 부산 먼지,S-DATE S-LOCATION O
-내일 대구 먼지 말해,S-DATE S-LOCATION O
+내일 대구 먼지 말해,S-DATE S-LOCATION O O
 이따 대전 먼지 말해줘,S-DATE S-LOCATION O O
 오늘 먼지 뭐야,S-DATE O O
 내일 부산 먼지 말해주라,S-DATE S-LOCATION O O
@@ -333,90 +333,90 @@ question,label
 궁금해 의정부 먼지,O S-LOCATION O
 어때 김포 먼지,O S-LOCATION O
 내일 근데 구미 먼지 어떠려나,S-DATE O S-LOCATION O O
-양산 미세먼지 없니 지금,S-LOCATION O O S-DATE
-원주 하늘 미세먼지 없니 지금,S-LOCATION O O O S-DATE
+양산 오존 없니 지금,S-LOCATION O O S-DATE
+원주 하늘 오존 없니 지금,S-LOCATION O O O S-DATE
 진주 공기 어때 지금,S-LOCATION O O S-DATE
 세종 공기상태 알려줘,S-LOCATION O O
 아 광명 먼지 심하네,O S-LOCATION O O
 어떤데 아산 먼지,O S-LOCATION O
 익산 먼지 알려줬으면 졸겠어,S-LOCATION O O O
-춘천 지금 미세먼지 없나,S-LOCATION S-DATE O O
-경산 하늘 미세먼지 많네,S-LOCATION O O O
-내일 군포 여행갈건데 미세먼지 알려줘,S-DATE S-LOCATION O O O
-하남 미세먼지 궁금하네,S-LOCATION O O
-오늘 여수 미세먼지 심하니,S-DATE S-LOCATION O O
-내일 경주 미세먼지 어떨까,S-DATE S-LOCATION O O
-거제도 미세먼지 많이 심하려나,S-LOCATION O O O
+춘천 지금 오존 없나,S-LOCATION S-DATE O O
+경산 하늘 오존 많네,S-LOCATION O O O
+내일 군포 여행갈건데 오존 알려줘,S-DATE S-LOCATION O O O
+하남 오존 궁금하네,S-LOCATION O O
+오늘 여수 초미세먼지 심하니,S-DATE S-LOCATION O O
+내일 경주 초미세먼지 어떨까,S-DATE S-LOCATION O O
+거제도 초미세먼지 많이 심하려나,S-LOCATION O O O
 목포 알려주세요 먼지,S-LOCATION O O
-이천 미세먼지 꼈나,S-LOCATION O O
-강릉 미세먼지 끼었나,S-LOCATION O O
-양주 지금 하늘 미세먼지 많니,S-LOCATION S-DATE O O O
-충주 미세먼지 알려주세요 궁금해요,S-LOCATION O O O
+이천 초미세먼지 꼈나,S-LOCATION O O
+강릉 초미세먼지 끼었나,S-LOCATION O O
+양주 지금 하늘 초미세먼지 많니,S-LOCATION S-DATE O O O
+충주 초미세먼지 알려주세요 궁금해요,S-LOCATION O O O
 안성 맑으려나 내일,S-LOCATION O S-DATE
-서산 미세먼지 궁금해서,S-LOCATION O O
-구리 내일 미세먼지 안 심해야 하는데,S-LOCATION S-DATE O O O O
+서산 초미세먼지 궁금해서,S-LOCATION O O
+구리 내일 초미세먼지 안 심해야 하는데,S-LOCATION S-DATE O O O O
 서귀포 공기상태 알려줘,S-LOCATION O O
 당진 내일 공기 깨끗하니,S-LOCATION S-DATE O O
-안동 다음 주 미세먼지 알려줄래요,S-LOCATION B-DATE E-DATE O O
+안동 다음 주 초미세먼지 알려줄래요,S-LOCATION B-DATE E-DATE O O
 포천 먼지 어떻게 돼,S-LOCATION O O O
-오늘 의왕 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O
-내일 미세먼지 광양 알려줄수 있어,S-DATE O S-LOCATION O O
-이번 주 제천 미세먼지 알려줄래,B-DATE E-DATE S-LOCATION O O
-논산 다음 주 미세먼지 알려줘,S-LOCATION B-DATE E-DATE O O
-이번 주 칠곡 미세먼지 줘,B-DATE E-DATE S-LOCATION O O
-여주 다음 주 미세먼지 알려줄래,S-LOCATION B-DATE E-DATE O O
+오늘 의왕 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O O O
+내일 초미세먼지 광양 알려줄수 있어,S-DATE O S-LOCATION O O
+이번 주 제천 초미세먼지 알려줄래,B-DATE E-DATE S-LOCATION O O
+논산 다음 주 초미세먼지 알려줘,S-LOCATION B-DATE E-DATE O O
+이번 주 칠곡 초미세먼지 줘,B-DATE E-DATE S-LOCATION O O
+여주 다음 주 초미세먼지 알려줄래,S-LOCATION B-DATE E-DATE O O
 정읍 먼지 어떻게 돼요,S-LOCATION O O O
-오늘 음성군 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O
-내일 양평 미세먼지 알려줄수 있어,S-DATE S-LOCATION O O O
-이번 주 공주 미세먼지 알려줄래,B-DATE E-DATE S-LOCATION O O
-완주 다음 주 미세먼지 알려줘,S-LOCATION B-DATE E-DATE O O
-이번 주 상주 미세먼지 줘,B-DATE E-DATE S-LOCATION O O
+오늘 음성군 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O O O
+내일 양평 꽃가루 알려줄수 있어,S-DATE S-LOCATION O O O
+이번 주 공주 꽃가루 알려줄래,B-DATE E-DATE S-LOCATION O O
+완주 다음 주 꽃가루 알려줘,S-LOCATION B-DATE E-DATE O O
+이번 주 상주 꽃가루 줘,B-DATE E-DATE S-LOCATION O O
 영천 내일 하늘 공기 맑을까,S-LOCATION S-DATE O O O
-동해 오늘 미세먼지 심하니,S-LOCATION S-DATE O O
-김제 지금 미세먼지 많이 없니,S-LOCATION S-DATE O O O
-무안 미세먼지 없니,S-LOCATION O O
-진천 미세먼지 많이 심하니,S-LOCATION O O O
-예산군 미세먼지 알려줘,S-LOCATION O O
+동해 오늘 꽃가루 심하니,S-LOCATION S-DATE O O
+김제 지금 꽃가루 많이 없니,S-LOCATION S-DATE O O O
+무안 꽃가루 없니,S-LOCATION O O
+진천 꽃가루 많이 심하니,S-LOCATION O O O
+예산군 꽃가루 알려줘,S-LOCATION O O
 문경 내일 마스크 챙길까,S-LOCATION S-DATE O O
 속초 모레 마스크 써야하나,S-LOCATION S-DATE O O
-이번 주 삼척 미세먼지 많이 없니,B-DATE E-DATE S-LOCATION O O O
+이번 주 삼척 꽃가루 많이 없니,B-DATE E-DATE S-LOCATION O O O
 홍천 내일 먼지 심하겠지,S-LOCATION S-DATE O O
 해남 혹시 공기 깨끗하니,S-LOCATION O O O
-창녕 미세먼지 심하니,S-LOCATION O O
+창녕 꽃가루 심하니,S-LOCATION O O
 내일 태안 공기 상태 나쁠까,S-DATE S-LOCATION O O O
 고흥 먼지 심하겠지 아마,S-LOCATION O O O
-화순 미세먼지 심해지려나,S-LOCATION O O
-거창 오늘 미세먼지 심하니,S-LOCATION S-DATE O O
-가평 미세먼지 알려줘,S-LOCATION O O
+화순 꽃가루 심해지려나,S-LOCATION O O
+거창 오늘 꽃가루 심하니,S-LOCATION S-DATE O O
+가평 꽃가루 알려줘,S-LOCATION O O
 내일 고창 공기 상태 나쁠까,S-DATE S-LOCATION O O O
 서천 공기 상태 나쁠까,S-LOCATION O O O
-혹시 내일 금산 먼지 심하니 마스크 챙길까,O S-DATE S-LOCATION O O
+혹시 내일 금산 먼지 심하니 마스크 챙길까,O S-DATE S-LOCATION O O O O
 부안 오늘 마스크 필요하니,S-LOCATION S-DATE O O
 내일 옥천 마스크 필요할까,S-DATE S-LOCATION O O
 영광 마스크 챙겨야하나 모르겠네,S-LOCATION O O O
-울진 미세먼지 심하면 안되는데,S-LOCATION O O O
+울진 꽃가루 심하면 안되는데,S-LOCATION O O O
 완도 공기 맑을까 그 때,S-LOCATION O O O O
-혹시 담양 이번 주 미세먼지 심하니,O S-LOCATION B-DATE E-DATE O O
-그 때 횡성 혹시 공기 상태 나쁠까,O O S-LOCATION O O
-나 내일 계룡 여행가는데 미세먼지 알려줘,O O S-LOCATION O O O
+혹시 담양 이번 주 꽃가루 심하니,O S-LOCATION B-DATE E-DATE O O
+그 때 횡성 혹시 공기 상태 나쁠까,O O S-LOCATION O O O O
+나 내일 계룡 여행가는데 꽃가루 알려줘,O O S-LOCATION O O O
 그 때 혹시 심하니,O O O O
 장성 하늘 심하니,S-LOCATION O O
-청도 이따가 미세먼지 없으려나,S-LOCATION S-DATE O O
-괴산 미세먼지 꼈니,S-LOCATION O O
-강남 하늘 먼지 심할까,S-LOCATION O O O
-함양 오늘 미세먼지 내리나,S-LOCATION S-DATE O O
+청도 이따가 꽃가루 없으려나,S-LOCATION S-DATE O O
+괴산 꽃가루 꼈니,S-LOCATION O O
+강남 하늘 공기상태 심할까,S-LOCATION O O O
+함양 오늘 꽃가루 내리나,S-LOCATION S-DATE O O
 그 때 하늘 어떠려나,O O O O
-증평 하늘 미세먼지 많이 심하니 그 날,S-LOCATION O O O O
-영월 미세먼지 어떨 것 같아,S-LOCATION O O O O
+증평 하늘 꽃가루 많이 심하니 그 날,S-LOCATION O O O O O O
+영월 꽃가루 어떨 것 같아,S-LOCATION O O O O
 이번 주 장흥 공기 깨끗하니,B-DATE E-DATE S-LOCATION O O
-영덕 많이 먼지 심하면 안될텐데,S-LOCATION O O O O
+영덕 많이 공기상태 심하면 안될텐데,S-LOCATION O O O O
 다음 주 정선 공기 알려줘,B-DATE E-DATE S-LOCATION O O
-내일 강진 미세먼지 심할까,S-DATE S-LOCATION O O
-내일 혹시 보은 미세먼지 없으려나,S-DATE O S-LOCATION O O
+내일 강진 꽃가루 심할까,S-DATE S-LOCATION O O
+내일 혹시 보은 꽃가루 없으려나,S-DATE O S-LOCATION O O
 오늘 인제 미세먼지 심하니,S-DATE S-LOCATION O O
 진도 공기 상태 좋으려나,S-LOCATION O O O
 군산 미세먼지 공기 상태 나쁠까 정말,S-LOCATION O O O O O
-곡성 먼지 없을까,S-LOCATION O O
+곡성 공기상태 없을까,S-LOCATION O O
 내일 단양 미세먼지 심하겠지 아마,S-DATE S-LOCATION O O O
 내일 순창 미세먼지 오면 안되는데,S-DATE S-LOCATION O O O
 혹시 의령 미세먼지 안 심하겠지,O S-LOCATION O O O
@@ -424,56 +424,56 @@ question,label
 내일 화천 마스크 필요해,S-DATE S-LOCATION O O
 청송 마스크 쓸까,S-LOCATION O O
 내일 구례 마스크 챙길까 말까,S-DATE S-LOCATION O O O
-무주 먼지 궁금한데 알려주겠니,S-LOCATION O O O
-진안 혹시 먼지 알려줘,S-LOCATION O O O
-내일모레 양구 먼지 궁금해요,S-DATE S-LOCATION O O
-내일모레 군위 먼지 궁금해,S-DATE S-LOCATION O O
-장수 먼지 많이 심한가,S-LOCATION O O O
-영양 먼지 알려주겠니,S-LOCATION O O
-울릉 먼지 정보 알려주세요,S-LOCATION O O O
-혹시 그 때 종로구 먼지 어떨까,O O O S-LOCATION O O
-그 때 관악구 먼지 좋겠지,O O S-LOCATION O O
-서초구 먼지 어떨 것 같은데,S-LOCATION O O O O
-강동구 먼지 어떨까요,S-LOCATION O O
-도봉구 먼지 어때요,S-LOCATION O O
+무주 공기상태 궁금한데 알려주겠니,S-LOCATION O O O
+진안 혹시 공기상태 알려줘,S-LOCATION O O O
+내일모레 양구 공기상태 궁금해요,S-DATE S-LOCATION O O
+내일모레 군위 공기상태 궁금해,S-DATE S-LOCATION O O
+장수 공기상태 많이 심한가,S-LOCATION O O O
+영양 공기상태 알려주겠니,S-LOCATION O O
+울릉 공기상태 정보 알려주세요,S-LOCATION O O O
+혹시 그 때 종로구 공기상태 어떨까,O O O S-LOCATION O O
+그 때 관악구 공기상태 좋겠지,O O S-LOCATION O O
+서초구 공기상태 어떨 것 같은데,S-LOCATION O O O O
+강동구 공기상태 어떨까요,S-LOCATION O O
+도봉구 공기상태 어때요,S-LOCATION O O
 중랑구 현재 공기 말해주겠니,S-LOCATION S-DATE O O
-광진구 청주 먼지 어떠니,B-LOCATION E-LOCATION O O
-오늘 용산구 먼지 알려줘,S-DATE S-LOCATION O O
-마포구 먼지 어떨까,S-LOCATION O O
-그럼 강남 먼지 어떨까,O O O O
-강동 먼지 어떤지 좀 말해줘,S-LOCATION O O O O
-동작구 먼지 궁금해서 물어봤어요,S-LOCATION O O O
-경상도 먼지 알려주세요,S-LOCATION O O
+광진구 청주 공기상태 어떠니,B-LOCATION E-LOCATION O O
+오늘 용산구 공기상태 알려줘,S-DATE S-LOCATION O O
+마포구 공기상태 어떨까,S-LOCATION O O
+그럼 강남 공기상태 어떨까,O O O O
+강동 공기상태 어떤지 좀 말해줘,S-LOCATION O O O O
+동작구 공기상태 궁금해서 물어봤어요,S-LOCATION O O O
+경상도 공기상태 알려주세요,S-LOCATION O O
 경남 공기 어떠려나,S-LOCATION O O
 전북 현재 공기 어떠려나,S-LOCATION S-DATE O O
-전남 먼지 어떠려나,S-LOCATION O O
-오늘 전북 먼지 알려주겠니,S-DATE S-LOCATION O O
-영등포 먼지 궁금해,S-LOCATION O O
-현재 양천구 먼지 어떤데,S-DATE S-LOCATION O O
-저기 마포구 먼지 어때,O S-LOCATION O O
-현재 성북구 먼지 완전 문젠데,S-DATE S-LOCATION O O O
-중랑구 먼지 궁금해,S-LOCATION O O
-용산구 먼지 궁금해요,S-LOCATION O O
+전남 스모크 어떠려나,S-LOCATION O O
+오늘 전북 스모크 알려주겠니,S-DATE S-LOCATION O O
+영등포 스모크 궁금해,S-LOCATION O O
+현재 양천구 스모크 어떤데,S-DATE S-LOCATION O O
+저기 마포구 스모크 어때,O S-LOCATION O O
+현재 성북구 스모크 완전 문젠데,S-DATE S-LOCATION O O O
+중랑구 스모크 궁금해,S-LOCATION O O
+용산구 스모크 궁금해요,S-LOCATION O O
 종로구 현재 공기 상태 좋니,S-LOCATION S-DATE O O O
-현재 먼지 어때,S-DATE O O
+현재 스모크 어때,S-DATE O O
 송파구 공기 상태 좀 알려줄래,S-LOCATION O O O O
-궁금해 마포구 먼지,O S-LOCATION O
-제주시 먼지 궁금해,S-LOCATION O O
-합천군 먼지 궁금해,S-LOCATION O O
+궁금해 마포구 스모크,O S-LOCATION O
+제주시 스모크 궁금해,S-LOCATION O O
+합천군 스모크 궁금해,S-LOCATION O O
 오늘 함안군 공기 어때,S-DATE S-LOCATION O O
 창녕군 공기 어떨까,S-LOCATION O O
-고성군 먼지 알려줘,S-LOCATION O O
-거제시 먼지 알려줄래,S-LOCATION O O
-오늘 의성군 먼지 알려줘,S-DATE S-LOCATION O O
+고성군 스모크 알려줘,S-LOCATION O O
+거제시 스모그 알려줄래,S-LOCATION O O
+오늘 의성군 스모그 알려줘,S-DATE S-LOCATION O O
 울진군 공기 어때,S-LOCATION O O
-영천시 먼지 어떨까요,S-LOCATION O O
-구미시 먼지 어때요,S-LOCATION O O
+영천시 스모그 어떨까요,S-LOCATION O O
+구미시 스모그 어때요,S-LOCATION O O
 봉화군 공기 어떨까,S-LOCATION O O
 태안군 공기 알려줘,S-LOCATION O O
-궁금해 먼지 논산시,O O S-LOCATION
-계룡시 먼지 어떨까,S-LOCATION O O
-오늘 청주시 흥덕구 먼지 알려줘,S-DATE B-LOCATION E-LOCATION O O
-오늘 진천군 먼지 어때,S-DATE S-LOCATION O O
+궁금해 스모그 논산시,O O S-LOCATION
+계룡시 스모그 어떨까,S-LOCATION O O
+오늘 청주시 흥덕구 스모그 알려줘,S-DATE B-LOCATION E-LOCATION O O
+오늘 진천군 스모그 어때,S-DATE S-LOCATION O O
 증평군 공기 어떨까,S-LOCATION O O
 제천시 공기 알려줘,S-LOCATION O O
 화천군 공기 어때,S-LOCATION O O
@@ -481,120 +481,120 @@ question,label
 원주시 공기 물어볼게,S-LOCATION O O
 영월군 공기 알려줄래,S-LOCATION O O
 서초구 공기 어때,S-LOCATION O O
-속초시 먼지 알려줘,S-LOCATION O O
-강릉시 먼지 궁금해,S-LOCATION O O
-울산 북구 먼지 어때,B-LOCATION E-LOCATION O O
-계양구 먼지 알려줘,S-LOCATION O O
-오늘 부평구 먼지 어때,S-DATE S-LOCATION O O
+속초시 스모그 알려줘,S-LOCATION O O
+강릉시 스모그 궁금해,S-LOCATION O O
+울산 북구 스모그 어때,B-LOCATION E-LOCATION O O
+계양구 스모그 알려줘,S-LOCATION O O
+오늘 부평구 스모그 어때,S-DATE S-LOCATION O O
 인천 서구 공기 궁금해,B-LOCATION E-LOCATION O O
 연수구 공기 알려줘,S-LOCATION O O
 미추홀구 공기 궁금해요,S-LOCATION O O
 사하구 공기 어때,S-LOCATION O O
 해운대구 공기 어떠려나,S-LOCATION O O
-오늘 북구 먼지 어때,S-DATE S-LOCATION O O
+오늘 북구 스모그 어때,S-DATE S-LOCATION O O
 오늘 동래구 공기 알려줘,S-DATE S-LOCATION O O
-금정구 먼지 어때,S-LOCATION O O
+금정구 스모그 어때,S-LOCATION O O
 부산 강서구 공기 알려줘,B-LOCATION E-LOCATION O O
 오늘 안성시 공기 알려줄래,S-DATE S-LOCATION O O
 수원시 팔달구 공기 알려줘,B-LOCATION E-LOCATION O O
 동두천시 공기 알려줘,S-LOCATION O O
-양주시 먼지 궁금해,S-LOCATION O O
+양주시 스모그 궁금해,S-LOCATION O O
 양주시 공기 알려주세요,S-LOCATION O O
 안성시 공기 어때,S-LOCATION O O
 합정동 공기 알려줘,S-LOCATION O O
 망원동 공기 알려줘,S-LOCATION O O
 연천군 공기 어떨까,S-LOCATION O O
-이천시 먼지 어떨까요,S-LOCATION O O
-하남시 먼지 궁금해요,S-LOCATION O O
-화성시 먼지 알려줘,S-LOCATION O O
+이천시 스모그 어떨까요,S-LOCATION O O
+하남시 스모그 궁금해요,S-LOCATION O O
+화성시 스모그 알려줘,S-LOCATION O O
 군포시 공기 알려주세요,S-LOCATION O O
 구리시 공기 알려줘,S-LOCATION O O
 광명시 공기 궁금합니다,S-LOCATION O O
-고양시 덕양구 먼지 알려줘,B-LOCATION E-LOCATION O O
+고양시 덕양구 스모그 알려줘,B-LOCATION E-LOCATION O O
 가평군 공기 궁금해,S-LOCATION O O
-구로구 먼지 알려줘,S-LOCATION O O
-은평구 먼지 알려줘,S-LOCATION O O
-종로구 먼지 궁금해,S-LOCATION O O
-오늘 궁금해 익산시 먼지,S-DATE O S-LOCATION O
-인천 동구 먼지 궁금해,B-LOCATION E-LOCATION O O
+구로구 스모그 알려줘,S-LOCATION O O
+은평구 스모그 알려줘,S-LOCATION O O
+종로구 스모그 궁금해,S-LOCATION O O
+오늘 궁금해 익산시 스모그,S-DATE O S-LOCATION O
+인천 동구 스모그 궁금해,B-LOCATION E-LOCATION O O
 웅진군 공기 궁금해,S-LOCATION O O
 부산진구 공기 알려줘,S-LOCATION O O
-동래구 먼지 알려줄래,S-LOCATION O O
-음성군 먼지 알려주세요,S-LOCATION O O
-고양시 일산서구 먼지 알려줄래,B-LOCATION E-LOCATION O O
+동래구 스모그 알려줄래,S-LOCATION O O
+음성군 스모그 알려주세요,S-LOCATION O O
+고양시 일산서구 스모그 알려줄래,B-LOCATION E-LOCATION O O
 의정부시 공기 궁금해,S-LOCATION O O
 용인시 수지구 공기 어때,B-LOCATION E-LOCATION O O
 오산시 공기 알려줘,S-LOCATION O O
 성남시 분당구 공기 알려주세요,B-LOCATION E-LOCATION O O
 삼척시 공기 궁금해요,S-LOCATION O O
-오늘 원주시 먼지 어때요,S-DATE S-LOCATION O O
+오늘 원주시 스모그 어때요,S-DATE S-LOCATION O O
 한강 가는데 근처 미세먼지 알려줘,S-LOCATION O O O O
 광화문 미세먼지 알려줘,S-LOCATION O O
-통영시 먼지 어때,S-LOCATION O O
-광주시 먼지 알려줘,S-LOCATION O O
-사천시 먼지 어떠니,S-LOCATION O O
-안산시 먼지 알려줄래,S-LOCATION O O
+통영시 스모그 어때,S-LOCATION O O
+광주시 스모그 알려줘,S-LOCATION O O
+사천시 스모그 어떠니,S-LOCATION O O
+안산시 황사 알려줄래,S-LOCATION O O
 여주시 미세먼지는,S-LOCATION O
-파주시 먼지 알려줘,S-LOCATION O O
+파주시 황사 알려줘,S-LOCATION O O
 남구 공기 어때,S-LOCATION O O
 수영구 공기 알려줘,S-LOCATION O O
-동래구 먼지 궁금해,S-LOCATION O O
+동래구 황사 궁금해,S-LOCATION O O
 태백시 공기 어때,S-LOCATION O O
 설악산 가는데 근처 공기 어떠니,S-LOCATION O O O O
 한라산 가는데 근처 공기 어때,S-LOCATION O O O O
-성미산 가는데 근처 먼지 어때,S-LOCATION O O O O
-하늘공원 가는데 근처 먼지 궁금해,S-LOCATION O O O O
-시청 가는데 근처 먼지 궁금해,S-LOCATION O O O O
-오늘 경리단길 가는데 먼지 어때,S-DATE S-LOCATION O O O
+성미산 가는데 근처 황사 어때,S-LOCATION O O O O
+하늘공원 가는데 근처 황사 궁금해,S-LOCATION O O O O
+시청 가는데 근처 황사 궁금해,S-LOCATION O O O O
+오늘 경리단길 가는데 황사 어때,S-DATE S-LOCATION O O O
 오늘 망리단길 가는데 공기 어떠니,S-DATE S-LOCATION O O O
 오늘 을왕리 가는데 근처 미세먼지 어때,S-DATE S-LOCATION O O O O
-임자도 먼지 어때,S-LOCATION O O
-교동도 먼지 알려줘,S-LOCATION O O
-자은도 가려는데 오늘 먼지 알려줄래,S-LOCATION O S-DATE O O
-압해도 가는데 먼지 궁금해요,S-LOCATION O O O
-대연평도 가려는데 오늘 먼지 어때,S-LOCATION O S-DATE O O
-생일도 먼지 알려주세요,S-LOCATION O O
-원산도 오늘 먼지 알려줘,S-LOCATION S-DATE O O
-안도 오늘 먼지 어때,S-LOCATION S-DATE O O
+임자도 황사 어때,S-LOCATION O O
+교동도 황사 알려줘,S-LOCATION O O
+자은도 가려는데 오늘 황사 알려줄래,S-LOCATION O S-DATE O O
+압해도 가는데 황사 궁금해요,S-LOCATION O O O
+대연평도 가려는데 오늘 황사 어때,S-LOCATION O S-DATE O O
+생일도 황사 알려주세요,S-LOCATION O O
+원산도 오늘 황사 알려줘,S-LOCATION S-DATE O O
+안도 오늘 황사 어때,S-LOCATION S-DATE O O
 오늘 죽도 미세먼지 어때,S-DATE S-LOCATION O O
 외도 가는데 미세먼지 어때,S-LOCATION O O O
 가덕도 오늘 미세먼지 알려줘,S-LOCATION S-DATE O O
-석모도 먼지 궁금해요,S-LOCATION O O
-신의도 오늘 먼지 알려줄래,S-LOCATION S-DATE O O
+석모도 황사 궁금해요,S-LOCATION O O
+신의도 오늘 황사 알려줄래,S-LOCATION S-DATE O O
 사랑도 오늘 미세먼지 알려줄래,S-LOCATION S-DATE O O
 팔금도 오늘 미세먼지 궁금해,S-LOCATION S-DATE O O
-외나로도 먼지 알려줘,S-LOCATION O O
-우도 먼지 알려줘,S-LOCATION O O
+외나로도 황사 알려줘,S-LOCATION O O
+우도 황사 알려줘,S-LOCATION O O
 선유도 오늘 미세먼지 어때,S-LOCATION S-DATE O O
 영흥도 오늘 미세먼지 알려줄래,S-LOCATION S-DATE O O
-중도 오늘 먼지 알려줘,S-LOCATION S-DATE O O
-도초도 먼지 어때,S-LOCATION O O
-거제도 먼지 알려줄래,S-LOCATION O O
-금오도 먼지 궁금해요,S-LOCATION O O
-자은도 먼지 알려주세요,S-LOCATION O O
-가거도 먼지 어때요,S-LOCATION O O
-청산도 가려는데 오늘 먼지 궁금해요,S-LOCATION O S-DATE O O
+중도 오늘 황사 알려줘,S-LOCATION S-DATE O O
+도초도 황사 어때,S-LOCATION O O
+거제도 황사 알려줄래,S-LOCATION O O
+금오도 황사 궁금해요,S-LOCATION O O
+자은도 황사 알려주세요,S-LOCATION O O
+가거도 황사 어때요,S-LOCATION O O
+청산도 가려는데 오늘 황사 궁금해요,S-LOCATION O S-DATE O O
 보길도 가는데 미세먼지 알려줘,S-LOCATION O O O
-거문도 가려는데 오늘 먼지 어때요,S-LOCATION O S-DATE O O
+거문도 가려는데 오늘 황사 어때요,S-LOCATION O S-DATE O O
 흑산도 가려는데 오늘 미세먼지 알려줘,S-LOCATION O S-DATE O O
-백령도 오늘 먼지 알려줘,S-LOCATION S-DATE O O
-안면도 먼지 오늘 어때,S-LOCATION O S-DATE O
+백령도 오늘 황사 알려줘,S-LOCATION S-DATE O O
+안면도 황사 오늘 어때,S-LOCATION O S-DATE O
 강화도 가려는데 오늘 미세먼지 궁금해요,S-LOCATION O S-DATE O O
-대부도 가려는데 오늘 먼지 어때,S-LOCATION O S-DATE O O
-독도 가려는데 먼지 알려줄래,S-LOCATION O O O
-울릉도 가는데 먼지 알려줘,S-LOCATION O O O
+대부도 가려는데 오늘 황사 어때,S-LOCATION O S-DATE O O
+독도 가려는데 황사 알려줄래,S-LOCATION O O O
+울릉도 가는데 황사 알려줘,S-LOCATION O O O
 부평구 가려는데 미세먼지 알려줘,S-LOCATION O O O
-방배동 오늘 먼지 알려줘,S-LOCATION S-DATE O O
-상암동 먼지 알려줄래,S-LOCATION O O
-논현동 먼지좀 알려줘,S-LOCATION O O
+방배동 오늘 황사 알려줘,S-LOCATION S-DATE O O
+상암동 황사 알려줄래,S-LOCATION O O
+논현동 황사좀 알려줘,S-LOCATION O O
 삼성동 오늘 미세먼지 알려줘,S-LOCATION S-DATE O O
-개봉동 가는데 먼지 어때,S-LOCATION O O O
+개봉동 가는데 황사 어때,S-LOCATION O O O
 신수동 가는데 미세먼지 알려줘,S-LOCATION O O O
-잠실 가려는데 근처 먼지 알려줘,S-LOCATION O O O O
-가락동 가는데 먼지 알려줘,S-LOCATION O O O
+잠실 가려는데 근처 황사 알려줘,S-LOCATION O O O O
+가락동 가는데 황사 알려줘,S-LOCATION O O O
 서울 종로 오늘 미세먼지 알려줘,B-LOCATION E-LOCATION S-DATE O O
 월계동 미세먼지 궁금해요,S-LOCATION O O
 여의도 가는데 오늘 미세먼지 어때요,S-LOCATION O S-DATE O O
-문정동 가는데 먼지 어떤가요,S-LOCATION O O O
-대포동 가려는데 오늘 먼지 어때,S-LOCATION O S-DATE O O
+문정동 가는데 황사 어떤가요,S-LOCATION O O O
+대포동 가려는데 오늘 황사 어때,S-LOCATION O S-DATE O O
 경주 가는데 오늘 미세먼지 어때,S-LOCATION O S-DATE O O
