@@ -60,7 +60,7 @@ class EntityTrainer:
         test_feature, test_label = self.test_data
         x = test_feature.float().cuda()
         y = test_label.long().cuda()
-        y_ = self.model(x.permute(0, 2, 1)).float()
+        y_ = self.model(x).float()
 
         _, predict = y_.max(dim=1)
         acc = self.get_accuracy(y, predict)

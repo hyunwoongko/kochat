@@ -53,4 +53,4 @@ class Config:
     entity_epochs = 500  # num of epoch for entity training
     entity_ratio = 0.8  # entity train per test ratio
     entity_net_dim = 128  # entity network's hidden dimension
-    entity_net_layers = 2  # number of layer for intent training
+    entity_net_layers = 1  # number of layer for intent training

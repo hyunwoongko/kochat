@@ -116,13 +116,7 @@ class Dataset:
             embedded_list.append(input_data.unsqueeze(0))
 
             input_label = torch.tensor(input_label)
-            if len(input_label.size()) == 0:
-                # INTENT의 경우 라벨의 차원이 0(스칼라)임
-                # e.g. (0) or (3) or (2)...
-                label_list.append(input_label.unsqueeze(0))
-                return embedded_list, label_list
-
-            else:
+            if len(input_label.size()) != 0:
                 # ENTITY의 경우 라벨의 차원이 1(벡터)임
                 # 길이가 모두 다르기 때문에, pad sequencing 필요
                 # e.g. (LOCATION, O, O) or (O, O, DATE, O) ...

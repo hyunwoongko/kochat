@@ -51,7 +51,8 @@ class Net(nn.Module):
         self.validate(self.dim)
         self.stem = Conv(self.conf.vector_size, self.dim, kernel_size=1)
         self.feature = nn.Sequential(*[Conv(self.dim, self.dim, kernel_size=1)
-                                       for _ in range(self.conf.intent_net_layers - 1)])
+                                       for _ in range(self.conf.intent_net_layers)])
+
         self.classifier = nn.Sequential(nn.Dropout(0.5),
                                         nn.Linear(self.conf.intent_net_dim, self.conf.intent_classes))
 
@@ -65,6 +66,7 @@ class Net(nn.Module):
 
     def forward(self, x):
         x = x.permute(0, 2, 1)
+        x = self.stem(x)
         x = self.feature(x)
         x = x.view(x.size(0), -1)
         return x

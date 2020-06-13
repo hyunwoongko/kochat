@@ -42,7 +42,7 @@ class IntentClassifier:
         sequence = self.pad_sequencing(embedded)
         sequence = sequence.unsqueeze(0).cuda()
 
-        output = self.model(sequence.permute(0, 2, 1)).float()
+        output = self.model(sequence).float()
         output = self.model.classifier(output.squeeze())
         output = self.softmax(output)
         _, predict = torch.max(output, dim=0)

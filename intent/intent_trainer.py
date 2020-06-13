@@ -72,7 +72,7 @@ class IntentTrainer:
         test_feature, test_label = self.test_data
         x = test_feature.float().cuda()
         y = test_label.long().cuda()
-        feature = self.model(x.permute(0, 2, 1)).float()
+        feature = self.model(x).float()
         classification = self.model.classifier(feature)
 
         _, predict = torch.max(classification, dim=1)
