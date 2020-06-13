@@ -13,7 +13,7 @@ class IntentClassifier:
     pad_sequencing = Dataset().pad_sequencing
 
     def __init__(self, embed, model):
-        self.model = model.Model().cuda()
+        self.model = model.Net().cuda()
         self.model.load_state_dict(torch.load(self.conf.intent_storefile))
         self.model.eval()
         self.embed = embed
@@ -36,7 +36,7 @@ class IntentClassifier:
         sequence = self.pad_sequencing(embedded)
         sequence = sequence.unsqueeze(0).cuda()
 
-        output = self.model(x1=sequence.permute(0, 2, 1)).float()
+        output = self.model(sequence.permute(0, 2, 1)).float()
         output = self.model.out(output.squeeze())
         output = self.softmax(output)
         _, predict = torch.max(output, dim=0)

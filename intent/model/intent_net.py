@@ -5,6 +5,7 @@
 """
 import math
 
+import torch
 from torch import nn
 from config import Config
 
@@ -26,21 +27,20 @@ class Conv(nn.Module):
         return x + _x if x.size() == _x.size() else x
 
 
-class Model(nn.Module):
+class Net(nn.Module):
 
     def __init__(self):
         super().__init__()
         self.conf = Config()
         self.layer = nn.Sequential(
-            Conv(self.conf.vector_size, 256, kernel_size=1),
-            Conv(256, 256, kernel_size=1),
-            Conv(256, 256, kernel_size=1),
-            Conv(256, 256, kernel_size=1),
-            nn.MaxPool1d(kernel_size=2, stride=2))
+            Conv(self.conf.vector_size, 512, kernel_size=1),
+            Conv(512, 512, kernel_size=1),
+            Conv(512, 512, kernel_size=1),
+            Conv(512, self.conf.last_dim // 8, kernel_size=1))
 
         self.out = nn.Sequential(
             nn.Dropout(0.5),
-            nn.Linear(1024, self.conf.intent_classes))
+            nn.Linear(self.conf.last_dim, self.conf.intent_classes))
 
     def forward(self, x):
         x = self.layer(x)

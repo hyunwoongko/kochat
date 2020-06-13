@@ -7,9 +7,11 @@ import os
 
 import torch
 from torch import nn
-from torch.optim import Adam
+from torch.optim import Adam, SGD
 
 from config import Config
+from intent.loss.margin_softmax_loss import MarginSoftmaxLoss
+from intent.loss.center_loss import CenterLoss
 from util.dataset import Dataset
 from util.graph_drawer import GraphDrawer
 
@@ -21,13 +23,16 @@ class IntentTrainer:
 
     def __init__(self, embed, model):
         self.embed = embed
-        self.model = model.Model().to(self.conf.device)
+        self.model = model.Net().cuda()
         self.initialize_weights(self.model)
-        self.loss = nn.CrossEntropyLoss()
-        self.load_dataset(embed)
-        self.optimizer = Adam(
-            lr=self.conf.intent_lr,
-            params=self.model.parameters(),
+        self.intra_class_loss = MarginSoftmaxLoss()
+        self.inter_class_loss = CenterLoss()
+
+        self.parameter_set = list(self.model.parameters()) + list(self.inter_class_loss.parameters())
+        self.inter_class_optimizer = SGD(self.inter_class_loss.parameters(), self.conf.intent_inter_lr)
+        self.intra_class_optimizer = Adam(
+            lr=self.conf.intent_intra_lr,
+            params=self.parameter_set,
             weight_decay=self.conf.intent_weight_decay)
 
     def load_dataset(self, embed):
@@ -36,9 +41,12 @@ class IntentTrainer:
 
     def train(self):
         errs, accs = [], []
+        print("INTENT : LOAD DATASET...")
+        self.load_dataset(self.embed)
+
         print("INTENT : START TRAIN !")
         for i in range(self.conf.intent_epochs):
-            err, acc = self.__train_epoch(self.model, self.train_data)
+            err, acc = self.__train_epoch(self.train_data)
             accs.append(acc)
             errs.append(err)
 
@@ -60,31 +68,45 @@ class IntentTrainer:
         self.model.load_state_dict(torch.load(self.conf.intent_storefile))
         self.model.eval()
 
+        if self.test_data is None:
+            self.load_dataset(self.embed)
+
         test_feature, test_label = self.test_data
         x = test_feature.float().cuda()
         y = test_label.long().cuda()
         y_ = self.model(x.permute(0, 2, 1)).float()
-        y_ = self.model.out(y_.squeeze())
+        out = self.model.out(y_)
 
-        _, predict = torch.max(y_, dim=1)
+        _, predict = torch.max(out, dim=1)
         acc = self.get_accuracy(y, predict)
         print("test accuracy is {}".format(acc))
 
-    def __train_epoch(self, model, train_set):
+    def __train_epoch(self, train_set):
         errors, accuracies = [], []
         for train_feature, train_label in train_set:
+
             x = train_feature.float().cuda()
             y = train_label.long().cuda()
             y_ = self.model(x.permute(0, 2, 1)).float()
-            y_ = self.model.out(y_.squeeze())
+            out = self.model.out(y_)
 
-            self.optimizer.zero_grad()
-            error = self.loss(y_, y)
+            self.intra_class_optimizer.zero_grad()
+            error = self.intra_class_loss(out, y)
+            error += self.inter_class_loss(y_, y)
+            self.intra_class_optimizer.zero_grad()
+            self.inter_class_optimizer.zero_grad()
             error.backward()
-            self.optimizer.step()
+
+            for param in self.inter_class_loss.parameters():
+                param.grad.data *= (self.conf.intent_inter_lr
+                                    / (self.inter_class_loss.reg_gamma
+                                       * self.conf.intent_inter_lr))
+
+            self.intra_class_optimizer.step()
+            self.inter_class_optimizer.step()
 
             errors.append(error.item())
-            _, predict = torch.max(y_, dim=1)
+            _, predict = torch.max(out, dim=1)
 
             acc = self.get_accuracy(y, predict)
             accuracies.append(acc)

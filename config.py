@@ -9,12 +9,13 @@ import torch
 class Config:
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     vector_size = 64  # word vector size
-    batch_size = 256  # batch size for training
+    batch_size = 512  # batch size for training
     max_len = 8  # max length for pad sequencing
 
     # path configs
     root_path = "/home/gusdnd852/Github/chatbot/"
-    intent_datapath = root_path + "data/total_intent.csv"
+    raw_datapath = root_path + "data/raw/"
+    intent_datapath = root_path + "data/intent_data.csv"
     embed_storepath = root_path + "models/embed"
     embed_storefile = embed_storepath + '/embed.model'
     intent_storepath = root_path + "models/intent"
@@ -30,18 +31,12 @@ class Config:
     emb_iter = 1000  # num of iteration for embedding training
 
     # intent configs
-    intent_lr = 1e-5  # learning rate for intent training
-    intent_weight_decay = 5e-3  # weight decay for intent training
-    intent_epochs = 500  # num of epoch for intent training
+    intent_intra_lr = 1e-4  # learning rate for intra loss
+    intent_inter_lr = 1e-2  # learning rate for inter loss
+    intent_weight_decay = 1e-4  # weight decay for intent training
+    intent_epochs = 2000  # num of epoch for intent training
     intent_classes = 4  # num of intent class
     intent_ratio = 0.8  # intent train per test ratio
     intent_log_precision = 4  # floating point precision for logging
-
-    siamese_lr = 1e-5  # learning rate for intent training
-    siamese_weight_decay = 5e-3  # weight decay for intent training
-    siamese_epochs = 5000  # num of epoch for intent training
-    siamese_classes = intent_classes  # num of intent class
-    siamese_ratio = 0.8  # intent train per test ratio
-    siamese_log_precision = 4  # floating point precision for logging
-
-    center_epochs = 20000  # num of epoch for intent training
+    last_dim = 256
+    margin = 5.0

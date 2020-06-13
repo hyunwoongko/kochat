@@ -5,13 +5,22 @@
 """
 import os
 import pandas as pd
+from pandas import DataFrame
 
 
 def build_intent(root):
     files = os.listdir(root)
-    files = [pd.read_csv(root + file, encoding='utf-8') for file in files]
-    concatenated = pd.concat(files, axis=0)
-    concatenated.to_csv('total_intent.csv', index=False, header=['question', 'intent'])
+    intent_files = []
+    for file_name in files:
+        intent = file_name.split('.')[0]
+        intent_file = pd.read_csv(root + file_name, encoding='utf-8')
+        question = intent_file['question'].values.tolist()
+        intent_file = [(data, intent) for data in question]
+        intent_files += intent_file
+
+    intent_files = DataFrame(intent_files)
+    intent_files.to_csv('intent_data.csv', index=False, header=['question', 'intent'])
+
 
 if __name__ == '__main__':
-    build_intent('intent/')
+    build_intent('raw/')
