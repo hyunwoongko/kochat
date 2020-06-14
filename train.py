@@ -10,32 +10,24 @@ from core.intent.train_retrieval import TrainRetrieval
 data_builder = DataBuilder()
 embed_data = data_builder.embed_dataset()
 embed = EmbedProcessor()
-# embed.train_model(embed_data)
-#
-# intent_data = data_builder.intent_dataset(embed)
-# intent_dict = data_builder.intent_dict
-# intent_train = TrainClassifier(intent_model, intent_data, intent_dict)
-# intent_train.train_model()
-# a = intent_train._store_and_test()
-# print(a)
+embed.train_model(embed_data)
 
-# intent_data = data_builder.intent_dataset(embed)
-# intent_dict = data_builder.intent_dict
-# intent_train = TrainRetrieval(intent_model, intent_data, intent_dict)
-# intent_train.train_model()
-# a = intent_train._test_classification()
-# print(a)
-#
-# entity_data = data_builder.entity_dataset(embed)
-# entity_dict = data_builder.entity_dict
-# entity_train = TrainRecognizer(entity_model, entity_data, entity_dict)
-# entity_train.train_model()
+intent_data = data_builder.intent_dataset(embed)
+intent_dict = data_builder.intent_dict
+intent_train = TrainClassifier(intent_model, intent_data, intent_dict)
+intent_train.train_model()
 
+intent_data = data_builder.intent_dataset(embed)
+intent_dict = data_builder.intent_dict
+intent_train = TrainRetrieval(intent_model, intent_data, intent_dict)
+intent_train.train_model()
+
+entity_data = data_builder.entity_dataset(embed)
+entity_dict = data_builder.entity_dict
+entity_train = TrainRecognizer(entity_model, entity_data, entity_dict)
+entity_train.train_model()
+
+intent_data = data_builder.inference_sequence("오늘 전주 날씨 알려줘", embed)
 intent_dict = data_builder.intent_dict
 intent_test = IntentClassifier(intent_model, intent_dict)
-
-while True:
-    intent_data = data_builder.inference_sequence(input(), embed)
-    output = intent_test.inference_model(intent_data)
-    print(output)
-
+print(intent_test.inference_model(intent_data))

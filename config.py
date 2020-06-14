@@ -9,7 +9,7 @@ import torch
 BASE = {
     'device': 'cuda' if torch.cuda.is_available() else 'cpu',
     'root_dir': "/home/gusdnd852/Github/chatbot/",  # project root path
-    'vector_size': 128,  # word vector size
+    'vector_size': 64,  # word vector size
     'batch_size': 256,  # batch size for training
     'max_len': 8,  # max length for pad sequencing
     'logging_precision': 4,  # floating point precision for logging
@@ -42,16 +42,16 @@ EMBEDDING = {
     'workers': 8,  # num of thread workers for embedding training
     'min_count': 1,  # removing min count word during embedding training
     'sg': 1,  # 0 : cbow / 1 : skip gram
-    'iter': 2500  # num of iteration for embedding training
+    'iter': 2000  # num of iteration for embedding training
 }
 
 INTENT = {
     'intra_lr': 1e-4,  # learning rate for intra loss
     'inter_lr': 1e-2,  # learning rate for inter loss
     'weight_decay': 1e-4,  # weight decay for intent training
-    'epochs': 2000,  # num of epoch for intent training
-    'd_model': 512,  # model dimension for intent training
-    'layers': 3,  # number of hidden layer for intent training
+    'epochs': 3000,  # num of epoch for intent training
+    'd_model': 128,  # model dimension for intent training
+    'layers': 0,  # number of hidden layer for intent training
     'intra_factor': 0.3,  # intra loss weighting factor
     'inter_factor': 0.3  # inter loss weighting factor
 }

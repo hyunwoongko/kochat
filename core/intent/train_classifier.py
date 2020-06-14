@@ -8,6 +8,7 @@ import torch
 from torch.nn import CrossEntropyLoss
 from torch.optim import Adam
 
+from base.base_component import override
 from base.model_managers.model_manager import Intent
 from base.model_managers.model_trainer import ModelTrainer
 
@@ -34,7 +35,8 @@ class TrainClassifier(Intent, ModelTrainer):
             lr=self.intra_lr,
             weight_decay=self.weight_decay)
 
-    def _train_epoch(self):
+    @override(ModelTrainer)
+    def _train_epoch(self) -> tuple:
         errors, accuracies = [], []
         for train_feature, train_label in self.train_data:
             self.optimizer.zero_grad()
@@ -56,7 +58,8 @@ class TrainClassifier(Intent, ModelTrainer):
         accuracy = sum(accuracies) / len(accuracies)
         return error, accuracy
 
-    def _store_and_test(self):
+    @override(ModelTrainer)
+    def _store_and_test(self) -> dict:
         self._store_model(self.model, self.intent_dir, self.intent_classifier_file)
         self.model.load_state_dict(torch.load(self.intent_classifier_file))
         self.model.eval()
@@ -70,7 +73,8 @@ class TrainClassifier(Intent, ModelTrainer):
         _, predict = torch.max(classification, dim=1)
         return {'test_accuracy': self._get_accuracy(y, predict)}
 
-    def _get_accuracy(self, predict, label):
+    @override(ModelTrainer)
+    def _get_accuracy(self, predict, label) -> float:
         all, correct = 0, 0
         for i in zip(predict, label):
             all += 1

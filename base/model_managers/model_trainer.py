@@ -51,7 +51,7 @@ class ModelTrainer(ModelManager):
 
         self._draw_process('accuracy', 'red')
         self._draw_process('error', 'blue')
-        self._store_and_test()
+        print(self._store_and_test())
 
     def _load_dataset(self, data):
         self.train_data, self.test_data = data

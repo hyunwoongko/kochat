@@ -1,32 +1,26 @@
 import torch
 from torch import nn
 
+from base.model_managers.model_manager import Entity
 
-class EntityRecognizer(Inference):
 
-    def __init__(self, embed, model):
-        self.tok = Tokenizer()
-        self.load_dataset(embed)
-        self.model = model.Net(len(self.data.entity_label_dict)).cuda()
-        self.model.load_state_dict(torch.load(self.conf.entity_storefile))
-        self.model.eval()
-        self.embed = embed
-        self.softmax = nn.Softmax()
+class EntityRecognizer(Entity):
 
-    def load_dataset(self, embed):
-        self.train_data, self.test_data = \
-            dataset_.entity_train(embed)
+    def __init__(self, model, label_dict):
+        super().__init__()
+        self.label_dict = label_dict
+        self.model = model.Model(vector_size=self.vector_size,
+                                 d_model=self.d_model,
+                                 layers=self.layers,
+                                 classes=len(self.label_dict))
 
-    def recognize(self, text):
-        tokenized = self.tok.tokenize(text)
-        input_vector_size = len(tokenized)
-        embedded = self.embed.embed(tokenized)
-        sequence = dataset_.pad_sequencing(embedded)
-        sequence = sequence.unsqueeze(0).cuda()
+        self.model.load_state_dict(torch.load(self.intent_classifier_file))
+        self.model = self.model.cuda()
+        self.model.eval()  # eval 모드 (필수)
 
+    def inference_model(self, sequence):
         output = self.model(sequence).float()
         output = output.squeeze().t()[0:input_vector_size]
-        _, predict = torch.max(output, dim=1)
-
-        output = [list(dataset_.entity_label_dict.keys())[i.item()] for i in predict]
+        _, predict = torch.max(output, dim=0)
+        output = [list(self.label_dict.keys())[i.item()] for i in predict]
         return ' '.join(output)

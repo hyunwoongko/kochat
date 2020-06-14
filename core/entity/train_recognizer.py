@@ -8,6 +8,7 @@ import torch
 from torch.nn import CrossEntropyLoss
 from torch.optim import Adam
 
+from base.base_component import override
 from base.model_managers.model_manager import Entity
 from base.model_managers.model_trainer import ModelTrainer
 
@@ -31,6 +32,7 @@ class TrainRecognizer(Entity, ModelTrainer):
             lr=self.lr,
             weight_decay=self.weight_decay)
 
+    @override(ModelTrainer)
     def _train_epoch(self) -> tuple:
         errors, accuracies = [], []
         for train_feature, train_label in self.train_data:
@@ -52,6 +54,7 @@ class TrainRecognizer(Entity, ModelTrainer):
         accuracy = sum(accuracies) / len(accuracies)
         return error, accuracy
 
+    @override(ModelTrainer)
     def _store_and_test(self) -> dict:
         self._store_model(self.model, self.entity_dir, self.entity_recognizer_file)
         self.model.load_state_dict(torch.load(self.entity_recognizer_file))
@@ -65,8 +68,8 @@ class TrainRecognizer(Entity, ModelTrainer):
         _, predict = torch.max(out, dim=1)
         return {'accuracy': self._get_accuracy(y, predict)}
 
-    @staticmethod
-    def _get_accuracy(predict, label) -> float:
+    @override(ModelTrainer)
+    def _get_accuracy(self, predict, label) -> float:
         all, correct = 0, 0
         for i in zip(predict, label):
             for j in zip(i[0], i[1]):

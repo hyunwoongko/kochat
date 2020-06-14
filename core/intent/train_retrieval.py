@@ -8,6 +8,7 @@ from collections import Counter
 import torch
 from torch.optim import Adam, SGD
 
+from base.base_component import override
 from base.model_managers.model_manager import Intent
 from base.model_managers.model_trainer import ModelTrainer
 from core.loss.center_loss import CenterLoss
@@ -37,6 +38,7 @@ class TrainRetrieval(Intent, ModelTrainer):
         self.intra_class_optimizer = Adam(params=self.parameter_set, lr=self.intra_lr,
                                           weight_decay=self.weight_decay)
 
+    @override(ModelTrainer)
     def _train_epoch(self) -> tuple:
         errors, accuracies = [], []
         for train_feature, train_label in self.train_data:
@@ -67,12 +69,17 @@ class TrainRetrieval(Intent, ModelTrainer):
         accuracy = sum(accuracies) / len(accuracies)
         return error, accuracy
 
+    @override(ModelTrainer)
     def _store_and_test(self) -> dict:
+        self._store_model(self.model, self.intent_dir, self.intent_classifier_file)
+        self.model.load_state_dict(torch.load(self.intent_classifier_file))
+        self.model.eval()
         result = {'classification_result': self._test_classification(),
                   'in_distribution_result': self._test_in_distribution()}
 
         return result
 
+    @override(ModelTrainer)
     def _get_accuracy(self, predict, label) -> float:
         all, correct = 0, 0
         for i in zip(predict, label):
@@ -82,9 +89,6 @@ class TrainRetrieval(Intent, ModelTrainer):
         return correct / all
 
     def _test_classification(self) -> float:
-        self.model.load_state_dict(torch.load(self.intent_retrieval_file))
-        self.model.eval()
-
         test_feature, test_label = self.test_data
         x = test_feature.float().cuda()
         y = test_label.long().cuda()
@@ -97,8 +101,6 @@ class TrainRetrieval(Intent, ModelTrainer):
 
     def _test_in_distribution(self) -> float:
         predict, label, train_neighbors = [], [], []
-        self.model.eval()
-
         for train_feature, train_label in self.train_data:
             for sample in zip(train_feature, train_label):
                 x, y = sample[0].cuda(), sample[1].cuda()
