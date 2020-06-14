@@ -3,7 +3,7 @@
 
 # 1. Load cuda-ubuntu
 ARG UBUNTU_VERSION=18.04
-ARG ARCH=
+ARG ARCH
 ARG CUDA=10.1
 FROM nvidia/cuda${ARCH:+-$ARCH}:${CUDA}-base-ubuntu${UBUNTU_VERSION} as base
 
@@ -47,10 +47,5 @@ RUN python3 -m pip --no-cache-dir install --upgrade \
 RUN ln -s $(which python3) /usr/local/bin/python
 
 # 5. set up python packages
-# do seperate to save time when you extend dockerfile
-# make one package into one layer to use cached layer
-RUN python3 -m pip install --no-cache-dir matplotlib
-RUN python3 -m pip install --no-cache-dir pandas
-RUN python3 -m pip install --no-cache-dir torch
-RUN python3 -m pip install --no-cache-dir gensim
-RUN python3 -m pip install --no-cache-dir konlpy
+COPY requirements.txt /
+RUN pip3 install -r requirements.txt

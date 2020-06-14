@@ -441,50 +441,50 @@ question,label
 상주 음식점 줘,S-LOCATION O O
 강진 진짜 맛 좋은 음식점 추천할까,S-LOCATION O O O O O
 보은 고추장 혹시 음식점 없으려나,S-LOCATION S-RESTAURANT O O O
-오늘 인제 도토리 묵 특산물 추천해줘,S-DATE S-LOCATION B-RESTAURANT E-RESTAURANT O O
-진도 낙지 볶음 특산물 좋으려나,S-LOCATION B-RESTAURANT E-RESTAURANT O O
-군산 특산물 특산물 나쁠까 정말,S-LOCATION O O O O
-곡성 도토리 묵 특산물 없을까,S-LOCATION B-RESTAURANT E-RESTAURANT O O
-단양 김밥 특산물 맛있겠지 아마,S-LOCATION S-RESTAURANT O O O
-전북 순창 김밥 볶음 특산물 가면 좋겠다,B-LOCATION E-LOCATION B-RESTAURANT E-RESTAURANT O O O
-혹시 의령 참치찌개 특산물 안 맛있겠지,O S-LOCATION S-RESTAURANT O O O
-양양 참치전 특산물 없을까,S-LOCATION S-RESTAURANT O O
-화천 김치전 특산물 필요해,S-LOCATION S-RESTAURANT O O
-오늘 청송 물회 특산물 가볼까,S-DATE S-LOCATION S-RESTAURANT O O
-구례 파전 볶음 특산물 챙길까 말까,S-LOCATION B-RESTAURANT E-RESTAURANT O O O
-무주 특산물 궁금한데 알려주겠니,S-LOCATION O O O
-진안 혹시 볶음 특산물 어디지,S-LOCATION O S-RESTAURANT O O
-막걸리 핫한 양구 특산물 어딜까요,S-RESTAURANT O S-LOCATION O O
-막걸리 핫한 군위 특산물 어딜까,S-RESTAURANT O S-LOCATION O O
+오늘 인제 도토리 묵 맛집 추천해줘,S-DATE S-LOCATION B-RESTAURANT E-RESTAURANT O O
+진도 낙지 볶음 맛집 좋으려나,S-LOCATION B-RESTAURANT E-RESTAURANT O O
+군산 맛집 맛집 나쁠까 정말,S-LOCATION O O O O
+곡성 도토리 묵 맛집 없을까,S-LOCATION B-RESTAURANT E-RESTAURANT O O
+단양 김밥 맛집 맛있겠지 아마,S-LOCATION S-RESTAURANT O O O
+전북 순창 김밥 볶음 맛집 가면 좋겠다,B-LOCATION E-LOCATION B-RESTAURANT E-RESTAURANT O O O
+혹시 의령 참치찌개 맛집 안 맛있겠지,O S-LOCATION S-RESTAURANT O O O
+양양 참치전 맛집 없을까,S-LOCATION S-RESTAURANT O O
+화천 김치전 맛집 필요해,S-LOCATION S-RESTAURANT O O
+오늘 청송 물회 맛집 가볼까,S-DATE S-LOCATION S-RESTAURANT O O
+구례 파전 볶음 맛집 챙길까 말까,S-LOCATION B-RESTAURANT E-RESTAURANT O O O
+무주 맛집 궁금한데 알려주겠니,S-LOCATION O O O
+진안 혹시 볶음 맛집 어디지,S-LOCATION O S-RESTAURANT O O
+막걸리 핫한 양구 맛집 어딜까요,S-RESTAURANT O S-LOCATION O O
+막걸리 핫한 군위 맛집 어딜까,S-RESTAURANT O S-LOCATION O O
 장수 가는데 뭐 먹어볼까,S-LOCATION O O O
-영양 오징어 숙회 특산물 알려주겠니,S-LOCATION B-RESTAURANT E-RESTAURANT O O
-울릉 베이컨 특산물 정보 알려주세요,S-LOCATION S-RESTAURANT O O O
-혹시 그 때 종로구 특산물 어떨까,O O O S-LOCATION O O
-그 때 관악구 특산물 좋겠지,O O S-LOCATION O O
-서초구 베이컨 특산물 어떨 것 같은데,S-LOCATION S-RESTAURANT O O O O
-강동구 특산물 어떨까요,S-LOCATION O O
-도봉구 목살 특산물 어때요,S-LOCATION S-RESTAURANT O O
+영양 오징어 숙회 맛집 알려주겠니,S-LOCATION B-RESTAURANT E-RESTAURANT O O
+울릉 베이컨 맛집 정보 알려주세요,S-LOCATION S-RESTAURANT O O O
+혹시 그 때 종로구 맛집 어떨까,O O O S-LOCATION O O
+그 때 관악구 맛집 좋겠지,O O S-LOCATION O O
+서초구 베이컨 맛집 어떨 것 같은데,S-LOCATION S-RESTAURANT O O O O
+강동구 맛집 어떨까요,S-LOCATION O O
+도봉구 목살 맛집 어때요,S-LOCATION S-RESTAURANT O O
 중랑구 산 낙지 맛있는 곳 추천,S-LOCATION B-RESTAURANT E-RESTAURANT O O O
-광진구 오징어 튀김 특산물,S-LOCATION B-RESTAURANT E-RESTAURANT O
-전주 비빔밥 특산품 없을까,S-LOCATION S-RESTAURANT O O
-전주 상추튀김 특산품 없을까,S-LOCATION S-RESTAURANT O O
-서울 마포구 특산품 어딜까요,B-LOCATION E-LOCATION O O
-서울 영등포구 특산품 어딜까요,B-LOCATION E-LOCATION O O
-홍대 담백한 특산품 추천해줘,S-LOCATION O O O
-서울 성동구 특산품 추천해줘,B-LOCATION E-LOCATION O O
-서울 송파구 특산품 필요해,B-LOCATION E-LOCATION O O
-서울 서초구 특산품 어딜까,B-LOCATION E-LOCATION O O
+광진구 오징어 튀김 맛집,S-LOCATION B-RESTAURANT E-RESTAURANT O
+전주 비빔밥 맛집 없을까,S-LOCATION S-RESTAURANT O O
+전주 상추튀김 맛집 없을까,S-LOCATION S-RESTAURANT O O
+서울 마포구 맛집 어딜까요,B-LOCATION E-LOCATION O O
+서울 영등포구 맛집 어딜까요,B-LOCATION E-LOCATION O O
+홍대 담백한 맛집 추천해줘,S-LOCATION O O O
+서울 성동구 맛집 추천해줘,B-LOCATION E-LOCATION O O
+서울 송파구 맛집 필요해,B-LOCATION E-LOCATION O O
+서울 서초구 맛집 어딜까,B-LOCATION E-LOCATION O O
 막창 어디지 배고파,S-RESTAURANT O O
 망원동 가는데 배고파,S-LOCATION O O
-갈비탕 특산품 어디지,S-RESTAURANT O O
+갈비탕 맛집 어디지,S-RESTAURANT O O
 설렁탕 어디인지 배고프네,S-RESTAURANT O O
-부산 회 특산품 궁금해,S-LOCATION S-RESTAURANT O O
-함흥 냉면 특산품 궁금해,S-LOCATION S-RESTAURANT O O
-파전 특산품 알려줄래,S-RESTAURANT O O
-부추전 특산품 필요해,S-RESTAURANT O O
-감자탕 특산품 궁금해,S-RESTAURANT O O
-이태원 특산품 궁금해,S-LOCATION O O
-순대국밥 핫한 특산품 어때,S-RESTAURANT O O O
+부산 회 맛집 궁금해,S-LOCATION S-RESTAURANT O O
+함흥 냉면 맛집 궁금해,S-LOCATION S-RESTAURANT O O
+파전 맛집 알려줄래,S-RESTAURANT O O
+부추전 맛집 필요해,S-RESTAURANT O O
+감자탕 맛집 궁금해,S-RESTAURANT O O
+이태원 맛집 궁금해,S-LOCATION O O
+순대국밥 핫한 맛집 어때,S-RESTAURANT O O O
 스파게티 핫한 먹어 어디인지,S-RESTAURANT O O O
 핫한 치킨 먹어 어디인지,O S-RESTAURANT O O
 마라도 자장면 레스토랑 궁금해,S-LOCATION S-RESTAURANT O O
