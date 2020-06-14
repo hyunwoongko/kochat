@@ -26,6 +26,18 @@ class ModelTrainer(ModelManager):
 
     train_data, test_data = None, None
 
+    @abstractmethod
+    def _train_epoch(self):
+        raise NotImplementedError
+
+    @abstractmethod
+    def _store_and_test(self):
+        raise NotImplementedError
+
+    @abstractmethod
+    def _get_accuracy(self, predict, label):
+        raise NotImplementedError
+
     def train_model(self):
         errs, accs = [], []
         for i in range(self.epochs):
@@ -39,18 +51,15 @@ class ModelTrainer(ModelManager):
 
         self._draw_process('accuracy', 'red')
         self._draw_process('error', 'blue')
-        print(self._store_and_test())
-
-    @abstractmethod
-    def _train_epoch(self):
-        raise NotImplementedError
-
-    @abstractmethod
-    def _store_and_test(self):
-        raise NotImplementedError
+        self._store_and_test()
 
     def _load_dataset(self, data):
         self.train_data, self.test_data = data
+        for i in self.train_data:
+            print("TRA : ", i)
+
+        for i in self.test_data:
+            print("TET : ", i)
 
     def _store_model(self, model, model_dir, model_file_path):
         if not os.path.exists(model_dir):

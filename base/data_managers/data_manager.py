@@ -38,7 +38,7 @@ class DataManager(BaseComponent):
             out = [word for word, pos in sentence
                    if pos not in ['Josa', 'Punctuation']]
 
-            return self._naver_fix(' '.join(out))
+            return self._naver_fix(' '.join(out)).split()
 
     @staticmethod
     def _naver_fix(text):

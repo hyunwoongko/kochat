@@ -68,7 +68,6 @@ class TrainRetrieval(Intent, ModelTrainer):
         return error, accuracy
 
     def _store_and_test(self) -> dict:
-        self._store_model(self.model, self.intent_dir, self.intent_retrieval_file)
         result = {'classification_result': self._test_classification(),
                   'in_distribution_result': self._test_in_distribution()}
 
@@ -93,6 +92,7 @@ class TrainRetrieval(Intent, ModelTrainer):
         classification = self.model.classifier(feature)
 
         _, predict = torch.max(classification, dim=1)
+        print(predict)
         return self._get_accuracy(y, predict)
 
     def _test_in_distribution(self) -> float:

@@ -25,10 +25,11 @@ class Conv(nn.Module, Intent):
         self.relu = nn.ReLU()
 
     def forward(self, x):
+        _x = x
         x = self.conv(x)
         x = self.norm(x)
         x = self.relu(x)
-        return x
+        return x + _x if x.size() == _x.size() else x
         # residual connection
 
 
@@ -43,12 +44,10 @@ class Model(nn.Module):
         self.dim = d_model // max_len
         self.validate(self.dim)
         self.stem = Conv(vector_size, self.dim, kernel_size=1)
-
         self.feature = nn.Sequential(*[Conv(self.dim, self.dim, kernel_size=1)
                                        for _ in range(layers)])
 
-        self.classifier = nn.Sequential(nn.Dropout(0.5),
-                                        nn.Linear(d_model, classes))
+        self.classifier = nn.Linear(d_model, classes)
 
     def validate(self, dim):
         valid_list = [2 ** i for i in range(100)]

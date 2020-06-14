@@ -13,6 +13,7 @@ from base.model_managers.model_trainer import ModelTrainer
 
 
 class TrainClassifier(Intent, ModelTrainer):
+    train_data, test_data = None, None
 
     def __init__(self, model, dataset, label_dict):
         super().__init__()
@@ -24,6 +25,7 @@ class TrainClassifier(Intent, ModelTrainer):
                                  classes=self.classes)
 
         self.model = self.model.cuda()
+        self.model.train() # train 모드
         self._initialize_weights(self.model)
         self._load_dataset(dataset)
         self.loss = CrossEntropyLoss()
@@ -32,29 +34,29 @@ class TrainClassifier(Intent, ModelTrainer):
             lr=self.intra_lr,
             weight_decay=self.weight_decay)
 
-    def _train_epoch(self) -> tuple:
+    def _train_epoch(self):
         errors, accuracies = [], []
         for train_feature, train_label in self.train_data:
+            self.optimizer.zero_grad()
             x = train_feature.float().cuda()
             y = train_label.long().cuda()
             feature = self.model(x).float()
             classification = self.model.classifier(feature)
 
             error = self.loss(classification, y)
-            self.loss.zero_grad()
-            self.optimizer.zero_grad()
             error.backward()
 
             self.optimizer.step()
             errors.append(error.item())
             _, predict = torch.max(classification, dim=1)
-            accuracies.append(self._get_accuracy(y, predict))
+            acc = self.get_accuracy(y, predict)
+            accuracies.append(acc)
 
         error = sum(errors) / len(errors)
         accuracy = sum(accuracies) / len(accuracies)
         return error, accuracy
 
-    def _store_and_test(self) -> dict:
+    def _store_and_test(self):
         self._store_model(self.model, self.intent_dir, self.intent_classifier_file)
         self.model.load_state_dict(torch.load(self.intent_classifier_file))
         self.model.eval()
@@ -66,10 +68,9 @@ class TrainClassifier(Intent, ModelTrainer):
         classification = self.model.classifier(feature)
 
         _, predict = torch.max(classification, dim=1)
-        return {'accuracy': self._get_accuracy(y, predict)}
+        return {'test_accuracy': self._get_accuracy(y, predict)}
 
-    @staticmethod
-    def _get_accuracy(predict, label) -> float:
+    def _get_accuracy(self, predict, label):
         all, correct = 0, 0
         for i in zip(predict, label):
             all += 1

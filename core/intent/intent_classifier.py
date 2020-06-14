@@ -15,8 +15,9 @@ class IntentClassifier(Intent):
                                  layers=self.layers,
                                  classes=len(self.label_dict))
 
-        self.model = self.model.cuda()
         self.model.load_state_dict(torch.load(self.intent_classifier_file))
+        self.model = self.model.cuda()
+        self.model.eval()  # eval 모드 (필수)
         self.softmax = nn.Softmax()
 
     def inference_model(self, sequence):
@@ -24,6 +25,4 @@ class IntentClassifier(Intent):
         output = self.model.classifier(output.squeeze())
         output = self.softmax(output)
         _, predict = torch.max(output, dim=0)
-        self.label_dict = list(self.label_dict)
-        print(output)
-        return self.label_dict[predict.item()]
+        return list(self.label_dict)[predict.item()]

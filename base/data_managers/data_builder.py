@@ -16,7 +16,7 @@ class DataBuilder(DataGenerator):
         self.intent_dict = {}
 
     def inference_sequence(self, text, emb):
-        text = self.tokenize(text)
+        text = self.tokenize(text, train=False)
         text = emb.embed(text)
         text = self.pad_sequencing(text)
         text = text.unsqueeze(0).cuda()
@@ -78,7 +78,7 @@ class DataBuilder(DataGenerator):
 
     def _make_dataset(self, emb, dataset, ratio):
         # 1. split data to train / test
-        # random.shuffle(dataset)
+        random.shuffle(dataset)
         split_point = int(len(dataset) * ratio)
         train_dataset = dataset[:split_point]
         test_dataset = dataset[split_point:]
@@ -99,7 +99,7 @@ class DataBuilder(DataGenerator):
 
         # 4. make mini batch
         train_set = TensorDataset(train_dataset, train_label)
-        train_set = DataLoader(train_set, batch_size=self.batch_size, shuffle=False)
+        train_set = DataLoader(train_set, batch_size=self.batch_size, shuffle=True)
         test_set = (test_dataset, test_label)  # for onetime test
         print("DATA_BUILDER : MINI BATCH DONE")
         return train_set, test_set
