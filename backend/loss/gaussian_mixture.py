@@ -1,0 +1,50 @@
+import torch
+from torch import nn
+from torch.autograd import Variable
+
+"""
+code reference :
+https://github.com/YirongMao/softmax_variants
+"""
+
+
+class LargeMarginGaussianMixture(nn.Module):
+
+    def __init__(self, d_model, label_dict, alpha):
+        super(LargeMarginGaussianMixture, self).__init__()
+        self.d_model = d_model
+        self.classes = len(label_dict)
+        self.alpha = alpha
+        self.centers = nn.Parameter(torch.randn(self.classes, d_model))
+        self.log_covs = nn.Parameter(torch.zeros(self.classes, d_model))
+
+    def forward(self, feat, label):
+        batch_size = feat.shape[0]
+        log_covs = torch.unsqueeze(self.log_covs, dim=0)
+
+        covs = torch.exp(log_covs)
+        tcovs = covs.repeat(batch_size, 1, 1)
+        diff = torch.unsqueeze(feat, dim=1) - torch.unsqueeze(self.centers, dim=0)
+        wdiff = torch.div(diff, tcovs)
+        diff = torch.mul(diff, wdiff)
+        dist = torch.sum(diff, dim=-1)
+
+        y_onehot = torch.FloatTensor(batch_size, self.num_classes)
+        y_onehot.zero_()
+        y_onehot = Variable(y_onehot).cuda()
+        y_onehot.scatter_(1, torch.unsqueeze(label, dim=-1), self.alpha)
+        y_onehot = y_onehot + 1.0
+        margin_dist = torch.mul(dist, y_onehot)
+
+        slog_covs = torch.sum(log_covs, dim=-1)
+        tslog_covs = slog_covs.repeat(batch_size, 1)
+        margin_logits = -0.5 * (tslog_covs + margin_dist)
+        logits = -0.5 * (tslog_covs + dist)
+
+        cdiff = feat - torch.index_select(self.centers, dim=0, index=label.long())
+        cdist = cdiff.pow(2).sum(1).sum(0) / 2.0
+
+        slog_covs = torch.squeeze(slog_covs)
+        reg = 0.5 * torch.sum(torch.index_select(slog_covs, dim=0, index=label.long()))
+        likelihood = (1.0 / batch_size) * (cdist + reg)
+        return logits, margin_logits, likelihood
