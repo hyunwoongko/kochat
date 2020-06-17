@@ -1,14 +1,11 @@
 from torch import nn
 
 from backend.decorators import loss
+from backend.loss.base_loss import BaseLoss
 
 
 @loss
-class SoftmaxLoss(nn.CrossEntropyLoss):
+class SoftmaxLoss(nn.CrossEntropyLoss, BaseLoss):
 
-    def step(self, logits, feats, label, opts):
-        total_loss = self(logits, label)
-        for opt in opts: opt.zero_grad()
-        total_loss.backward()
-        for opt in opts: opt.step()
-        return total_loss
+    def compute_loss(self, logits, feats, label):
+        return self(logits, label)

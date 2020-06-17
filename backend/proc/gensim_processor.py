@@ -6,12 +6,11 @@
 import os
 from time import time
 
-from gensim.models import FastText
+from gensim.models.callbacks import CallbackAny2Vec
 
 from backend.decorators import gensim
 from backend.proc.base_processor import BaseProcessor
 from util.oop import override
-from gensim.models.callbacks import CallbackAny2Vec
 
 
 @gensim
@@ -22,7 +21,6 @@ class GensimProcessor(BaseProcessor):
 
     @override(BaseProcessor)
     def train(self, dataset):
-        dataset, _ = dataset
         self.model.build_vocab(dataset)
         self.model.train(sentences=dataset,
                          total_examples=self.model.corpus_count,
@@ -38,15 +36,16 @@ class GensimProcessor(BaseProcessor):
 
     @override(BaseProcessor)
     def _load_model(self):
-        self.model = self.model.load(self.model_file)
-        self.model_loaded = True
+        if not self.model_loaded:
+            self.model_loaded = True
+            self.model = self.model.load(self.model_file + '.gensim')
 
     @override(BaseProcessor)
     def _save_model(self):
         if not os.path.exists(self.model_dir):
             os.makedirs(self.model_dir)
 
-        self.model.save(self.model_file)
+        self.model.save(self.model_file + '.gensim')
 
     class Callback(CallbackAny2Vec):
 

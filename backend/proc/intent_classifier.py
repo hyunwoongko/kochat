@@ -33,7 +33,7 @@ class IntentClassifier(TorchProcessor):
         return list(self.label_dict)[predict.item()]
 
     @override(TorchProcessor)
-    def _train_epoch(self) -> tuple:
+    def _train_epoch(self, epoch) -> tuple:
         self.model.train()
 
         losses, accuracies = [], []

@@ -4,15 +4,17 @@ from torch.autograd import Variable
 from torch.nn import functional as F
 
 from backend.decorators import intent, loss
+from backend.loss.base_loss import BaseLoss
 
 """
 code reference :
 https://github.com/YirongMao/softmax_variants
 """
 
+
 @intent
 @loss
-class LargeMarginGaussianMixture(nn.Module):
+class LargeMarginGaussianMixture(nn.Module, BaseLoss):
 
     def __init__(self, label_dict):
         super(LargeMarginGaussianMixture, self).__init__()
@@ -50,12 +52,7 @@ class LargeMarginGaussianMixture(nn.Module):
         likelihood = (1.0 / batch_size) * (cdist + reg)
         return margin_logits, likelihood
 
-    def step(self, logits, feats, label, opts):
+    def compute_loss(self, logits, feats, label):
         mlogits, likelihood = self(feats)
         logits = F.cross_entropy(mlogits, label)
-        total_loss = logits + self.gaussian_mixture_factor * likelihood
-
-        for opt in opts: opt.zero_grad()
-        total_loss.backward()
-        for opt in opts: opt.step()
-        return total_loss
+        return logits + self.gaussian_mixture_factor * likelihood

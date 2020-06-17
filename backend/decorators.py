@@ -20,13 +20,17 @@ def model(cls):
     for key, val in config.MODEL.items():
         setattr(cls, key, val)
 
-    def save_path(self):
+    def save_dir(self):
         name = cls.__module__.split('.')
         name = name[len(name) - 1]
-        return self.model_dir + name + '.pth'
+        return self.model_dir + name + '/'
+
+    def save_file(self):
+        return save_dir(self) + cls.__name__
 
     setattr(cls, 'name', cls.__name__)
-    setattr(cls, 'save_path', save_path)
+    setattr(cls, 'save_dir', save_dir)
+    setattr(cls, 'save_file', save_file)
     return cls
 
 

@@ -4,17 +4,19 @@ from torch.autograd import Variable
 from torch.nn import functional as F
 
 from backend.decorators import intent, loss
+from backend.loss.base_loss import BaseLoss
 
 """
 code reference :
 https://github.com/YirongMao/softmax_variants
 """
 
+
 @intent
 @loss
-class CosFace(nn.Module):
+class CosFace(nn.Module, BaseLoss):
 
-    def __init__(self, label_dict,):
+    def __init__(self, label_dict, ):
         super(CosFace, self).__init__()
         self.classes = len(label_dict)
         self.centers = nn.Parameter(torch.randn(self.classes, self.d_loss))
@@ -28,19 +30,13 @@ class CosFace(nn.Module):
         ncenters = torch.div(self.centers, norms_c)
         logits = torch.matmul(nfeat, torch.transpose(ncenters, 0, 1))
 
-        y_onehot = torch.FloatTensor(batch_size, self.num_classes)
+        y_onehot = torch.FloatTensor(batch_size, self.classes)
         y_onehot.zero_()
         y_onehot = Variable(y_onehot).cuda()
         y_onehot.scatter_(1, torch.unsqueeze(label, dim=-1), self.cosface_m)
         margin_logits = self.cosface_s * (logits - y_onehot)
         return margin_logits
 
-    def step(self, logits, feats, label, opts):
+    def compute_loss(self, logits, feats, label):
         mlogits = self(feats, label)
-
-        total_loss = F.cross_entropy(mlogits, label)
-
-        for opt in opts: opt.zero_grad()
-        total_loss.backward()
-        for opt in opts: opt.step()
-        return total_loss
+        return F.cross_entropy(mlogits, label)

@@ -5,12 +5,12 @@
 """
 import os
 import re
-import torch
-import numpy as np
-import pandas as pd
 from abc import abstractmethod, ABCMeta
+
+import torch
 from matplotlib import pyplot as plt
 from torch import nn
+
 from backend.proc.base_processor import BaseProcessor
 from util.oop import override
 
@@ -19,26 +19,28 @@ class TorchProcessor(BaseProcessor, metaclass=ABCMeta):
     def __init__(self, model):
         self.model = model.to(self.device)
         self._initialize_weights(self.model)
-        self.model_loaded = False
         super().__init__(self.model)
 
     @override(BaseProcessor)
     def train(self, dataset):
         losses, accuracies = [], []
         self.train_data, self.test_data = dataset
+        self.model.train()
+
         for i in range(self.epochs):
-            loss, accuracy = self._train_epoch()
+            loss, accuracy = self._train_epoch(i)
             accuracies.append(accuracy)
             losses.append(loss)
 
             self._print_log(i, loss, accuracy)
-            self._save_result('accuracy', accuracy)
-            self._save_result('loss', loss)
+            self._save_result('accuracy', accuracies)
+            self._save_result('loss', losses)
 
         self._draw_accuracy_loss('accuracy', 'red')
         self._draw_accuracy_loss('loss', 'blue')
         self._save_model()
 
+        self.model.eval()
         test_result = str(self._test_epoch()) \
             .replace("'", "") \
             .replace("}", "") \
@@ -49,21 +51,19 @@ class TorchProcessor(BaseProcessor, metaclass=ABCMeta):
 
     @override(BaseProcessor)
     def _load_model(self):
-        self.model.eval()
-
         if not self.model_loaded:
             self.model_loaded = True
-            self.model.load_state_dict(torch.load(self.model_file))
+            self.model.load_state_dict(torch.load(self.model_file + '.pth'))
 
     @override(BaseProcessor)
     def _save_model(self):
         if not os.path.exists(self.model_dir):
             os.makedirs(self.model_dir)
 
-        torch.save(self.model.state_dict(), self.model_file)
+        torch.save(self.model.state_dict(), self.model_file + '.pth')
 
     @abstractmethod
-    def _train_epoch(self):
+    def _train_epoch(self, epoch):
         raise NotImplementedError
 
     @abstractmethod
@@ -81,17 +81,18 @@ class TorchProcessor(BaseProcessor, metaclass=ABCMeta):
                       name=self.model.name))
 
     def _save_result(self, mode, result):
-        if not os.path.exists(self.logs_dir):
-            os.makedirs(self.logs_dir)
-        f = open(self.logs_dir + '{0}_{1}.png'.format(self.model.name, mode), 'w')
+        if not os.path.exists(self.model_dir):
+            os.makedirs(self.model_dir)
+
+        f = open(self.model_dir + '{0}_{1}.txt'.format(self.model.name, mode), 'w')
         f.write(str(result))
         f.close()
 
     def _draw_accuracy_loss(self, mode, color):
-        if not os.path.exists(self.logs_dir):
-            os.makedirs(self.logs_dir)
+        if not os.path.exists(self.model_dir):
+            os.makedirs(self.model_dir)
 
-        f = open(self.logs_dir + '{0}_{1}.png'.format(self.model.name, mode), 'r')
+        f = open(self.model_dir + '{0}_{1}.txt'.format(self.model.name, mode), 'r')
         file = f.read()
         file = re.sub('\\[', '', file)
         file = re.sub('\\]', '', file)
@@ -103,7 +104,7 @@ class TorchProcessor(BaseProcessor, metaclass=ABCMeta):
         plt.ylabel(mode)
         plt.title('train ' + mode)
         plt.grid(True, which='both', axis='both')
-        plt.savefig(self.logs_dir + '{0}_{1}.png'.format(self.model.name, mode))
+        plt.savefig(self.model_dir + '{0}_{1}.png'.format(self.model.name, mode))
         plt.close()
 
     def _initialize_weights(self, model):

@@ -22,24 +22,23 @@ def global_var(**kwargs):
 
 
 @global_var(func_table={})
-def overload(*args, **kwargs):
+def overload(*args):
     """
     함수를 오버로딩할 수 있는 데코레이터
-    (모듈이름, 함수이름, 함수인자) => "호출 시" 함수를 구분하는 요소
+    (모듈이름, 함수이름, 함수타입) => "호출 시" 함수를 구분하는 요소
     정규화된 이름 (qualname)사용으로 클래스 구분도 가능함
     """
 
     def overload_wrapper(func):
-        func_key = func.__module__, func.__qualname__, args, kwargs
+        func_key = func.__module__, func.__qualname__, args
         overload.func_table[func_key] = func
 
-        def call_by_signature(*args_, **kwarg_):
+        def call_by_signature(*args_):
             key = func.__module__, func.__qualname__, \
-                  tuple([type(i) for i in args_]), \
-                  tuple([type(i) for i in kwargs])
+                  tuple([type(i) for i in args_])
 
             find = overload.func_table[key]
-            return find(*args_, **kwarg_)
+            return find(*args_)
 
         # 정보 싹 세팅
         call_by_signature.__doc__ = func.__doc__

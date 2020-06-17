@@ -1,40 +1,33 @@
-from backend.base.data_builder import DataBuilder
-from backend.core.embed.embed_processor import EmbedProcessor
-from backend.core.entity import entity_model
-from backend.core.entity.entity_recognizer import EntityRecognizer
-from backend.core.entity.train_recognizer import TrainRecognizer
-from backend.core.intent import intent_model
-from backend.core.intent.intent_classifier import IntentClassifier
-from backend.core.intent.train_classifier import TrainClassifier
-from backend.core.intent.train_retrieval import TrainRetrieval
+from sklearn.datasets import load_iris
+from sklearn.model_selection import GridSearchCV
+from sklearn.neighbors import KNeighborsClassifier
 
-data_builder = DataBuilder()
-embed_data = data_builder.embed_dataset()
-embed = EmbedProcessor()
-embed.train_model(embed_data)
+iris = load_iris()
 
-intent_data = data_builder.intent_dataset(embed)
-intent_dict = data_builder.intent_dict
-intent_train = TrainClassifier(intent_model, intent_data, intent_dict)
-intent_train.train_model()
+X = iris.data
+y = iris.target
 
-intent_data = data_builder.intent_dataset(embed)
-intent_dict = data_builder.intent_dict
-intent_train = TrainRetrieval(intent_model, intent_data, intent_dict)
-intent_train.train_model()
+k_range = list(range(1, 50))
+weight_options = ["uniform", "distance"]
 
-entity_data = data_builder.entity_dataset(embed)
-entity_dict = data_builder.entity_dict
-entity_train = TrainRecognizer(entity_model, entity_data, entity_dict)
-entity_train.train_model()
+param_grid = dict(n_neighbors=k_range, weights=weight_options)
+# print (param_grid)
+knn = KNeighborsClassifier()
+grid = GridSearchCV(knn, param_grid, cv=10, scoring='accuracy')
+grid.fit(X, y)
 
-sequence = data_builder.inference_dataset("오늘 전주 날씨", embed)
-intent_dict = data_builder.intent_dict
-intent_test = IntentClassifier(intent_model, intent_dict)
-print(intent_test.inference_model(sequence))
 
-sequence = data_builder.inference_dataset("오늘 전주 날씨", embed)
-entity_dict = data_builder.entity_dict
-entity_test = EntityRecognizer(entity_model, entity_dict)
-print(entity_test.inference_model(sequence))
+print(grid.best_score_)
+print(grid.best_params_)
+print(grid.best_estimator_)
 
+K = grid.best_params_['n_neighbors']
+weights = grid.best_params_['weights']
+knn = KNeighborsClassifier(n_neighbors=K, weights=weights)
+knn.fit(X, y)
+
+TEST_X = [[1.2, 2.2, 3.6, 5.2]]
+ind, dist = knn.kneighbors(TEST_X, n_neighbors=K)
+print(knn.predict(TEST_X))
+print(dist)
+print(ind)
