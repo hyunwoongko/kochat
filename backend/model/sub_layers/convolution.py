@@ -1,9 +1,6 @@
 from torch import nn
 
-from backend.decorators import model
 
-
-@model
 class Convolution(nn.Module):
 
     def __init__(self, _in, _out, kernel_size):

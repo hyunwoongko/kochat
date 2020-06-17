@@ -1,18 +1,19 @@
 import torch
 from gensim.models import FastText
 
-from backend.decorators import model
+from backend.decorators import gensim, model
 
 
+@gensim
 @model
-class Model(FastText):
+class EmbedFastText(FastText):
 
-    def __init__(self, vector_size, window_size, workers, min_count, iter):
-        super().__init__(size=vector_size,
-                         window=window_size,
-                         workers=workers,
-                         min_count=min_count,
-                         iter=iter)
+    def __init__(self):
+        super().__init__(size=self.vector_size,
+                         window=self.window_size,
+                         workers=self.workers,
+                         min_count=self.min_count,
+                         iter=self.iter)
 
     def __call__(self, sequence):
         sentence_vector = []

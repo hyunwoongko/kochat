@@ -8,7 +8,7 @@ import torch
 from torch.nn import CrossEntropyLoss
 from torch.optim import Adam
 from backend.decorators import entity
-from backend.proc.torch_processpr import TorchProcessor
+from backend.proc.torch_processor import TorchProcessor
 from util.oop import override
 
 
@@ -17,13 +17,11 @@ class EntityRecognizer(TorchProcessor):
 
     def __init__(self, model, label_dict):
         super().__init__(model)
-        self.model = self.model.to(self.device)
-        self.model.train()  # train 모드
-        self._initialize_weights(self.model)
+        self.label_dict = label_dict
         self.loss = CrossEntropyLoss()
         self.optimizer = Adam(
             params=self.model.parameters(),
-            lr=self.lr,
+            lr=self.model_lr,
             weight_decay=self.weight_decay)
 
     @override(TorchProcessor)

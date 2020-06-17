@@ -20,13 +20,12 @@ def model(cls):
     for key, val in config.MODEL.items():
         setattr(cls, key, val)
 
-    name = cls.__module__.split('.')
-    name = name[len(name) - 1]
-
     def save_path(self):
+        name = cls.__module__.split('.')
+        name = name[len(name) - 1]
         return self.model_dir + name + '.pth'
 
-    setattr(cls, 'name', name)
+    setattr(cls, 'name', cls.__name__)
     setattr(cls, 'save_path', save_path)
     return cls
 
@@ -35,6 +34,8 @@ def loss(cls):
     cls = backend(cls)
     for key, val in config.LOSS.items():
         setattr(cls, key, val)
+
+    setattr(cls, 'name', cls.__name__)
     return cls
 
 

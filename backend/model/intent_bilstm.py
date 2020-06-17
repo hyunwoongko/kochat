@@ -7,28 +7,27 @@
 import torch
 from torch import nn
 
-from backend.decorators import model
+from backend.decorators import intent, model
 
 
+@intent
 @model
-class Model(nn.Module):
+class IntentBiLSTM(nn.Module):
 
-    def __init__(self, vector_size, d_model, layers, label_dict):
+    def __init__(self, label_dict):
         super().__init__()
-        self.vector_size = vector_size
-        self.d_model = d_model
-        self.layers = layers
-        self.classes = len(label_dict)
+        self.label_dict = label_dict
         self.direction = 2  # bidirectional
-
         self.lstm = nn.LSTM(input_size=self.vector_size,
                             hidden_size=self.d_model,
                             num_layers=self.layers,
                             batch_first=True,
                             bidirectional=True if self.direction == 2 else False)
 
-        self.retrieval = nn.Sequential(nn.Linear(d_model * 2, 2), nn.ReLU())
-        self.classifier = nn.Linear(2, self.classes)
+        # visualization
+        self.ret_features = nn.Linear(self.d_model, self.d_loss)
+        self.ret_logits = nn.Linear(self.d_loss, len(self.label_dict))
+        self.clf_logits = nn.Linear(self.d_model, len(self.label_dict))
 
     def init_hidden(self, batch_size):
         param1 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
@@ -37,7 +36,5 @@ class Model(nn.Module):
 
     def forward(self, x):
         b, v, l = x.size()
-        out, _ = self.lstm(x, self.init_hidden(b))
-        out = self.out(out)
-        out = out.permute(0, 2, 1)
-        return out
+        out, (h_s, c_s) = self.lstm(x, self.init_hidden(b))
+        return h_s[0]

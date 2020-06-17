@@ -1,31 +1,24 @@
 import torch
-from matplotlib import pyplot as plt
 from torch import nn, optim
 from torch.autograd import Variable
-from torch.optim import lr_scheduler
-
-from backend.config import INTENT, BACKEND
+from backend.config import BACKEND
 from backend.data.dataloader import DataLoader
 from backend.loss.center_loss import CenterLoss
-from backend.model import FastText
-from backend.model.ResNet import Model
+from backend.model import embed_fasttext
+from backend.model.intent_bilstm import IntentBiLSTM
 from backend.proc.gensim_processor import GensimProcessor
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
 
 
-def _draw_feature_space(feat, labels, label_dict):
-    plt.ion()
-    c = ['#ff0000', '#ffff00', '#00ff00', '#00ffff', '#0000ff',
-         '#ff00ff', '#990000', '#999900', '#009900', '#009999']
-    plt.clf()
-    for i in range(len(label_dict)):
-        plt.plot(feat[labels == i, 0], feat[labels == i, 1], '.', c=c[i])
-    plt.legend([i for i in range(len(label_dict))], loc='upper right')
-    #   plt.xlim(xmin=-5,xmax=5)
-    #   plt.ylim(ymin=-5,ymax=5)
-    plt.savefig('{0}_feature_space.png'.format('test'))
-    # plt.draw()
-    # plt.pause(0.001)
-    plt.close()
+def visualize(feat, labels):
+    pc_y = np.c_[feat, labels]
+    df = pd.DataFrame(pc_y, columns=['PC1', 'PC2', 'diagnosis'])
+    fig = plt.figure()
+    ax = fig.add_subplot()
+    ax.scatter(df['PC1'], df['PC2'], marker='o', c=df['diagnosis'])
+    plt.savefig('image.png')
 
 
 def test(test_data, model):
@@ -45,7 +38,7 @@ def test(test_data, model):
     print("TEST ACC : {}".format((100 * correct / total)))
 
 
-def train(train_data, model, criterion, opt, epoch, loss_weight, label_dict):
+def train(train_data, model, criterion, opt, batch_size, loss_weight, label_dict):
     vis_loader, idx_loader = [], []
     losses, acccs = 0, 0
     for i, (x, y) in enumerate(train_data):
@@ -56,12 +49,11 @@ def train(train_data, model, criterion, opt, epoch, loss_weight, label_dict):
 
         retrieval = model.retrieval(feature).cuda()
         classification = model.classifier(retrieval).cuda()
+        _, predicted = torch.max(classification.data, 1)
+        accuracy = (y.data == predicted).float().mean()
 
         loss = criterion[0](classification, y)
         loss += loss_weight * criterion[1](retrieval, y)
-
-        _, predicted = torch.max(classification.data, 1)
-        accuracy = (y.data == predicted).float().mean()
 
         opt[0].zero_grad()
         opt[1].zero_grad()
@@ -76,42 +68,44 @@ def train(train_data, model, criterion, opt, epoch, loss_weight, label_dict):
         losses += loss
         acccs += accuracy
 
-    print("loss : {0}, acc : {1}".format(losses/len(train_data), acccs/len(train_data)))
+    print("loss : {0}, acc : {1}".format(losses / len(train_data), acccs / len(train_data)))
     feat = torch.cat(vis_loader, 0)
     labels = torch.cat(idx_loader, 0)
-    _draw_feature_space(feat.data.cpu().numpy(), labels.data.cpu().numpy(), label_dict)
+    visualize(feat.detach().cpu().numpy(), labels.detach().cpu().numpy(), label_dict, batch_size)
 
 
 def main():
     data_loader = DataLoader()
-    embed = GensimProcessor(FastText)
+    embed = GensimProcessor(embed_fasttext)
     # embed.train(data_loader.embed_dataset())
     embed.load_model()
 
     dataset = data_loader.intent_dataset(embed)
     train_data, test_data = dataset
 
-    model = Model(
-        d_model=256,
+    model = IntentBiLSTM(
+        d_model=2,
         label_dict=data_loader.intent_dict,
-        layers=10,
+        layers=3,
         vector_size=BACKEND['vector_size']
     )
 
     nll_loss = nn.CrossEntropyLoss()
-    loss_weight = 1e-8
-    center_loss = CenterLoss(d_model=256,
+    loss_weight = 0.0001
+    center_loss = CenterLoss(d_model=2,
                              label_dict=data_loader.intent_dict)
 
     criterion = [nll_loss.cuda(), center_loss.cuda()]
-    optimizer4nn = optim.Adam(model.parameters(), lr=0.01,weight_decay=0.0005)
+    optimizer4nn = optim.Adam(model.parameters(), lr=0.0001, weight_decay=0.0005)
 
-    optimzer4center = optim.SGD(center_loss.parameters(), lr=0.5)
+    optimzer4center = optim.SGD(center_loss.parameters(), lr=0.1)
 
-    for epoch in range(50):
+    for epoch in range(5000):
         # print optimizer4nn.param_groups[0]['lr']
-        train(train_data, model, criterion, [optimizer4nn, optimzer4center], 1500, loss_weight, data_loader.intent_dict)
+        train(train_data, model, criterion, [optimizer4nn, optimzer4center], BACKEND['batch_size'], loss_weight,
+              data_loader.intent_dict)
         print(epoch)
+
 
 if __name__ == '__main__':
     main()

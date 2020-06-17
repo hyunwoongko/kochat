@@ -6,6 +6,8 @@
 import os
 import re
 import torch
+import numpy as np
+import pandas as pd
 from abc import abstractmethod, ABCMeta
 from matplotlib import pyplot as plt
 from torch import nn
@@ -22,19 +24,19 @@ class TorchProcessor(BaseProcessor, metaclass=ABCMeta):
 
     @override(BaseProcessor)
     def train(self, dataset):
-        errs, accs = [], []
+        losses, accuracies = [], []
         self.train_data, self.test_data = dataset
         for i in range(self.epochs):
-            err, acc = self._train_epoch()
-            accs.append(acc)
-            errs.append(err)
+            loss, accuracy = self._train_epoch()
+            accuracies.append(accuracy)
+            losses.append(loss)
 
-            self._print_log(i, err, acc)
-            self._save_result('accuracy', accs)
-            self._save_result('error', errs)
+            self._print_log(i, loss, accuracy)
+            self._save_result('accuracy', accuracy)
+            self._save_result('loss', loss)
 
-        self._draw_process('accuracy', 'red')
-        self._draw_process('error', 'blue')
+        self._draw_accuracy_loss('accuracy', 'red')
+        self._draw_accuracy_loss('loss', 'blue')
         self._save_model()
 
         test_result = str(self._test_epoch()) \
@@ -47,6 +49,8 @@ class TorchProcessor(BaseProcessor, metaclass=ABCMeta):
 
     @override(BaseProcessor)
     def _load_model(self):
+        self.model.eval()
+
         if not self.model_loaded:
             self.model_loaded = True
             self.model.load_state_dict(torch.load(self.model_file))
@@ -70,11 +74,24 @@ class TorchProcessor(BaseProcessor, metaclass=ABCMeta):
     def _get_accuracy(self, predict, label):
         raise NotImplementedError
 
-    def _draw_acc_loss(self, mode, color):
+    def _print_log(self, epoch, train_loss, train_accuracy):
+        p = self.logging_precision
+        print('{name} - epoch: {0}, train_loss: {1}, train_accuracy: {2}'
+              .format(epoch, round(train_loss, p), round(train_accuracy, p),
+                      name=self.model.name))
+
+    def _save_result(self, mode, result):
+        if not os.path.exists(self.logs_dir):
+            os.makedirs(self.logs_dir)
+        f = open(self.logs_dir + '{0}_{1}.png'.format(self.model.name, mode), 'w')
+        f.write(str(result))
+        f.close()
+
+    def _draw_accuracy_loss(self, mode, color):
         if not os.path.exists(self.logs_dir):
             os.makedirs(self.logs_dir)
 
-        f = open(self.logs_dir + '{}.txt'.format(mode), 'r')
+        f = open(self.logs_dir + '{0}_{1}.png'.format(self.model.name, mode), 'r')
         file = f.read()
         file = re.sub('\\[', '', file)
         file = re.sub('\\]', '', file)
@@ -88,35 +105,6 @@ class TorchProcessor(BaseProcessor, metaclass=ABCMeta):
         plt.grid(True, which='both', axis='both')
         plt.savefig(self.logs_dir + '{0}_{1}.png'.format(self.model.name, mode))
         plt.close()
-
-    def _draw_feature_space(self, feat, labels, label_dict):
-        plt.ion()
-        c = ['#ff0000', '#ffff00', '#00ff00', '#00ffff', '#0000ff',
-             '#ff00ff', '#990000', '#999900', '#009900', '#009999']
-        plt.clf()
-        for i in range(len(label_dict)):
-            plt.plot(feat[labels == i, 0], feat[labels == i, 1], '.', c=c[i])
-        plt.legend([i for i in range(len(label_dict))], loc='upper right')
-        #   plt.xlim(xmin=-5,xmax=5)
-        #   plt.ylim(ymin=-5,ymax=5)
-        plt.savefig(self.logs_dir + '{0}_feature_space.png'.format(self.model.name))
-        # plt.draw()
-        # plt.pause(0.001)
-        plt.close()
-
-    def _print_log(self, epoch, train_err, train_acc):
-        p = self.logging_precision
-        print('{name} - epoch: {0}, train_error: {1}, train_acc: {2}'
-              .format(epoch, round(train_err, p), round(train_acc, p),
-                      name=self.model.name))
-
-    def _save_result(self, file_name, result):
-        if not os.path.exists(self.logs_dir):
-            os.makedirs(self.logs_dir)
-
-        f = open(self.logs_dir + '{}.txt'.format(file_name), 'w')
-        f.write(str(result))
-        f.close()
 
     def _initialize_weights(self, model):
         if hasattr(model, 'weight') and model.weight.dim() > 1:

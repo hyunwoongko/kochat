@@ -17,15 +17,8 @@ from gensim.models.callbacks import CallbackAny2Vec
 @gensim
 class GensimProcessor(BaseProcessor):
 
-    def _load_model(self):
-        pass
-
     def __init__(self, model):
-        super().__init__(model.Model(vector_size=self.vector_size,
-                                     window_size=self.window_size,
-                                     workers=self.workers,
-                                     min_count=self.min_count,
-                                     iter=self.iter))
+        super().__init__(model)
 
     @override(BaseProcessor)
     def train(self, dataset):
@@ -43,9 +36,9 @@ class GensimProcessor(BaseProcessor):
     def inference(self, sequence):
         return self.model(sequence)
 
-    # @override(BaseProcessor)
-    def load_model(self):
-        self.model = FastText.load(self.model_file)
+    @override(BaseProcessor)
+    def _load_model(self):
+        self.model = self.model.load(self.model_file)
         self.model_loaded = True
 
     @override(BaseProcessor)

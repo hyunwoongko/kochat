@@ -2,31 +2,41 @@ import torch
 from torch import nn
 from torch.autograd import Function, Variable
 
-from backend.decorators import loss
-
+from backend.decorators import intent, loss
+from torch.nn import functional as F
 """
 code reference :
 https://github.com/YirongMao/softmax_variants
 """
 
+@intent
 @loss
 class CenterLoss(nn.Module):
-    def __init__(self, d_model, label_dict):
+    def __init__(self, label_dict):
         super(CenterLoss, self).__init__()
         self.classes = len(label_dict)
-        self.d_model = d_model
-        self.centers = nn.Parameter(torch.randn(self.classes, d_model))
+        self.centers = nn.Parameter(torch.randn(self.classes, self.d_loss))
         self.center_loss_function = CenterlossFunction.apply
 
     def forward(self, feat, label):
         batch_size = feat.size(0)
         feat = feat.view(batch_size, 1, 1, -1).squeeze()
 
-        if feat.size(1) != self.d_model:
+        if feat.size(1) != self.d_loss:
             raise ValueError("Center's dim: {0} should be equal to input feature's dim: {1}"
-                             .format(self.d_model, feat.size(1)))
+                             .format(self.d_loss, feat.size(1)))
 
         return self.center_loss_function(feat, label, self.centers)
+
+    def step(self, logits, feats, label, opts):
+        nll_loss = F.cross_entropy(logits, label)
+        center_loss = self(feats, label)
+        total_loss = nll_loss + self.center_factor * center_loss
+
+        for opt in opts: opt.zero_grad()
+        total_loss.backward()
+        for opt in opts: opt.step()
+        return total_loss
 
 
 class CenterlossFunction(Function):

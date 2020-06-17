@@ -8,56 +8,62 @@ import torch
 
 BACKEND = {
     'device': 'cuda' if torch.cuda.is_available() else 'cpu',
-    'root_dir': "/home/gusdnd852/Github/chatbot/backend/",  # backend root path
-    'vector_size': 64,  # word vector size
-    'batch_size': 256,  # batch size for training
-    'max_len': 8,  # max length for pad sequencing
-    'logging_precision': 4,  # floating point precision for logging
-    'data_ratio': 0.8,  # train data / test data ratio
+    'root_dir': "/home/gusdnd852/Github/chatbot/backend/",  # 백엔드 루트경로
+    'vector_size': 64,  # 단어 벡터 사이즈
+    'batch_size': 256,  # 미니배치 사이즈
+    'max_len': 8,  # 문장의 최대 길이 (패드 시퀀싱)
+    'logging_precision': 4,  # 로깅시 반올림 n번째에서 반올림
+    'data_ratio': 0.8,  # 학습/검증 데이터 비율
     'NER_categories': ['DATE', 'LOCATION', 'RESTAURANT', 'TRAVEL'],
-    'NER_tagging': ['B', 'E', 'I', 'S'],  # BEGIN, END, INSIDE, SINGLE
-    'NER_outside': 'O',  # empty or none tagging (means NOTHING)
+    'NER_tagging': ['B', 'E', 'I', 'S'],  # NER의 BEGIN, END, INSIDE, SINGLE 태그
+    'NER_outside': 'O',  # NER의 O태그 (Outside를 의미)
 }
 
 DATA = {
-    'raw_data_dir': BACKEND['root_dir'] + "data/raw/",
-    'intent_data_dir': BACKEND['root_dir'] + "data/intent_data.csv",
-    'entity_data_dir': BACKEND['root_dir'] + "data/entity_data.csv",
+    'raw_data_dir': BACKEND['root_dir'] + "data/raw/", # 원본 데이터 파일 경로
+    'intent_data_dir': BACKEND['root_dir'] + "data/intent_data.csv", # 생성된 인텐트 데이터 파일 경로
+    'entity_data_dir': BACKEND['root_dir'] + "data/entity_data.csv", # 생성된 엔티티 데이터 파일 경로
 }
 
 PROC = {
-    'logs_dir': BACKEND['root_dir'] + "saved/logs/",
+    'logs_dir': BACKEND['root_dir'] + "saved/logs/", # 로깅/시각과 저장 경로
 }
 
 MODEL = {
-    'model_dir': BACKEND['root_dir'] + "saved/models/",
+    'model_dir': BACKEND['root_dir'] + "saved/models/", # 모델파일 저장경로 (.pth)
 }
 
 LOSS = {
-    'loss_factor': 0.3  # power of additional loss function
+    'center_factor': 0.01,  # Center Loss의 weighting 비율
+    'coco_alpha': 6.25,  # COCO loss의 alpha 값
+    'cosface_s': 7.00,  # Cosface의 s값 (x^T dot W를 cos형식으로 바꿀 때 norm(||x||))
+    'cosface_m': 0.2,  # Cosface의 m값 (Cosface의 마진)
+    'gaussian_mixture_factor': 0.1,  # Gaussian Mixture Loss의 weighting 비율
+    'gaussian_mixture_alpha': 0.00,  # Gaussian Mixture Loss의 alpha 값
 }
 
 GENSIM = {
-    'window_size': 4,  # window size for embedding training
-    'workers': 8,  # num of thread workers for embedding training
-    'min_count': 1,  # removing min count word during embedding training
-    'sg': 1,  # 0 : cbow / 1 : skip gram
-    'iter': 1500  # num of iteration for embedding training
+    'window_size': 4,  # 임베딩 학습시 사용되는 윈도우 사이즈
+    'workers': 8,  # 학습시 사용되는 쓰레드 워커 갯수
+    'min_count': 1,  # 데이터에서 min count보다 많이 등장해야 단어로 인지
+    'sg': 1,  # 0 : CBOW = 1 / SkipGram = 2
+    'iter': 1500  # 임베딩 학습 횟수
 }
 
 INTENT = {
-    'intra_lr': 1e-4,  # learning rate for intra loss
-    'inter_lr': 1e-2,  # learning rate for inter loss
-    'weight_decay': 1e-4,  # weight decay for intent training
-    'epochs': 100,  # num of epoch for intent training
-    'd_model': 128,  # model dimension for intent training
-    'layers': 0,  # number of hidden layer for intent training
+    'model_lr': 1e-4,  # 인텐트 학습시 사용되는 모델의 러닝레이트
+    'loss_lr': 1e-2,  # 리트리벌 학습시 로스의 센터를 움직이는 러닝레이트
+    'weight_decay': 1e-4,  # 인텐트 학습시 사용되는 가중치 감쇠 정도
+    'epochs': 2000,  # 인텐트 학습 횟수
+    'd_model': 256,  # 인텐트 모델의 차원
+    'd_loss': 2,  # 인텐트 로스의 차원 (피쳐 스페이스 시각화 차원 = 2D)
+    'layers': 3,  # 인텐트 모델의 레이어(층)의 수
 }
 
 ENTITY = {
-    'lr': 1e-4,  # learning rate for entity training
-    'weight_decay': 1e-4,  # weight decay for entity training
-    'epochs': 50,  # num of epoch for entity training
-    'd_model': 128,  ## model dimension for entity training
-    'layers': 1  # number of hidden layer for entity training
+    'model_lr': 1e-4,  # 엔티티 학습시 사용되는 모델의 러닝레이트
+    'weight_decay': 1e-4,  # 엔티티 학습시 사용되는 가중치 감쇠 정도
+    'epochs': 500,  # 엔티티 학습 횟수
+    'd_model': 256,  ## 엔티티 모델의 차원
+    'layers': 3  # 엔티티 모델의 레이어(층)의 수
 }

@@ -8,74 +8,65 @@ import torch
 from torch.nn import CrossEntropyLoss
 from torch.optim import Adam
 from backend.decorators import intent
-from backend.proc.torch_processpr import TorchProcessor
+from backend.proc.torch_processor import TorchProcessor
 from util.oop import override
 
 
 @intent
 class IntentClassifier(TorchProcessor):
-    train_data, test_data = None, None
 
-    def __init__(self, model, label_dict):
-        self.label_dict = label_dict
-        super().__init__(model=model.Model(vector_size=self.vector_size,
-                                           max_len=self.max_len,
-                                           d_model=self.d_model,
-                                           layers=self.layers,
-                                           label_dict=self.label_dict))
-
+    def __init__(self, model):
+        super().__init__(model=model)
+        self.label_dict = model.label_dict
         self.loss = CrossEntropyLoss()
         self.optimizer = Adam(
             params=self.model.parameters(),
-            lr=self.intra_lr,
+            lr=self.model_lr,
             weight_decay=self.weight_decay)
 
+    @override(TorchProcessor)
     def inference(self, sequence):
-        self.model.load_state_dict(torch.load(self.model_file))
-        self.model.eval()
-
-        output = self.model(sequence).float()
-        output = self.model.classifier(output.squeeze())
-        _, predict = torch.max(output, dim=0)
+        self._load_model()
+        logits = self.model(sequence).float()
+        logits = self.model.clf_logits(logits.squeeze())
+        _, predict = torch.max(logits, dim=0)
         return list(self.label_dict)[predict.item()]
 
     @override(TorchProcessor)
     def _train_epoch(self) -> tuple:
         self.model.train()
 
-        errors, accuracies = [], []
+        losses, accuracies = [], []
         for train_feature, train_label in self.train_data:
             self.optimizer.zero_grad()
             x = train_feature.float().to(self.device)
             y = train_label.long().to(self.device)
-            feature = self.model(x).float()
-            classification = self.model.classifier(feature)
+            feats = self.model(x).float()
+            logits = self.model.clf_logits(feats)
 
-            error = self.loss(classification, y)
-            error.backward()
+            loss = self.loss(logits, y)
+            loss.backward()
 
             self.optimizer.step()
-            errors.append(error.item())
-            _, predict = torch.max(classification, dim=1)
+            losses.append(loss.item())
+            _, predict = torch.max(logits, dim=1)
             acc = self._get_accuracy(y, predict)
             accuracies.append(acc)
 
-        error = sum(errors) / len(errors)
+        loss = sum(losses) / len(losses)
         accuracy = sum(accuracies) / len(accuracies)
-        return error, accuracy
+        return loss, accuracy
 
     @override(TorchProcessor)
     def _test_epoch(self) -> dict:
-        self.model.load_state_dict(torch.load(self.model_file))
-        self.model.eval()
-
+        self._load_model()
         test_feature, test_label = self.test_data
         x = test_feature.float().to(self.device)
         y = test_label.long().to(self.device)
-        feature = self.model(x).to(self.device)
-        classification = self.model.classifier(feature)
+        feats = self.model(x).to(self.device)
+        logits = self.model.clf_logits(feats)
 
-        _, predict = torch.max(classification, dim=1)
+        _, predict = torch.max(logits, dim=1)
         return {'test_accuracy': self._get_accuracy(y, predict)}
 
     @override(TorchProcessor)
