@@ -5,60 +5,92 @@
 """
 
 import torch
-from torch.nn import CrossEntropyLoss
 from torch.optim import Adam
+from torch.optim.lr_scheduler import ReduceLROnPlateau
+
 from backend.decorators import entity
-from backend.proc.torch_processor import TorchProcessor
+from backend.loss.softmax_loss import SoftmaxLoss
+from backend.proc.base.torch_processor import TorchProcessor
 from util.oop import override
 
 
 @entity
 class EntityRecognizer(TorchProcessor):
 
-    def __init__(self, model, label_dict):
+    def __init__(self, model):
         super().__init__(model)
-        self.label_dict = label_dict
-        self.loss = CrossEntropyLoss()
-        self.optimizer = Adam(
+        self.label_dict = model.label_dict
+        self.loss = SoftmaxLoss(model.label_dict)
+        self.optimizers = [Adam(
             params=self.model.parameters(),
             lr=self.model_lr,
-            weight_decay=self.weight_decay)
+            weight_decay=self.weight_decay)]
+
+        self.lr_scheduler = ReduceLROnPlateau(
+            optimizer=self.optimizers[0],
+            verbose=True,
+            factor=self.lr_scheduler_factor,
+            min_lr=self.lr_scheduler_min_lr,
+            patience=self.lr_scheduler_patience)
 
     @override(TorchProcessor)
-    def _train_epoch(self, train_data, test_data) -> tuple:
-        errors, accuracies = [], []
+    def _train(self, epoch) -> tuple:
+        losses, accuracies = [], []
         for train_feature, train_label in self.train_data:
-            x = train_feature.float().cuda()
-            y = train_label.long().cuda()
+            x = train_feature.float().to(self.device)
+            y = train_label.long().to(self.device)
             out = self.model(x).float()
 
-            error = self.loss(out, y)
-            self.loss.zero_grad()
-            self.optimizer.zero_grad()
-            error.backward()
+            total_loss = self.loss.compute_loss(out, None, y)
+            self.loss.step(total_loss, self.optimizers)
 
-            self.optimizer.step()
-            errors.append(error.item())
+            losses.append(total_loss.item())
             _, predict = torch.max(out, dim=1)
             accuracies.append(self._get_accuracy(y, predict))
 
-        error = sum(errors) / len(errors)
+        loss = sum(losses) / len(losses)
         accuracy = sum(accuracies) / len(accuracies)
-        return error, accuracy
+
+        if epoch > self.lr_scheduler_warm_up:
+            self.lr_scheduler.step(loss)
+
+        return loss, accuracy
 
     @override(TorchProcessor)
-    def _store_and_test(self) -> dict:
-        self._store_model(self.model, self.entity_dir, self.entity_recognizer_file)
-        self.model.load_state_dict(torch.load(self.entity_recognizer_file))
+    def test(self) -> dict:
+        self._load_model()
         self.model.eval()
 
         test_feature, test_label = self.test_data
-        x = test_feature.float().cuda()
-        y = test_label.long().cuda()
+        x = test_feature.float().to(self.device)
+        y = test_label.long().to(self.device)
         out = self.model(x).float()
 
         _, predict = torch.max(out, dim=1)
-        return {'accuracy': self._get_accuracy(y, predict)}
+        test_result = {'test_accuracy': self._get_accuracy(y, predict)}
+        print(test_result)
+        return test_result
+
+    @override(TorchProcessor)
+    def inference(self, sequence):
+        self._load_model()
+        self.model.eval()
+
+        length = self._get_length(sequence)
+        output = self.model(sequence).float()
+        output = output.squeeze().t()
+        _, predict = torch.max(output, dim=1)
+        output = [list(self.label_dict.keys())[i.item()] for i in predict]
+        return ' '.join(output[:length])
+
+    def _get_length(self, sequence):
+        """
+        pad는 [0...0]이니까 1더해서 [1...1]로
+        만들고 all로 검사해서 pad가 아닌 부분만 세기
+        """
+        sequence = sequence.squeeze()
+        return [all(map(int, (i + 1).tolist()))
+                for i in sequence].count(False)
 
     @override(TorchProcessor)
     def _get_accuracy(self, predict, label) -> float:
@@ -69,20 +101,3 @@ class EntityRecognizer(TorchProcessor):
                 if j[0] == j[1]:
                     correct += 1
         return correct / all
-
-    def inference_model(self, sequence):
-        length = self.get_length(sequence)
-        output = self.model(sequence).float()
-        output = output.squeeze().t()
-        _, predict = torch.max(output, dim=1)
-        output = [list(self.label_dict.keys())[i.item()] for i in predict]
-        return ' '.join(output[:length])
-
-    def get_length(self, sequence):
-        """
-        pad는 [0...0]이니까 1더해서 [1...1]로
-        만들고 all로 검사해서 pad가 아닌 부분만 세기
-        """
-        sequence = sequence.squeeze()
-        return [all(map(int, (i + 1).tolist()))
-                for i in sequence].count(False)

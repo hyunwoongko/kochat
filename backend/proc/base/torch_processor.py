@@ -11,7 +11,7 @@ import torch
 from matplotlib import pyplot as plt
 from torch import nn
 
-from backend.proc.base_processor import BaseProcessor
+from backend.proc.base.base_processor import BaseProcessor
 from util.oop import override
 
 
@@ -28,7 +28,7 @@ class TorchProcessor(BaseProcessor, metaclass=ABCMeta):
         self.model.train()
 
         for i in range(self.epochs):
-            loss, accuracy = self._train_epoch(i)
+            loss, accuracy = self._train(i)
             accuracies.append(accuracy)
             losses.append(loss)
 
@@ -40,14 +40,9 @@ class TorchProcessor(BaseProcessor, metaclass=ABCMeta):
         self._draw_accuracy_loss('loss', 'blue')
         self._save_model()
 
-        self.model.eval()
-        test_result = str(self._test_epoch()) \
-            .replace("'", "") \
-            .replace("}", "") \
-            .replace("{", "")
-
-        print('{name} - {result}'
-              .format(name=self.model.name, result=test_result))
+    @abstractmethod
+    def _train(self, epoch):
+        raise NotImplementedError
 
     @override(BaseProcessor)
     def _load_model(self):
@@ -61,18 +56,6 @@ class TorchProcessor(BaseProcessor, metaclass=ABCMeta):
             os.makedirs(self.model_dir)
 
         torch.save(self.model.state_dict(), self.model_file + '.pth')
-
-    @abstractmethod
-    def _train_epoch(self, epoch):
-        raise NotImplementedError
-
-    @abstractmethod
-    def _test_epoch(self):
-        raise NotImplementedError
-
-    @abstractmethod
-    def _get_accuracy(self, predict, label):
-        raise NotImplementedError
 
     def _print_log(self, epoch, train_loss, train_accuracy):
         p = self.logging_precision

@@ -33,7 +33,7 @@ class LargeMarginGaussianMixture(nn.Module, BaseLoss):
         diff = torch.mul(diff, wdiff)
         dist = torch.sum(diff, dim=-1)
 
-        y_onehot = torch.FloatTensor(batch_size, self.num_classes)
+        y_onehot = torch.FloatTensor(batch_size, self.classes)
         y_onehot.zero_()
         y_onehot = Variable(y_onehot).cuda()
         y_onehot.scatter_(1, torch.unsqueeze(label, dim=-1), self.gaussian_mixture_alpha)
@@ -53,6 +53,6 @@ class LargeMarginGaussianMixture(nn.Module, BaseLoss):
         return margin_logits, likelihood
 
     def compute_loss(self, logits, feats, label):
-        mlogits, likelihood = self(feats)
+        mlogits, likelihood = self(feats, label)
         logits = F.cross_entropy(mlogits, label)
         return logits + self.gaussian_mixture_factor * likelihood

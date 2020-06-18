@@ -16,7 +16,7 @@ https://github.com/YirongMao/softmax_variants
 @loss
 class CosFace(nn.Module, BaseLoss):
 
-    def __init__(self, label_dict, ):
+    def __init__(self, label_dict):
         super(CosFace, self).__init__()
         self.classes = len(label_dict)
         self.centers = nn.Parameter(torch.randn(self.classes, self.d_loss))

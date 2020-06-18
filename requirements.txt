@@ -1,7 +1,8 @@
 matplotlib==3.2.1
 pandas==1.0.4
-torch==1.5.0
 gensim==3.8.3
 konlpy==0.5.2
 flask==1.1.2
 sklearn==0.0
+torch==1.5.0
+pytorch-crf==0.7.2

@@ -1,9 +1,9 @@
 from abc import abstractmethod, ABCMeta
 
-from backend.decorators import backend
+from backend.decorators import proc
 
 
-@backend
+@proc
 class BaseProcessor(metaclass=ABCMeta):
     def __init__(self, model):
         super().__init__()
@@ -16,11 +16,15 @@ class BaseProcessor(metaclass=ABCMeta):
         self.model_loaded = False
 
     @abstractmethod
-    def train(self, dataset):
+    def train(self, *args, **kwargs):
         raise NotImplementedError
 
     @abstractmethod
-    def inference(self, sequence):
+    def test(self, *args, **kwargs):
+        raise NotImplementedError
+
+    @abstractmethod
+    def inference(self, *args, **kwargs):
         raise NotImplementedError
 
     @abstractmethod
@@ -30,3 +34,11 @@ class BaseProcessor(metaclass=ABCMeta):
     @abstractmethod
     def _save_model(self):
         raise NotImplementedError
+
+    def _get_accuracy(self, predict, label) -> float:
+        all, correct = 0, 0
+        for i in zip(predict, label):
+            all += 1
+            if i[0] == i[1]:
+                correct += 1
+        return correct / all

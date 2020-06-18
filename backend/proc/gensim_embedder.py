@@ -9,12 +9,12 @@ from time import time
 from gensim.models.callbacks import CallbackAny2Vec
 
 from backend.decorators import gensim
-from backend.proc.base_processor import BaseProcessor
+from backend.proc.base.base_processor import BaseProcessor
 from util.oop import override
 
 
 @gensim
-class GensimProcessor(BaseProcessor):
+class GensimEmbedder(BaseProcessor):
 
     def __init__(self, model):
         super().__init__(model)
@@ -29,6 +29,10 @@ class GensimProcessor(BaseProcessor):
 
         self._save_model()
         return self.model
+
+    @override(BaseProcessor)
+    def test(self):
+        raise Exception("임베딩은 테스트 할 수 없습니다.")
 
     @override(BaseProcessor)
     def inference(self, sequence):

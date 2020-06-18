@@ -16,7 +16,7 @@ class EntityBiLSTM(nn.Module):
 
     def __init__(self, label_dict):
         super().__init__()
-        self.classes = len(label_dict)
+        self.label_dict = label_dict
         self.direction = 2  # bidirectional
         self.lstm = nn.LSTM(input_size=self.vector_size,
                             hidden_size=self.d_model,
@@ -24,7 +24,7 @@ class EntityBiLSTM(nn.Module):
                             batch_first=True,
                             bidirectional=True if self.direction == 2 else False)
 
-        self.classifier = nn.Linear(self.d_model * self.direction, self.classes)
+        self.classifier = nn.Linear(self.d_model * self.direction, len(label_dict))
 
     def init_hidden(self, batch_size):
         param1 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)

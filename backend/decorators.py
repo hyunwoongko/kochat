@@ -15,6 +15,14 @@ def data(cls):
     return cls
 
 
+def proc(cls):
+    cls = backend(cls)
+    for key, val in config.PROC.items():
+        setattr(cls, key, val)
+
+    return cls
+
+
 def model(cls):
     cls = backend(cls)
     for key, val in config.MODEL.items():
