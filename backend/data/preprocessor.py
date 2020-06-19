@@ -12,7 +12,10 @@ from backend.decorators import data
 
 
 @data
-class Preprocessor():
+class Preprocessor:
+    """
+    메모리에 저장된 RAW 데이터파일을 불러와서
+    """
 
     def __init__(self):
         super().__init__()

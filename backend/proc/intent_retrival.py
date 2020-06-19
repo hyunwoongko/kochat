@@ -38,7 +38,7 @@ class IntentRetrieval(TorchProcessor):
             self.optimizers.append(loss_opt)
 
         self.lr_scheduler = ReduceLROnPlateau(
-            optimizer=self.optimizer,
+            optimizer=self.optimizers[0],
             verbose=True,
             factor=self.lr_scheduler_factor,
             min_lr=self.lr_scheduler_min_lr,
@@ -102,7 +102,7 @@ class IntentRetrieval(TorchProcessor):
             logits = self.model.ret_logits(feats)
 
             total_loss = self.loss.compute_loss(labels, logits, feats)
-            total_loss.step(total_loss, self.optimizers)
+            self.loss.step(total_loss, self.optimizers)
 
             feat_list.append(feats)
             label_list.append(labels)
@@ -151,9 +151,9 @@ class IntentRetrieval(TorchProcessor):
             ood_label = ood_label.detach().cpu().numpy()
             dist, label = self.dist_estimator.make_dist_dataset((ood_feats, ood_label))
             ood_result = self.fallback.test((dist, label))
-            test_result['ood_detection_test'] = ood_result
+            test_result['fallback_detection_test'] = ood_result
 
-        print(test_result)
+        print('{0} - {1}'.format(self.model.name, test_result))
         return test_result
 
     def __train_fallback(self, dataset):

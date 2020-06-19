@@ -5,7 +5,7 @@
 """
 
 import torch
-from torch.optim import Adam, SGD
+from torch.optim import Adam
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 from backend.decorators import entity
@@ -22,7 +22,6 @@ class EntityRecognizer(TorchProcessor):
         self.label_dict = model.label_dict
         self.loss = loss.to(self.device)
         self.masking = Masking() if masking else None
-
         parameter = list(model.parameters())
 
         if len(list(loss.parameters())) != 0:
@@ -30,7 +29,7 @@ class EntityRecognizer(TorchProcessor):
 
         self.optimizers = [Adam(
             params=parameter,
-            lr=self.lr,
+            lr=self.model_lr,
             weight_decay=self.weight_decay)]
 
         self.lr_scheduler = ReduceLROnPlateau(
@@ -60,7 +59,7 @@ class EntityRecognizer(TorchProcessor):
 
             mask = self.masking(train_length) if self.masking else None
             total_loss = self.loss.compute_loss(labels, logits, feats, mask)
-            total_loss.step(total_loss, self.optimizers)
+            self.loss.step(total_loss, self.optimizers)
 
             predict = self.__predict(self.loss, logits)
             loss_list.append(total_loss)
@@ -86,7 +85,7 @@ class EntityRecognizer(TorchProcessor):
         _, predict = torch.max(out, dim=1)
         test_result = {'test_accuracy': self._get_accuracy(logits, predict)}
 
-        print(test_result)
+        print('{0} - {1}'.format(self.model.name, test_result))
         return test_result
 
     def _get_accuracy(self, predict, label) -> float:
@@ -100,6 +99,6 @@ class EntityRecognizer(TorchProcessor):
 
     def __predict(self, kinds_loss, logits):
         if type(kinds_loss) == CRFLoss:
-            return torch.tensor(self.loss.crf.decode(logits))
+            return torch.tensor(self.loss.decode(logits))
         else:
             return torch.tensor(torch.max(logits, dim=1)[1])

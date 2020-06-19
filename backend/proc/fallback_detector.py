@@ -1,8 +1,7 @@
-import os
-
-import joblib
+from sklearn.exceptions import ConvergenceWarning
 from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import Pipeline
+from sklearn.utils._testing import ignore_warnings
 
 from backend.decorators import intent
 from backend.model.sklearn_models import LINEAR_MODELS
@@ -24,6 +23,7 @@ class FallbackDetector(SklearnProcessor):
         predict = self.model.predict(distance)
         return predict
 
+    @ignore_warnings(category=Warning)
     def fit(self, dataset):
         self._print_log("msg: start train ...")
         pipeline = Pipeline([('clf', self.models[0])])

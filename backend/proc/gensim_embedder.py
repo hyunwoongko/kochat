@@ -36,6 +36,9 @@ class GensimEmbedder(BaseProcessor):
         raise Exception("임베딩은 테스트 할 수 없습니다.")
 
     def _load_model(self):
+        if not os.path.exists(self.model_dir):
+            raise Exception("모델을 불러올 수 없습니다.")
+
         if not self.model_loaded:
             self.model_loaded = True
             self.model = self.model.__class__.load(self.model_file + '.gensim')

@@ -46,6 +46,9 @@ class TorchProcessor(BaseProcessor, metaclass=ABCMeta):
         raise NotImplementedError
 
     def _load_model(self):
+        if not os.path.exists(self.model_dir):
+            raise Exception("모델을 불러올 수 없습니다.")
+
         if not self.model_loaded:
             self.model_loaded = True
             self.model.load_state_dict(torch.load(self.model_file + '.pth'))

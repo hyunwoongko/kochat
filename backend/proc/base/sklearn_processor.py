@@ -17,6 +17,9 @@ class SklearnProcessor(BaseProcessor, metaclass=ABCMeta):
         super().__init__(self.model)
 
     def _load_model(self):
+        if not os.path.exists(self.model_dir):
+            raise Exception("모델을 불러올 수 없습니다.")
+
         if not self.model_loaded:
             self.model = joblib.load(self.model_file + '.pkl')
             self.model_loaded = True

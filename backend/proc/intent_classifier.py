@@ -22,7 +22,7 @@ class IntentClassifier(TorchProcessor):
         self.loss = SoftmaxLoss(model.label_dict)
         self.optimizers = [Adam(
             params=self.model.parameters(),
-            lr=self.lr,
+            lr=self.model_lr,
             weight_decay=self.weight_decay)]
 
         self.lr_scheduler = ReduceLROnPlateau(
@@ -51,7 +51,7 @@ class IntentClassifier(TorchProcessor):
             logits = self.model.clf_logits(feats)
 
             total_loss = self.loss.compute_loss(labels, logits, None)
-            total_loss.step(total_loss, self.optimizers)
+            self.loss.step(total_loss, self.optimizers)
 
             loss_list.append(total_loss.item())
             _, predict = torch.max(logits, dim=1)
@@ -79,5 +79,5 @@ class IntentClassifier(TorchProcessor):
         _, predict = torch.max(logits, dim=1)
         test_result = {'test_accuracy': self._get_accuracy(labels, predict)}
 
-        print(test_result)
+        print('{0} - {1}'.format(self.model.name, test_result))
         return test_result

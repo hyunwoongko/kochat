@@ -14,4 +14,10 @@ class CRFLoss(nn.Module, BaseLoss):
         self.crf = CRF(len(label_dict), batch_first=True)
 
     def compute_loss(self, label, logits, feats, mask=None):
-        return -self.crf(logits, label, reduction='mean', mask=mask)
+        logits = logits.permute(0, 2, 1)
+        log_likelihood = self.crf(logits, label, reduction='mean', mask=mask)
+        return - log_likelihood
+
+    def decode(self, logits, mask=None):
+        logits = logits.permute(0, 2, 1)
+        return self.crf.decode(logits, mask)
