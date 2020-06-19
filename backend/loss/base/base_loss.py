@@ -1,10 +1,13 @@
 from abc import ABCMeta, abstractmethod
 
+from backend.decorators import loss
 
+
+@loss
 class BaseLoss(metaclass=ABCMeta):
 
     @abstractmethod
-    def compute_loss(self, logits, feats, label):
+    def compute_loss(self, label, logits, feats, mask=None):
         raise NotImplementedError
 
     def step(self, total_loss, optimizers):

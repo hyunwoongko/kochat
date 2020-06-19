@@ -1,37 +1,21 @@
-from sklearn.tree import \
-    DecisionTreeClassifier, \
-    ExtraTreeClassifier
-from sklearn.ensemble import \
-    RandomForestClassifier, \
-    AdaBoostClassifier, \
-    BaggingClassifier, \
-    ExtraTreesClassifier, \
-    GradientBoostingClassifier
-from sklearn.linear_model import \
-    LogisticRegression, \
-    LogisticRegressionCV, \
-    SGDClassifier, \
-    LinearRegression
-from sklearn.naive_bayes import \
-    GaussianNB, \
-    BernoulliNB
-from sklearn.neighbors import \
-    KNeighborsClassifier
-from sklearn.neural_network import \
-    MLPClassifier
-from sklearn.svm import \
-    LinearSVC, \
-    SVC, \
-    NuSVC
+from sklearn.linear_model import LogisticRegressionCV
+from sklearn.svm import LinearSVC
+from sklearn.neighbors import KNeighborsClassifier
 
 from backend.decorators import model
 
-SKLEARN_ALL_MODELS = []
-for _, obj in globals().copy().items():
-    if isinstance(obj, type):
-        m = model(obj)()
+LINEAR_MODELS = []
+for _, m in globals().copy().items():
+    if isinstance(m, type):
 
         if hasattr(m, 'max_iter'):
-            setattr(m, 'max_iter', 1500)
+            setattr(m, 'max_iter', 5000)
 
-        SKLEARN_ALL_MODELS.append(m)
+        # 모듈 경로 직접 잡아서 저장 경로 맞춰야 함
+        m.__module__ = __file__.replace('/', '.')
+        m.__module__ = m.__module__.split('.')
+        m.__module__ = m.__module__[len(m.__module__) - 4: len(m.__module__) - 1]
+        m.__module__ = '.'.join(m.__module__)
+        m = model(m)()
+
+        LINEAR_MODELS.append(m)

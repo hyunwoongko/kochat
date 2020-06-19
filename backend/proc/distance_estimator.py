@@ -11,7 +11,16 @@ class DistanceEstimator(SklearnProcessor):
         super().__init__(model)
         self.label_dict = label_dict
 
-    def train(self, dataset):
+    def predict(self, dataset):
+        self._load_model()
+        dataset = np.expand_dims(dataset, 0)
+
+        distance, _ = self.model.kneighbors(dataset)
+        predict = self.model.predict(dataset)
+        return predict, distance
+
+    def fit(self, dataset):
+        self._print_log("msg: start train ...")
         x, y = dataset['X'], dataset['Y']
 
         grid_search = GridSearchCV(
@@ -20,33 +29,17 @@ class DistanceEstimator(SklearnProcessor):
             cv=10, n_jobs=-1,  # 모든 프로세서 사용
             scoring='accuracy')
         grid_search.fit(x, y)
-        self.dist_param = grid_search.best_params_
-        print(self.dist_param)
 
+        self.dist_param = grid_search.best_params_
+        self._print_log(self.dist_param)
         self.model = KNeighborsClassifier(
             n_neighbors=self.dist_param['n_neighbors'],
             weights=self.dist_param['weights'],
             p=self.dist_param['p'], n_jobs=-1,  # 모든 프로세서 사용
             algorithm=self.dist_param['algorithm'])
+
         self.model.fit(x, y)
         self._save_model()
-
-    def test(self, dataset):
-        self._load_model()
-
-        feats, label = dataset
-        feats = feats.detach().cpu()
-        label = label.detach().cpu().numpy()
-        predict = self.model.predict(feats)
-        return self._get_accuracy(label, predict)
-
-    def inference(self, dataset):
-        self._load_model()
-        dataset = np.expand_dims(dataset, 0)
-
-        distance, _ = self.model.kneighbors(dataset)
-        predict = self.model.predict(dataset)
-        return predict, distance
 
     def make_dist_dataset(self, dataset):
         self._load_model()
@@ -63,3 +56,13 @@ class DistanceEstimator(SklearnProcessor):
                 # out distribution (open / close)
 
         return distance, label_set
+
+    def test(self, dataset):
+        self._print_log("msg: start test ...")
+        self._load_model()
+
+        feats, label = dataset
+        feats = feats.detach().cpu()
+        label = label.detach().cpu().numpy()
+        predict = self.model.predict(feats)
+        return self._get_accuracy(label, predict)

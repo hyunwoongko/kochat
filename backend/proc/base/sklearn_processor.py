@@ -26,3 +26,7 @@ class SklearnProcessor(BaseProcessor, metaclass=ABCMeta):
             os.makedirs(self.model_dir)
 
         joblib.dump(self.model, self.model_file + '.pkl')
+
+    def _print_log(self, msg):
+        print('{name} - {msg}'
+              .format(name=self.model.name, msg=msg))

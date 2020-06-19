@@ -1,11 +1,10 @@
 import torch
 from torch import nn
 from torch.autograd import Function, Variable
-
-from backend.decorators import intent, loss
 from torch.nn import functional as F
 
-from backend.loss.base_loss import BaseLoss
+from backend.decorators import intent
+from backend.loss.base.base_loss import BaseLoss
 
 """
 code reference :
@@ -14,7 +13,6 @@ https://github.com/YirongMao/softmax_variants
 
 
 @intent
-@loss
 class CenterLoss(nn.Module, BaseLoss):
     def __init__(self, label_dict):
         super(CenterLoss, self).__init__()
@@ -32,7 +30,7 @@ class CenterLoss(nn.Module, BaseLoss):
 
         return self.center_loss_function(feat, label, self.centers)
 
-    def compute_loss(self, logits, feats, label):
+    def compute_loss(self, label, logits, feats, mask=None):
         nll_loss = F.cross_entropy(logits, label)
         center_loss = self(feats, label)
         return nll_loss + self.center_factor * center_loss

@@ -16,86 +16,87 @@ class Preprocessor():
 
     def __init__(self):
         super().__init__()
-        self.__entity_set = set()
         self.__okt = Okt()
 
     def generate_intent(self):
         files = os.listdir(self.raw_data_dir)
-        intent_files = []
+        intent_integrated_list, label_dict = [], {}
 
         for file_name in files:
-            intent = file_name.split('.')[0]
             intent_file = pd.read_csv(self.raw_data_dir + file_name, encoding='utf-8')
-            question = intent_file['question'].values.tolist()
-            intent_file = [(data, intent) for data in question]
-            intent_files += intent_file
+            intent_question = intent_file['question'].values.tolist()
+            intent_kinds = file_name.split('.')[0]
+            intent_file = [(question, intent_kinds) for question in intent_question]
+            intent_integrated_list += intent_file
 
-        DataFrame(intent_files).to_csv(path_or_buf=self.intent_data_dir,
-                                       index=False,
-                                       header=['question', 'intent'])
+        intent_df = DataFrame(intent_integrated_list, columns=['question', 'intent'])
+        intent_df.to_csv(self.intent_data_dir, index=False)
+        label, index = intent_df['intent'], -1
+
+        for l in label:
+            if l not in label_dict:
+                index += 1
+            label_dict[l] = index
+
+        return label_dict
 
     def generate_entity(self):
         files = os.listdir(self.raw_data_dir)
-        entity_files = []
+        entity_integrated_list, label_dict = [], {}
+        entity_non_duplicated_set = set()
 
         for file_name in files:
             entity_file = pd.read_csv(self.raw_data_dir + file_name, encoding='utf-8')
             self.__check_label_number(entity_file)
             # QUESTION 수 : ENTITY 수가 1 : 1이 되게끔 보장하는 함수
 
-            question = entity_file['question'].values.tolist()
-            entity = entity_file['label'].values.tolist()
-            entity_file = [(data[0].strip().split(),
-                            data[1].strip().split())
-                           for data in zip(question, entity)]
+            entity_file = [(q.strip().split(), l.strip().split())
+                           for q, l in zip(entity_file['question'], entity_file['label'])]
 
-            entity_files += entity_file
-            for entity in entity_file:
-                for e in entity[1]:
-                    self.__entity_set.add(e)
-                    # Entity Set 만들기
-                    # (생성자 속성으로 있는 entity set을 이 때 만듬)
+            entity_integrated_list += entity_file
+            for question, label in entity_file:
+                for entity in label:
+                    entity_non_duplicated_set.add(entity)
 
         # 사용자가 정의하지 않은 라벨이 나오지 않게 보장하는 함수
-        self.__check_label_kinds(label_set=self.__entity_set)
-        entity_files = DataFrame([[' '.join(data[0]), ' '.join(data[1])] for data in entity_files])
-        entity_files.to_csv(path_or_buf=self.entity_data_dir,
-                            index=False,
-                            header=['question', 'entity'])
-        return self.__entity_set
+        self.__check_label_kinds(entity_non_duplicated_set)
+        entity_integrated_list = DataFrame([[' '.join(q), ' '.join(l)]
+                                            for q, l in entity_integrated_list])
 
-    def make_dicts(self):
-        intent_dict, entity_dict = {}, {}
-        dataset = pd.read_csv(self.intent_data_dir)
-        label, index = dataset['intent'], -1
+        entity_integrated_list.to_csv(path_or_buf=self.entity_data_dir,
+                                      index=False,
+                                      header=['question', 'entity'])
 
-        # label to int
-        for lb in label:
-            if lb not in intent_dict:
-                index += 1
-            intent_dict[lb] = index
+        entity_non_duplicated_set = sorted(list(entity_non_duplicated_set))
+        for i, entity in enumerate(entity_non_duplicated_set):
+            label_dict[entity] = i
 
-        label_set = self.__entity_set
-        label_set = list(label_set)
-        label_set = sorted(label_set)
-        # 항상 동일한 결과를 보여주려면 정렬해놔야 함
-
-        for i, entity in enumerate(label_set):
-            entity_dict[entity] = i
-
-        return intent_dict, entity_dict
+        return label_dict
 
     def pad_sequencing(self, sequence):
-        size = sequence.size()[0]
-        if size > self.max_len:
+        length = sequence.size()[0]
+        if length > self.max_len:
             sequence = sequence[:self.max_len]
         else:
             pad = torch.zeros(self.max_len, self.vector_size)
-            for i in range(size):
+            for i in range(length):
                 pad[i] = sequence[i]
             sequence = pad
 
-        return sequence
+        return sequence, length
+
+    def label_sequencing(self, entity_label, entity_dict):
+        length = entity_label.size()[0]
+
+        if length > self.max_len:
+            entity_label = entity_label[:self.max_len]
+        else:
+            while entity_label.size()[0] != self.max_len:
+                outside_tag = entity_dict[self.NER_outside]
+                outside_tag = torch.tensor(outside_tag).unsqueeze(0)
+                entity_label = torch.cat([entity_label, outside_tag], dim=0)
+
+        return entity_label.unsqueeze(0)
 
     def tokenize(self, sentence, train=False):
         if train:  # 학습데이터는 모두 맞춤법이 맞다고 가정
@@ -140,16 +141,14 @@ class Preprocessor():
 
     def __check_label_number(self, file):
         number_of_error = 0
-        for i, data in enumerate(zip(file['question'].tolist(),
-                                     file['label'].tolist())):
+        for i, (question, label) in enumerate(zip(file['question'].tolist(),
+                                                  file['label'].tolist())):
 
-            q = str(data[0]).split(' ')
-            e = str(data[1]).split(' ')
+            question = str(question).split(' ')
+            entity = str(label).split(' ')
 
-            if len(q) != len(e):
-                # Question과 Entity의 수가 다를때
-                print(i - 2, q, e)
-                # 화면에 보여주고 에러 개수 1개 늘림
+            if len(question) != len(entity):
+                print(i - 2, question, entity)
                 number_of_error += 1
 
         if number_of_error != 0:

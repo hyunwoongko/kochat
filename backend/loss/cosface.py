@@ -3,8 +3,8 @@ from torch import nn
 from torch.autograd import Variable
 from torch.nn import functional as F
 
-from backend.decorators import intent, loss
-from backend.loss.base_loss import BaseLoss
+from backend.decorators import intent
+from backend.loss.base.base_loss import BaseLoss
 
 """
 code reference :
@@ -13,7 +13,6 @@ https://github.com/YirongMao/softmax_variants
 
 
 @intent
-@loss
 class CosFace(nn.Module, BaseLoss):
 
     def __init__(self, label_dict):
@@ -37,6 +36,6 @@ class CosFace(nn.Module, BaseLoss):
         margin_logits = self.cosface_s * (logits - y_onehot)
         return margin_logits
 
-    def compute_loss(self, logits, feats, label):
+    def compute_loss(self, label, logits, feats, mask=None):
         mlogits = self(feats, label)
         return F.cross_entropy(mlogits, label)

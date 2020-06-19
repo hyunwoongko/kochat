@@ -1,10 +1,9 @@
 import torch
 from torch import nn
-
-from backend.decorators import intent, loss
 from torch.nn import functional as F
 
-from backend.loss.base_loss import BaseLoss
+from backend.decorators import intent
+from backend.loss.base.base_loss import BaseLoss
 
 """
 code reference :
@@ -13,7 +12,6 @@ https://github.com/YirongMao/softmax_variants
 
 
 @intent
-@loss
 class COCOLoss(nn.Module, BaseLoss):
 
     def __init__(self, label_dict):
@@ -30,6 +28,6 @@ class COCOLoss(nn.Module, BaseLoss):
         logits = torch.matmul(snfeat, torch.transpose(ncenters, 0, 1))
         return logits
 
-    def compute_loss(self, logits, feats, label):
+    def compute_loss(self, label, logits, feats, mask=None):
         logits = self(feats)
         return F.cross_entropy(logits, label)

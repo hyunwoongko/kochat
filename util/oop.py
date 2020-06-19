@@ -4,15 +4,6 @@
 @homepage : https://github.com/gusdnd852
 """
 
-
-def override(super_cls):
-    def overrider(method):
-        assert (method.__name__ in dir(super_cls))
-        return method
-
-    return overrider
-
-
 def singleton(class_):
     class class_w(class_):
         _instance = None

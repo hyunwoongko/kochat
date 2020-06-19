@@ -29,16 +29,19 @@ def model(cls):
         setattr(cls, key, val)
 
     def save_dir(self):
-        name = cls.__module__.split('.')
-        name = name[len(name) - 1]
-        return self.model_dir + name + '/'
+        module = cls.__module__.split('.')
+        module = module[len(module) - 1]
+        return self.model_dir + module + '/'
 
-    def save_file(self):
-        return save_dir(self) + cls.__name__
+    def save_file(self, name=None):
+        if name is None:
+            return save_dir(self) + cls.__name__
+        else:
+            return save_dir(self) + name
 
-    setattr(cls, 'name', cls.__name__)
     setattr(cls, 'save_dir', save_dir)
     setattr(cls, 'save_file', save_file)
+    setattr(cls, 'name', cls.__name__)
     return cls
 
 

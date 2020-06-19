@@ -11,7 +11,7 @@ BACKEND = {
     'device': 'cuda' if torch.cuda.is_available() else 'cpu',
     'root_dir': "/home/gusdnd852/Github/chatbot/backend/",  # 백엔드 루트경로
     'vector_size': 64,  # 단어 벡터 사이즈
-    'batch_size': 256,  # 미니배치 사이즈
+    'batch_size': 512,  # 미니배치 사이즈
     'max_len': 8,  # 문장의 최대 길이 (패드 시퀀싱)
 }
 
@@ -37,7 +37,7 @@ MODEL = {
 }
 
 LOSS = {
-    'center_factor': 0.05,  # Center Loss의 weighting 비율
+    'center_factor': 0.025,  # Center Loss의 weighting 비율
     'coco_alpha': 6.25,  # COCO loss의 alpha 값
     'cosface_s': 7.00,  # Cosface의 s값 (x^T dot W를 cos형식으로 바꿀 때 norm(||x||))
     'cosface_m': 0.25,  # Cosface의 m값 (Cosface의 마진)
@@ -54,17 +54,16 @@ GENSIM = {
 }
 
 INTENT = {
-    'model_lr': 1e-4,  # 인텐트 학습시 사용되는 모델의 러닝레이트
-    'loss_lr': 1e-2,  # 리트리벌 학습시 로스의 센터를 움직이는 러닝레이트
+    'lr': 1e-4,  # 인텐트 학습시 사용되는 러닝레이트
     'weight_decay': 1e-4,  # 인텐트 학습시 사용되는 가중치 감쇠 정도
     'epochs': 500,  # 인텐트 학습 횟수
     'd_model': 512,  # 인텐트 모델의 차원
-    'd_loss': 128,  # 인텐트 로스의 차원 (시각화차원, 높을수록 ood 디텍션이 정확해지지만 느려집니다.)
-    'layers': 13,  # 인텐트 모델의 레이어(층)의 수
+    'd_loss': 64,  # 인텐트 로스의 차원 (시각화차원, 높을수록 ood 디텍션이 정확해지지만 느려집니다.)
+    'layers': 1,  # 인텐트 모델의 히든 레이어(층)의 수
 
     'visualization_epoch': 10,  # 시각화 빈도 (애폭마다 시각화 수행)
     'fallback_detction_threshold': -1,  # mean 혹은 min 선택시 임계값
-    'fallback_detction_criteria' : 'auto', # [auto, min, mean]
+    'fallback_detction_criteria': 'auto',  # [auto, min, mean]
     # auto를 쓰려면 ood dataset을 함께 넣어줘야합니다.
 
     'dist_param': {  # KNN 학습시 사용하는 그리드 서치 파라미터
@@ -81,11 +80,11 @@ INTENT = {
 }
 
 ENTITY = {
-    'model_lr': 1e-4,  # 엔티티 학습시 사용되는 모델의 러닝레이트
+    'lr': 1e-4,  # 엔티티 학습시 사용되는 러닝레이트
     'weight_decay': 1e-4,  # 엔티티 학습시 사용되는 가중치 감쇠 정도
     'epochs': 500,  # 엔티티 학습 횟수
-    'd_model': 256,  ## 엔티티 모델의 차원
-    'layers': 3,  # 엔티티 모델의 레이어(층)의 수
+    'd_model': 128,  ## 엔티티 모델의 차원
+    'layers': 1,  # 엔티티 모델의 히든 레이어(층)의 수
 
     'lr_scheduler_factor': 0.75,  # 러닝레이트 스케줄러 감소율
     'lr_scheduler_patience': 10,  # 러닝레이트 스케줄러 감소 에폭

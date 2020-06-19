@@ -11,20 +11,19 @@ class BaseProcessor(metaclass=ABCMeta):
         self.test_data = None
 
         self.model = model
-        self.model_dir: str = model.save_dir()
-        self.model_file: str = model.save_file()
+        self.set_save_path(self.model)
         self.model_loaded = False
 
     @abstractmethod
-    def train(self, *args, **kwargs):
+    def predict(self, *args, **kwargs):
+        raise NotImplementedError
+
+    @abstractmethod
+    def fit(self, *args, **kwargs):
         raise NotImplementedError
 
     @abstractmethod
     def test(self, *args, **kwargs):
-        raise NotImplementedError
-
-    @abstractmethod
-    def inference(self, *args, **kwargs):
         raise NotImplementedError
 
     @abstractmethod
@@ -42,3 +41,7 @@ class BaseProcessor(metaclass=ABCMeta):
             if i[0] == i[1]:
                 correct += 1
         return correct / all
+
+    def set_save_path(self, model, name=None):
+        self.model_dir: str = model.save_dir()
+        self.model_file: str = model.save_file(name)
