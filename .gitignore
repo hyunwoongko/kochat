@@ -1,4 +1,4 @@
-backend/saved/*
+_backend/saved/*
 *.log
 *.pot
 *.pyc

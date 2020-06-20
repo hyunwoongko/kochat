@@ -1,0 +1,18 @@
+import re
+
+from _crawler.crawler.base.crawler import Crawler
+from _crawler.decorators import editor
+
+
+@editor
+class Editor(Crawler):
+
+    def make_josa(self, j1, j2, list_):
+        josa = [j1]
+        for i in range(len(list_) - 1):
+            if list_[i] == list_[i + 1]:
+                josa.append(j2)
+            else:
+                josa.append(j1)
+
+        return josa

@@ -7,16 +7,7 @@ ARG ARCH
 ARG CUDA=10.1
 FROM nvidia/cuda${ARCH:+-$ARCH}:${CUDA}-base-ubuntu${UBUNTU_VERSION} as base
 
-# 2. Declare constants
-ARG ARCH
-ARG CUDA
-ARG CUDNN=7.6.4.38-1
-ARG CUDNN_MAJOR_VERSION=7
-ARG LIB_DIR_PREFIX=x86_64
-ARG LIBNVINFER=6.0.1-1
-ARG LIBNVINFER_MAJOR_VERSION=6
-
-# 3. python set up
+# 2. python set up
 ENV LANG C.UTF-8
 RUN apt-get update && apt-get install -y \
     python3 \
@@ -26,9 +17,9 @@ RUN python3 -m pip --no-cache-dir install --upgrade \
     setuptools
 RUN ln -s $(which python3) /usr/local/bin/python
 
-# 4. java set up
+# 3. java set up
 RUN apt install openjdk-11-jdk -y
 
-# 5. set up python packages
+# 4. set up python packages
 COPY requirements.txt /
 RUN pip3 install -r requirements.txt
