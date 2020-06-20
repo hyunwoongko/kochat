@@ -14,16 +14,33 @@ from backend.decorators import data
 @data
 class Preprocessor:
     """
-    메모리에 저장된 RAW 데이터파일을 불러와서
+    Class Preprocessor : @data (DATA configuration)
+
+    메모리에 저장된 RAW 데이터파일을 불러와서 하나의 혼합파일로 만들고,
+    Dataset 클래스가 학슴용 데이터를 만들 때 사용하는 여러가지 전처리
+    기능이 구현된 클래스입니다.
     """
 
     def __init__(self):
-        super().__init__()
+        """
+        텍스트 토큰화를 위해
+        Konlpy의 Okt 태거 (구 Twitter 태거)를 사용합니다.
+        """
+
         self.__okt = Okt()
 
-    def generate_intent(self):
+    def generate_intent(self) -> dict:
+        """
+        여러 파일을 모아서 하나의 인텐트 데이터 파일을 생성합니다.
+        인텐트는 파일 단위로 구분되며, 파일명이 인텐트가 됩니다.
+        이런 방식으로 파일을 구성하면 인텐트/엔티티 데이터를 따로 만들지 않아도 됩니다.
+
+        :return: 인텐트 라벨들이 순차적으로 숫자로 맵핑된 Dictionary입니다.
+        """
+
         files = os.listdir(self.raw_data_dir)
         intent_integrated_list, label_dict = [], {}
+        # 개별 파일이 담긴 뒤 합쳐질 리스트와 라벨 딕셔너리
 
         for file_name in files:
             intent_file = pd.read_csv(self.raw_data_dir + file_name, encoding='utf-8')
@@ -43,15 +60,25 @@ class Preprocessor:
 
         return label_dict
 
-    def generate_entity(self):
+    def generate_entity(self) -> dict:
+        """
+        여러 파일을 모아서 하나의 엔티티 데이터 파일을 생성합니다.
+        엔티티는 라벨링이 직접 되어있기 때문에 데이터의 라벨링을 따릅니다.
+        이런 방식으로 파일을 구성하면 인텐트/엔티티 데이터를 따로 만들지 않아도 됩니다.
+
+        :return: 엔티티 라벨(태그)들이 순차적으로 숫자로 맵핑된 Dictionary입니다.
+        """
+
         files = os.listdir(self.raw_data_dir)
         entity_integrated_list, label_dict = [], {}
         entity_non_duplicated_set = set()
+        # 개별 파일이 담긴 뒤 합쳐질 리스트와 라벨 딕셔너리
 
         for file_name in files:
             entity_file = pd.read_csv(self.raw_data_dir + file_name, encoding='utf-8')
             self.__check_label_number(entity_file)
-            # QUESTION 수 : ENTITY 수가 1 : 1이 되게끔 보장하는 함수
+            # TOKEN : ENTITY가 1 : 1이 되게끔 보장하는 함수
+            # [안녕, 부산, 맛집, 추천해줘] 4 : 3 [O, LOCATION, O] → 에러 발생
 
             entity_file = [(q.strip().split(), l.strip().split())
                            for q, l in zip(entity_file['question'], entity_file['label'])]
@@ -61,8 +88,11 @@ class Preprocessor:
                 for entity in label:
                     entity_non_duplicated_set.add(entity)
 
-        # 사용자가 정의하지 않은 라벨이 나오지 않게 보장하는 함수
         self.__check_label_kinds(entity_non_duplicated_set)
+        # 사용자가 정의하지 않은 라벨이 나오지 않게 보장하는 함수
+        # 사용자 정의 태그 (LOCATION, DATE 등..)와 기능 태그 (B, I, O 등)의 조합으로
+        # 있어서는 안될 태그(오타 등)를 발견시 에러를 발생시킵니다.
+
         entity_integrated_list = DataFrame([[' '.join(q), ' '.join(l)]
                                             for q, l in entity_integrated_list])
 
@@ -76,7 +106,17 @@ class Preprocessor:
 
         return label_dict
 
-    def pad_sequencing(self, sequence):
+    def pad_sequencing(self, sequence: torch.Tensor) -> tuple:
+        """
+        패드 시퀀싱 함수입니다.
+        max_len보다 길이가 길면 자르고, 짧으면 패딩(영벡터)를 추가합니다.
+        엔티티 학습시에 CRF나 Masking 등을 이용하기 위해 각 문장의 길이가 필요합니다.
+        패드 시퀀싱 단계에서는 어차피 길이를 세기 때문에 여기에서 길이를 반환합니다.
+
+        :param sequence: 패드 시퀀싱할 문장입니다. (tensor로 이미 임베딩 된 문장)
+        :return:
+        """
+
         length = sequence.size()[0]
         if length > self.max_len:
             sequence = sequence[:self.max_len]

@@ -16,27 +16,7 @@ ARG LIB_DIR_PREFIX=x86_64
 ARG LIBNVINFER=6.0.1-1
 ARG LIBNVINFER_MAJOR_VERSION=6
 
-# 3. pick up some dependencies
-SHELL ["/bin/bash", "-c"]
-RUN apt-get update && apt-get install -y --no-install-recommends \
-        build-essential \
-        cuda-command-line-tools-${CUDA/./-} \
-        libcublas10=10.2.1.243-1 \ 
-        cuda-nvrtc-${CUDA/./-} \
-        cuda-cufft-${CUDA/./-} \
-        cuda-curand-${CUDA/./-} \
-        cuda-cusolver-${CUDA/./-} \
-        cuda-cusparse-${CUDA/./-} \
-        curl \
-        libcudnn7=${CUDNN}+cuda${CUDA} \
-        libfreetype6-dev \
-        libhdf5-serial-dev \
-        libzmq3-dev \
-        pkg-config \
-        software-properties-common \
-	    unzip
-
-# 4. python set up
+# 3. python set up
 ENV LANG C.UTF-8
 RUN apt-get update && apt-get install -y \
     python3 \
@@ -46,9 +26,9 @@ RUN python3 -m pip --no-cache-dir install --upgrade \
     setuptools
 RUN ln -s $(which python3) /usr/local/bin/python
 
-# 5. java set up
+# 4. java set up
 RUN apt install openjdk-11-jdk -y
 
-# 6. set up python packages
+# 5. set up python packages
 COPY requirements.txt /
 RUN pip3 install -r requirements.txt

@@ -12,6 +12,8 @@ from backend.proc.base.base_processor import BaseProcessor
 @data
 class Dataset:
     """
+    Class Dataset : @data (DATA configuration)
+
     학습과 추론에 사용할 데이터셋을 생성하는 클래스입니다.
     """
 
@@ -263,7 +265,7 @@ class Dataset:
         return question_list, label_list, length_list
 
     # torch.Tensor로 unpacking 됩니다.
-    def __list2tensor(self, *lists) -> list:
+    def __list2tensor(self, *lists: list) -> list:
         """
         5단계 : 데이터 병합 (텐서 변환)
 
@@ -276,7 +278,7 @@ class Dataset:
 
         return [torch.cat(a_list, dim=0) for a_list in lists]
 
-    def __mini_batch(self, tensors) -> DataLoader:
+    def __mini_batch(self, tensors: tuple) -> DataLoader:
         """
         6단계 : 미니배치 형태로 자르기
 
@@ -284,7 +286,7 @@ class Dataset:
         Pytorch DataLoader로 만듭니다.
 
         :param tensors: 텐서로 병합한 데이터셋들
-        :return: 미니 배치 트레이닝 용 데이터 로더
+        :return: 미니배치 트레이닝용 데이터로더 객체
         """
 
         return DataLoader(TensorDataset(*tensors),

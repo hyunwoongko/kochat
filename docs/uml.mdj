@@ -62,7 +62,7 @@
 											"top": 239,
 											"width": 213.17333984375,
 											"height": 13,
-											"text": "Dataset"
+											"text": "Preprocssor"
 										},
 										{
 											"_type": "LabelView",
@@ -323,7 +323,7 @@
 											"top": 455,
 											"width": 71.51904296875,
 											"height": 13,
-											"text": "DataLoader"
+											"text": "Dataset"
 										},
 										{
 											"_type": "LabelView",
@@ -594,7 +594,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Dataset",
+					"name": "Preprocssor",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",
@@ -710,7 +710,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "DataLoader",
+					"name": "Dataset",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",

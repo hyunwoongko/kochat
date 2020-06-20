@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d122a472-58ee-4a2b-8505-15e95560cd02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/intent/intent_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/intent/intent_classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,168 +55,196 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JupyterTrust" id="a841c732-c946-42a2-af0d-0afe62eacffe" />
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1bfFppX5BSuCF4RWh5ockmXtU93" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TIL" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/demo/train_backend_models.py" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.14554794" />
+    <property name="project.structure.side.proportion" value="0.2562893" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="Chatbot" sdk-home="docker://gusdnd852/chatbot:latest/python">
+        <option name="mySdkHome" value="docker://gusdnd852/chatbot:latest/python" />
+        <option name="myModuleName" value="Chatbot" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="PyDebuggerOptionsProvider">
+    <option name="mySupportGeventDebugging" value="true" />
+    <option name="mySupportQtDebugging" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Github\Chatbot Deeplearning\intent" />
-      <recent name="C:\Users\User\Github\Chatbot\intent\model" />
-      <recent name="C:\Users\User\Github\Chatbot\intent" />
-      <recent name="C:\Users\User\Github\Chatbot\data\intent" />
-      <recent name="C:\Users\User\Github\Chatbot\data" />
+      <recent name="C:\Users\ASUS\Github\chatbot\backend\model" />
+      <recent name="C:\Users\ASUS\Github\chatbot\backend\proc" />
+      <recent name="C:\Users\ASUS\Github\chatbot\backend\data" />
+      <recent name="C:\Users\ASUS\Github\chatbot\backend\model\entity" />
+      <recent name="C:\Users\ASUS\Github\chatbot\backend\opt" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Github\Chatbot\intent\loss" />
-      <recent name="C:\Users\User\Github\Chatbot\intent\model" />
-      <recent name="C:\Users\User\Github\Chatbot\embedding" />
-      <recent name="C:\Users\User\Github\Chatbot\data" />
-      <recent name="C:\Users\User\Github\Chatbot" />
+      <recent name="C:\Users\ASUS\Github\chatbot\image" />
+      <recent name="C:\Users\ASUS\Github\chatbot\backend\loss" />
+      <recent name="C:\Users\ASUS\Github\chatbot\backend\loss\base" />
+      <recent name="C:\Users\ASUS\Github\chatbot\backend\proc" />
+      <recent name="C:\Users\ASUS\Github\chatbot\backend\proc\base" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="Chatbot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="docker://gusdnd852/chatbot:latest/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="DockerContainerSettingsRunConfigurationExtension">
+        <option name="envVars">
+          <list />
+        </option>
+        <option name="extraHosts">
+          <list />
+        </option>
+        <option name="links">
+          <list />
+        </option>
+        <option name="networkDisabled" value="false" />
+        <option name="networkMode" value="bridge" />
+        <option name="portBindings">
+          <list />
+        </option>
+        <option name="publishAllPorts" value="false" />
+        <option name="runCliOptions" value="--entrypoint= --rm --runtime=nvidia" />
+        <option name="version" value="2" />
+        <option name="volumeBindings">
+          <list>
+            <DockerVolumeBindingImpl>
+              <option name="containerPath" value="/home/gusdnd852/Github/chatbot" />
+              <option name="editable" value="true" />
+              <option name="hostPath" value="/home/gusdnd852/Github/chatbot" />
+              <option name="readOnly" value="false" />
+            </DockerVolumeBindingImpl>
+          </list>
+        </option>
+      </EXTENSION>
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <PathMappingSettings>
+        <option name="pathMappings">
+          <list>
+            <mapping local-root="$PROJECT_DIR$" remote-root="/home/gusdnd852/Github/chatbot" />
+          </list>
+        </option>
+      </PathMappingSettings>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/opt/cache.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="docker python3" type="PythonConfigurationType" factoryName="Python">
+      <module name="Chatbot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="docker://gusdnd852/chatbot:latest/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="DockerContainerSettingsRunConfigurationExtension">
+        <option name="envVars">
+          <list />
+        </option>
+        <option name="extraHosts">
+          <list />
+        </option>
+        <option name="links">
+          <list />
+        </option>
+        <option name="networkDisabled" value="false" />
+        <option name="networkMode" value="bridge" />
+        <option name="portBindings">
+          <list />
+        </option>
+        <option name="publishAllPorts" value="false" />
+        <option name="runCliOptions" value="--entrypoint= --rm --runtime=nvidia" />
+        <option name="version" value="2" />
+        <option name="volumeBindings">
+          <list>
+            <DockerVolumeBindingImpl>
+              <option name="containerPath" value="/home/gusdnd852/Github/chatbot" />
+              <option name="editable" value="true" />
+              <option name="hostPath" value="/home/gusdnd852/Github/chatbot" />
+              <option name="readOnly" value="false" />
+            </DockerVolumeBindingImpl>
+          </list>
+        </option>
+      </EXTENSION>
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <PathMappingSettings>
+        <option name="pathMappings">
+          <list>
+            <mapping local-root="$PROJECT_DIR$" remote-root="/home/gusdnd852/Github/chatbot" />
+          </list>
+        </option>
+      </PathMappingSettings>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/train_backend_models.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
   </component>
-  <component name="RunManager" selected="Python.train">
-    <configuration name="graph_drawer" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Chatbot" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/util" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/util/graph_drawer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Chatbot" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\User\Github\Chatbot\trainer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main_train" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Chatbot" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\User\Github\Chatbot Deeplearning\train.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Chatbot" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="trainer" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Chatbot" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\User\Github\Chatbot Deeplearning\train.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.train" />
-        <item itemvalue="Python.main_train" />
-        <item itemvalue="Python.graph_drawer" />
-        <item itemvalue="Python.trainer" />
-        <item itemvalue="Python.main" />
-      </list>
-    </recent_temporary>
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
+    <option name="myConnectionType" value="NONE" />
+    <option name="myConnectionId" value="" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -214,27 +259,206 @@
       <workItem from="1589015429650" duration="73788000" />
       <workItem from="1589465535449" duration="2034000" />
       <workItem from="1589675998332" duration="9447000" />
-      <workItem from="1589687436156" duration="14947000" />
-      <workItem from="1589803936284" duration="1218000" />
-      <workItem from="1590527906510" duration="46000" />
+      <workItem from="1589687436156" duration="14235000" />
+      <workItem from="1591022079007" duration="50482000" />
+      <workItem from="1591145070133" duration="78000" />
+      <workItem from="1591171115440" duration="30206000" />
+      <workItem from="1591351576612" duration="16000" />
+      <workItem from="1591880059368" duration="2131000" />
+      <workItem from="1591882826854" duration="61000" />
+      <workItem from="1591882905769" duration="18146000" />
+      <workItem from="1591912994894" duration="179798000" />
+      <workItem from="1592174496273" duration="19667000" />
+      <workItem from="1592194904906" duration="74692000" />
+      <workItem from="1592339521306" duration="911000" />
+      <workItem from="1592340456733" duration="124549000" />
+      <workItem from="1592511640908" duration="312000" />
+      <workItem from="1592511964478" duration="61909000" />
+      <workItem from="1592585427791" duration="5046000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="846" y="210" key="#Deployment" timestamp="1592514065141">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="846" y="210" key="#Deployment/0.39.1920.1041@0.39.1920.1041" timestamp="1592514065141" />
+    <state x="850" y="307" width="653" height="543" key="#Docker" timestamp="1592339823617">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="850" y="307" width="653" height="543" key="#Docker/0.39.1920.1041@0.39.1920.1041" timestamp="1592339823617" />
+    <state x="624" y="91" key="#Dockerfile" timestamp="1592195492754">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="624" y="91" key="#Dockerfile/0.39.1920.1041@0.39.1920.1041" timestamp="1592195492754" />
+    <state x="440" y="149" key="#Project_Structure" timestamp="1591881579560">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="440" y="114" key="#Project_Structure/0.0.1920.1080@0.0.1920.1080" timestamp="1591028723740" />
+    <state x="440" y="149" key="#Project_Structure/0.39.1920.1041@0.39.1920.1041" timestamp="1591881579560" />
+    <state x="679" y="216" key="#SSH_Configurations" timestamp="1592550275664">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="679" y="184" key="#SSH_Configurations/0.0.1920.1080@0.0.1920.1080" timestamp="1591028208441" />
+    <state x="679" y="216" key="#SSH_Configurations/0.39.1920.1041@0.39.1920.1041" timestamp="1592550275664" />
+    <state x="811" y="460" key="#Volume_binding" timestamp="1592341287492">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="811" y="437" key="#Volume_binding/0.0.1920.1080@0.0.1920.1080" timestamp="1591029040179" />
+    <state x="811" y="460" key="#Volume_binding/0.39.1920.1041@0.39.1920.1041" timestamp="1592341287492" />
+    <state x="414" y="226" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592585470353">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="414" y="194" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591201352070" />
+    <state x="414" y="226" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1592585470353" />
+    <state x="108" y="365" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1592006490031">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="108" y="338" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1591074853646" />
+    <state x="108" y="365" key="#com.intellij.fileTypes.FileTypeChooser/0.39.1920.1041@0.39.1920.1041" timestamp="1592006490031" />
+    <state x="765" y="275" key="#com.intellij.ide.util.MemberChooser" timestamp="1592556407723">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="765" y="275" key="#com.intellij.ide.util.MemberChooser/0.39.1920.1041@0.39.1920.1041" timestamp="1592556407723" />
+    <state x="240" y="39" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592301473920">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="240" y="39" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1592301473920" />
+    <state x="690" y="314" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592565347688">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="690" y="285" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591085467039" />
+    <state x="690" y="314" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1592565347688" />
+    <state x="624" y="100" key="#test" timestamp="1592195804556">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="624" y="100" key="#test/0.39.1920.1041@0.39.1920.1041" timestamp="1592195804556" />
+    <state x="624" y="100" key="#test_(1)" timestamp="1592195200159">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="624" y="100" key="#test_(1)/0.39.1920.1041@0.39.1920.1041" timestamp="1592195200159" />
+    <state x="92" y="131" width="1736" height="857" key="DiffContextDialog" timestamp="1592014609157">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="92" y="131" width="1736" height="857" key="DiffContextDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1592014609157" />
+    <state x="92" y="92" width="1736" height="896" key="DirDiffDialog" timestamp="1591063412232">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="92" y="92" width="1736" height="896" key="DirDiffDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591063412232" />
+    <state x="755" y="322" key="FileChooserDialogImpl" timestamp="1592580623343">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="755" y="294" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1591103888965" />
+    <state x="755" y="322" key="FileChooserDialogImpl/0.39.1920.1041@0.39.1920.1041" timestamp="1592580623343" />
+    <state width="1921" height="109" key="GridCell.Tab.0.bottom" timestamp="1592584032479">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state width="781" height="181" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
+    <state width="1921" height="109" key="GridCell.Tab.0.bottom/0.39.1920.1041@0.39.1920.1041" timestamp="1592584032479" />
+    <state width="1921" height="109" key="GridCell.Tab.0.center" timestamp="1592584032478">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state width="781" height="181" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
+    <state width="1921" height="109" key="GridCell.Tab.0.center/0.39.1920.1041@0.39.1920.1041" timestamp="1592584032478" />
+    <state width="1921" height="109" key="GridCell.Tab.0.left" timestamp="1592584032478">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state width="781" height="181" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
+    <state width="1921" height="109" key="GridCell.Tab.0.left/0.39.1920.1041@0.39.1920.1041" timestamp="1592584032478" />
+    <state width="1921" height="109" key="GridCell.Tab.0.right" timestamp="1592584032478">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state width="781" height="181" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
+    <state width="1921" height="109" key="GridCell.Tab.0.right/0.39.1920.1041@0.39.1920.1041" timestamp="1592584032478" />
+    <state width="1921" height="358" key="GridCell.Tab.1.bottom" timestamp="1592510344604">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state width="1877" height="366" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1591097545037" />
+    <state width="1921" height="358" key="GridCell.Tab.1.bottom/0.39.1920.1041@0.39.1920.1041" timestamp="1592510344604" />
+    <state width="1921" height="358" key="GridCell.Tab.1.center" timestamp="1592510344604">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state width="1877" height="366" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1591097545037" />
+    <state width="1921" height="358" key="GridCell.Tab.1.center/0.39.1920.1041@0.39.1920.1041" timestamp="1592510344604" />
+    <state width="1921" height="358" key="GridCell.Tab.1.left" timestamp="1592510344604">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state width="1877" height="366" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1591097545037" />
+    <state width="1921" height="358" key="GridCell.Tab.1.left/0.39.1920.1041@0.39.1920.1041" timestamp="1592510344604" />
+    <state width="1921" height="358" key="GridCell.Tab.1.right" timestamp="1592510344604">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state width="1877" height="366" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1591097545037" />
+    <state width="1921" height="358" key="GridCell.Tab.1.right/0.39.1920.1041@0.39.1920.1041" timestamp="1592510344604" />
+    <state x="38" y="167" width="1538" height="725" key="SettingsEditor" timestamp="1592585450478">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="721" y="183" width="1002" height="713" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1591145094319" />
+    <state x="38" y="167" width="1538" height="725" key="SettingsEditor/0.39.1920.1041@0.39.1920.1041" timestamp="1592585450478" />
+    <state x="0" y="160" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1592484609809">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="0" y="160" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.39.1920.1041@0.39.1920.1041" timestamp="1592484609809" />
+    <state x="262" y="131" width="1566" height="857" key="dock-window-1" timestamp="1592243635180">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="262" y="131" width="1566" height="857" key="dock-window-1/0.39.1920.1041@0.39.1920.1041" timestamp="1592243635180" />
+    <state x="92" y="131" width="1736" height="857" key="dock-window-2" timestamp="1592243635180">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="92" y="131" width="1736" height="857" key="dock-window-2/0.39.1920.1041@0.39.1920.1041" timestamp="1592243635180" />
+    <state x="855" y="298" key="ftp.server.browser" timestamp="1592550287198">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="855" y="269" key="ftp.server.browser/0.0.1920.1080@0.0.1920.1080" timestamp="1591031160443" />
+    <state x="855" y="298" key="ftp.server.browser/0.39.1920.1041@0.39.1920.1041" timestamp="1592550287198" />
+    <state width="600" height="428" key="javadoc.popup" timestamp="1592293320359">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state width="600" height="428" key="javadoc.popup/0.39.1920.1041@0.39.1920.1041" timestamp="1592293320359" />
+    <state x="124" y="149" key="new project wizard" timestamp="1592549165983">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="124" y="114" key="new project wizard/0.0.1920.1080@0.0.1920.1080" timestamp="1591351591541" />
+    <state x="124" y="149" key="new project wizard/0.39.1920.1041@0.39.1920.1041" timestamp="1592549165983" />
+    <state x="821" y="412" width="656" height="284" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1591100047341">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="821" y="412" width="656" height="284" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591100047341" />
+    <state x="792" y="450" key="publish.login" timestamp="1592150705802">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="792" y="450" key="publish.login/0.39.1920.1041@0.39.1920.1041" timestamp="1592150705802" />
+    <state x="785" y="328" key="refactoring.ChangeSignatureDialog" timestamp="1592305312098">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="785" y="328" key="refactoring.ChangeSignatureDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1592305312098" />
+    <state x="181" y="264" key="run.anything.popup" timestamp="1592532498164">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="181" y="264" key="run.anything.popup/0.39.1920.1041@0.39.1920.1041" timestamp="1592532498164" />
+    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup" timestamp="1592467023313">
+      <screen x="0" y="39" width="1920" height="1041" />
+    </state>
+    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup/0.39.1920.1041@0.39.1920.1041" timestamp="1592467023313" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -243,23 +467,47 @@
           <url>file://$PROJECT_DIR$/../TIL/venv/Lib/site-packages/torchsummary/torchsummary.py</url>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/backend/train.py</url>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Chatbot$flask_server.coverage" NAME="flask_server Coverage Results" MODIFIED="1592018800619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/Chatbot$correct_convert.coverage" NAME="correct_convert Coverage Results" MODIFIED="1591064170665" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/intent" />
+    <SUITE FILE_PATH="coverage/Chatbot$train__1_.coverage" NAME="train (1) Coverage Results" MODIFIED="1592026581064" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chatbot$main.coverage" NAME="main Coverage Results" MODIFIED="1591999576114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chatbot$dev.coverage" NAME="dev Coverage Results" MODIFIED="1592121872703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
     <SUITE FILE_PATH="coverage/Chatbot_Deeplearning$main_train.coverage" NAME="main_train Coverage Results" MODIFIED="1589688975891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Chatbot$build_intent_data.coverage" NAME="build_intent_data Coverage Results" MODIFIED="1589180310154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
-    <SUITE FILE_PATH="coverage/Chatbot$visualization.coverage" NAME="visualization Coverage Results" MODIFIED="1589201703604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
-    <SUITE FILE_PATH="coverage/Chatbot$make_intent_data.coverage" NAME="make_intent_data Coverage Results" MODIFIED="1589180179158" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
-    <SUITE FILE_PATH="coverage/Chatbot$embedding.coverage" NAME="embedding Coverage Results" MODIFIED="1589191576476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/embedding" />
-    <SUITE FILE_PATH="coverage/Chatbot$intent_trainer.coverage" NAME="intent_trainer Coverage Results" MODIFIED="1589213305776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intent" />
-    <SUITE FILE_PATH="coverage/Chatbot$trainer.coverage" NAME="trainer Coverage Results" MODIFIED="1589686565156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Chatbot_Deeplearning$train.coverage" NAME="train Coverage Results" MODIFIED="1589702380404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chatbot$python3__1_.coverage" NAME="python3 (1) Coverage Results" MODIFIED="1592340819069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chatbot$train.coverage" NAME="python3 (1) Coverage Results" MODIFIED="1592339344043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chatbot$docker_python3__1_.coverage" NAME="docker python3 (1) Coverage Results" MODIFIED="1592383830762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chatbot$test_convert.coverage" NAME="test_convert Coverage Results" MODIFIED="1591955544781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/convert" />
     <SUITE FILE_PATH="coverage/Chatbot$visualization__1_.coverage" NAME="visualization (1) Coverage Results" MODIFIED="1589202747121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/embedding" />
+    <SUITE FILE_PATH="coverage/Chatbot$graph_drawer.coverage" NAME="graph_drawer Coverage Results" MODIFIED="1589686849279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/Chatbot$dust_api.coverage" NAME="dust_api Coverage Results" MODIFIED="1592054388946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/Chatbot$drawer.coverage" NAME="drawer Coverage Results" MODIFIED="1592014365903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/Chatbot$visualization.coverage" NAME="visualization Coverage Results" MODIFIED="1589201703604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/Chatbot$restful_api.coverage" NAME="restful_api Coverage Results" MODIFIED="1591947898409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/restful" />
+    <SUITE FILE_PATH="coverage/Chatbot$convert.coverage" NAME="convert Coverage Results" MODIFIED="1592008432400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/Chatbot$build_date.coverage" NAME="build_data Coverage Results" MODIFIED="1592020351788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/Chatbot$build_entity.coverage" NAME="build_entity Coverage Results" MODIFIED="1592018791080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/Chatbot$embedding.coverage" NAME="embedding Coverage Results" MODIFIED="1589191576476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/embedding" />
+    <SUITE FILE_PATH="coverage/Chatbot$python3__3_.coverage" NAME="python3 (3) Coverage Results" MODIFIED="1592312155789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/crawler/core/searcher" />
+    <SUITE FILE_PATH="coverage/Chatbot$make_intent_data.coverage" NAME="make_intent_data Coverage Results" MODIFIED="1589180179158" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
     <SUITE FILE_PATH="coverage/Chatbot_Deeplearning$graph_drawer.coverage" NAME="graph_drawer Coverage Results" MODIFIED="1589687603122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
     <SUITE FILE_PATH="coverage/Chatbot_Deeplearning$trainer.coverage" NAME="trainer Coverage Results" MODIFIED="1589687549555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Chatbot$build_intent.coverage" NAME="build_intent Coverage Results" MODIFIED="1589209930309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
-    <SUITE FILE_PATH="coverage/Chatbot$main.coverage" NAME="main Coverage Results" MODIFIED="1589213316017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Chatbot$graph_drawer.coverage" NAME="graph_drawer Coverage Results" MODIFIED="1589686849279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/Chatbot$docker_python3.coverage" NAME="docker python3 Coverage Results" MODIFIED="1592580213105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chatbot$intent_trainer.coverage" NAME="intent_trainer Coverage Results" MODIFIED="1589213305776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intent" />
+    <SUITE FILE_PATH="coverage/Chatbot$python_runner.coverage" NAME="train Coverage Results" MODIFIED="1592026645082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/Chatbot$xx.coverage" NAME="xx Coverage Results" MODIFIED="1591955576961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/Chatbot$build_intent_data.coverage" NAME="build_intent_data Coverage Results" MODIFIED="1589180310154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/Chatbot$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1591927705769" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chatbot$build_intent.coverage" NAME="build_intent Coverage Results" MODIFIED="1591032480057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/Chatbot_Deeplearning$train.coverage" NAME="train Coverage Results" MODIFIED="1589702380404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chatbot$trainer.coverage" NAME="trainer Coverage Results" MODIFIED="1589686565156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chatbot$python3__2_.coverage" NAME="python3 (2) Coverage Results" MODIFIED="1592235666681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
