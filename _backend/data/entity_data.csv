@@ -41,7 +41,7 @@ question,entity
 체감날씨 좀 알려줄래,O O O
 궁금해 체감날씨,O O
 어때 좀 체감온도,O O O
-내일 근데 온도 어떠려나,S-DATE O O O
+화요일 근데 온도 어떠려나,S-DATE O O O
 해 떴니 지금,O O S-DATE
 하늘 해 떴니 지금,O O O S-DATE
 날씨 어때 지금,O O S-DATE
@@ -51,35 +51,35 @@ question,entity
 온도 알려줬으면 졸겠어,O O O
 천둥 치나,O O
 하늘 구름 많네,O O O
-내일 여행갈건데 온도 알려줘,S-DATE O O O
+화요일 여행갈건데 온도 알려줘,S-DATE O O O
 온도 궁금하네,O O
 모레 맑니,S-DATE O
-내일 해 뜰까,S-DATE O O
+화요일 해 뜰까,S-DATE O O
 온도 많이 흐리려나,O O O
 알려주세요 온도,O O
 구름 꼈나,O O
 구름 끼었나,O O
 지금 하늘 구름 많니,S-DATE O O O
 온도 알려주세요 궁금해요,O O O
-맑으려나 내일,O S-DATE
+맑으려나 화요일,O S-DATE
 기상상태 궁금해서,O O
 비 안 내려야 하는데,O O O O
 기상상태 따뜻하려나,O O
 날씨 따뜻하겠지,O O
 부천 현재 바람 시원하니,S-LOCATION S-DATE O O
 날씨 알려주세요,O O
-내일 맑겠지,S-DATE O
+화요일 맑겠지,S-DATE O
 서울 다음 주 기상상태 알려줄래요,S-LOCATION B-DATE E-DATE O O
 부안 기상상태 어떻게 돼,S-LOCATION O O O
 모레 서천 기상상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O O
-내일 기상상태 영덕 알려줄수 있어,S-DATE O S-LOCATION O O
+화요일 기상상태 영덕 알려줄수 있어,S-DATE O S-LOCATION O O
 이번 주 날씨 기상상태 알려줄래,B-DATE E-DATE O O O
 구암 다음 주 기상상태 알려줘,S-LOCATION S-DATE S-DATE O O
 이번 주 영등포 기상상태 줘,S-DATE S-DATE S-LOCATION O O
 구로 다음 주 기상상태 알려줄래,S-LOCATION S-DATE S-DATE O O
 일산 기상상태 어떻게 돼요,S-LOCATION O O O
 모레 안암 기상상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O O
-내일 기상상태 알려줄수 있어,S-DATE O O O
+목요일 기상상태 알려줄수 있어,S-DATE O O O
 이번 주 홍대 기상상태 알려줄래,S-DATE S-DATE S-LOCATION O O
 남구 다음 주 날씨 알려줘,S-LOCATION S-DATE S-DATE O O
 이번 주 보령 날씨 줘,S-DATE S-DATE S-LOCATION O O
@@ -89,31 +89,31 @@ question,entity
 많이 덥니,O O
 날씨 많이 더울까,O O O
 알려줘 날씨,O O
-내일 우산 챙길까,S-DATE O O
+목요일 우산 챙길까,S-DATE O O
 우산 써야하나,O O
 이번 주 날씨 많이 덥니,S-DATE S-DATE O O O
-내일 비오겠지,S-DATE O
+목요일 비오겠지,S-DATE O
 헉 혹시 더울까,O O O
-내일 혹시 시원할까,S-DATE O O
+목요일 혹시 시원할까,S-DATE O O
 바람 살랑살랑 부니,O O O
 날씨 춥니,O O
-내일 추울까,S-DATE O
+목요일 추울까,S-DATE O
 춥겠지 아마,O O
 비 떨어지려나,O O
 모레 비 오나,S-DATE O O
 온도 알려줘,O O
-내일 추울까,S-DATE O
+목요일 추울까,S-DATE O
 추울까,O
-혹시 내일 비오나 우산 챙길까,O S-DATE O O O
+혹시 목요일 비오나 우산 챙길까,O S-DATE O O O
 우산 필요하니,O O
-내일 우산 필요할까,S-DATE O O
+목요일 우산 필요할까,S-DATE O O
 부천 날씨 시원하려나,S-LOCATION O O
 우산 챙겨야하나 모르겠네,O O O
 밀양 추우면 안되는데,O O O
 맑을까 그 때,O O O
 혹시 비 오니,O O O
 그 때 혹시 추울까,O O O O
-나 내일 여행가는데 날씨 알려줘,O S-DATE O O O
+나 목요일 여행가는데 날씨 알려줘,O S-DATE O O O
 그 때 혹시 흐리니,O O O O
 하늘 흐리니,O O
 눈 오려나,O O
@@ -126,23 +126,23 @@ question,entity
 이번 주 맑겠지,S-DATE S-DATE O
 많이 더우면 안될텐데,O O O
 다음 주 날씨 알려줘,S-DATE S-DATE O O
-내일 먹구름 흐릴까,S-DATE O O
-내일 혹시 서대문구 비 오려나,S-DATE O S-LOCATION O O
+목요일 먹구름 흐릴까,S-DATE O O
+목요일 혹시 서대문구 비 오려나,S-DATE O S-LOCATION O O
 모레 비오니,S-DATE O
 군산 우박 오려나,S-LOCATION O O
 추울까 정말,O O
 비올까,O
-내일 눈오겠지 아마,S-DATE O O
-내일 눈 오면 안되는데,S-DATE O O O
+금요일 눈오겠지 아마,S-DATE O O
+금요일 눈 오면 안되는데,S-DATE O O O
 혹시 눈 안오겠지,O O O
 의정부 눈올까,S-LOCATION O
-내일 우산 필요해,S-DATE O O
+금요일 우산 필요해,S-DATE O O
 우산 쓸까,O O
-내일 우산 챙길까 말까,S-DATE O O O
+금요일 우산 챙길까 말까,S-DATE O O O
 먹구름 궁금한데 알려주겠니,O O O
 혹시 먹구름 알려줘,O O O
-내일모레 동두천 먹구름 궁금해요,S-DATE S-LOCATION O O
-내일모레 먹구름 궁금해,S-DATE O O
+금요일모레 동두천 먹구름 궁금해요,S-DATE S-LOCATION O O
+금요일모레 먹구름 궁금해,S-DATE O O
 구름 많이 끼고 추우려나,O O O O
 서울 날씨 알려주겠니,S-LOCATION O O
 부산 날씨 정보 알려주세요,S-LOCATION O O O
@@ -173,7 +173,7 @@ question,entity
 송파구 날씨 좀 알려줄래,S-LOCATION O O O
 궁금해 부천 날씨,O S-LOCATION O
 어때 좀 안산 날씨,O O S-LOCATION O
-내일 근데 원주 날씨 어떠려나,S-DATE O S-LOCATION O O
+금요일 근데 원주 날씨 어떠려나,S-DATE O S-LOCATION O O
 울산 지금 해 떴니,S-LOCATION S-DATE O O
 하늘 해 떴니 지금,O O O S-DATE
 광주 날씨 알려주세요,S-LOCATION O O
@@ -181,19 +181,19 @@ question,entity
 날씨 알려줬으면 졸겠어,O O O
 평창 날씨 알려줘,S-LOCATION O O
 모레 천둥 치나,S-DATE O O
-내일 여행갈건데 날씨 알려줘,S-DATE O O O
+금요일 여행갈건데 날씨 알려줘,S-DATE O O O
 날씨 궁금하네,O O
 모레 맑니,S-DATE O
-내일 해 뜰까,S-DATE O O
+금요일 해 뜰까,S-DATE O O
 알려주세요 춘천 날씨,O S-LOCATION O
 광주 북구 날씨 어떠려나,B-LOCATION E-LOCATION O O
 날씨 알려주세요 궁금해요,O O O
 그 날 바람 많이 불겠지,O O O O O
-맑으려나 내일,O S-DATE
+맑으려나 금요일,O S-DATE
 온도 궁금해서,O O
 비 안 내려야 하는데,O O O O
 무주 날씨 알려주세요,S-LOCATION O O
-내일 맑겠지,S-DATE O
+금요일 맑겠지,S-DATE O
 완전 덥겠다,O O
 하늘 맑을까,O O
 하늘 비 내리니,O O O
@@ -202,35 +202,35 @@ question,entity
 온도 많이 더울까,O O O
 알려줘 은평구 온도,O S-LOCATION O
 노원구 온도 궁금하네,S-LOCATION O O
-내일 우산 챙길까,S-DATE O O
+토요일 우산 챙길까,S-DATE O O
 진짜 영덕 그 때 더울까,O S-LOCATION O O O
-임실 내일 혹시 우산 써야하나,S-LOCATION S-DATE O O O
+임실 토요일 혹시 우산 써야하나,S-LOCATION S-DATE O O O
 이번 주 온도 많이 덥니,S-DATE S-DATE O O O
-내일 비오겠지,S-DATE O
+토요일 비오겠지,S-DATE O
 홍대 혹시 더울까,S-LOCATION O O
 서울 춥니,S-LOCATION O
 구름 껴서 흐린가,O O O
 춥진 않겠지,O O
 너무 춥지 않으려나,O O O
 우산 아마 챙겨야겠지,O O O
-해운대 내일 비올까,S-LOCATION S-DATE O
+해운대 토요일 비올까,S-LOCATION S-DATE O
 오수 춥겠지 아마,S-LOCATION O O
 그 떄 하늘 흐릴까,O O O O
 비 떨어지려나,O O
 온도 알려줘,O O
-서귀포 내일 추울까,S-LOCATION S-DATE O
+서귀포 토요일 추울까,S-LOCATION S-DATE O
 바람 불면 안되는데,O O O
 제주 많이 추울까,S-LOCATION O O
 바람 너무 세게 부나,O O O O
-혹시 내일 비오나 우산 챙길까,O S-DATE O O O
+혹시 토요일 비오나 우산 챙길까,O S-DATE O O O
 여수 지금 우산 필요하니,S-LOCATION S-DATE O O
-순천 내일 우산 필요할까,S-LOCATION S-DATE O O
+순천 토요일 우산 필요할까,S-LOCATION S-DATE O O
 우산 챙겨야하나 모르겠네,O O O
 추우면 안되는데,O O
 건대 입구 맑을까 그 때,S-LOCATION O O O O
 혹시 비 오니,O O O
 그 때 혹시 추울까,O O O O
-나 내일 여행가는데 온도 알려줘,O S-DATE O O O
+나 토요일 여행가는데 온도 알려줘,O S-DATE O O O
 그 때 혹시 흐리니,O O O O
 하늘 흐리니,O O
 지금 바람 부나,S-DATE O O
@@ -243,10 +243,10 @@ question,entity
 이번 주 맑겠지,S-DATE S-DATE O
 많이 더우면 안될텐데,O O O
 다음 주 날씨 알려줘,S-DATE S-DATE O O
-내일 온도 흐릴까,S-DATE O O
+토요일 온도 흐릴까,S-DATE O O
 바람 많이 부니,O O O
 영월 바람 많이 부려나,S-LOCATION O O O
-내일 혹시 비 오려나,S-DATE O O O
+토요일 혹시 비 오려나,S-DATE O O O
 모레 비오니,S-DATE O
 우박 오려나,O O
 1월 1일 비 오나요,S-DATE S-DATE O O
@@ -272,20 +272,20 @@ question,entity
 11월 6일 청원 온도 맑니,B-DATE E-DATE S-LOCATION O O
 이천 이번 주 흐리려나 하늘,S-LOCATION B-DATE E-DATE O O
 비 올까,O O
-내일 오산 눈오겠지 아마,S-DATE S-LOCATION O O
-내일 눈오니,S-DATE O
+토요일 오산 눈오겠지 아마,S-DATE S-LOCATION O O
+토요일 눈오니,S-DATE O
 혹시 눈 안오겠지,O O O
 그 날 비와서 힘들겠지,O S-DATE O O
 눈 올까,O O
 약속 잡았는데 비 오네,O O O O
-내일 진주 우산 필요해,S-DATE S-LOCATION O O
+토요일 진주 우산 필요해,S-DATE S-LOCATION O O
 우산 쓸까 말해줘,O O O
-울릉도 내일 우산 챙길까 말까,S-LOCATION S-DATE O O O
+울릉도 토요일 우산 챙길까 말까,S-LOCATION S-DATE O O O
 날씨 궁금한데 알려주겠니,O O O
 혹시 날씨 알려줘,O O O
-인천 내일모레 날씨 궁금해요,S-LOCATION S-DATE O O
-내일모레 날씨 궁금해,S-DATE O O
-내일 맑겠지,S-DATE O
+인천 토요일모레 날씨 궁금해요,S-LOCATION S-DATE O O
+토요일모레 날씨 궁금해,S-DATE O O
+일요일 맑겠지,S-DATE O
 이천 하늘 맑을까,S-LOCATION O O
 화순 하늘 비 내리니,S-LOCATION O O O
 지금 남원 온도 많이 덥니,S-DATE S-LOCATION O O O
@@ -295,10 +295,10 @@ question,entity
 이따가 우산 챙길까,S-DATE O O
 이태원 우산 써야하나,S-LOCATION O O
 이번 주 날씨 많이 덥니,B-DATE E-DATE O O O
-내일 비오겠지,S-DATE O
+일요일 비오겠지,S-DATE O
 모레 날씨 알려주세요,S-DATE O O
 혹시 이따 날씨 좀 알려줄래요,O S-DATE O O O
-내일 날씨 알려주세요,S-DATE O O
+일요일 날씨 알려주세요,S-DATE O O
 저번 주 날씨 말해주세요,B-DATE E-DATE O O
 이번 주 날씨 바람 부니,B-DATE E-DATE O O O
 날씨 어떠냐,O O
@@ -306,13 +306,13 @@ question,entity
 다음 주 광명 날씨 알려주세요,B-DATE E-DATE S-LOCATION O O
 지금 평택 날씨 알려주세요,S-DATE S-LOCATION O O
 이번 주 광주 날씨 말해주라,B-DATE E-DATE S-LOCATION O O
-내일 부산 날씨,S-DATE S-LOCATION O
-내일 대구 날씨 말해,S-DATE S-LOCATION O O
+일요일 부산 날씨,S-DATE S-LOCATION O
+일요일 대구 날씨 말해,S-DATE S-LOCATION O O
 이따 대전 날씨 말해줘,S-DATE S-LOCATION O O
 모레 날씨 뭐야,S-DATE O O
-내일 부산 날씨 말해주라,S-DATE S-LOCATION O O
+일요일 부산 날씨 말해주라,S-DATE S-LOCATION O O
 부산 날씨,S-LOCATION O
-경북 내일 날씨 어때,S-LOCATION S-DATE O O
+경북 일요일 날씨 어때,S-LOCATION S-DATE O O
 익산 날씨 어떨 것 같은지 말해줘,S-LOCATION O O O O O
 2월 2O일 날씨 알려주겠니,B-DATE E-DATE O O
 1월 3O일 날씨 정보 알려주세요,B-DATE E-DATE O O O
@@ -346,7 +346,7 @@ question,entity
 파주 날씨 좀 알려줄래,S-LOCATION O O O
 궁금해 의정부 날씨,O O O
 어때 김포 날씨,O S-LOCATION O
-내일 근데 구미 날씨 어떠려나,S-DATE O S-LOCATION O O
+일요일 근데 구미 날씨 어떠려나,S-DATE O S-LOCATION O O
 양산 해 떴니 현재,S-LOCATION O O S-DATE
 원주 하늘 해 떴니 현재,S-LOCATION O O O S-DATE
 진주 날씨 어때 현재,S-LOCATION O O S-DATE
@@ -356,17 +356,17 @@ question,entity
 익산 날씨 알려줬으면 졸겠어,S-LOCATION O O O
 춘천 현재 천둥 치나,S-LOCATION S-DATE O O
 경산 하늘 구름 많네,S-LOCATION O O O
-내일 군포 여행갈건데 날씨 알려줘,S-DATE O O O O
+일요일 군포 여행갈건데 날씨 알려줘,S-DATE O O O O
 하남 날씨 궁금하네,S-LOCATION O O
 오늘 여수 맑니,S-DATE S-LOCATION O
-내일 경주 해 뜰까,S-DATE S-LOCATION O O
+일요일 경주 해 뜰까,S-DATE S-LOCATION O O
 거제도 날씨 많이 흐리려나,S-LOCATION O O O
 목포 알려주세요 날씨,S-LOCATION O O
 이천 구름 꼈나,S-LOCATION O O
 강릉 구름 끼었나,S-LOCATION O O
 양주 현재 하늘 구름 많니,S-LOCATION S-DATE O O O
 충주 날씨 알려주세요 맑나요,S-LOCATION O O O
-안성 맑으려나 내일,S-LOCATION O S-DATE
+안성 맑으려나 일요일,S-LOCATION O S-DATE
 서산 날씨 궁금해서,S-LOCATION O O
 구리 내일 비 안 내려야 하는데,S-LOCATION S-DATE O O O O
 서귀포 날씨 알려주세요,S-LOCATION O O
@@ -399,12 +399,12 @@ question,entity
 내일 태안 추울까,S-DATE S-LOCATION O
 고흥 춥겠지 아마,S-LOCATION O O
 화순 비 떨어지려나,S-LOCATION O O
-거창 오늘 비 오나,S-LOCATION S-DATE O O
+거창 월요일 비 오나,S-LOCATION S-DATE O O
 가평 날씨 알려줘,S-LOCATION O O
 내일 고창 추울까,S-DATE S-LOCATION O
 서천 추울까,S-LOCATION O
 혹시 내일 금산 비오나 우산 챙길까,O S-DATE S-LOCATION O O O
-부안 오늘 우산 필요하니,S-LOCATION S-DATE O O
+부안 월요일 우산 필요하니,S-LOCATION S-DATE O O
 내일 옥천 우산 필요할까,S-DATE S-LOCATION O O
 영광 우산 챙겨야하나 모르겠네,S-LOCATION O O O
 울진 추우면 안되는데,S-LOCATION O O
@@ -417,7 +417,7 @@ question,entity
 청도 이따가 눈 오려나,S-LOCATION S-DATE O O
 괴산 구름 꼈니,S-LOCATION O O
 강남 하늘 흐릴까,S-LOCATION O O
-함양 오늘 비 내리나,S-LOCATION S-DATE O O
+함양 월요일 비 내리나,S-LOCATION S-DATE O O
 그 때 하늘 어떠려나,O O O O
 증평 하늘 많이 흐리니 그 날,S-LOCATION O O O O S-DATE
 영월 날씨 어떨 것 같아,S-LOCATION O O O O
@@ -426,7 +426,7 @@ question,entity
 다음 주 정선 날씨 알려줘,B-DATE E-DATE S-LOCATION O O
 내일 강진 날씨 흐릴까,S-DATE S-LOCATION O O
 내일 혹시 보은 비 오려나,S-DATE O S-LOCATION O O
-오늘 인제 비오니,S-DATE S-LOCATION O
+월요일 인제 비오니,S-DATE S-LOCATION O
 진도 우박 오려나,S-LOCATION O O
 군산 날씨 추울까 정말,S-LOCATION O O O
 곡성 비올까,S-LOCATION O
@@ -452,7 +452,7 @@ question,entity
 도봉구 날씨 어때요,S-LOCATION O O
 중랑구 체감 날씨 말해주겠니,S-LOCATION O O O
 청주 날씨 어떠니,S-LOCATION O O
-오늘 용산구 날씨 알려줘,S-DATE S-LOCATION O O
+월요일 용산구 날씨 알려줘,S-DATE S-LOCATION O O
 마포구 날씨 어떨까,S-LOCATION O O
 그럼 강남 날씨 어떨까,O S-LOCATION O O
 강동 날씨 어떤지 좀 말해줘,S-LOCATION O O O O
@@ -461,7 +461,7 @@ question,entity
 경남 날씨 어떠려나,S-LOCATION O O
 전북 체감 날씨 어떠려나,S-LOCATION O O O
 전남 날씨 어떠려나,S-LOCATION O O
-오늘 전북 날씨 알려주겠니,S-DATE S-LOCATION O O
+월요일 전북 날씨 알려주겠니,S-DATE S-LOCATION O O
 영등포 날씨 궁금해,S-LOCATION O O
 현재 양천구 날씨 어떤데,S-DATE S-LOCATION O O
 저기 마포구 날씨 어때,O S-LOCATION O O
@@ -492,14 +492,14 @@ question,entity
 내일 안성시 날씨 알려줘,S-DATE S-LOCATION O O
 부산 강서구 날씨 알려줘,B-LOCATION E-LOCATION O O
 금정구 날씨 어때,S-LOCATION O O
-오늘 동래구 날씨 알려줘,S-DATE S-LOCATION O O
+월요일 동래구 날씨 알려줘,S-DATE S-LOCATION O O
 내일 북구 날씨 어때,S-DATE S-LOCATION O O
 해운대구 날씨 어떠려나,S-LOCATION O O
 사하구 날씨 알려줘,S-LOCATION O O
 미추홀구 날씨 알려줘,S-LOCATION O O
 연수구 날씨 뭐야,S-LOCATION O O
 인천 서구 날씨 알려줘,B-LOCATION E-LOCATION O O
-오늘 부평구 날씨 어때,S-DATE S-LOCATION O O
+월요일 부평구 날씨 어때,S-DATE S-LOCATION O O
 계양구 날씨 알려줘,S-LOCATION O O
 울산 북구 날씨 어때,B-LOCATION E-LOCATION O O
 강릉시 날씨 알려줘,S-LOCATION O O
@@ -513,7 +513,7 @@ question,entity
 증평 날씨 알려줘,S-LOCATION O O
 진천군 날씨 궁금해,S-LOCATION O O
 청주시 흥덕구 날씨 알려줘,B-LOCATION E-LOCATION O O
-계룡 날씨 알려줘 오늘,S-LOCATION O O S-DATE
+계룡 날씨 알려줘 월요일,S-LOCATION O O S-DATE
 논산시 날씨 알려줘,S-LOCATION O O
 태안군 날씨 알려줘,S-LOCATION O O
 봉화 날씨 알려줘,S-LOCATION O O
@@ -524,14 +524,14 @@ question,entity
 거제시 날씨 어때,S-LOCATION O O
 고성군 날씨 어때,S-LOCATION O O
 창녕군 날씨 알려줘,S-LOCATION O O
-내일 함안군 날씨 어때,S-DATE S-LOCATION O O
+수요일 함안군 날씨 어때,S-DATE S-LOCATION O O
 합천군 날씨 알려줘,S-LOCATION O O
 제주시 날씨 알려줘,S-LOCATION O O
-내일 영덕 근처 날씨 어때,S-DATE S-LOCATION O O O
+수요일 영덕 근처 날씨 어때,S-DATE S-LOCATION O O O
 오늘 경주 근처 날씨 어때,S-DATE S-LOCATION O O O
 오늘 밀양 근처 날씨 어때,S-DATE S-LOCATION O O O
-내일 을왕리 날씨 어때,S-DATE S-LOCATION O O
-내일 통영 가는데 날씨 알려줘,S-DATE S-LOCATION O O O
+수요일 을왕리 날씨 어때,S-DATE S-LOCATION O O
+수요일 통영 가는데 날씨 알려줘,S-DATE S-LOCATION O O O
 해운대 가는데 날씨 어때,S-LOCATION O O O
 곡성 가려는데 날씨 어때,S-LOCATION O O O
 구례 가려는데 날씨 어때,S-LOCATION O O O
@@ -548,56 +548,56 @@ question,entity
 영광 가는데 날씨 알려줘,S-LOCATION O O O
 완주 가는데 날씨 어때,S-LOCATION O O O
 여의도 가는데 오늘 날씨 어때,S-LOCATION O S-DATE O O
-내일 부안 가는데 날씨 궁금해,S-DATE S-LOCATION O O O
+수요일 부안 가는데 날씨 궁금해,S-DATE S-LOCATION O O O
 김제 가는데 날씨 알려줘,S-LOCATION O O O
 가락동 가는데 날씨 알려줘,S-LOCATION O O O
 익산 가는데 날씨 알려줘,S-LOCATION O O O
 신수동 가는데 날씨 알려줄래,S-LOCATION O O O
 개봉동 가는데 날씨 맑나요,S-LOCATION O O O
 삼성동 가는데 날씨 궁금해,S-LOCATION O O O
-내일 논현동 가려는데 날씨좀 알려줘,S-DATE S-LOCATION O O O
-내일 상암동 가려는데 날씨 어때,S-DATE S-LOCATION O O O
+수요일 논현동 가려는데 날씨좀 알려줘,S-DATE S-LOCATION O O O
+수요일 상암동 가려는데 날씨 어때,S-DATE S-LOCATION O O O
 방배동 가려는데 오늘 날씨 알려줘,S-LOCATION O S-DATE O O
-내일 군산 가려는데 날씨 알려줘,S-DATE S-LOCATION O O O
-울릉도 가려는데 내일 날씨 알려줘,S-LOCATION O S-DATE O O
-독도 가려는데 내일 날씨 궁금해,S-LOCATION O S-DATE O O
-서천 가려는데 내일 날씨 어때,S-LOCATION O S-DATE O O
+수요일 군산 가려는데 날씨 알려줘,S-DATE S-LOCATION O O O
+울릉도 가려는데 수요일 날씨 알려줘,S-LOCATION O S-DATE O O
+독도 가려는데 수요일 날씨 궁금해,S-LOCATION O S-DATE O O
+서천 가려는데 수요일 날씨 어때,S-LOCATION O S-DATE O O
 강화도 가려는데 오늘 날씨 맑나요,S-LOCATION O S-DATE O O
 안면도 가려는데 오늘 날씨 알려줄래,S-LOCATION O S-DATE O O
-백령도 가려는데 내일 날씨 알려주세요,S-LOCATION O S-DATE O O
+백령도 가려는데 수요일 날씨 알려주세요,S-LOCATION O S-DATE O O
 흑산도 가려는데 오늘 날씨 어때,S-LOCATION O S-DATE O O
 태안 가려는데 오늘 날씨 어때요,S-LOCATION O S-DATE O O
-내일 오산 가는데 날씨 궁금해,S-DATE S-LOCATION O O O
-화성 가는데 내일 날씨 알려줘,S-LOCATION O S-DATE O O
-안산 가려는데 내일 날씨 맑나요,S-LOCATION O S-DATE O O
-내일 안양 날씨 알려줘,S-DATE S-LOCATION O O
+수요일 오산 가는데 날씨 궁금해,S-DATE S-LOCATION O O O
+화성 가는데 수요일 날씨 알려줘,S-LOCATION O S-DATE O O
+안산 가려는데 수요일 날씨 맑나요,S-LOCATION O S-DATE O O
+수요일 안양 날씨 알려줘,S-DATE S-LOCATION O O
 오늘 경기 광주 날씨 알려줘,S-DATE B-LOCATION E-LOCATION O O
-내일 금오도 날씨 맑나요,S-DATE S-LOCATION O O
+수요일 금오도 날씨 맑나요,S-DATE S-LOCATION O O
 오늘 양주 날씨 알려줄래,S-DATE S-LOCATION O O
-내일 포천 날씨 알려줘,S-DATE S-LOCATION O O
-내일 연천 날씨 알려줘,S-DATE S-LOCATION O O
+수요일 포천 날씨 알려줘,S-DATE S-LOCATION O O
+수요일 연천 날씨 알려줘,S-DATE S-LOCATION O O
 의정부 오늘 날씨 알려줘,S-LOCATION S-DATE O O
 선유도 오늘 날씨 알려줘,S-LOCATION S-DATE O O
-내일 우도 가는데 날씨 알려줘,S-DATE S-LOCATION O O O
+수요일 우도 가는데 날씨 알려줘,S-DATE S-LOCATION O O O
 오늘 대구 날씨 알려줘,S-DATE S-LOCATION O O
 수원 오늘 날씨 궁금해,S-LOCATION S-DATE O O
-경북 영월 내일 날씨 알려줘,B-LOCATION E-LOCATION S-DATE O O
-오산 내일 날씨 알려줄래,S-LOCATION S-DATE O O
+경북 영월 수요일 날씨 알려줘,B-LOCATION E-LOCATION S-DATE O O
+오산 화요일 날씨 알려줄래,S-LOCATION S-DATE O O
 함평 오늘 날씨 알려줘,S-LOCATION S-DATE O O
 강원도 춘천 가는데 오늘 날씨 알려줘,B-LOCATION E-LOCATION O S-DATE O O
-전북 군산 가는데 내일 날씨 알려줄래,B-LOCATION E-LOCATION O S-DATE O O
-제주 서귀포 가려는데 내일 날씨 알려줘,B-LOCATION E-LOCATION O S-DATE O O
+전북 군산 가는데 화요일 날씨 알려줄래,B-LOCATION E-LOCATION O S-DATE O O
+제주 서귀포 가려는데 화요일 날씨 알려줘,B-LOCATION E-LOCATION O S-DATE O O
 오늘 제주도 날씨 알려줘,S-DATE S-LOCATION O O
-울릉도 내일 날씨 어때,S-LOCATION S-DATE O O
-우도 내일 날씨 알려줘,S-LOCATION S-DATE O O
+울릉도 화요일 날씨 어때,S-LOCATION S-DATE O O
+우도 화요일 날씨 알려줘,S-LOCATION S-DATE O O
 오늘 인천 가려는데 날씨 알려줄래,S-DATE S-LOCATION O O O
 평택 가려는데 오늘 날씨 어때,S-LOCATION O S-DATE O O
 해남 가는데 오늘 날씨 맑나요,S-LOCATION O S-DATE O O
-전남 목포 가려는데 내일 날씨 궁금해요,B-LOCATION E-LOCATION O S-DATE O O
+전남 목포 가려는데 화요일 날씨 궁금해요,B-LOCATION E-LOCATION O S-DATE O O
 안산 가는데 오늘 날씨 어때,S-LOCATION O S-DATE O O
-내일 경기 부천 날씨 알려줘,S-DATE B-LOCATION E-LOCATION O O
+화요일 경기 부천 날씨 알려줘,S-DATE B-LOCATION E-LOCATION O O
 청주 가는데 모레 날씨 어때,S-LOCATION O S-DATE O O
-내일 경기 광주 날씨 알려줘,S-DATE B-LOCATION E-LOCATION O O
+화요일 경기 광주 날씨 알려줘,S-DATE B-LOCATION E-LOCATION O O
 짭짤한 빵 맛집 알려줘,S-LOCATION S-RESTAURANT O O
 인기 많은 팥빵 빵집 추천 좀 해줄래,O O S-RESTAURANT O O O O
 맛집 알려줘,O O
@@ -1208,14 +1208,14 @@ question,entity
 먼지 많이 꼈나,O O O
 먼지 어떠냐,O O
 야 미세먼지 어때,O O O
-오늘 먼지 알려줘,S-DATE O O
+토요일 먼지 알려줘,S-DATE O O
 먼지 어떠려나,O O
 전주 미세먼지 어떤지 말해줘,S-LOCATION O O O
 미세먼지 궁금해서 물어봤어,O O O
 먼지 알려주세요,O O
 공기 어떠려나,O O
 현재 공기 어떠려나,S-DATE O O
-오늘 먼지 알려주겠니,S-DATE O O
+토요일 먼지 알려주겠니,S-DATE O O
 먼지 궁금해,O O
 지금 먼지 어떤데,S-DATE O O
 저기 먼지 어때,O O O
@@ -1229,7 +1229,7 @@ question,entity
 공기 상태 좀 알려줄래,O O O O
 궁금해 먼지,O O
 어때 좀 먼지,O O O
-내일 근데 먼지 어떠려나,S-DATE O O O
+월요일 근데 먼지 어떠려나,S-DATE O O O
 미세먼지 없니 현재,O O S-DATE
 지금 미세먼지 없니 현재,S-DATE O O S-DATE
 공기 어때 현재,O O S-DATE
@@ -1239,32 +1239,32 @@ question,entity
 먼지 알려줬으면 졸겠어,O O O
 미세먼지 없나,O O
 지금 먼지 많네,S-DATE O O
-내일 여행갈건데 먼지 알려줘,S-DATE O O O
+월요일 여행갈건데 먼지 알려줘,S-DATE O O O
 먼지 궁금하네,O O
-오늘 먼지 심하니,S-DATE O O
-내일 미세먼지 어떨까,S-DATE O O
+토요일 먼지 심하니,S-DATE O O
+월요일 미세먼지 어떨까,S-DATE O O
 먼지 많이 심하려나,O O O
 알려주세요 먼지,O O
 먼지 꼈나,O O
 먼지 끼었나,O O
 현재 지금 먼지 많니,B-DATE E-DATE O O
 먼지 알려주세요 궁금해요,O O O
-맑으려나 내일,O O
+맑으려나 월요일,O O
 먼지 궁금해서,O O
 먼지 안 심해야 하는데,O O O O
 공기상태 알려줘,O O
-내일 공기 깨끗하니,S-DATE O O
+월요일 공기 깨끗하니,S-DATE O O
 서울 다음 주 먼지 알려줄래요,S-LOCATION B-DATE E-DATE O O
 부안 먼지 어떻게 돼,S-LOCATION O O O
-오늘 서천 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O O O
-내일 공기상태 알려줄수 있어,S-DATE O O O
+토요일 서천 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O O O
+월요일 공기상태 알려줄수 있어,S-DATE O O O
 이번 주 가로수길 공기 알려줄래,B-DATE E-DATE S-LOCATION O O
 구암 다음 주 공기 알려줘,S-LOCATION B-DATE E-DATE O O
 이번 주 영등포 공기 말해줘,B-DATE E-DATE S-LOCATION O O
 구로 다음 주 공기 알려줄래,S-LOCATION B-DATE E-DATE O O
 일산 공기 상태 어떻게 돼요,S-LOCATION O O O O
-오늘 안암 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O O O
-내일 공기 알려줄 수 있어,S-DATE O O O O
+토요일 안암 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O O O
+월요일 공기 알려줄 수 있어,S-DATE O O O O
 이번 주 홍대 공기 알려줄래,B-DATE E-DATE S-LOCATION O O
 남구 다음 주 공기 알려줘,S-LOCATION B-DATE E-DATE O O
 이번 주 보령 공기 줘,B-DATE E-DATE S-LOCATION O O
@@ -1275,28 +1275,28 @@ question,entity
 공기 많이 깨끗하지,O O O
 먼지 많이 심할까,O O O
 알려줘 공기,O O
-내일 마스크 챙길까,S-DATE O O
+월요일 마스크 챙길까,S-DATE O O
 마스크 써야하나,O O
 이번 주 공기 많이 없니,B-DATE E-DATE O O O
-내일 공기 심하겠지,S-DATE O O
+월요일 공기 심하겠지,S-DATE O O
 헉 혹시 공기 심할까,O O O O
 먼지 심하니,O O
-내일 공기 상태 나쁠까,S-DATE O O O
+월요일 공기 상태 나쁠까,S-DATE O O O
 먼지 심하겠지 아마,O O O
 먼지 심해지려나,O O
-오늘 공기 심하니,S-DATE O O
+토요일 공기 심하니,S-DATE O O
 미세먼지 알려줘,O O
-내일 공기 상태 나쁠까,S-DATE O O O
+화요일 공기 상태 나쁠까,S-DATE O O O
 공기 상태 나쁠까,O O O
-혹시 내일 공기 심하니 마스크 챙길까,O S-DATE O O O O
+혹시 화요일 공기 심하니 마스크 챙길까,O S-DATE O O O O
 마스크 필요하니,O O
-내일 마스크 필요할까,S-DATE O O
+화요일 마스크 필요할까,S-DATE O O
 마스크 챙겨야하나 모르겠네,O O O
 밀양 공기 심하면 안되는데,S-LOCATION O O O
 공기 맑을까 그 때,O O O O
 혹시 공기 심하니,O O O
 그 때 혹시 공기 상태 나쁠까,O O O O O O
-나 내일 여행가는데 공기 알려줘,O S-DATE O O O
+나 화요일 여행가는데 공기 알려줘,O S-DATE O O O
 그 때 혹시 심하니,O O O O
 하늘 심하니,O O
 미세먼지 없으려,O O
@@ -1309,23 +1309,23 @@ question,entity
 이번 주 공기 깨끗하니,B-DATE E-DATE O O
 많이 공기 심하면 안될텐데,O O O O
 다음 주 공기 알려줘,B-DATE E-DATE O O
-내일 공기 심할까,S-DATE O O
-내일 혹시 서대문구 공기 없으려나,S-DATE O S-LOCATION O O
-오늘 미세먼지 심하니,S-DATE O O
+화요일 공기 심할까,S-DATE O O
+화요일 혹시 서대문구 공기 없으려나,S-DATE O S-LOCATION O O
+토요일 미세먼지 심하니,S-DATE O O
 군산 공기 상태 좋으려나,S-LOCATION O O O
 공기 상태 나쁠까 정말,O O O O
 먼지 없을까,O O
-내일 미세먼지 심하겠지 아마,S-DATE O O O
-내일 미세먼지 오면 안되는데,S-DATE O O O
+화요일 미세먼지 심하겠지 아마,S-DATE O O O
+화요일 미세먼지 오면 안되는데,S-DATE O O O
 혹시 미세먼지 안심하겠지,O O O
 의정부 미세먼지 없을까,S-LOCATION O O
-내일 마스크 필요해,S-DATE O O
+수요일 마스크 필요해,S-DATE O O
 마스크 쓸까,O O
-내일 마스크 챙길까 말까,S-DATE O O O
+수요일 마스크 챙길까 말까,S-DATE O O O
 먼지 궁금한데 알려주겠니,O O O
 혹시 공기 알려줘,O O O
-내일모레 동두천 공기 궁금해요,S-DATE S-LOCATION O O
-내일모레 공기 궁금해,S-DATE O O
+수요일모레 동두천 공기 궁금해요,S-DATE S-LOCATION O O
+수요일모레 공기 궁금해,S-DATE O O
 먼지 많이 심한가,O O O
 서울 공기 알려주겠니,S-LOCATION O O
 부산 공기 정보 알려주세요,S-LOCATION O O O
@@ -1336,7 +1336,7 @@ question,entity
 송파구 황사 어때요,S-LOCATION O O
 덕진구 현재 공기 말해주겠니,S-LOCATION S-DATE O O
 청주 황사 어떠니,S-LOCATION O O
-오늘 전주 황사 알려줘,S-DATE S-LOCATION O O
+토요일 전주 황사 알려줘,S-DATE S-LOCATION O O
 먼지 어떠려나,O O
 그럼 구리 황사 어떨까,O S-LOCATION O O
 전주 황사 어떤지 좀 말해줘,S-LOCATION O O O O
@@ -1345,7 +1345,7 @@ question,entity
 공기 어떠려나,O O
 현재 공기 어떠려나,S-DATE O O
 현재공기 어떠려나,O O
-오늘 황사 알려주겠니,S-DATE O O
+토요일 황사 알려주겠니,S-DATE O O
 먼지 궁금해,O O
 현재 황사 어떤데,S-DATE O O
 저기 북구 황사 어때,O S-LOCATION O O
@@ -1357,27 +1357,27 @@ question,entity
 송파구 공기 상태 좀 알려줄래,S-LOCATION O O O O
 궁금해 부천 먼지,O S-LOCATION O
 어때 좀 안산 먼지,O O S-LOCATION O
-내일 근데 원주 황사 어떠려나,S-DATE O S-LOCATION O O
+수요일 근데 원주 황사 어떠려나,S-DATE O S-LOCATION O O
 울산 지금 미세먼지 없니,S-LOCATION S-DATE O O
 하늘 미세먼지 없니 지금,O O O S-DATE
 광주 공기상태 알려줘,S-LOCATION O O
 어떤데 먼지,O O
 먼지 알려줬으면 졸겠어,O O O
 평창 황사 알려줘,S-LOCATION O O
-오늘 미세먼지 없나,S-DATE O O
+토요일 미세먼지 없나,S-DATE O O
 모레 여행갈건데 먼지 알려줘,S-DATE O O O
 먼지 궁금하네,O O
-오늘 먼지 심하니,S-DATE O O
-내일 오존 어떨까,S-DATE O O
+토요일 먼지 심하니,S-DATE O O
+수요일 오존 어떨까,S-DATE O O
 알려주세요 춘천 먼지,O S-LOCATION O
 광주 북구 먼지 어떠려나,B-LOCATION E-LOCATION O O
 먼지 알려주세요 궁금해요,O O O
 그 날 먼지 많이 심하겠지,O O O O O
-맑으려나 내일,O S-DATE
+맑으려나 수요일,O S-DATE
 먼지 궁금해서,O O
 먼지 안 심해야 하는데,O O O O
 무주 공기상태 알려줘,S-LOCATION O O
-내일 공기 깨끗하니,S-DATE O O
+수요일 공기 깨끗하니,S-DATE O O
 완전 덥겠다,O O
 하늘 공기 맑을까,O O O
 하늘 먼지 심하니,O O O
@@ -1386,35 +1386,35 @@ question,entity
 먼지 많이 심할까,O O O
 알려줘 은평구 먼지,O S-LOCATION O
 노원구 먼지 궁금하네,S-LOCATION O O
-내일 마스크 챙길까,S-DATE O O
+수요일 마스크 챙길까,S-DATE O O
 진짜 영덕 그 때 심할까,O S-LOCATION O O O
-임실 내일 혹시 마스크 써야하나,S-LOCATION S-DATE O O O
+임실 수요일 혹시 마스크 써야하나,S-LOCATION S-DATE O O O
 이번 주 먼지 많이 없니,B-DATE E-DATE O O O
-내일 먼지 심하겠지,S-DATE O O
+수요일 먼지 심하겠지,S-DATE O O
 홍대 혹시 오존 심할까,S-LOCATION O O O
 서울 먼지 심하니,S-LOCATION O O
 먼지 껴서 흐린가,O O O
 먼지 심하진 않겠지,O O O
 너무 먼지 심하지 않으려나,O O O O
 마스크 아마 챙겨야겠지,O O O
-해운대 내일 먼지 없을까,S-LOCATION S-DATE O O
+해운대 목요일 먼지 없을까,S-LOCATION S-DATE O O
 오수 먼지 심하겠지 아마,S-LOCATION O O O
 그 떄 오존 심할까,O O O O
 먼지 심해지려나,O O
 오존 알려줘,O O
-서귀포 내일 공기 상태 나쁠까,S-LOCATION S-DATE O O O
+서귀포 목요일 공기 상태 나쁠까,S-LOCATION S-DATE O O O
 먼지 심하면 안되는데,O O O
 제주 많이 공기 상태 나쁠까,S-LOCATION O O O O
 먼지 너무 많이 없나,O O O O
-혹시 내일 먼지 심하니 마스크 챙길까,O S-DATE O O O O
+혹시 목요일 먼지 심하니 마스크 챙길까,O S-DATE O O O O
 여수 지금 마스크 필요하니,S-LOCATION S-DATE O O
-순천 내일 마스크 필요할까,S-LOCATION S-DATE O O
+순천 목요일 마스크 필요할까,S-LOCATION S-DATE O O
 마스크 챙겨야하나 모르겠네,O O O
 먼지 심하면 안되는데,O O O
 건대 입구 공기 맑을까 그 때,S-LOCATION O O O O O
 혹시 먼지 심하니,O O O
 그 때 혹시 공기 상태 나쁠까,O O O O O O
-나 내일 여행가는데 먼지 알려줘,O S-DATE O O O
+나 목요일 여행가는데 먼지 알려줘,O S-DATE O O O
 그 때 혹시 심하니,O O O O
 하늘 심하니,O O
 지금 먼지 없나,S-DATE O O
@@ -1427,11 +1427,11 @@ question,entity
 이번 주 공기 깨끗하니,B-DATE E-DATE O O
 많이 먼지 심하면 안될텐데,O O O O
 다음 주 공기 알려줘,B-DATE E-DATE O O
-내일 먼지 심할까,S-DATE O O
+목요일 먼지 심할까,S-DATE O O
 먼지 많이 심하니,O O O
 영월 먼지 많이 심한가,S-LOCATION O O O
-내일 혹시 먼지 없으려나,S-DATE O O O
-오늘 오존 심하니,S-DATE O O
+금요일 혹시 먼지 없으려나,S-DATE O O O
+일요일 오존 심하니,S-DATE O O
 공기 상태 좋으려나,O O O
 1월 1일 먼지 심한가요,B-DATE E-DATE O O
 2월 12일 오존 심하려나,B-DATE E-DATE O O
@@ -1456,18 +1456,18 @@ question,entity
 11월 6일 청원 먼지 심하니,B-DATE E-DATE S-LOCATION O O
 이천 이번 주 심하려나 하늘,S-LOCATION B-DATE E-DATE O O
 먼지 없을까,O O
-내일 오산 오존 심하겠지 아마,S-DATE S-LOCATION O O O
-내일 오존 심하니,S-DATE O O
+금요일 오산 오존 심하겠지 아마,S-DATE S-LOCATION O O O
+금요일 오존 심하니,S-DATE O O
 혹시 오존 안심하겠지,O O O
 그 날 먼지와서 힘들겠지,O O O O
 오존 없을까,O O
 약속 잡았는데 먼지 오네,O O O O
-내일 진주 마스크 필요해,S-DATE S-LOCATION O O
+금요일 진주 마스크 필요해,S-DATE S-LOCATION O O
 마스크 쓸까 말해줘,O O O
-울릉도 내일 마스크 챙길까 말까,S-LOCATION S-DATE O O O
+울릉도 금요일 마스크 챙길까 말까,S-LOCATION S-DATE O O O
 먼지 궁금한데 알려주겠니,O O O
 혹시 먼지 알려줘,O O O
-인천 내일모레 먼지 궁금해요,S-LOCATION S-DATE O O
+인천 금요일모레 먼지 궁금해요,S-LOCATION S-DATE O O
 내일모레 먼지 궁금해,S-DATE O O
 내일 공기 깨끗하니,S-DATE O O
 이천 하늘 공기 맑을까,S-LOCATION O O O
@@ -1480,7 +1480,7 @@ question,entity
 이태원 마스크 써야하나,S-LOCATION O O
 이번 주 먼지 많이 없니,B-DATE E-DATE O O O
 내일 먼지 심하겠지,S-DATE O O
-오늘 먼지 알려주세요,S-DATE O O
+일요일 먼지 알려주세요,S-DATE O O
 혹시 이따 공기 상태 좀 알려줄래요,O S-DATE O O O O
 내일 먼지 알려주세요,S-DATE O O
 저번 주 먼지 말해주세요,B-DATE E-DATE O O
@@ -1493,7 +1493,7 @@ question,entity
 내일 부산 먼지,S-DATE S-LOCATION O
 내일 대구 먼지 말해,S-DATE S-LOCATION O O
 이따 대전 먼지 말해줘,S-DATE S-LOCATION O O
-오늘 먼지 뭐야,S-DATE O O
+일요일 먼지 뭐야,S-DATE O O
 내일 부산 먼지 말해주라,S-DATE S-LOCATION O O
 부산 먼지,S-LOCATION O
 경북 내일 먼지 어때,S-LOCATION S-DATE O O
@@ -1509,14 +1509,14 @@ question,entity
 미룡동 먼지 많이 꼈나,S-LOCATION O O O
 조촌동 먼지 어떠냐,S-LOCATION O O
 금천구 야 먼지 어때,S-LOCATION O O O
-노원구 오늘 먼지 알려줬으면,S-LOCATION S-DATE O O
+노원구 일요일 먼지 알려줬으면,S-LOCATION S-DATE O O
 5월 5일 먼지 어떠려나,B-DATE E-DATE O O
 4월 8일 음성 먼지 어떤지 말해달라고,B-DATE E-DATE S-LOCATION O O O
 1월 11일 먼지 궁금해서 물어봤는데,B-DATE E-DATE O O O
 2월 28일 공기 상태 좀 알려주세요,B-DATE E-DATE O O O O
-오늘 수원 공기 어떠려나,S-DATE S-LOCATION O O
+일요일 수원 공기 어떠려나,S-DATE S-LOCATION O O
 고양시 현재 공기 어떠려나,S-LOCATION S-DATE O O
-용인 오늘 먼지 알려주겠니,S-LOCATION S-DATE O O
+용인 일요일 먼지 알려주겠니,S-LOCATION S-DATE O O
 성남 먼지 궁금해,S-LOCATION O O
 부천 지금 먼지 어떤데,S-LOCATION S-DATE O O
 화성 먼지 어때,S-LOCATION O O
@@ -1542,7 +1542,7 @@ question,entity
 경산 하늘 오존 많네,S-LOCATION O O O
 내일 군포 여행갈건데 오존 알려줘,S-DATE S-LOCATION O O O
 하남 오존 궁금하네,S-LOCATION O O
-오늘 여수 초미세먼지 심하니,S-DATE S-LOCATION O O
+일요일 여수 초미세먼지 심하니,S-DATE S-LOCATION O O
 내일 경주 초미세먼지 어떨까,S-DATE S-LOCATION O O
 거제도 초미세먼지 많이 심하려나,S-LOCATION O O O
 목포 알려주세요 먼지,S-LOCATION O O
@@ -1557,20 +1557,20 @@ question,entity
 당진 내일 공기 깨끗하니,S-LOCATION S-DATE O O
 안동 다음 주 초미세먼지 알려줄래요,S-LOCATION B-DATE E-DATE O O
 포천 먼지 어떻게 돼,S-LOCATION O O O
-오늘 의왕 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O O O
+일요일 의왕 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O O O
 내일 초미세먼지 광양 알려줄수 있어,S-DATE O S-LOCATION O O
 이번 주 제천 초미세먼지 알려줄래,B-DATE E-DATE S-LOCATION O O
 논산 다음 주 초미세먼지 알려줘,S-LOCATION B-DATE E-DATE O O
 이번 주 칠곡 초미세먼지 줘,B-DATE E-DATE S-LOCATION O O
 여주 다음 주 초미세먼지 알려줄래,S-LOCATION B-DATE E-DATE O O
 정읍 먼지 어떻게 돼요,S-LOCATION O O O
-오늘 음성군 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O O O
+일요일 음성군 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O O O
 내일 양평 꽃가루 알려줄수 있어,S-DATE S-LOCATION O O O
 이번 주 공주 꽃가루 알려줄래,B-DATE E-DATE S-LOCATION O O
 완주 다음 주 꽃가루 알려줘,S-LOCATION B-DATE E-DATE O O
 이번 주 상주 꽃가루 줘,B-DATE E-DATE S-LOCATION O O
 영천 내일 하늘 공기 맑을까,S-LOCATION S-DATE O O O
-동해 오늘 꽃가루 심하니,S-LOCATION S-DATE O O
+동해 일요일 꽃가루 심하니,S-LOCATION S-DATE O O
 김제 지금 꽃가루 많이 없니,S-LOCATION S-DATE O O O
 무안 꽃가루 없니,S-LOCATION O O
 진천 꽃가루 많이 심하니,S-LOCATION O O O
@@ -1584,12 +1584,12 @@ question,entity
 내일 태안 공기 상태 나쁠까,S-DATE S-LOCATION O O O
 고흥 먼지 심하겠지 아마,S-LOCATION O O O
 화순 꽃가루 심해지려나,S-LOCATION O O
-거창 오늘 꽃가루 심하니,S-LOCATION S-DATE O O
+거창 일요일 꽃가루 심하니,S-LOCATION S-DATE O O
 가평 꽃가루 알려줘,S-LOCATION O O
 내일 고창 공기 상태 나쁠까,S-DATE S-LOCATION O O O
 서천 공기 상태 나쁠까,S-LOCATION O O O
 혹시 내일 금산 먼지 심하니 마스크 챙길까,O S-DATE S-LOCATION O O O O
-부안 오늘 마스크 필요하니,S-LOCATION S-DATE O O
+부안 일요일 마스크 필요하니,S-LOCATION S-DATE O O
 내일 옥천 마스크 필요할까,S-DATE S-LOCATION O O
 영광 마스크 챙겨야하나 모르겠네,S-LOCATION O O O
 울진 꽃가루 심하면 안되는데,S-LOCATION O O O
@@ -1602,7 +1602,7 @@ question,entity
 청도 이따가 꽃가루 없으려나,S-LOCATION S-DATE O O
 괴산 꽃가루 꼈니,S-LOCATION O O
 강남 하늘 공기상태 심할까,S-LOCATION O O O
-함양 오늘 꽃가루 내리나,S-LOCATION S-DATE O O
+함양 일요일 꽃가루 내리나,S-LOCATION S-DATE O O
 그 때 하늘 어떠려나,O O O O
 증평 하늘 꽃가루 많이 심하니 그 날,S-LOCATION O O O O O O
 영월 꽃가루 어떨 것 같아,S-LOCATION O O O O
@@ -1824,8 +1824,8 @@ question,entity
 강북구 볼링장 가고 싶네요,S-LOCATION S-TRAVEL O O
 강서구 가까운 문학관 관광지 어디 가야 할까,S-LOCATION O S-TRAVEL O O O O
 관악구 갈만한 연극 추천받고 싶은데요,S-LOCATION O S-TRAVEL O O
-혹시 광진구 전시관 갈만한 데 어디니,O S-LOCATION S-TRAVEL O O O
-구로구 가까운 템플스테이 관광지 원해요,S-LOCATION O S-TRAVEL O O
+혹시 광진구 바닷가 갈만한 데 어디니,O S-LOCATION S-TRAVEL O O O
+구로구 가까운 시장 관광지 원해요,S-LOCATION O S-TRAVEL O O
 금천구 꽃구경 위치 알려줘,S-LOCATION S-TRAVEL O O
 노원구 가까운 절 관광지 알려주면 좋겠어요,S-LOCATION O S-TRAVEL O O O
 도봉구 박물관 갈만한 곳 추천해 줘,S-LOCATION S-TRAVEL O O O O
@@ -1837,13 +1837,13 @@ question,entity
 성동구 주변 갈만한 계곡 어디,S-LOCATION O O S-TRAVEL O
 성북구 에버랜드 가고 싶어,S-LOCATION S-TRAVEL O O
 송파구 가까운 축구 관광지 가고싶어,S-LOCATION O S-TRAVEL O O
-양천구 유명한 전시관 알려줘 봐요,S-LOCATION O S-TRAVEL O O
+양천구 유명한 바닷가 알려줘 봐요,S-LOCATION O S-TRAVEL O O
 영등포구 속 뻥 뚫리는 산책로,S-LOCATION O O O S-TRAVEL
 광명구 물놀이 하고 싶어,S-LOCATION S-TRAVEL O O
 은평구 유명한 산 관광지 어디 있니,S-LOCATION O S-TRAVEL O O O
 종로구 가족끼리 계곡 여행,S-LOCATION O S-TRAVEL O
 중구 축구장 어디,S-LOCATION S-TRAVEL O
-중랑구 템플스테이 관광지 추천해 줘,S-LOCATION S-TRAVEL O O O
+중랑구 시장 관광지 추천해 줘,S-LOCATION S-TRAVEL O O O
 부산 서구 해수욕장 추천 필요해,B-LOCATION E-LOCATION S-TRAVEL O O
 서울 동구 꽃구경 할만한 곳 어디,B-LOCATION E-LOCATION S-TRAVEL O O O
 영도구 계곡 보고 싶은데 추천해 줘,S-LOCATION S-TRAVEL O O O O
@@ -1895,7 +1895,7 @@ question,entity
 담양 벚꽃 볼거리 띄워주세요,S-LOCATION S-TRAVEL O O
 전북 순창 유명한 가을 축제 볼거리 알려줘 봐요,B-LOCATION E-LOCATION O S-DATE S-TRAVEL O O O
 신안 등산 갈 거에요,S-LOCATION S-TRAVEL O O
-광주 전시관 추천 좀 해줘,S-LOCATION S-TRAVEL O O O
+광주 시장 추천 좀 해줘,S-LOCATION S-TRAVEL O O O
 영암 물놀이 여행 어디 갈까,S-LOCATION S-TRAVEL O O O
 장흥 문학관 볼거리 보여줘 봐요,S-LOCATION S-TRAVEL O O O
 강진 넓은 경기장 알려주세요,S-LOCATION O S-TRAVEL O
@@ -2085,14 +2085,14 @@ question,entity
 유명한 절 여행지 원해요,O S-TRAVEL O O
 나만 알고 싶은 산림 여행지,O O O S-TRAVEL O
 가까운 단풍 여행지 추천해주면 좋겠어,O S-TRAVEL O O O
-나룻배 타고 싶어,S-TRAVEL O O
-가까운 바다 여행지 있죠,O S-TRAVEL O O
+바닷가 타고 싶어,S-TRAVEL O O
+가까운 시장 여행지 있죠,O S-TRAVEL O O
 동물원 여행지 추천해 봐요,S-TRAVEL O O O
 여행지 뭐 있어,O O O
 스트레스 풀릴 여행지,O O O
 사랑 받는 바닷가,O O S-TRAVEL
 주변 산책 갈만한 데 있어,O S-TRAVEL O O O
-바다 여행지 알려줘,S-TRAVEL O O
+시장 여행지 알려줘,S-TRAVEL O O
 가까운 계곡 추천 좀 해줘 봐,O S-TRAVEL O O O O
 꽃놀이 정보 알려줘,S-TRAVEL O O
 여행지 알려달라고,O O
@@ -2104,12 +2104,12 @@ question,entity
 전통놀이 배우려면 어떻게 해야돼,S-TRAVEL O O O
 맑은 계곡,O S-TRAVEL
 여행지 어디 갈 데 있어,O O O O O
-좋은 전시관,O S-TRAVEL
+좋은 바닷가,O S-TRAVEL
 재밌는 축제 원해,O S-TRAVEL O
 식물원 가고 싶은데 갈만한 곳 있어,S-TRAVEL O O O O O
 여행지 알려줘라,O O
 가까운 단풍 여행지 보여주면 좋겠어,O S-TRAVEL O O O
-많이 찾는 단풍놀이 구경,O O S-TRAVEL O
+많이 찾는 시장 구경,O O S-TRAVEL O
 여행지 어떨 것 같아,O O O O
 가볼법한 여행지 보여줘요,O O O
 가까운 사찰 여행지 보여줬으면 해요,O S-TRAVEL O O O
@@ -2126,11 +2126,11 @@ question,entity
 유명한 놀이공원 있죠,O S-TRAVEL O
 소풍 가고 싶은데 갈만한 여행지 띄워줘,S-TRAVEL O O O O O
 여행지 추천해 달라고요,O O O
-유명한 깨끗한 바다 여행지 어디 있을까,O O S-TRAVEL O O O
+유명한 깨끗한 시장 여행지 어디 있을까,O O S-TRAVEL O O O
 축구장 어딨을까,S-TRAVEL O
 동물원 보여줘 봐,S-TRAVEL O O
 가까운 동물원 여행지 어디 가야 하지,O S-TRAVEL O O O O
-가까운 바다 여행지 보여줘 봐,O S-TRAVEL O O O
+가까운 시장 여행지 보여줘 봐,O S-TRAVEL O O O
 여행지 어딨냐,O O
 공기 상쾌한 여행지 보여주세요,O O O O
 유명한 스키장 어디 있어,O S-TRAVEL O O
@@ -2143,16 +2143,16 @@ question,entity
 벚꽃 축제 가봐야 하는데,B-TRAVEL E-TRAVEL O O
 가봐야 하는 꽃놀이 여행지 알려주세요,O O S-TRAVEL O O
 갈만한 절 있을까,O S-TRAVEL O
-갈만한 바다 여행지 부탁합니다,O S-TRAVEL O O
+갈만한 시장 여행지 부탁합니다,O S-TRAVEL O O
 박물관 여행지 갈 데 없나요,S-TRAVEL O O O O
 해수욕장 원한다,S-TRAVEL O
 가까운 스키 여행지 어디죠,O S-TRAVEL O O
 휴식 취할만한 관광지 어딨니,S-TRAVEL O O O
 여행지 띄워주었음 좋겠어,O O O
-비 오면 바다 여행 힘들텐데,O O S-TRAVEL O O
+비 오면 시장 여행 힘들텐데,O O S-TRAVEL O O
 템플스테이 가고 싶네요,S-TRAVEL O O
 생각없이 갈만한 놀이동산 알려주세요,O O S-TRAVEL O
-단풍놀이 원해,S-TRAVEL O
+시장 원해,S-TRAVEL O
 테니스장 알고 싶네요,S-TRAVEL O O
 추천할만한 놀이공원,O S-TRAVEL
 놀이공원 공연 추천 부탁해요,S-TRAVEL O O O
@@ -2179,8 +2179,8 @@ question,entity
 공연 알려주지 않을래,O O O
 단풍놀이 공연 갈래,S-TRAVEL O O
 단풍놀이 공연 모두 알려주세요,S-TRAVEL O O O
-바다구경 어딜 가야 잘했다 할까,S-TRAVEL O O O O
-괜찮은 바다 공연 추천해 줘,O S-TRAVEL O O O
+시장구경 어딜 가야 잘했다 할까,S-TRAVEL O O O O
+괜찮은 시장 공연 추천해 줘,O S-TRAVEL O O O
 갈만한 꽃놀이 공연 구경하고 싶다,O S-TRAVEL O O O
 가까운 공연 추천해 줘,O O O O
 워터파크 좀 알려줘,S-TRAVEL O O
@@ -2225,11 +2225,11 @@ question,entity
 여행지 몰라서 문젠데요,O O O
 상쾌한 여행지,O O
 인기많은 여행지,O O
-바다 있나요,S-TRAVEL O
+시장 있나요,S-TRAVEL O
 갈만한 연극 여행지 알고 싶은데요,O S-TRAVEL O O O
 당구장 띄워줘요,S-TRAVEL O
 가까운 수목원 어디인지 모르겠어,O S-TRAVEL O O
-바다 보고 싶다고요,S-TRAVEL O O
+시장 보고 싶다고요,S-TRAVEL O O
 연극 보고 싶어,S-TRAVEL O O
 가까운 계곡 추천 좀 해줘 봐요,O S-TRAVEL O O O O
 놀이동산 있어,S-TRAVEL O

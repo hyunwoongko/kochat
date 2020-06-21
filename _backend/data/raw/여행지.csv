@@ -27,8 +27,8 @@ question,label
 강북구 볼링장 가고 싶네요,S-LOCATION S-TRAVEL O O
 강서구 가까운 문학관 관광지 어디 가야 할까,S-LOCATION O S-TRAVEL O O O O
 관악구 갈만한 연극 추천받고 싶은데요,S-LOCATION O S-TRAVEL O O
-혹시 광진구 전시관 갈만한 데 어디니,O S-LOCATION S-TRAVEL O O O
-구로구 가까운 템플스테이 관광지 원해요,S-LOCATION O S-TRAVEL O O
+혹시 광진구 바닷가 갈만한 데 어디니,O S-LOCATION S-TRAVEL O O O
+구로구 가까운 시장 관광지 원해요,S-LOCATION O S-TRAVEL O O
 금천구 꽃구경 위치 알려줘,S-LOCATION S-TRAVEL O O
 노원구 가까운 절 관광지 알려주면 좋겠어요,S-LOCATION O S-TRAVEL O O O
 도봉구 박물관 갈만한 곳 추천해 줘,S-LOCATION S-TRAVEL O O O O
@@ -40,13 +40,13 @@ question,label
 성동구 주변 갈만한 계곡 어디,S-LOCATION O O S-TRAVEL O
 성북구 에버랜드 가고 싶어,S-LOCATION S-TRAVEL O O
 송파구 가까운 축구 관광지 가고싶어,S-LOCATION O S-TRAVEL O O
-양천구 유명한 전시관 알려줘 봐요,S-LOCATION O S-TRAVEL O O
+양천구 유명한 바닷가 알려줘 봐요,S-LOCATION O S-TRAVEL O O
 영등포구 속 뻥 뚫리는 산책로,S-LOCATION O O O S-TRAVEL
 광명구 물놀이 하고 싶어,S-LOCATION S-TRAVEL O O
 은평구 유명한 산 관광지 어디 있니,S-LOCATION O S-TRAVEL O O O
 종로구 가족끼리 계곡 여행,S-LOCATION O S-TRAVEL O
 중구 축구장 어디,S-LOCATION S-TRAVEL O
-중랑구 템플스테이 관광지 추천해 줘,S-LOCATION S-TRAVEL O O O
+중랑구 시장 관광지 추천해 줘,S-LOCATION S-TRAVEL O O O
 부산 서구 해수욕장 추천 필요해,B-LOCATION E-LOCATION S-TRAVEL O O
 서울 동구 꽃구경 할만한 곳 어디,B-LOCATION E-LOCATION S-TRAVEL O O O
 영도구 계곡 보고 싶은데 추천해 줘,S-LOCATION S-TRAVEL O O O O
@@ -98,7 +98,7 @@ question,label
 담양 벚꽃 볼거리 띄워주세요,S-LOCATION S-TRAVEL O O
 전북 순창 유명한 가을 축제 볼거리 알려줘 봐요,B-LOCATION E-LOCATION O S-DATE S-TRAVEL O O O
 신안 등산 갈 거에요,S-LOCATION S-TRAVEL O O
-광주 전시관 추천 좀 해줘,S-LOCATION S-TRAVEL O O O
+광주 시장 추천 좀 해줘,S-LOCATION S-TRAVEL O O O
 영암 물놀이 여행 어디 갈까,S-LOCATION S-TRAVEL O O O
 장흥 문학관 볼거리 보여줘 봐요,S-LOCATION S-TRAVEL O O O
 강진 넓은 경기장 알려주세요,S-LOCATION O S-TRAVEL O
@@ -288,14 +288,14 @@ question,label
 유명한 절 여행지 원해요,O S-TRAVEL O O
 나만 알고 싶은 산림 여행지,O O O S-TRAVEL O
 가까운 단풍 여행지 추천해주면 좋겠어,O S-TRAVEL O O O
-나룻배 타고 싶어,S-TRAVEL O O
-가까운 바다 여행지 있죠,O S-TRAVEL O O
+바닷가 타고 싶어,S-TRAVEL O O
+가까운 시장 여행지 있죠,O S-TRAVEL O O
 동물원 여행지 추천해 봐요,S-TRAVEL O O O
 여행지 뭐 있어,O O O
 스트레스 풀릴 여행지,O O O
 사랑 받는 바닷가,O O S-TRAVEL
 주변 산책 갈만한 데 있어,O S-TRAVEL O O O
-바다 여행지 알려줘,S-TRAVEL O O
+시장 여행지 알려줘,S-TRAVEL O O
 가까운 계곡 추천 좀 해줘 봐,O S-TRAVEL O O O O
 꽃놀이 정보 알려줘,S-TRAVEL O O
 여행지 알려달라고,O O
@@ -307,12 +307,12 @@ question,label
 전통놀이 배우려면 어떻게 해야돼,S-TRAVEL O O O
 맑은 계곡,O S-TRAVEL
 여행지 어디 갈 데 있어,O O O O O
-좋은 전시관,O S-TRAVEL
+좋은 바닷가,O S-TRAVEL
 재밌는 축제 원해,O S-TRAVEL O
 식물원 가고 싶은데 갈만한 곳 있어,S-TRAVEL O O O O O
 여행지 알려줘라,O O
 가까운 단풍 여행지 보여주면 좋겠어,O S-TRAVEL O O O
-많이 찾는 단풍놀이 구경,O O S-TRAVEL O
+많이 찾는 시장 구경,O O S-TRAVEL O
 여행지 어떨 것 같아,O O O O
 가볼법한 여행지 보여줘요,O O O
 가까운 사찰 여행지 보여줬으면 해요,O S-TRAVEL O O O
@@ -329,11 +329,11 @@ question,label
 유명한 놀이공원 있죠,O S-TRAVEL O
 소풍 가고 싶은데 갈만한 여행지 띄워줘,S-TRAVEL O O O O O
 여행지 추천해 달라고요,O O O
-유명한 깨끗한 바다 여행지 어디 있을까,O O S-TRAVEL O O O
+유명한 깨끗한 시장 여행지 어디 있을까,O O S-TRAVEL O O O
 축구장 어딨을까,S-TRAVEL O
 동물원 보여줘 봐,S-TRAVEL O O
 가까운 동물원 여행지 어디 가야 하지,O S-TRAVEL O O O O
-가까운 바다 여행지 보여줘 봐,O S-TRAVEL O O O
+가까운 시장 여행지 보여줘 봐,O S-TRAVEL O O O
 여행지 어딨냐,O O
 공기 상쾌한 여행지 보여주세요,O O O O
 유명한 스키장 어디 있어,O S-TRAVEL O O
@@ -346,16 +346,16 @@ question,label
 벚꽃 축제 가봐야 하는데,B-TRAVEL E-TRAVEL O O
 가봐야 하는 꽃놀이 여행지 알려주세요,O O S-TRAVEL O O
 갈만한 절 있을까,O S-TRAVEL O
-갈만한 바다 여행지 부탁합니다,O S-TRAVEL O O
+갈만한 시장 여행지 부탁합니다,O S-TRAVEL O O
 박물관 여행지 갈 데 없나요,S-TRAVEL O O O O
 해수욕장 원한다,S-TRAVEL O
 가까운 스키 여행지 어디죠,O S-TRAVEL O O
 휴식 취할만한 관광지 어딨니,S-TRAVEL O O O
 여행지 띄워주었음 좋겠어,O O O
-비 오면 바다 여행 힘들텐데,O O S-TRAVEL O O
+비 오면 시장 여행 힘들텐데,O O S-TRAVEL O O
 템플스테이 가고 싶네요,S-TRAVEL O O
 생각없이 갈만한 놀이동산 알려주세요,O O S-TRAVEL O
-단풍놀이 원해,S-TRAVEL O
+시장 원해,S-TRAVEL O
 테니스장 알고 싶네요,S-TRAVEL O O
 추천할만한 놀이공원,O S-TRAVEL
 놀이공원 공연 추천 부탁해요,S-TRAVEL O O O
@@ -382,8 +382,8 @@ question,label
 공연 알려주지 않을래,O O O
 단풍놀이 공연 갈래,S-TRAVEL O O
 단풍놀이 공연 모두 알려주세요,S-TRAVEL O O O
-바다구경 어딜 가야 잘했다 할까,S-TRAVEL O O O O
-괜찮은 바다 공연 추천해 줘,O S-TRAVEL O O O
+시장구경 어딜 가야 잘했다 할까,S-TRAVEL O O O O
+괜찮은 시장 공연 추천해 줘,O S-TRAVEL O O O
 갈만한 꽃놀이 공연 구경하고 싶다,O S-TRAVEL O O O
 가까운 공연 추천해 줘,O O O O
 워터파크 좀 알려줘,S-TRAVEL O O
@@ -428,11 +428,11 @@ question,label
 여행지 몰라서 문젠데요,O O O
 상쾌한 여행지,O O
 인기많은 여행지,O O
-바다 있나요,S-TRAVEL O
+시장 있나요,S-TRAVEL O
 갈만한 연극 여행지 알고 싶은데요,O S-TRAVEL O O O
 당구장 띄워줘요,S-TRAVEL O
 가까운 수목원 어디인지 모르겠어,O S-TRAVEL O O
-바다 보고 싶다고요,S-TRAVEL O O
+시장 보고 싶다고요,S-TRAVEL O O
 연극 보고 싶어,S-TRAVEL O O
 가까운 계곡 추천 좀 해줘 봐요,O S-TRAVEL O O O O
 놀이동산 있어,S-TRAVEL O

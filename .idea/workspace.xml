@@ -21,18 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d122a472-58ee-4a2b-8505-15e95560cd02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/restful_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/_app/restful_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/scenarios/base_scenario.py" beforeDir="false" afterPath="$PROJECT_DIR$/_app/scenarios/base_scenario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/scenarios/dust_scenario.py" beforeDir="false" afterPath="$PROJECT_DIR$/_app/scenarios/dust_scenario.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_app/scenarios/restaurant_scenario.py" beforeDir="false" afterPath="$PROJECT_DIR$/_app/scenarios/restaurant_scenario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/scenarios/travel_scenario.py" beforeDir="false" afterPath="$PROJECT_DIR$/_app/scenarios/travel_scenario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/scenarios/weather_scenario.py" beforeDir="false" afterPath="$PROJECT_DIR$/_app/scenarios/weather_scenario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/data/raw/날씨.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/raw/날씨.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/data/raw/먼지.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/raw/먼지.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/answerer/weather_answerer.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/answerer/weather_answerer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/crawler/travel_crawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/crawler/travel_crawler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/crawler/weather_crawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/crawler/weather_crawler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/searcher/travel_searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/searcher/travel_searcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_backend/data/entity_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/entity_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_backend/data/intent_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/intent_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_backend/data/raw/여행지.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/raw/여행지.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_crawler/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -535,7 +528,7 @@
       <workItem from="1592511964478" duration="61909000" />
       <workItem from="1592585427791" duration="5046000" />
       <workItem from="1592621560444" duration="18740000" />
-      <workItem from="1592640463989" duration="67587000" />
+      <workItem from="1592640463989" duration="68333000" />
     </task>
     <servers />
   </component>
@@ -629,26 +622,26 @@
     </state>
     <state x="755" y="294" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1591103888965" />
     <state x="755" y="322" key="FileChooserDialogImpl/0.39.1920.1041@0.39.1920.1041" timestamp="1592622255562" />
-    <state width="958" height="380" key="GridCell.Tab.0.bottom" timestamp="1592729458596">
+    <state width="958" height="380" key="GridCell.Tab.0.bottom" timestamp="1592730106696">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="958" height="380" key="GridCell.Tab.0.bottom/0.39.1920.1041@0.39.1920.1041" timestamp="1592729458596" />
-    <state width="958" height="380" key="GridCell.Tab.0.center" timestamp="1592729458596">
+    <state width="958" height="380" key="GridCell.Tab.0.bottom/0.39.1920.1041@0.39.1920.1041" timestamp="1592730106696" />
+    <state width="958" height="380" key="GridCell.Tab.0.center" timestamp="1592730106695">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="958" height="380" key="GridCell.Tab.0.center/0.39.1920.1041@0.39.1920.1041" timestamp="1592729458596" />
-    <state width="958" height="380" key="GridCell.Tab.0.left" timestamp="1592729458596">
+    <state width="958" height="380" key="GridCell.Tab.0.center/0.39.1920.1041@0.39.1920.1041" timestamp="1592730106695" />
+    <state width="958" height="380" key="GridCell.Tab.0.left" timestamp="1592730106695">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="958" height="380" key="GridCell.Tab.0.left/0.39.1920.1041@0.39.1920.1041" timestamp="1592729458596" />
-    <state width="958" height="380" key="GridCell.Tab.0.right" timestamp="1592729458596">
+    <state width="958" height="380" key="GridCell.Tab.0.left/0.39.1920.1041@0.39.1920.1041" timestamp="1592730106695" />
+    <state width="958" height="380" key="GridCell.Tab.0.right" timestamp="1592730106695">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="958" height="380" key="GridCell.Tab.0.right/0.39.1920.1041@0.39.1920.1041" timestamp="1592729458596" />
+    <state width="958" height="380" key="GridCell.Tab.0.right/0.39.1920.1041@0.39.1920.1041" timestamp="1592730106695" />
     <state width="1921" height="358" key="GridCell.Tab.1.bottom" timestamp="1592510344604">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
@@ -759,7 +752,7 @@
     <SUITE FILE_PATH="coverage/chatbot$train_backend_models__1_.coverage" NAME="train_backend_models Coverage Results" MODIFIED="1592632931328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
     <SUITE FILE_PATH="coverage/chatbot$test_crawlers.coverage" NAME="test_crawler Coverage Results" MODIFIED="1592640100551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$build_date.coverage" NAME="build_data Coverage Results" MODIFIED="1592020351788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
-    <SUITE FILE_PATH="coverage/chatbot$test_app.coverage" NAME="test_app Coverage Results" MODIFIED="1592729458589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/chatbot$test_app.coverage" NAME="test_app Coverage Results" MODIFIED="1592730106689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$build_entity.coverage" NAME="build_entity Coverage Results" MODIFIED="1592018791080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
     <SUITE FILE_PATH="coverage/chatbot$weather_searcher.coverage" NAME="weather_searcher Coverage Results" MODIFIED="1592645565281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$embedding.coverage" NAME="embedding Coverage Results" MODIFIED="1589191576476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/embedding" />

@@ -91,7 +91,7 @@ EDIT = {
 ANSWER = {
     'dust': '{location}의 다양한 대기오염 정보를 전해드릴게요. 😀\n',
     'weather': '{location}의 날씨 정보를 전해드릴게요. 😉\n',
-    'restaurant': '{location} 소재의 맛있는 {restaurant}에 대한 정보를 전해드릴게요. 🍜🍳🥩🍲\n',
+    'restaurant': '{location} 소재의 맛집에 대한 정보를 전해드릴게요. 🍜🍳🥩🍲\n',
     'travel': '{location}의 여행지 정보를 전해드릴게요!. 😀😀\n',
     'fallback': "죄송해요.. 말씀하신 정보는 저도 잘 모르겠네요."
 }

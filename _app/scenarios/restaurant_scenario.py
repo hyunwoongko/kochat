@@ -30,7 +30,7 @@ class RestaurantScenario(BaseScenario):
     def __call__(self, text, entity):
         location, restaurant = self.check_entity(text, entity)
         restaurant = self._set_as_default(restaurant, '')
-        location, date = ' '.join(location), ' '.join(restaurant)
+        location, restaurant = ' '.join(location), ' '.join(restaurant)
 
         if len(location) != 0:
             return {'intent': '맛집',
