@@ -17,6 +17,7 @@ class TravelCrawler(Crawler):
         self.answerer = TravelAnswerer()
 
     def crawl(self, location, travel):
+
         result = self.searcher.search_naver_map(location, travel)
         result = self.editor.edit_travel(location, travel, result)
         result = self.answerer.travel_form(location, travel, result)

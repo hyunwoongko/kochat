@@ -47,6 +47,12 @@ class KochatApi:
             entity = self.entity_recognizer.predict(prep)
             return self.scenario.apply_scenario(text, intent, entity)
 
+        @app.route('/fill_info/<intent>/<text>', methods=['GET'])
+        def fill_info(intent, text):
+            prep = self.dataset.load_predict(text, self.embed_processor)
+            entity = self.entity_recognizer.predict(prep)
+            return self.scenario.apply_scenario(text, intent, entity)
+
     def run(self, ip, port):
         self.build(app=self.__app)
         self.__app.run(host=ip, port=port)

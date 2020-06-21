@@ -11,7 +11,7 @@ class BaseScenario:
         for t, e in zip(text, entity):
             for k, v in dict_.items():
                 if k in e:
-                    v.append((t, e))
+                    v.append(t)
 
         return dict_
 

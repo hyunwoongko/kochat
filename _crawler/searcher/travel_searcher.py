@@ -21,7 +21,9 @@ class TravelSearcher(Searcher):
             'thumUrl': []}
 
     def _make_query(self, location, travel):
-        return ' '.join([location, travel]) + ' 여행'
+        query = ' '.join([location, travel])
+        query += " 여행"
+        return query
 
     def search_naver_map(self, location, travel):
         query = self._make_query(location, travel)

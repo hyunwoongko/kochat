@@ -39,7 +39,7 @@ class WeatherCrawler(Crawler):
     def __today(self, location):
         result = self.searcher.naver_search(location)
         result = self.editor.edit_today(result)
-        return self.answerer.comparison_with_yesterday_form("내일", location, result)
+        return self.answerer.comparison_with_yesterday_form("오늘", location, result)
 
     def __tomorrow(self, location):
         result = self.searcher.naver_search(location)

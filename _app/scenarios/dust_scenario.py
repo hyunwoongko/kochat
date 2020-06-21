@@ -30,6 +30,7 @@ class DustScenario(BaseScenario):
     def __call__(self, text, entity):
         location, date = self.check_entity(text, entity)
         date = self._set_as_default(date, '오늘')
+        location, date = ' '.join(location), ' '.join(date)
 
         if len(location) != 0:
             return {'intent': '먼지',

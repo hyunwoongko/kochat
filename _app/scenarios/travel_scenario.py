@@ -30,6 +30,7 @@ class TravelScenario(BaseScenario):
     def __call__(self, text, entity):
         location, travel = self.check_entity(text, entity)
         travel = self._set_as_default(travel, '')
+        location, travel = ' '.join(location), ' '.join(travel)
 
         if len(location) != 0:
             return {'intent': '여행지',
