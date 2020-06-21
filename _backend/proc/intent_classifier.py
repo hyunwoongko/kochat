@@ -44,22 +44,25 @@ class IntentClassifier(TorchProcessor):
             min_lr=self.lr_scheduler_min_lr,
             patience=self.lr_scheduler_patience)
 
-        self.features, self.ood_data, self.fallback = {}, None, None
+        self.features, self.ood_data = {}, None
+        self.fallback = FallbackDetector()
         self.dist_estimator = DistanceEstimator(self.label_dict)
 
     def predict(self, dataset, calibrate=False):
         self._load_model()
+        self.dist_estimator._load_model()
+        self.fallback._load_model()
         self.model.eval()
 
         feats = self.model(dataset).float()
         feats = self.model.ret_features(feats.squeeze())
-        predict, distance = self.dist_estimator.inference(feats)
+        predict, distance = self.dist_estimator.predict(feats)
 
         if calibrate:
             self.__calibrate_msg(distance)
 
         if self.fallback_detction_criteria == 'auto':
-            if self.fallback.inference(distance) == 0:
+            if self.fallback.predict(distance) == 0:
                 return list(self.label_dict)[predict[0]]
 
         elif self.fallback_detction_criteria == 'mean':

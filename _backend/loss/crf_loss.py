@@ -16,7 +16,7 @@ class CRFLoss(nn.Module, BaseLoss):
     def compute_loss(self, label, logits, feats, mask=None):
         logits = logits.permute(0, 2, 1)
         log_likelihood = self.crf(logits, label, mask=mask, reduction='mean')
-        return - log_likelihood
+        return - log_likelihood  # nll loss
 
     def decode(self, logits, mask=None):
         logits = logits.permute(0, 2, 1)

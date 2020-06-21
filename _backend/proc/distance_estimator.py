@@ -23,9 +23,9 @@ class DistanceEstimator(SklearnProcessor):
 
     def fit(self, dataset):
         feats, label = dataset
-
         feats = feats.detach().cpu().numpy()
         label = label.detach().cpu().numpy()
+
         grid_search = GridSearchCV(
             estimator=KNeighborsClassifier(),
             param_grid=self.dist_param,
@@ -49,6 +49,7 @@ class DistanceEstimator(SklearnProcessor):
         feats = feats.detach().cpu().numpy()
         label = label.detach().cpu().numpy()
         distance, _ = self.model.kneighbors(feats)
+
         label_set = []
         for i in label:
             if i < len(self.label_dict):
@@ -63,5 +64,6 @@ class DistanceEstimator(SklearnProcessor):
         feats, label = dataset
         feats = feats.detach().cpu().numpy()
         label = label.detach().cpu().numpy()
+
         predict = self.model.predict(feats)
         return self._get_accuracy(label, predict)

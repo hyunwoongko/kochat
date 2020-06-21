@@ -20,89 +20,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d122a472-58ee-4a2b-8505-15e95560cd02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_crawler/answerer/base/answerer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_crawler/crawler/dust_crawler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_crawler/editor/base/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_crawler/editor/base/editor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_crawler/editor/weather_editor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_crawler/searcher/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_crawler/searcher/base/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_crawler/searcher/weather_searcher.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_crawler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_app/scenario_manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_app/scenarios/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_app/scenarios/base_scenario.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_app/scenarios/dust_scenario.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_app/scenarios/fallback_scenario.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_app/scenarios/restaurant_scenario.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_app/scenarios/travel_scenario.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_app/scenarios/weather_scenario.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_backend/proc/seq2seq_translator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_crawler/answerer/restaurant_answerer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_crawler/answerer/travel_answerer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_crawler/crawler/retaurant_crawler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_crawler/crawler/travel_crawler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_crawler/crawler/weather_crawler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_crawler/editor/restaurant_editor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_crawler/editor/travel_editor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_crawler/searcher/restaurant_searcher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_crawler/searcher/travel_searcher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/restful_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/_app/restful_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/entity_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/entity_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/intent_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/intent_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/ood/close_domain.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/ood/close_domain.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/ood/open_domain.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/ood/open_domain.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/preprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/preprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/raw/날씨.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/raw/날씨.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/raw/맛집.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/raw/맛집.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/raw/먼지.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/raw/먼지.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/raw/여행지.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/raw/여행지.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/decorators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/loss/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/loss/base/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/base/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/loss/base/base_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/base/base_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/loss/center_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/center_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/loss/coco_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/coco_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/loss/cosface.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/cosface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/loss/crf_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/crf_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/loss/gaussian_mixture.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/gaussian_mixture.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/loss/softmax_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/softmax_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/model/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/model/base/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/model/base/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/model/base/convolution.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/model/base/convolution.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/model/base/masking.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/base/masking.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/model/embed_fasttext.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/model/embed_fasttext.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/model/entity_lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/model/entity_lstm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/model/intent_cnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/model/intent_cnn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/model/intent_lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/model/intent_lstm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/model/sklearn_models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/proc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/proc/base/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/base/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/proc/base/base_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/base/base_processor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/proc/base/sklearn_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/base/sklearn_processor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/proc/base/torch_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/base/torch_processor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/proc/distance_estimator.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/distance_estimator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/proc/entity_recognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/entity_recognizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/proc/fallback_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/fallback_detector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/proc/gensim_embedder.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/gensim_embedder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/proc/intent_classifier.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/proc/intent_retrival.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/intent_classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/answerer/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/api/dust_crawler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/base/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/answerer/base/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/base/answerer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/base/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/crawler/base/crawler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/base/editor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/base/searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/searcher/base/searcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/core/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/answerer/weather_answerer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/core/answerer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/crawler/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/core/answerer/dust_answerer.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/answerer/dust_answerer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/core/editor/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/crawler/base/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/core/editor/dust_editor.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/editor/dust_editor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/core/searcher/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/crawler/editor_crawler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/core/searcher/dust_searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/searcher/dust_searcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/decorators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/train_backend_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_backend.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/kocaht.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/kocaht.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/editor/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/oop.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_app/restful_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/_app/restful_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_backend/loss/crf_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/crf_loss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_backend/model/entity_lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/model/entity_lstm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_backend/proc/distance_estimator.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/distance_estimator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_backend/proc/entity_recognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/entity_recognizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_backend/proc/intent_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/intent_classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_crawler/answerer/base/answerer.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/answerer/base/answerer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_crawler/answerer/dust_answerer.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/answerer/dust_answerer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_crawler/answerer/weather_answerer.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/answerer/weather_answerer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_crawler/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_crawler/crawler/base/crawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/crawler/base/crawler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_crawler/crawler/dust_crawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/crawler/dust_crawler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_crawler/crawler/editor_crawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/softmax_classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_crawler/editor/base/editor.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/editor/base/editor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_crawler/editor/dust_editor.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/editor/dust_editor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_crawler/editor/weather_editor.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/editor/weather_editor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_crawler/searcher/base/searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/searcher/base/searcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_crawler/searcher/dust_searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/searcher/dust_searcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_crawler/searcher/weather_searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/_crawler/searcher/weather_searcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_backend.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_backend.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_crawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_crawler.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +119,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/_app/scenarios" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -174,7 +132,7 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.14554794" />
     <property name="project.structure.side.proportion" value="0.2562893" />
-    <property name="settings.editor.selected.configurable" value="web.server" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -189,19 +147,19 @@
     <option name="mySupportQtDebugging" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\Desktop\chatbot\_app\scenarios" />
+      <recent name="C:\Users\ASUS\Desktop\chatbot" />
+      <recent name="C:\Users\ASUS\Github\chatbot\backend\model" />
+      <recent name="C:\Users\ASUS\Github\chatbot\backend\proc" />
+      <recent name="C:\Users\ASUS\Github\chatbot\backend\data" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS\Desktop\chatbot\_backend\loss\base" />
       <recent name="C:\Users\ASUS\Desktop\chatbot\_backend\model\base" />
       <recent name="C:\Users\ASUS\Desktop\chatbot\_backend\loss" />
       <recent name="C:\Users\ASUS\Desktop\chatbot\_crawler\editor\base" />
       <recent name="C:\Users\ASUS\Desktop\chatbot\_crawler\searcher\base" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\ASUS\Desktop\chatbot" />
-      <recent name="C:\Users\ASUS\Github\chatbot\backend\model" />
-      <recent name="C:\Users\ASUS\Github\chatbot\backend\proc" />
-      <recent name="C:\Users\ASUS\Github\chatbot\backend\data" />
-      <recent name="C:\Users\ASUS\Github\chatbot\backend\model\entity" />
     </key>
   </component>
   <component name="RunManager" selected="Python.test_crawler (1)">
@@ -263,7 +221,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test_app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Chatbot" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -312,7 +270,7 @@
           </list>
         </option>
       </PathMappingSettings>
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crawler/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_app.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -495,7 +453,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_crawler" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="weather_searcher" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Chatbot" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -544,65 +502,7 @@
           </list>
         </option>
       </PathMappingSettings>
-      <option name="SCRIPT_NAME" value="C:\Users\ASUS\Desktop\chatbot\test_crawler.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="train_backend_models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Chatbot" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="DockerContainerSettingsRunConfigurationExtension">
-        <option name="envVars">
-          <list />
-        </option>
-        <option name="extraHosts">
-          <list />
-        </option>
-        <option name="links">
-          <list />
-        </option>
-        <option name="networkDisabled" value="false" />
-        <option name="networkMode" value="bridge" />
-        <option name="portBindings">
-          <list />
-        </option>
-        <option name="publishAllPorts" value="false" />
-        <option name="runCliOptions" value="--entrypoint= --rm --runtime=nvidia" />
-        <option name="version" value="2" />
-        <option name="volumeBindings">
-          <list>
-            <DockerVolumeBindingImpl>
-              <option name="containerPath" value="/home/gusdnd852/Github/chatbot" />
-              <option name="editable" value="true" />
-              <option name="hostPath" value="/home/gusdnd852/Github/chatbot" />
-              <option name="readOnly" value="false" />
-            </DockerVolumeBindingImpl>
-          </list>
-        </option>
-      </EXTENSION>
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <PathMappingSettings>
-        <option name="pathMappings">
-          <list>
-            <mapping local-root="$PROJECT_DIR$" remote-root="/home/gusdnd852/Github/chatbot" />
-          </list>
-        </option>
-      </PathMappingSettings>
-      <option name="SCRIPT_NAME" value="C:\Users\ASUS\Desktop\chatbot\backend\train_backend_models.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/_crawler/searcher/weather_searcher.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -612,18 +512,18 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.test_crawler" />
-      <item itemvalue="Python.train_backend_models" />
-      <item itemvalue="Python.test" />
       <item itemvalue="Python.test_backend" />
       <item itemvalue="Python.test_backend (1)" />
       <item itemvalue="Python.test_crawler (1)" />
+      <item itemvalue="Python.weather_searcher" />
+      <item itemvalue="Python.test_app" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.test_crawler (1)" />
+        <item itemvalue="Python.test_app" />
+        <item itemvalue="Python.weather_searcher" />
         <item itemvalue="Python.test_backend (1)" />
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.test_backend" />
       </list>
     </recent_temporary>
@@ -663,7 +563,7 @@
       <workItem from="1592511964478" duration="61909000" />
       <workItem from="1592585427791" duration="5046000" />
       <workItem from="1592621560444" duration="18740000" />
-      <workItem from="1592640463989" duration="3628000" />
+      <workItem from="1592640463989" duration="66016000" />
     </task>
     <servers />
   </component>
@@ -713,29 +613,29 @@
     </state>
     <state x="811" y="437" key="#Volume_binding/0.0.1920.1080@0.0.1920.1080" timestamp="1591029040179" />
     <state x="811" y="460" key="#Volume_binding/0.39.1920.1041@0.39.1920.1041" timestamp="1592341287492" />
-    <state x="414" y="226" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592633380960">
+    <state x="414" y="226" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592645586876">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state x="414" y="194" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591201352070" />
-    <state x="414" y="226" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1592633380960" />
+    <state x="414" y="226" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1592645586876" />
     <state x="108" y="365" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1592006490031">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state x="108" y="338" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1591074853646" />
     <state x="108" y="365" key="#com.intellij.fileTypes.FileTypeChooser/0.39.1920.1041@0.39.1920.1041" timestamp="1592006490031" />
-    <state x="765" y="275" key="#com.intellij.ide.util.MemberChooser" timestamp="1592556407723">
+    <state x="765" y="275" key="#com.intellij.ide.util.MemberChooser" timestamp="1592661359253">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
-    <state x="765" y="275" key="#com.intellij.ide.util.MemberChooser/0.39.1920.1041@0.39.1920.1041" timestamp="1592556407723" />
-    <state x="240" y="39" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592301473920">
+    <state x="765" y="275" key="#com.intellij.ide.util.MemberChooser/0.39.1920.1041@0.39.1920.1041" timestamp="1592661359253" />
+    <state x="240" y="39" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592724396999">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
-    <state x="240" y="39" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1592301473920" />
-    <state x="690" y="314" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592629922733">
+    <state x="240" y="39" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1592724396999" />
+    <state x="690" y="314" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592723975281">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state x="690" y="285" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591085467039" />
-    <state x="690" y="314" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1592629922733" />
+    <state x="690" y="314" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1592723975281" />
     <state x="624" y="100" key="#test" timestamp="1592195804556">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
@@ -757,26 +657,26 @@
     </state>
     <state x="755" y="294" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1591103888965" />
     <state x="755" y="322" key="FileChooserDialogImpl/0.39.1920.1041@0.39.1920.1041" timestamp="1592622255562" />
-    <state width="1153" height="302" key="GridCell.Tab.0.bottom" timestamp="1592643968377">
+    <state width="958" height="380" key="GridCell.Tab.0.bottom" timestamp="1592728084029">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1153" height="302" key="GridCell.Tab.0.bottom/0.39.1920.1041@0.39.1920.1041" timestamp="1592643968377" />
-    <state width="1153" height="302" key="GridCell.Tab.0.center" timestamp="1592643968377">
+    <state width="958" height="380" key="GridCell.Tab.0.bottom/0.39.1920.1041@0.39.1920.1041" timestamp="1592728084029" />
+    <state width="958" height="380" key="GridCell.Tab.0.center" timestamp="1592728084029">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1153" height="302" key="GridCell.Tab.0.center/0.39.1920.1041@0.39.1920.1041" timestamp="1592643968377" />
-    <state width="1153" height="302" key="GridCell.Tab.0.left" timestamp="1592643968377">
+    <state width="958" height="380" key="GridCell.Tab.0.center/0.39.1920.1041@0.39.1920.1041" timestamp="1592728084029" />
+    <state width="958" height="380" key="GridCell.Tab.0.left" timestamp="1592728084029">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1153" height="302" key="GridCell.Tab.0.left/0.39.1920.1041@0.39.1920.1041" timestamp="1592643968377" />
-    <state width="1153" height="302" key="GridCell.Tab.0.right" timestamp="1592643968377">
+    <state width="958" height="380" key="GridCell.Tab.0.left/0.39.1920.1041@0.39.1920.1041" timestamp="1592728084029" />
+    <state width="958" height="380" key="GridCell.Tab.0.right" timestamp="1592728084029">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1153" height="302" key="GridCell.Tab.0.right/0.39.1920.1041@0.39.1920.1041" timestamp="1592643968377" />
+    <state width="958" height="380" key="GridCell.Tab.0.right/0.39.1920.1041@0.39.1920.1041" timestamp="1592728084029" />
     <state width="1921" height="358" key="GridCell.Tab.1.bottom" timestamp="1592510344604">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
@@ -797,23 +697,23 @@
     </state>
     <state width="1877" height="366" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1591097545037" />
     <state width="1921" height="358" key="GridCell.Tab.1.right/0.39.1920.1041@0.39.1920.1041" timestamp="1592510344604" />
-    <state x="38" y="167" width="1538" height="725" key="SettingsEditor" timestamp="1592640567998">
+    <state x="68" y="344" width="1538" height="725" key="SettingsEditor" timestamp="1592649469199">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state x="721" y="183" width="1002" height="713" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1591145094319" />
-    <state x="38" y="167" width="1538" height="725" key="SettingsEditor/0.39.1920.1041@0.39.1920.1041" timestamp="1592640567998" />
+    <state x="68" y="344" width="1538" height="725" key="SettingsEditor/0.39.1920.1041@0.39.1920.1041" timestamp="1592649469199" />
     <state x="0" y="160" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1592484609809">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state x="0" y="160" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.39.1920.1041@0.39.1920.1041" timestamp="1592484609809" />
-    <state x="0" y="39" width="1574" height="717" key="dock-window-1" timestamp="1592633494584">
+    <state x="1034" y="39" width="893" height="1048" key="dock-window-1" timestamp="1592661912485">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
-    <state x="0" y="39" width="1574" height="717" key="dock-window-1/0.39.1920.1041@0.39.1920.1041" timestamp="1592633494584" />
-    <state x="92" y="131" width="1736" height="857" key="dock-window-2" timestamp="1592243635180">
+    <state x="1034" y="39" width="893" height="1048" key="dock-window-1/0.39.1920.1041@0.39.1920.1041" timestamp="1592661912485" />
+    <state x="92" y="131" width="1736" height="857" key="dock-window-2" timestamp="1592727881250">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
-    <state x="92" y="131" width="1736" height="857" key="dock-window-2/0.39.1920.1041@0.39.1920.1041" timestamp="1592243635180" />
+    <state x="92" y="131" width="1736" height="857" key="dock-window-2/0.39.1920.1041@0.39.1920.1041" timestamp="1592727881250" />
     <state x="855" y="298" key="ftp.server.browser" timestamp="1592550287198">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
@@ -840,14 +740,14 @@
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state x="785" y="328" key="refactoring.ChangeSignatureDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1592305312098" />
-    <state x="181" y="264" key="run.anything.popup" timestamp="1592532498164">
+    <state x="181" y="264" key="run.anything.popup" timestamp="1592727053952">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
-    <state x="181" y="264" key="run.anything.popup/0.39.1920.1041@0.39.1920.1041" timestamp="1592532498164" />
-    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup" timestamp="1592622657540">
+    <state x="181" y="264" key="run.anything.popup/0.39.1920.1041@0.39.1920.1041" timestamp="1592727053952" />
+    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup" timestamp="1592713325760">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
-    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup/0.39.1920.1041@0.39.1920.1041" timestamp="1592622657540" />
+    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup/0.39.1920.1041@0.39.1920.1041" timestamp="1592713325760" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -869,7 +769,7 @@
     <SUITE FILE_PATH="coverage/chatbot$test.coverage" NAME="test Coverage Results" MODIFIED="1592633366457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$train__1_.coverage" NAME="train (1) Coverage Results" MODIFIED="1592026581064" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$main.coverage" NAME="main Coverage Results" MODIFIED="1591999576114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/chatbot$test_backend__1_.coverage" NAME="test_backend (1) Coverage Results" MODIFIED="1592640662897" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/chatbot$test_backend__1_.coverage" NAME="test_backend (1) Coverage Results" MODIFIED="1592644636197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$dev.coverage" NAME="dev Coverage Results" MODIFIED="1592121872703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
     <SUITE FILE_PATH="coverage/Chatbot_Deeplearning$main_train.coverage" NAME="main_train Coverage Results" MODIFIED="1589688975891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/chatbot$train_backend_models.coverage" NAME="train_backend_models Coverage Results" MODIFIED="1592622150955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -887,7 +787,9 @@
     <SUITE FILE_PATH="coverage/chatbot$train_backend_models__1_.coverage" NAME="train_backend_models Coverage Results" MODIFIED="1592632931328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
     <SUITE FILE_PATH="coverage/chatbot$test_crawlers.coverage" NAME="test_crawler Coverage Results" MODIFIED="1592640100551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$build_date.coverage" NAME="build_data Coverage Results" MODIFIED="1592020351788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/chatbot$test_app.coverage" NAME="test_app Coverage Results" MODIFIED="1592725107955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$build_entity.coverage" NAME="build_entity Coverage Results" MODIFIED="1592018791080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/chatbot$weather_searcher.coverage" NAME="weather_searcher Coverage Results" MODIFIED="1592645565281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$embedding.coverage" NAME="embedding Coverage Results" MODIFIED="1589191576476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/embedding" />
     <SUITE FILE_PATH="coverage/Chatbot$python3__3_.coverage" NAME="python3 (3) Coverage Results" MODIFIED="1592312155789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/crawler/core/searcher" />
     <SUITE FILE_PATH="coverage/Chatbot$make_intent_data.coverage" NAME="make_intent_data Coverage Results" MODIFIED="1589180179158" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
@@ -901,7 +803,7 @@
     <SUITE FILE_PATH="coverage/Chatbot$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1591927705769" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$build_intent.coverage" NAME="build_intent Coverage Results" MODIFIED="1591032480057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
     <SUITE FILE_PATH="coverage/Chatbot_Deeplearning$train.coverage" NAME="train Coverage Results" MODIFIED="1589702380404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/chatbot$test_crawler__1_.coverage" NAME="test_crawler (1) Coverage Results" MODIFIED="1592643968359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/chatbot$test_crawler__1_.coverage" NAME="test_crawler (1) Coverage Results" MODIFIED="1592728084019" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$trainer.coverage" NAME="trainer Coverage Results" MODIFIED="1589686565156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$python3__2_.coverage" NAME="python3 (2) Coverage Results" MODIFIED="1592235666681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

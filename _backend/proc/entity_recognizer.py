@@ -1,6 +1,6 @@
 """
 @author : Hyunwoong
-@when : 5/9/2020
+@when : 6/20/2020
 @homepage : https://github.com/gusdnd852
 """
 
@@ -43,12 +43,12 @@ class EntityRecognizer(TorchProcessor):
         self._load_model()
         self.model.eval()
 
-        length = self._get_length(sequence)
+        length = self.__get_length(sequence)
         output = self.model(sequence).float()
         output = output.squeeze().t()
         _, predict = torch.max(output, dim=1)
         output = [list(self.label_dict.keys())[i.item()] for i in predict]
-        return ' '.join(output[:length])
+        return output[:length]
 
     def _fit(self, epoch) -> tuple:
         loss_list, accuracy_list = [], []
@@ -61,7 +61,7 @@ class EntityRecognizer(TorchProcessor):
             total_loss = self.loss.compute_loss(labels, logits, feats, mask)
             self.loss.step(total_loss, self.optimizers)
 
-            predict = self.__predict(self.loss, logits)
+            predict = self.__model_predict(self.loss, logits)
             loss_list.append(total_loss)
             accuracy_list.append(self._get_accuracy(labels, predict))
 
@@ -97,8 +97,17 @@ class EntityRecognizer(TorchProcessor):
                     correct += 1
         return correct / all
 
-    def __predict(self, kinds_loss, logits):
+    def __model_predict(self, kinds_loss, logits):
         if type(kinds_loss) == CRFLoss:
             return torch.tensor(self.loss.decode(logits))
         else:
             return torch.tensor(torch.max(logits, dim=1)[1])
+
+    def __get_length(self, sequence):
+        """
+        pad는 [0...0]이니까 1더해서 [1...1]로
+        만들고 all로 검사해서 pad가 아닌 부분만 세기
+        """
+        sequence = sequence.squeeze()
+        return [all(map(int, (i + 1).tolist()))
+                for i in sequence].count(False)

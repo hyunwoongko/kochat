@@ -10,7 +10,7 @@ class EntityLSTM(nn.Module):
     def __init__(self, label_dict, bidirectional=True):
         super().__init__()
         self.label_dict = label_dict
-        self.direction = 2 if bidirectional else 1  # bidirectional
+        self.direction = 2 if bidirectional else 1
         self.lstm = nn.LSTM(input_size=self.vector_size,
                             hidden_size=self.d_model,
                             num_layers=self.layers,
@@ -20,8 +20,9 @@ class EntityLSTM(nn.Module):
         self.out = nn.Linear(self.d_model * self.direction, len(label_dict))
 
     def init_hidden(self, batch_size):
-        return (torch.autograd.Variable(torch.randn(self.layers * self.direction, batch_size, self.d_model).cuda()),
-                torch.autograd.Variable(torch.randn(self.layers * self.direction, batch_size, self.d_model).cuda()))
+        param1 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
+        param2 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
+        return torch.autograd.Variable(param1), torch.autograd.Variable(param2)
 
     def forward(self, x):
         b, l, v = x.size()
