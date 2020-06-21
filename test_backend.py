@@ -3,6 +3,7 @@ import warnings
 
 from _backend.data.dataset import Dataset
 from _backend.data.preprocessor import Preprocessor
+from _backend.loss.center_loss import CenterLoss
 from _backend.loss.cosface import CosFace
 from _backend.loss.crf_loss import CRFLoss
 from _backend.model.embed_fasttext import EmbedFastText
@@ -22,14 +23,14 @@ dataset = Dataset(Preprocessor(), ood=True)
 embed_dataset = dataset.load_embed()
 embed_processor = GensimEmbedder(
     model=EmbedFastText())
-# embed_processor.fit(embed_dataset)
+embed_processor.fit(embed_dataset)
 
 # 3. 의도 분류기를 학습합니다
 intent_dataset = dataset.load_intent(embed_processor)
 intent_processor = IntentClassifier(
     model=IntentCNN(dataset.intent_dict),
-    loss=CosFace(dataset.intent_dict))
-# intent_processor.fit(intent_dataset)
+    loss=CenterLoss(dataset.intent_dict))
+intent_processor.fit(intent_dataset)
 
 # 4. 개체명 인식기를 학습합니다.
 entity_dataset = dataset.load_entity(embed_processor)
