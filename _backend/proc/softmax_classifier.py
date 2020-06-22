@@ -8,18 +8,18 @@ import torch
 from torch.optim import Adam
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 
-from backend.decorators import intent
-from backend.loss.softmax_loss import SoftmaxLoss
-from backend.proc.base.torch_processor import TorchProcessor
+from _backend.decorators import intent
+from _backend.loss.cross_entropy_loss import CrossEntropyLoss
+from _backend.proc.base.torch_processor import TorchProcessor
 
 
 @intent
-class IntentClassifier(TorchProcessor):
+class SoftmaxClassifier(TorchProcessor):
 
     def __init__(self, model):
         super().__init__(model=model)
         self.label_dict = model.label_dict
-        self.loss = SoftmaxLoss(model.label_dict)
+        self.loss = CrossEntropyLoss(model.label_dict)
         self.optimizers = [Adam(
             params=self.model.parameters(),
             lr=self.lr,
@@ -50,7 +50,9 @@ class IntentClassifier(TorchProcessor):
             logits = self.model.clf_logits(feats)
 
             total_loss = self.loss.compute_loss(labels, logits, None)
-            total_loss.step(total_loss, self.optimizers)
+            for opt in self.optimizers: opt.zero_grad()
+            total_loss.backward()
+            for opt in self.optimizers: opt.step()
 
             loss_list.append(total_loss.item())
             _, predict = torch.max(logits, dim=1)

@@ -99,7 +99,9 @@ class IntentClassifier(TorchProcessor):
             logits = self.model.ret_logits(feats)
 
             total_loss = self.loss.compute_loss(labels, logits, feats)
-            self.loss.step(total_loss, self.optimizers)
+            for opt in self.optimizers: opt.zero_grad()
+            total_loss.backward()
+            for opt in self.optimizers: opt.step()
 
             feat_list.append(feats)
             label_list.append(labels)

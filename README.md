@@ -1,10 +1,9 @@
 # Kochat
 
-![kochat_main](docs/kocaht.jpg)
+![kochat_main](docs/kochat.jpg)
 
 Kochat은 한국어 전용 챗봇 프레임워크로, 자연어처리 개발자라면 
 누구나 무료로 손쉽게 챗봇을 개발 할 수 있도록 돕는 오픈소스 소프트웨어입니다.
-(pip 빌드 준비중입니다)
 <br><br>
 
 ## Table of contents
@@ -16,11 +15,7 @@ Kochat은 한국어 전용 챗봇 프레임워크로, 자연어처리 개발자�
 <br><br>
 
 ## 1.시작하기
-
-먼저 pip로 kochat을 다운로드 받습니다. (빌드 준비중 입니다.)
-```
-pip install kochat
-```
+준비중...
 
 <br><br>
 

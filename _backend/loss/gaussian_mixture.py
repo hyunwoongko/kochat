@@ -6,16 +6,20 @@ from torch.nn import functional as F
 from _backend.decorators import intent
 from _backend.loss.base.base_loss import BaseLoss
 
-"""
-code reference :
-https://github.com/YirongMao/softmax_variants
-"""
-
 
 @intent
-class LargeMarginGaussianMixture(nn.Module, BaseLoss):
+class LargeMarginGaussianMixture(BaseLoss):
 
     def __init__(self, label_dict):
+        """
+        Large Margin Gaussian Mixture Loss를 계산합니다.
+
+        - paper reference : https://arxiv.org/abs/1803.02988
+        - code reference : https://github.com/YirongMao/softmax_variants
+
+        :param label_dict: 라벨 딕셔너리
+        """
+
         super(LargeMarginGaussianMixture, self).__init__()
         self.classes = len(label_dict)
         self.centers = nn.Parameter(torch.randn(self.classes, self.d_loss))

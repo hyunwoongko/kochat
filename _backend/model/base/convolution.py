@@ -3,7 +3,7 @@ from torch import nn
 
 class Convolution(nn.Module):
 
-    def __init__(self, _in, _out, kernel_size):
+    def __init__(self, _in, _out, kernel_size, residual):
         super().__init__()
         self.conv = nn.Conv1d(in_channels=_in,
                               out_channels=_out,
@@ -12,6 +12,7 @@ class Convolution(nn.Module):
 
         self.norm = nn.BatchNorm1d(_out)
         self.relu = nn.ReLU()
+        self.residual = residual
 
     def forward(self, x):
         _x = x
@@ -20,4 +21,6 @@ class Convolution(nn.Module):
         x = self.relu(x)
 
         # residual connection
-        return x + _x if x.size() == _x.size() else x
+        return x + _x \
+            if x.size() == _x.size() and self.residual \
+            else x

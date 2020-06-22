@@ -1,7 +1,7 @@
 """
 @author : Hyunwoong
-@when : 5\\9\\2020
-@homepage : https:\\\\github.com\\gusdnd852
+@when : 5/9/2020
+@homepage : https://github.com/gusdnd852
 """
 import torch
 from sklearn.linear_model import LogisticRegressionCV
@@ -11,10 +11,10 @@ OS = 'Windows'
 # OS = 'Others'
 _ = '\\' if OS == 'Windows' else '/'
 
-# root dir example
-# windows : "C:{_}yourdirectory{_}..._backend{_}" <-- 맨 뒤에 {_} 붙여야함
-# linux : "home{_}yourdirectory{_}..._backend{_}" <-- 맨 뒤에 {_} 붙여야함
-# mac_os : "home{_}yourdirectory{_}..._backend{_}" <-- 맨 뒤에 {_} 붙여야함
+# 프레임워크 사용자는 root 경로만 바꾸면 하위 경로들은 변경하지 않아도 됩니다.
+# OS에 따른 root 경로 설정 예시 (맨 뒤에 {_}를 반드시 붙여야 함)
+# windows → "C:{_}yourdirectory{_}yourdirectory{_}..._backend{_}"
+# linux / mac → "home{_}yourdirectory{_}yourdirectory{_}..._backend{_}"
 
 BACKEND = {
     'device': 'cuda' if torch.cuda.is_available() else 'cpu',
@@ -32,7 +32,7 @@ DATA = {
     'intent_data_dir': BACKEND['root_dir'] + "data{_}intent_data.csv".format(_=_),  # 생성된 인텐트 데이터 파일 경로
     'entity_data_dir': BACKEND['root_dir'] + "data{_}entity_data.csv".format(_=_),  # 생성된 엔티티 데이터 파일 경로
 
-    'NER_categories': ['DATE', 'LOCATION', 'RESTAURANT', 'TRAVEL'],
+    'NER_categories': ['DATE', 'LOCATION', 'RESTAURANT', 'TRAVEL'], # 사용자 정의 태그
     'NER_tagging': ['B', 'E', 'I', 'S'],  # NER의 BEGIN, END, INSIDE, SINGLE 태그
     'NER_outside': 'O',  # NER의 O태그 (Outside를 의미)
 }

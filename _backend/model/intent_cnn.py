@@ -13,12 +13,12 @@ from _backend.model.base.convolution import Convolution
 @intent
 class IntentCNN(nn.Module):
 
-    def __init__(self, label_dict):
+    def __init__(self, label_dict, residual=True):
         super(IntentCNN, self).__init__()
         self.label_dict = label_dict
-        self.stem = Convolution(self.vector_size, self.d_model, kernel_size=1)
+        self.stem = Convolution(self.vector_size, self.d_model, kernel_size=1, residual=residual)
         self.hidden_layers = nn.Sequential(*[
-            Convolution(self.d_model, self.d_model, kernel_size=1)
+            Convolution(self.d_model, self.d_model, kernel_size=1, residual=residual)
             for _ in range(self.layers)])
 
         # visualization

@@ -1,15 +1,23 @@
 import torch
-from torch import nn
-
-from _backend.loss.base.base_loss import BaseLoss
 from torch.nn import functional as F
 
+from _backend.loss.base.base_loss import BaseLoss
 
-class SoftmaxLoss(nn.CrossEntropyLoss, BaseLoss):
+
+class CrossEntropyLoss(BaseLoss):
 
     def __init__(self, label_dict):
-        super(SoftmaxLoss, self).__init__()
-        self.classes = len(label_dict)
+        """
+        cross entropy loss를 계산합니다.
+
+        :param label_dict: 라벨 딕셔너리
+        """
+
+        super(CrossEntropyLoss, self).__init__()
+        self.label_dict = label_dict
+
+    def forward(self, input, target):
+        return F.cross_entropy(input, target)
 
     def compute_loss(self, label, logits, feats, mask=None):
         if mask is None:

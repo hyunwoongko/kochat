@@ -1,14 +1,19 @@
 from torchcrf import CRF
-from torch import nn
 
 from _backend.decorators import entity
 from _backend.loss.base.base_loss import BaseLoss
 
 
 @entity
-class CRFLoss(nn.Module, BaseLoss):
+class CRFLoss(BaseLoss):
 
     def __init__(self, label_dict):
+        """
+        Conditional Random Field를 계산하여 Loss 함수로 활용합니다.
+
+        :param label_dict: 라벨 딕셔너리
+        """
+
         super().__init__()
         self.label_dict = label_dict
         self.crf = CRF(len(label_dict), batch_first=True)

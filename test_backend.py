@@ -19,18 +19,19 @@ os.environ["PYTHONWARNINGS"] = "ignore"
 # 1. 데이터 셋 객체를 생성합니다. (ood 여부 선택)
 dataset = Dataset(Preprocessor(), ood=True)
 
+
 # 2. 임베딩 프로세서를 학습합니다.
 embed_dataset = dataset.load_embed()
 embed_processor = GensimEmbedder(
     model=EmbedFastText())
-embed_processor.fit(embed_dataset)
+# embed_processor.fit(embed_dataset)
 
 # 3. 의도 분류기를 학습합니다
 intent_dataset = dataset.load_intent(embed_processor)
 intent_processor = IntentClassifier(
     model=IntentCNN(dataset.intent_dict),
     loss=CenterLoss(dataset.intent_dict))
-intent_processor.fit(intent_dataset)
+# intent_processor.fit(intent_dataset)
 
 # 4. 개체명 인식기를 학습합니다.
 entity_dataset = dataset.load_entity(embed_processor)

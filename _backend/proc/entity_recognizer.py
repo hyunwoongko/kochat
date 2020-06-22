@@ -59,7 +59,9 @@ class EntityRecognizer(TorchProcessor):
 
             mask = self.masking(train_length) if self.masking else None
             total_loss = self.loss.compute_loss(labels, logits, feats, mask)
-            self.loss.step(total_loss, self.optimizers)
+            for opt in self.optimizers: opt.zero_grad()
+            total_loss.backward()
+            for opt in self.optimizers: opt.step()
 
             predict = self.__model_predict(self.loss, logits)
             loss_list.append(total_loss)
