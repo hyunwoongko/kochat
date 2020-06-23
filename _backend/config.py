@@ -7,18 +7,17 @@ import torch
 from sklearn.linear_model import LogisticRegressionCV
 from sklearn.svm import LinearSVC
 
-OS = 'Windows'
-# OS = 'Others'
+# OS = 'Windows'
+OS = 'Others'
 _ = '\\' if OS == 'Windows' else '/'
 
-# 프레임워크 사용자는 root 경로만 바꾸면 하위 경로들은 변경하지 않아도 됩니다.
 # OS에 따른 root 경로 설정 예시 (맨 뒤에 {_}를 반드시 붙여야 함)
 # windows → "C:{_}yourdirectory{_}yourdirectory{_}..._backend{_}"
-# linux / mac → "home{_}yourdirectory{_}yourdirectory{_}..._backend{_}"
+# linux / mac → "/home{_}yourdirectory{_}yourdirectory{_}..._backend{_}"
 
 BACKEND = {
     'device': 'cuda' if torch.cuda.is_available() else 'cpu',
-    'root_dir': "C:{_}Users{_}ASUS{_}Desktop{_}chatbot{_}_backend{_}".format(_=_),  # 백엔드 루트경로
+    'root_dir': "/home{_}gusdnd852{_}Github{_}kochat{_}_backend{_}".format(_=_),  # 백엔드 루트경로
     'vector_size': 64,  # 단어 벡터 사이즈
     'batch_size': 512,  # 미니배치 사이즈
     'max_len': 8,  # 문장의 최대 길이 (패드 시퀀싱)
