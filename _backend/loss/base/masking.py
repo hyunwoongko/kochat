@@ -32,4 +32,4 @@ class Masking(nn.Module):
             # 마스크 배열에 넣어줌
 
         return torch.cat(masks, dim=0)
-        # batchwise로 concatenation함
+        # batchwise concatenation

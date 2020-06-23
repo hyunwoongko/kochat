@@ -4,6 +4,15 @@ from torch import nn
 class Convolution(nn.Module):
 
     def __init__(self, _in, _out, kernel_size, residual):
+        """
+        기본적인 Convolution - BN - Relu 블럭입니다.
+
+        :param _in: 입력 채널 사이즈
+        :param _out: 출력 채널 사이즈
+        :param kernel_size: 커널 사이즈
+        :param residual: 레지듀얼 여부
+        """
+
         super().__init__()
         self.conv = nn.Conv1d(in_channels=_in,
                               out_channels=_out,
@@ -16,9 +25,9 @@ class Convolution(nn.Module):
 
     def forward(self, x):
         _x = x
-        x = self.conv(x)
-        x = self.norm(x)
-        x = self.relu(x)
+        x = self.conv(x)  # convolution
+        x = self.norm(x)  # batch normalization
+        x = self.relu(x)  # relu activation
 
         # residual connection
         return x + _x \

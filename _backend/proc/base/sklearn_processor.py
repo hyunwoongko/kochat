@@ -13,10 +13,13 @@ from _backend.proc.base.base_processor import BaseProcessor
 
 class SklearnProcessor(BaseProcessor, metaclass=ABCMeta):
     def __init__(self, model):
-        self.model = model
-        super().__init__(self.model)
+        super().__init__(model)
 
     def _load_model(self):
+        """
+        저장된 모델을 불러옵니다.
+        """
+
         if not os.path.exists(self.model_dir):
             raise Exception("모델을 불러올 수 없습니다.")
 
@@ -25,11 +28,11 @@ class SklearnProcessor(BaseProcessor, metaclass=ABCMeta):
             self.model_loaded = True
 
     def _save_model(self):
+        """
+        모델을 저장장치에 저장합니다.
+        """
+
         if not os.path.exists(self.model_dir):
             os.makedirs(self.model_dir)
 
         joblib.dump(self.model, self.model_file + '.pkl')
-
-    def _print_log(self, msg):
-        print('{name} - {msg}'
-              .format(name=__class__.__name__, msg=msg))

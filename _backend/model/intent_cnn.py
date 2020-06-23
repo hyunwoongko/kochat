@@ -14,6 +14,13 @@ from _backend.model.base.convolution import Convolution
 class IntentCNN(nn.Module):
 
     def __init__(self, label_dict, residual=True):
+        """
+        Intent Classification을 위한 CNN 클래스입니다.
+
+        :param label_dict: 라벨 딕셔너리
+        :param residual: skip connection 여부
+        """
+
         super(IntentCNN, self).__init__()
         self.label_dict = label_dict
         self.stem = Convolution(self.vector_size, self.d_model, kernel_size=1, residual=residual)
@@ -21,7 +28,8 @@ class IntentCNN(nn.Module):
             Convolution(self.d_model, self.d_model, kernel_size=1, residual=residual)
             for _ in range(self.layers)])
 
-        # visualization
+        # ret features, logits => retrieval시 사용
+        # clf logits => softmax classification시 사용
         self.ret_features = nn.Linear(self.d_model * self.max_len, self.d_loss)
         self.ret_logits = nn.Linear(self.d_loss, len(self.label_dict))
         self.clf_logits = nn.Linear(self.d_model * self.max_len, len(self.label_dict))

@@ -8,6 +8,13 @@ from _backend.decorators import entity
 class EntityLSTM(nn.Module):
 
     def __init__(self, label_dict, bidirectional=True):
+        """
+        Entity Recognition을 위한 LSTM 모델 클래스입니다.
+
+        :param label_dict: 라벨 딕셔너리
+        :param bidirectional: Bidirectional 여부
+        """
+
         super().__init__()
         self.label_dict = label_dict
         self.direction = 2 if bidirectional else 1

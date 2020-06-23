@@ -4,8 +4,8 @@
 @see : https://github.com/gusdnd852
 """
 from _app.restful_api import KochatApi
-from _backend.data.dataset import Dataset
-from _backend.data.preprocessor import Preprocessor
+from _backend.data.utils.dataset import Dataset
+from _backend.data.utils.organizer import Organizer
 from _backend.loss.center_loss import CenterLoss
 from _backend.loss.crf_loss import CRFLoss
 from _backend.model.embed_fasttext import EmbedFastText
@@ -17,7 +17,7 @@ from _backend.proc.intent_classifier import IntentClassifier
 
 if __name__ == '__main__':
     dataset = Dataset(
-        preprocessor=Preprocessor(),
+        preprocessor=Organizer(),
         ood=True
     )
 

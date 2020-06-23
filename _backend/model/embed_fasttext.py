@@ -23,10 +23,11 @@ class EmbedFastText(FastText):
 
     def forward(self, sequence):
         sentence_vector = []
+
         for word in sequence:
-            word_vector = self.wv[word]
-            word_vector = torch.tensor(word_vector)
-            word_vector = torch.unsqueeze(word_vector, dim=0)
+            word_vector = self.wv[word]  # 단어 → 벡터
+            word_vector = torch.tensor(word_vector)  # 벡터 → 토치텐서
+            word_vector = torch.unsqueeze(word_vector, dim=0)  # concat을 위해 unsqueeze
             sentence_vector.append(word_vector)
 
-        return torch.cat(sentence_vector, dim=0)
+        return torch.cat(sentence_vector, dim=0)  # concatenation

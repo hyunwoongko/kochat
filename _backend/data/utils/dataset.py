@@ -4,7 +4,8 @@ import pandas as pd
 import torch
 import numpy as np
 from torch.utils.data import TensorDataset, DataLoader
-from _backend.data.preprocessor import Preprocessor
+from _backend.data.utils.organizer import Organizer
+from _backend.data.utils.preprocessor import Preprocessor
 from _backend.decorators import data
 from _backend.proc.base.base_processor import BaseProcessor
 
@@ -12,7 +13,7 @@ from _backend.proc.base.base_processor import BaseProcessor
 @data
 class Dataset:
 
-    def __init__(self, preprocessor: Preprocessor, ood: bool):
+    def __init__(self, ood: bool):
         """
         학습과 추론에 사용할 데이터셋을 생성하는 클래스입니다.
         전처리기는 현재는 한 가지만 구현되어 있으며, 추후 추가될 수 있습니다.
@@ -23,10 +24,12 @@ class Dataset:
         :param ood: Out of distribution dataset 사용 여부입니다.
         """
 
+        self.__org = Organizer()
+        self.intent_dict = self.__org.organize_intent()
+        self.entity_dict = self.__org.organize_entity()
+
         self.__ood = ood
-        self.__prep = preprocessor
-        self.intent_dict = self.__prep.generate_intent()
-        self.entity_dict = self.__prep.generate_entity()
+        self.__prep = Preprocessor()
 
     def load_embed(self) -> list:
         """
@@ -39,12 +42,13 @@ class Dataset:
 
         embed_dataset = pd.read_csv(self.intent_data_dir)
 
-        if self.__ood:
-            embed_dataset = pd.concat([embed_dataset, self.__read_ood()])
+        if self.__ood:  # ood = True이면 ood도 로드해서 합침
+            embed_dataset = pd.concat([embed_dataset, self.__load_ood()])
 
         embed_dataset = embed_dataset.values.tolist()
         embed_dataset = self.__tokenize_dataset(embed_dataset)
         question_index, label_index = 0, 1  # 매직넘버 사용하지 않기 !
+
         return np.array(embed_dataset)[:, question_index].tolist()
         # label말고 question 부분만 리턴하기 (gensim 임베딩은 라벨 필요 X)
 
@@ -62,7 +66,7 @@ class Dataset:
         # 테스트는 여러 에폭을 거치지 않고 마지막에만 한번 수행되기 때문에 tuple로 리턴합니다.
 
         if self.__ood:
-            ood_dataset = self.__read_ood()
+            ood_dataset = self.__load_ood()
             ood_train, ood_test = self.__make_intent(ood_dataset, emb_processor)
             ood_train, ood_test = tuple(ood_train), tuple(ood_test)
             # ood 역시 마지막에 한번만 학습 및 테스트 하므로 둘다 tuple로 리턴합니다.
@@ -102,6 +106,24 @@ class Dataset:
         text, _ = self.__prep.pad_sequencing(text)  # 패드 시퀀싱
         return text.unsqueeze(0).to(self.device)  # 차원 증가 (batch_size = 1)
 
+    def __load_ood(self):
+        """
+        메모리에서 OOD 데이터를 로드합니다.
+        OOD 데이터는 폴백 디텍션 모델의 Threshold를 자동으로 설정하고,
+        인텐트 검색기와 폴백 디텍션 모델의 성능을 검증하기 위해 사용됩니다.
+
+        :return: 여러개의 OOD 데이터를 한 파일로 모아서 반환합니다.
+        """
+
+        ood_dataset = []
+
+        for ood in os.listdir(self.ood_data_dir):
+            if ood != '__init__.py':  # __init__ 파일 제외
+                ood = pd.read_csv(self.ood_data_dir + ood)
+                ood_dataset.append(ood)
+
+        return pd.concat(ood_dataset)
+
     def __make_intent(self, intent_dataset, emb_processor) -> tuple:
         """
         인텐트 데이터셋을 만드는 세부 과정입니다.
@@ -131,14 +153,14 @@ class Dataset:
     def __make_entity(self, entity_dataset, emb_processor) -> tuple:
         """
         엔티티 데이터셋을 만드는 세부 과정입니다.
-        
+
         - 라벨을 숫자로 맵핑합니다.
         - 데이터를 토큰화 합니다 (네이버 맞춤법 검사기 + Konlpy 사용)
         - 데이터를 학습 / 검증용으로 나눕니다.
         - 데이터의 길이를 맞추기 위해 패드시퀀싱 후 임베딩합니다.
         - 엔티티 데이터는 라벨도 각각 길이가 달라서 패드시퀀싱 해야합니다.
         - 리스트로 출력된 데이터들을 concatenation하여 텐서로 변환합니다.
-        
+
         :param entity_dataset: 저장공간에서 로드한 엔티티 데이터 파일입니다.
         :param emb_processor: 임베딩을 위한 임베딩 프로세서를 입력해야합니다.
         :return: 텐서로 변환된 엔티티 데이터입니다.
@@ -158,23 +180,6 @@ class Dataset:
         train_tensors = self.__list2tensor(train_question, train_label, train_length)
         test_tensors = self.__list2tensor(test_question, test_label, test_length)
         return train_tensors, test_tensors
-
-    def __read_ood(self):
-        """
-        메모리에서 OOD 데이터를 로드합니다.
-        OOD 데이터는 폴백 디텍션 모델의 Threshold를 자동으로 설정하고,
-        인텐트 검색기와 폴백 디텍션 모델의 성능을 검증하기 위해 사용됩니다.
-
-        :return: 여러개의 OOD 데이터를 한 파일로 모아서 반환합니다.
-        """
-
-        ood_dataset = []
-        for ood in os.listdir(self.ood_data_dir):
-            if ood != '__init__.py':  # __init__ 파일 제외
-                ood = pd.read_csv(self.ood_data_dir + ood)
-                ood_dataset.append(ood)
-
-        return pd.concat(ood_dataset)
 
     def __map_label(self, dataset, kinds) -> list:
         """
@@ -252,9 +257,9 @@ class Dataset:
             question = emb_processor.predict(question)  # 임베딩
             question, length = self.__prep.pad_sequencing(question)  # 패드시퀀싱
 
-            question_list.append(question.unsqueeze(0))  # 배치단위로 합치기 위해 unsqueeze (3차원)
+            question_list.append(question.unsqueeze(0))  # 배치단위로 합치기 위해 unsqueeze (2 => 3차원)
             label_list.append(torch.tensor(label))  # 라벨은 그대로 2차원
-            length_list.append(torch.tensor(length).unsqueeze(0))  # 길이는 0차원 => 1차원
+            length_list.append(torch.tensor(length).unsqueeze(0))  # 길이는 0 => 1차원
 
         return question_list, label_list, length_list
 

@@ -64,6 +64,5 @@ class DistanceEstimator(SklearnProcessor):
         feats, label = dataset
         feats = feats.detach().cpu().numpy()
         label = label.detach().cpu().numpy()
-
         predict = self.model.predict(feats)
-        return self._get_accuracy(label, predict)
+        return label, predict

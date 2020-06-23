@@ -10,15 +10,29 @@ from abc import abstractmethod, ABCMeta
 import torch
 from matplotlib import pyplot as plt
 from torch import nn
+from torch.optim import Adam
+from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 from _backend.proc.base.base_processor import BaseProcessor
 
 
 class TorchProcessor(BaseProcessor, metaclass=ABCMeta):
     def __init__(self, model):
+        super().__init__(self.model)
         self.model = model.to(self.device)
         self.__initialize_weights(self.model)
-        super().__init__(self.model)
+
+        self.optimizers = [Adam(
+            params=self.model.parameters(),
+            lr=self.model_lr,
+            weight_decay=self.weight_decay)]
+
+        self.lr_scheduler = ReduceLROnPlateau(
+            optimizer=self.optimizers[0],
+            verbose=True,
+            factor=self.lr_scheduler_factor,
+            min_lr=self.lr_scheduler_min_lr,
+            patience=self.lr_scheduler_patience)
 
     def fit(self, dataset, test=True):
         losses, accuracies = [], []
@@ -26,16 +40,27 @@ class TorchProcessor(BaseProcessor, metaclass=ABCMeta):
         self.model.train()
 
         for i in range(self.epochs + 1):
-            loss, accuracy = self._fit(i)
-            accuracies.append(accuracy)
+            loss, label, predict = self._fit(i)
+
+            if label and predict:
+                accuracy = self._accuracy(label, predict)
+            else:
+                accuracy = 0.0
+
             losses.append(loss)
+            accuracies.append(accuracy)
+
+
 
             self.__print_log(i, loss, accuracy)
-            self.__save_result('accuracy', accuracies)
             self.__save_result('loss', losses)
+            self.__save_result('accuracy', accuracies)
+            self.__draw_graph('loss', 'red')
+            self.__draw_graph('accuracy', 'blue')
 
-        self.__draw_accuracy_loss('accuracy', 'red')
-        self.__draw_accuracy_loss('loss', 'blue')
+            if i > self.lr_scheduler_warm_up:
+                self.lr_scheduler.step(loss)
+
         self._save_model()
 
         if test is True:
@@ -59,11 +84,9 @@ class TorchProcessor(BaseProcessor, metaclass=ABCMeta):
 
         torch.save(self.model.state_dict(), self.model_file + '.pth')
 
-    def __print_log(self, epoch, train_loss, train_accuracy):
-        p = self.logging_precision
-        print('{name} - epoch: {0}, train_loss: {1}, train_accuracy: {2}'
-              .format(epoch, round(float(train_loss), p), round(float(train_accuracy), p),
-                      name=self.__class__.__name__))
+    def __print_log(self, epoch, loss, accuracy):
+        print('{name} - epoch: {0}, train_loss: {1}, train_accuracy {2}'
+              .format(epoch, loss, accuracy, name=self.__class__.__name__))
 
     def __save_result(self, mode, result):
         if not os.path.exists(self.model_dir):
@@ -73,7 +96,7 @@ class TorchProcessor(BaseProcessor, metaclass=ABCMeta):
         f.write(str(result))
         f.close()
 
-    def __draw_accuracy_loss(self, mode, color):
+    def __draw_graph(self, mode, color):
         if not os.path.exists(self.model_dir):
             os.makedirs(self.model_dir)
 

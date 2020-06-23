@@ -20,28 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d122a472-58ee-4a2b-8505-15e95560cd02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/kochat.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_backend/data/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_backend/data/utils/preprocessor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/restful_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/_app/restful_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/data/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/data/preprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/preprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/base/base_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/base/base_loss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_backend/data/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/data/utils/dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_backend/data/preprocessor.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_backend/loss/base/masking.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/base/masking.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/center_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/center_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/coco_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/coco_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/cosface.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/cosface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/crf_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/crf_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/gaussian_mixture.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/gaussian_mixture.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/softmax_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/cross_entropy_loss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_backend/loss/cross_entropy_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/loss/cross_entropy_loss.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_backend/model/base/convolution.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/model/base/convolution.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_backend/model/embed_fasttext.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/model/embed_fasttext.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_backend/model/entity_lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/model/entity_lstm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_backend/model/intent_cnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/model/intent_cnn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/proc/entity_recognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/entity_recognizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_backend/model/intent_lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/model/intent_lstm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_backend/proc/base/base_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/base/base_processor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_backend/proc/base/sklearn_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/base/sklearn_processor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_backend/proc/base/torch_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/base/torch_processor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_backend/proc/distance_estimator.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/distance_estimator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_backend/proc/intent_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/intent_classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/proc/softmax_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/_backend/proc/softmax_classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/kocaht.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_backend.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_backend.py" afterDir="false" />
     </list>
@@ -130,19 +125,19 @@
     <option name="mySupportQtDebugging" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ASUS\Desktop\chatbot\docs" />
-      <recent name="C:\Users\ASUS\Desktop\chatbot\_backend\loss\base" />
-      <recent name="C:\Users\ASUS\Desktop\chatbot\_backend\model\base" />
-      <recent name="C:\Users\ASUS\Desktop\chatbot\_backend\loss" />
-      <recent name="C:\Users\ASUS\Desktop\chatbot\_crawler\editor\base" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS\Desktop\chatbot\_app\scenarios" />
       <recent name="C:\Users\ASUS\Desktop\chatbot" />
       <recent name="C:\Users\ASUS\Github\chatbot\backend\model" />
       <recent name="C:\Users\ASUS\Github\chatbot\backend\proc" />
       <recent name="C:\Users\ASUS\Github\chatbot\backend\data" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\Desktop\chatbot\_backend\data\utils" />
+      <recent name="C:\Users\ASUS\Desktop\chatbot\_backend\data" />
+      <recent name="C:\Users\ASUS\Desktop\chatbot\_backend\data\base" />
+      <recent name="C:\Users\ASUS\Desktop\chatbot\docs" />
+      <recent name="C:\Users\ASUS\Desktop\chatbot\_backend\loss\base" />
     </key>
   </component>
   <component name="RunManager" selected="Python.test_backend (1)">
@@ -547,7 +542,8 @@
       <workItem from="1592585427791" duration="5046000" />
       <workItem from="1592621560444" duration="18740000" />
       <workItem from="1592640463989" duration="69364000" />
-      <workItem from="1592771777199" duration="14984000" />
+      <workItem from="1592771777199" duration="15410000" />
+      <workItem from="1592839366239" duration="14898000" />
     </task>
     <servers />
   </component>
@@ -611,10 +607,10 @@
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state x="765" y="275" key="#com.intellij.ide.util.MemberChooser/0.39.1920.1041@0.39.1920.1041" timestamp="1592661359253" />
-    <state x="240" y="39" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592724396999">
+    <state x="240" y="39" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592849441356">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
-    <state x="240" y="39" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1592724396999" />
+    <state x="240" y="39" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1592849441356" />
     <state x="690" y="314" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592772656267">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
@@ -641,26 +637,26 @@
     </state>
     <state x="755" y="294" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1591103888965" />
     <state x="755" y="322" key="FileChooserDialogImpl/0.39.1920.1041@0.39.1920.1041" timestamp="1592622255562" />
-    <state width="1921" height="224" key="GridCell.Tab.0.bottom" timestamp="1592811749687">
+    <state width="1921" height="250" key="GridCell.Tab.0.bottom" timestamp="1592853357010">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="224" key="GridCell.Tab.0.bottom/0.39.1920.1041@0.39.1920.1041" timestamp="1592811749687" />
-    <state width="1921" height="224" key="GridCell.Tab.0.center" timestamp="1592811749686">
+    <state width="1921" height="250" key="GridCell.Tab.0.bottom/0.39.1920.1041@0.39.1920.1041" timestamp="1592853357010" />
+    <state width="1921" height="250" key="GridCell.Tab.0.center" timestamp="1592853357010">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="224" key="GridCell.Tab.0.center/0.39.1920.1041@0.39.1920.1041" timestamp="1592811749686" />
-    <state width="1921" height="224" key="GridCell.Tab.0.left" timestamp="1592811749686">
+    <state width="1921" height="250" key="GridCell.Tab.0.center/0.39.1920.1041@0.39.1920.1041" timestamp="1592853357010" />
+    <state width="1921" height="250" key="GridCell.Tab.0.left" timestamp="1592853357010">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="224" key="GridCell.Tab.0.left/0.39.1920.1041@0.39.1920.1041" timestamp="1592811749686" />
-    <state width="1921" height="224" key="GridCell.Tab.0.right" timestamp="1592811749686">
+    <state width="1921" height="250" key="GridCell.Tab.0.left/0.39.1920.1041@0.39.1920.1041" timestamp="1592853357010" />
+    <state width="1921" height="250" key="GridCell.Tab.0.right" timestamp="1592853357010">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="224" key="GridCell.Tab.0.right/0.39.1920.1041@0.39.1920.1041" timestamp="1592811749686" />
+    <state width="1921" height="250" key="GridCell.Tab.0.right/0.39.1920.1041@0.39.1920.1041" timestamp="1592853357010" />
     <state width="1921" height="358" key="GridCell.Tab.1.bottom" timestamp="1592510344604">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
@@ -753,7 +749,7 @@
     <SUITE FILE_PATH="coverage/chatbot$test.coverage" NAME="test Coverage Results" MODIFIED="1592633366457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$train__1_.coverage" NAME="train (1) Coverage Results" MODIFIED="1592026581064" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$main.coverage" NAME="main Coverage Results" MODIFIED="1591999576114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/chatbot$test_backend__1_.coverage" NAME="test_backend (1) Coverage Results" MODIFIED="1592811749679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/chatbot$test_backend__1_.coverage" NAME="test_backend (1) Coverage Results" MODIFIED="1592852798683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$dev.coverage" NAME="dev Coverage Results" MODIFIED="1592121872703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
     <SUITE FILE_PATH="coverage/Chatbot_Deeplearning$main_train.coverage" NAME="main_train Coverage Results" MODIFIED="1589688975891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/chatbot$train_backend_models.coverage" NAME="train_backend_models Coverage Results" MODIFIED="1592622150955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

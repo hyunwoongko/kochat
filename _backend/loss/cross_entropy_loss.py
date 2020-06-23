@@ -23,6 +23,7 @@ class CrossEntropyLoss(BaseLoss):
         if mask is None:
             return self(logits, label)
         else:
+            # 마스크 있는 경우 마스크 처리
             logits = logits.permute(0, 2, 1)
             logits_flat = logits.view(-1, logits.size(-1))
             log_probs_flat = F.log_softmax(logits_flat)
