@@ -84,7 +84,7 @@ class GensimProcessor(BaseProcessor):
 
     class GensimLogger(CallbackAny2Vec):
 
-        def __init__(self, name, print):
+        def __init__(self, name, _print):
             """
             Gensim 모델의 학습 과정을 디버깅하기 위한 callback
 
@@ -94,7 +94,7 @@ class GensimProcessor(BaseProcessor):
 
             self.epoch, self.eta = 0, 0
             self.name = name
-            self.print = print
+            self._print = _print
 
         def on_epoch_begin(self, model):
             """
@@ -107,7 +107,7 @@ class GensimProcessor(BaseProcessor):
 
         def on_epoch_end(self, model):
             sec = round(time() - self.eta, 4)
-            self.print(
+            self._print(
                 name=self.name,
                 msg='Epoch : {epoch}, ETA : {sec} sec'
                     .format(epoch=self.epoch, sec=sec)

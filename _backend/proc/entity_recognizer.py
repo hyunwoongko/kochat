@@ -47,7 +47,7 @@ class EntityRecognizer(TorchProcessor):
 
         # pad는 전부 0이니까 입력 전체에 1을 더하고,
         # all()로 체크하면 pad만 True가 나옴. (모두 1이여야 True)
-        # 이 때 False 갯수를 세면 pad가 아닌 문장의 길이가 됨.
+        # 이 때 False 갯수를 세면 pad가 아닌 부분의 길이가 됨.
         length = [all(map(int, (i + 1).tolist()))
                   for i in sequence.squeeze()].count(False)
 
@@ -118,6 +118,7 @@ class EntityRecognizer(TorchProcessor):
         logits = self.model(feats)
 
         if isinstance(self.loss, CRFLoss):
+            # CRF인 경우, Viterbi Decoding으로 Inference 해야함.
             predicts = torch.tensor(self.loss.decode(logits))
         else:
             predicts = torch.tensor(torch.max(logits, dim=1)[1])

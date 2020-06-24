@@ -222,7 +222,7 @@ class Dataset:
         # 강제로 길이가 1인 리스트로 만들어서 (unsqueeze) 차원을 맞춥니다.
 
         return [[self.__prep.tokenize(question, train=True),  # question부분은 토크나이징
-                 [label] if type(label) != list else label]  # intent 라벨 unsqueeze해주기
+                 [label] if isinstance(label, list) else label]  # intent 라벨 unsqueeze해주기
                 for (question, label) in dataset]  # 데이터 셋에서 하나씩 꺼내와서
 
     def __split_data(self, dataset: list) -> tuple:

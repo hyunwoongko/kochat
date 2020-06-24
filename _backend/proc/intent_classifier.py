@@ -21,7 +21,7 @@ class IntentClassifier(TorchProcessor):
         Intent 분류 모델을 학습시키고 테스트 및 추론합니다.
         Intent Classifier는 Memory Network의 일종으로 거리 기반의 Fallback Detection을 수행할 수 있습니다.
         그러나 Nearest Neighbors 알고리즘을 Brute force가 아닌 KD-Tree 기반으로 구현했기 때문에 (Sklearn)
-        샘플이 많아져도 Classification 속도가 상당히 빠릅니다.
+        샘플이 많아져도 Classification 속도가 빠릅니다.
 
         :param model: Intent Classification 모델
         :param loss: Loss 함수 종류
@@ -29,8 +29,8 @@ class IntentClassifier(TorchProcessor):
 
         self.label_dict = model.label_dict
         self.loss = loss.to(self.device)
-        self.distance_estimator = DistanceEstimator(grid_search=grid_search)
-        self.fallback_detector = FallbackDetector(self.label_dict, grid_search=grid_search)
+        self.distance_estimator = DistanceEstimator(grid_search)
+        self.fallback_detector = FallbackDetector(self.label_dict, grid_search)
         super().__init__(model, model.parameters())
 
         if len(list(loss.parameters())) != 0:
@@ -38,8 +38,7 @@ class IntentClassifier(TorchProcessor):
             self.optimizers.append(loss_opt)
 
     def predict(self, sequence, calibrate=False):
-        self._load_model()
-        self.model.eval()
+        pass
 
     def _train_epoch(self, epoch):
         """
@@ -94,7 +93,6 @@ class IntentClassifier(TorchProcessor):
 
         predicts, distance = \
             self.distance_estimator.fit(feats, labels, mode='test')
-
         return losses, predicts, labels
 
     def _forward(self, feats, labels=None, lengths=None):
@@ -112,6 +110,6 @@ class IntentClassifier(TorchProcessor):
 
         if labels is None:
             return logits, feats
-        else:
-            loss = self.loss.compute_loss(labels, logits, feats)
-            return logits, feats, loss
+
+        loss = self.loss.compute_loss(labels, logits, feats)
+        return logits, feats, loss

@@ -109,6 +109,6 @@ class SoftmaxClassifier(TorchProcessor):
 
         if labels is None:
             return predicts
-        else:
-            loss = self.loss.compute_loss(labels, logits, None)
-            return predicts, loss
+
+        loss = self.loss.compute_loss(labels, logits, None)
+        return predicts, loss

@@ -62,11 +62,6 @@ class TorchProcessor(BaseProcessor):
         self.train_data = dataset[0]
         self.test_data = dataset[1]
 
-        if len(dataset) > 1:
-            # if ood is True, [2],[3] → ood
-            self.ood_train = dataset[2]
-            self.ood_test = dataset[3]
-
         for i in range(self.epochs + 1):
             eta = time()
             loss, label, predict = self._train_epoch(i)
