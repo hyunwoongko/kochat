@@ -1,5 +1,12 @@
 # Kochat (Korean Chatbot)
 
+
+[![CodeFactor](https://www.codefactor.io/repository/github/gusdnd852/kochat/badge/master)](https://www.codefactor.io/repository/github/gusdnd852/kochat/overview/master)
+[![codebeat badge](https://codebeat.co/badges/e0c94e18-4127-4553-a576-a3cb28fdd925)](https://codebeat.co/projects/github-com-gusdnd852-kochat-master)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
+![license](https://camo.githubusercontent.com/9de77196777ad799157befc0c599963dd909ce25/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f6166666a6c6a6f6f333538312f457870616e6461)
+<br><br>
+
 ![kochat_main](docs/image1.jpg)
 
 Kochat은 한국어 전용 챗봇 개발 프레임워크로, 자연어처리 개발자라면 
