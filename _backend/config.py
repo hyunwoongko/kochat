@@ -3,17 +3,18 @@
 @when : 5/9/2020
 @homepage : https://github.com/gusdnd852
 """
+
 import torch
-from sklearn.linear_model import LogisticRegressionCV
+from sklearn.linear_model import LogisticRegression
 from sklearn.svm import LinearSVC
 
 # OS = 'Windows'
-OS = 'Others'
+OS = 'Linux'
 _ = '\\' if OS == 'Windows' else '/'
 
-# OS에 따른 root 경로 설정 예시 (맨 뒤에 {_}를 반드시 붙여야 함)
+# OS에 따른 root_dir 설정 예시 (맨 뒤에 {_}를 반드시 붙여야 함)
 # windows → "C:{_}yourdirectory{_}yourdirectory{_}..._backend{_}"
-# linux / mac → "/home{_}yourdirectory{_}yourdirectory{_}..._backend{_}"
+# linux → "/home{_}yourdirectory{_}yourdirectory{_}..._backend{_}"
 
 BACKEND = {
     'device': 'cuda' if torch.cuda.is_available() else 'cpu',
@@ -21,7 +22,7 @@ BACKEND = {
     'vector_size': 64,  # 단어 벡터 사이즈
     'batch_size': 512,  # 미니배치 사이즈
     'max_len': 8,  # 문장의 최대 길이 (패드 시퀀싱)
-    'delimeter': _
+    'delimeter': _,
 }
 
 DATA = {
@@ -31,14 +32,16 @@ DATA = {
     'intent_data_dir': BACKEND['root_dir'] + "data{_}intent_data.csv".format(_=_),  # 생성된 인텐트 데이터 파일 경로
     'entity_data_dir': BACKEND['root_dir'] + "data{_}entity_data.csv".format(_=_),  # 생성된 엔티티 데이터 파일 경로
 
-    'NER_categories': ['DATE', 'LOCATION', 'RESTAURANT', 'TRAVEL'], # 사용자 정의 태그
+    'NER_categories': ['DATE', 'LOCATION', 'RESTAURANT', 'TRAVEL'],  # 사용자 정의 태그
     'NER_tagging': ['B', 'E', 'I', 'S'],  # NER의 BEGIN, END, INSIDE, SINGLE 태그
     'NER_outside': 'O',  # NER의 O태그 (Outside를 의미)
 }
 
 PROC = {
-    'logging_precision': 4,  # 로깅시 반올림 n번째에서 반올림
+    'logging_precision': 5,  # 결과 저장시 반올림 소수점 n번째에서 반올림
     'model_dir': BACKEND['root_dir'] + "saved{_}".format(_=_),  # 모델 파일, 시각화 자료 저장 경로
+    'visualization_epoch': 50,  # 시각화 빈도 (애폭마다 시각화 수행)
+    'save_epoch': 100  # 저장 빈도 (에폭마다 모델 저장)
 }
 
 LOSS = {
@@ -63,9 +66,9 @@ INTENT = {
     'loss_lr': 1e-2,  # 인텐트 학습시 사용되는 러닝레이트
     'weight_decay': 1e-4,  # 인텐트 학습시 사용되는 가중치 감쇠 정도
     'epochs': 500,  # 인텐트 학습 횟수
-    'd_model': 512,  # 인텐트 모델의 차원
-    'd_loss': 64,  # 인텐트 로스의 차원 (시각화차원, 높을수록 ood 디텍션이 정확해지지만 느려집니다.)
-    'layers': 1,  # 인텐트 모델의 히든 레이어(층)의 수
+    'd_model': 256,  # 인텐트 모델의 차원
+    'd_loss': 32,  # 인텐트 로스의 차원 (시각화차원, 높을수록 ood 디텍션이 정확해지지만 느려집니다.)
+    'layers': 3,  # 인텐트 모델의 히든 레이어(층)의 수
 
     'lr_scheduler_factor': 0.75,  # 러닝레이트 스케줄러 감소율
     'lr_scheduler_patience': 10,  # 러닝레이트 스케줄러 감소 에폭
@@ -75,19 +78,18 @@ INTENT = {
     # auto를 쓰려면 ood dataset을 함께 넣어줘야합니다.
     'fallback_detction_criteria': 'auto',  # [auto, min, mean]
     'fallback_detction_threshold': -1,  # mean 혹은 min 선택시 임계값
-    'visualization_epoch': 50,  # 시각화 빈도 (애폭마다 시각화 수행)
 
     # KNN 학습시 사용하는 그리드 서치 파라미터
     'dist_param': {
-        'n_neighbors': list(range(5, 20)),  # K값 범위 설정
+        'n_neighbors': list(range(5, 15)),  # K값 범위 설정
         'weights': ["uniform"],  # 'uniform' > 'distance'
         'p': [2],  # 유클리드[2] = 맨하튼[1]
         'algorithm': ['ball_tree']  # 'ball_tree' > 'kd_tree'
     },
 
-    # 폴백 디텍터 후보 (선형모델 추천)
-    'fallback_detector': [
-        LogisticRegressionCV(),
+    # 폴백 디텍터 후보 (선형 모델을 추천합니다)
+    'fallback_detectors': [
+        LogisticRegression(),
         LinearSVC()
     ]
 }
@@ -97,8 +99,8 @@ ENTITY = {
     'loss_lr': 1e-4,  # 엔티티 학습시 사용되는 로스 러닝레이트 (아직 사용되지 않음)
     'weight_decay': 1e-4,  # 엔티티 학습시 사용되는 가중치 감쇠 정도
     'epochs': 500,  # 엔티티 학습 횟수
-    'd_model': 128,  ## 엔티티 모델의 차원
-    'layers': 1,  # 엔티티 모델의 히든 레이어(층)의 수
+    'd_model': 256,  ## 엔티티 모델의 차원
+    'layers': 3,  # 엔티티 모델의 히든 레이어(층)의 수
 
     'lr_scheduler_factor': 0.75,  # 러닝레이트 스케줄러 감소율
     'lr_scheduler_patience': 10,  # 러닝레이트 스케줄러 감소 에폭

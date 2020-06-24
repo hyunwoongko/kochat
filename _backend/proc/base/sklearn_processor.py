@@ -4,17 +4,28 @@
 @homepage : https://github.com/gusdnd852
 """
 import os
-from abc import ABCMeta
-
 import joblib
-
+from abc import abstractmethod
+from sklearn.utils._testing import ignore_warnings
 from _backend.proc.base.base_processor import BaseProcessor
 
 
-class SklearnProcessor(BaseProcessor, metaclass=ABCMeta):
+class SklearnProcessor(BaseProcessor):
+
     def __init__(self, model):
+        """
+        Sklearn 모델의 Training, Testing, Inference
+        등을 관장하는 프로세서 클래스입니다.
+
+        Sklearn 모델은 Intent, Entity 등의 주요기능을 구현하기보다는 주로
+        Fallback Detection, Distance Estimation 등의 서브기능을 구현하기 위해 사용합니다.
+
+        :param model: Sklearn 모델을 입력해야합니다.
+        """
+
         super().__init__(model)
 
+    @ignore_warnings(category=Warning)
     def _load_model(self):
         """
         저장된 모델을 불러옵니다.
@@ -27,6 +38,7 @@ class SklearnProcessor(BaseProcessor, metaclass=ABCMeta):
             self.model = joblib.load(self.model_file + '.pkl')
             self.model_loaded = True
 
+    @ignore_warnings(category=Warning)
     def _save_model(self):
         """
         모델을 저장장치에 저장합니다.
@@ -36,3 +48,17 @@ class SklearnProcessor(BaseProcessor, metaclass=ABCMeta):
             os.makedirs(self.model_dir)
 
         joblib.dump(self.model, self.model_file + '.pkl')
+
+    @abstractmethod
+    @ignore_warnings(category=Warning)
+    def fit(self, *args, **kwargs):
+        raise NotImplementedError
+
+    @abstractmethod
+    @ignore_warnings(category=Warning)
+    def predict(self, *args, **kwargs):
+        raise NotImplementedError
+
+    @ignore_warnings(category=Warning)
+    def _grid_search(self, feats, label):
+        pass  # 반드시 구현할 필요는 없음.

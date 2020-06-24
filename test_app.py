@@ -12,7 +12,7 @@ from _backend.model.embed_fasttext import EmbedFastText
 from _backend.model.entity_lstm import EntityLSTM
 from _backend.model.intent_cnn import IntentCNN
 from _backend.proc.entity_recognizer import EntityRecognizer
-from _backend.proc.gensim_embedder import GensimEmbedder
+from _backend.proc.base.gensim_processor import GensimProcessor
 from _backend.proc.intent_classifier import IntentClassifier
 
 if __name__ == '__main__':
@@ -21,7 +21,7 @@ if __name__ == '__main__':
         ood=True
     )
 
-    embed_processor = GensimEmbedder(
+    embed_processor = GensimProcessor(
         model=EmbedFastText()
     )
 

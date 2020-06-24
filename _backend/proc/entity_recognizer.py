@@ -3,14 +3,11 @@
 @when : 6/20/2020
 @homepage : https://github.com/gusdnd852
 """
-
 import torch
-from torch.optim import Adam
-from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 from _backend.decorators import entity
 from _backend.loss.crf_loss import CRFLoss
-from _backend.loss.base.masking import Masking
+from _backend.loss.utils.masking import Masking
 from _backend.proc.base.torch_processor import TorchProcessor
 
 
@@ -18,98 +15,116 @@ from _backend.proc.base.torch_processor import TorchProcessor
 class EntityRecognizer(TorchProcessor):
 
     def __init__(self, model, loss, masking=True):
-        super().__init__(model)
+        """
+        개체명 인식 (Named Entity Recognition) 모델을 학습시키고
+        테스트 및 추론을 진행합니다. Loss함수를 변경해서 CRF를 추가할 수 있습니다.
+
+        :param model: NER 모델
+        :param loss: Loss 함수 종류
+        :param masking: Loss 계산시 masking 여부
+        """
+
         self.label_dict = model.label_dict
         self.loss = loss.to(self.device)
         self.masking = Masking() if masking else None
-        parameter = list(model.parameters())
+        self.parameters = list(model.parameters())
 
         if len(list(loss.parameters())) != 0:
-            parameter += list(loss.parameters())
+            self.parameters += list(loss.parameters())
 
-        self.optimizers = [Adam(
-            params=parameter,
-            lr=self.model_lr,
-            weight_decay=self.weight_decay)]
-
-        self.lr_scheduler = ReduceLROnPlateau(
-            optimizer=self.optimizers[0],
-            verbose=True,
-            factor=self.lr_scheduler_factor,
-            min_lr=self.lr_scheduler_min_lr,
-            patience=self.lr_scheduler_patience)
+        super().__init__(model, self.parameters)
 
     def predict(self, sequence):
+        """
+        사용자의 입력에 inference합니다.
+        
+        :param sequence: 입력 시퀀스
+        :return: 분류 결과 (엔티티 시퀀스) 리턴
+        """
+
         self._load_model()
         self.model.eval()
 
-        length = self.__get_length(sequence)
-        output = self.model(sequence).float()
-        output = output.squeeze().t()
-        _, predict = torch.max(output, dim=1)
-        output = [list(self.label_dict.keys())[i.item()] for i in predict]
-        return output[:length]
+        # pad는 전부 0이니까 입력 전체에 1을 더하고,
+        # all()로 체크하면 pad만 True가 나옴. (모두 1이여야 True)
+        # 이 때 False 갯수를 세면 pad가 아닌 문장의 길이가 됨.
+        length = [all(map(int, (i + 1).tolist()))
+                  for i in sequence.squeeze()].count(False)
 
-    def _fit(self, epoch) -> tuple:
-        loss_list, accuracy_list = [], []
-        for train_feature, train_label, train_length in self.train_data:
-            feats = train_feature.float().to(self.device)
-            labels = train_label.long().to(self.device)
-            logits = self.model(feats).float()
+        predicts = self._forward(sequence).squeeze().t()
+        predicts = [list(self.label_dict.keys())[i.item()]  # 라벨 딕셔너리에서 i번째 원소를 담음
+                    for i in predicts]  # 분류 예측결과에서 i를 하나씩 꺼내서
 
-            mask = self.masking(train_length) if self.masking else None
-            total_loss = self.loss.compute_loss(labels, logits, feats, mask)
-            for opt in self.optimizers: opt.zero_grad()
-            total_loss.backward()
-            for opt in self.optimizers: opt.step()
+        return predicts[:length]
 
-            predict = self.__model_predict(self.loss, logits)
-            loss_list.append(total_loss)
-            accuracy_list.append(self._get_accuracy(labels, predict))
+    def _train_epoch(self, epoch):
+        """
+        학습시 1회 에폭에 대한 행동을 정의합니다.
 
-        loss = sum(loss_list) / len(loss_list)
-        accuracy = sum(accuracy_list) / len(accuracy_list)
+        :param epoch: 현재 에폭
+        :return: 평균 loss, 예측 리스트, 라벨 리스트
+        """
 
-        if epoch > self.lr_scheduler_warm_up:
-            self.lr_scheduler.step(loss)
+        loss_list, predict_list, label_list = [], [], []
+        self.model.train()
 
-        return loss.item(), accuracy
+        for feats, labels, lengths in self.train_data:
+            feats, labels = feats.to(self.device), labels.to(self.device)
+            predicts, losses = self._forward(feats, labels, lengths)
+            losses = self._backward(losses)
 
-    def test(self) -> dict:
-        self._load_model()
+            loss_list.append(losses)
+            predict_list.append(predicts)
+            label_list.append(labels)
+
+        losses = sum(loss_list) / len(loss_list)
+        predicts = torch.flatten(torch.cat(predict_list, dim=0))
+        labels = torch.flatten(torch.cat(label_list, dim=0))
+        return losses, predicts, labels
+
+    def _test_epoch(self, epoch):
+        """
+        테스트시 1회 에폭에 대한 행동을 정의합니다.
+
+        :param epoch: 현재 에폭
+        :return: 평균 loss, 예측 리스트, 라벨 리스트
+        """
+
+        loss_list, predict_list, label_list = [], [], []
         self.model.eval()
 
-        test_feature, test_label, test_length = self.test_data
-        feats = test_feature.float().to(self.device)
-        logits = test_label.long().to(self.device)
-        out = self.model(feats).float()
+        for feats, labels, lengths in self.test_data:
+            feats, labels = feats.to(self.device), labels.to(self.device)
+            predicts, losses = self._forward(feats, labels, lengths)
 
-        _, predict = torch.max(out, dim=1)
-        test_result = {'test_accuracy': self._get_accuracy(logits, predict)}
+            loss_list.append(losses)
+            predict_list.append(predicts)
+            label_list.append(labels)
 
-        print('{0} - {1}'.format(self.__class__.__name__, test_result))
-        return test_result
+        losses = sum(loss_list) / len(loss_list)
+        predicts = torch.flatten(torch.cat(predict_list, dim=0))
+        labels = torch.flatten(torch.cat(label_list, dim=0))
+        return losses, predicts, labels
 
-    def _get_accuracy(self, predict, label) -> float:
-        all, correct = 0, 0
-        for i in zip(predict, label):
-            for j in zip(i[0], i[1]):
-                all += 1
-                if j[0] == j[1]:
-                    correct += 1
-        return correct / all
+    def _forward(self, feats, labels=None, length=None):
+        """
+        모델의 feed forward에 대한 행동을 정의합니다.
 
-    def __model_predict(self, kinds_loss, logits):
-        if type(kinds_loss) == CRFLoss:
-            return torch.tensor(self.loss.decode(logits))
+        :param feats: 입력 feature
+        :param labels: label 리스트
+        :return: 모델의 예측, loss
+        """
+
+        logits = self.model(feats)
+
+        if isinstance(self.loss, CRFLoss):
+            predicts = torch.tensor(self.loss.decode(logits))
         else:
-            return torch.tensor(torch.max(logits, dim=1)[1])
+            predicts = torch.tensor(torch.max(logits, dim=1)[1])
 
-    def __get_length(self, sequence):
-        """
-        pad는 [0...0]이니까 1더해서 [1...1]로
-        만들고 all로 검사해서 pad가 아닌 부분만 세기
-        """
-        sequence = sequence.squeeze()
-        return [all(map(int, (i + 1).tolist()))
-                for i in sequence].count(False)
+        if labels is None:
+            return predicts
+        else:
+            mask = self.masking(length) if self.masking else None
+            loss = self.loss.compute_loss(labels, logits, feats, mask)
+            return predicts, loss

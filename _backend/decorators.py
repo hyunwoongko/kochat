@@ -11,7 +11,6 @@ def data(cls):
     cls = backend(cls)
     for key, val in config.DATA.items():
         setattr(cls, key, val)
-
     return cls
 
 

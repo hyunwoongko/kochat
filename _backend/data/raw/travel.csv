@@ -1,0 +1,600 @@
+question,label
+서울 꽃구경 가고 싶다고,S-LOCATION S-TRAVEL O O
+인천 바다 보러 갈거 같아,S-TRAVEL O O O O
+어느 관광지 좋을까,O O O
+부산 야구장 관광지 알고 싶어,S-LOCATION S-TRAVEL O O O
+갈만한 대구 스키 관광지 추천해 주세요,O S-LOCATION S-TRAVEL O O O
+광주 꽃구경 가고 싶다고요,S-LOCATION S-TRAVEL O O
+울산 수목원 알려줘 봐요,S-LOCATION S-TRAVEL O O
+관광지 있는지 모르겠네요,O O O
+인천 워터파크 개장한 곳 있어,S-LOCATION S-TRAVEL O O O
+어디 관광지 가겠냐,O O O
+파주 유명한 공연장 알려줘,S-LOCATION O S-TRAVEL O
+창원 여행 갈만한 바다,S-LOCATION O O S-TRAVEL
+평택 갈만한 스키장 여행 해보고 싶네,S-LOCATION O S-TRAVEL O O O
+제주도 템플스테이 여행 갈 데 추천해 줘,S-LOCATION S-TRAVEL O O O O O
+전주 가까운 바다 관광지 보여줘 봐요,S-LOCATION O S-TRAVEL O O O
+용인 가까운 축구장 어딨어,S-LOCATION O S-TRAVEL O
+붐비는 관광지,O O
+청주 가을 풍경 예쁜 산 가보고 싶어,S-LOCATION S-DATE O O S-TRAVEL O O
+안산 다시 오고 싶은 템플스테이,S-LOCATION O O O S-TRAVEL
+시흥 가까운 물놀이 알려 좀 줘봐요,S-LOCATION O S-TRAVEL O O O
+춘천 동물원 관광지 알려주라,S-LOCATION S-TRAVEL O O
+목포 꽃놀이 어디 가는게 좋을까,S-LOCATION S-TRAVEL O O O
+대산면 가까운 사찰 관광지 추천해 줬으면 해요,S-LOCATION O S-TRAVEL O O O O
+강남구 미술관 관광지 알려줘,S-LOCATION S-TRAVEL O O
+강동구 경기장 구경 갈래,S-LOCATION S-TRAVEL O O
+강북구 볼링장 가고 싶네요,S-LOCATION S-TRAVEL O O
+강서구 가까운 문학관 관광지 어디 가야 할까,S-LOCATION O S-TRAVEL O O O O
+관악구 갈만한 연극 추천받고 싶은데요,S-LOCATION O S-TRAVEL O O
+혹시 광진구 바닷가 갈만한 데 어디니,O S-LOCATION S-TRAVEL O O O
+구로구 가까운 시장 관광지 원해요,S-LOCATION O S-TRAVEL O O
+금천구 꽃구경 위치 알려줘,S-LOCATION S-TRAVEL O O
+노원구 가까운 절 관광지 알려주면 좋겠어요,S-LOCATION O S-TRAVEL O O O
+도봉구 박물관 갈만한 곳 추천해 줘,S-LOCATION S-TRAVEL O O O O
+동대문구 놀이공원 알고 싶다고요,S-LOCATION S-TRAVEL O O
+동작구 계곡 가고 싶은데 알려줄래,S-LOCATION S-TRAVEL O O O
+관광지 보고 싶다고,O O O
+서대문구 놀이동산 괜찮을까요,S-LOCATION S-TRAVEL O
+서초구 유명한 등산 관광지 추천해 주세요,S-LOCATION O S-TRAVEL O O O
+성동구 주변 갈만한 계곡 어디,S-LOCATION O O S-TRAVEL O
+성북구 에버랜드 가고 싶어,S-LOCATION S-TRAVEL O O
+송파구 가까운 축구 관광지 가고싶어,S-LOCATION O S-TRAVEL O O
+양천구 유명한 바닷가 알려줘 봐요,S-LOCATION O S-TRAVEL O O
+영등포구 속 뻥 뚫리는 산책로,S-LOCATION O O O S-TRAVEL
+광명구 물놀이 하고 싶어,S-LOCATION S-TRAVEL O O
+은평구 유명한 산 관광지 어디 있니,S-LOCATION O S-TRAVEL O O O
+종로구 가족끼리 계곡 여행,S-LOCATION O S-TRAVEL O
+중구 축구장 어디,S-LOCATION S-TRAVEL O
+중랑구 시장 관광지 추천해 줘,S-LOCATION S-TRAVEL O O O
+부산 서구 해수욕장 추천 필요해,B-LOCATION E-LOCATION S-TRAVEL O O
+서울 동구 꽃구경 할만한 곳 어디,B-LOCATION E-LOCATION S-TRAVEL O O O
+영도구 계곡 보고 싶은데 추천해 줘,S-LOCATION S-TRAVEL O O O O
+부산진구 시원한 여름 축제,S-LOCATION O S-DATE S-TRAVEL
+건대 근처 쉼터 있니 알려줘,S-LOCATION O S-TRAVEL O O
+신촌 가까운 야구장 어디 있어,S-LOCATION O S-TRAVEL O O
+강남 가로수길 갈만한 산 없나요,B-LOCATION E-LOCATION O S-TRAVEL O
+인사동 갈만한 워터파크 추천해 줘,S-LOCATION O S-TRAVEL O O
+효자동 인기 있는 스키 구경거리 추천해줘,S-LOCATION O O S-TRAVEL O O
+완산구 갈만한 단풍 구경거리 보고싶어요,S-LOCATION O S-TRAVEL O O
+덕진구 스키장 개장한 곳 있지 않아,S-LOCATION S-TRAVEL O O O O
+전라도 광주 미술관 구경거리 부탁해,B-LOCATION E-LOCATION S-TRAVEL O O
+서울 유명한 꽃놀이 정보,S-LOCATION O S-TRAVEL O
+서울 가까운 바다 구경거리 추천해 봐,S-LOCATION O S-TRAVEL O O O
+부산 야구장 구경거리,S-LOCATION S-TRAVEL O
+한림읍 유명한 축구 구경거리 보여줘 봐,S-LOCATION O S-TRAVEL O O O
+생비량면 갈만한 단풍 축제 구경하고 싶은데요,S-LOCATION O B-TRAVEL E-TRAVEL O O
+미천면 갈만한 단풍 구경거리 추천받고 싶어요,S-LOCATION O S-TRAVEL O O O
+갈법한 외서면 1월 축제 보여줘,O S-LOCATION S-DATE S-TRAVEL O
+장안면 혹시 식물원 구경거리 추천해 줄 수 있어,S-LOCATION O S-TRAVEL O O O O O
+울릉도 가볼만한 계곡 알려주세요,S-LOCATION O S-TRAVEL O
+연천 계곡 추천 받고 싶다,S-LOCATION S-TRAVEL O O O
+안양 가까운 계곡 추천 좀 해봐요,S-LOCATION O S-TRAVEL O O O
+의왕 추천해 주고픈 꽃구경,S-LOCATION O O S-TRAVEL
+가볼만한 안산 워터파크 있어,O S-LOCATION S-TRAVEL O
+물놀이 하고 싶은데 현남면 갈만한 데 있어,S-TRAVEL O O S-LOCATION O O O
+경기도 화성 소풍 가는거 어때,B-LOCATION E-LOCATION S-TRAVEL O O
+오산 축구장 어디 있을까,S-LOCATION S-TRAVEL O O
+현북면 해수욕장 구경거리 알려줘 봐,S-LOCATION S-TRAVEL O O O
+당진 가까운 연극 구경거리 알려줬으면 해,S-LOCATION O S-TRAVEL O O O
+쉬고 싶은데 갈만한 천안 구경거리 어디 갈까,O O O S-LOCATION O O O
+아산 식물원 보여줘 봐요,S-LOCATION S-TRAVEL O O
+태안 벚꽃 보고 싶다,S-LOCATION S-TRAVEL O O
+홍성 놀이공원 보고 싶네요,S-LOCATION S-TRAVEL O O
+예산 유명한 사찰 구경거리 원해,S-LOCATION O S-TRAVEL O O
+보령 가까운 동물원 구경거리 어디 가야 할지 모르겠어,S-LOCATION O S-TRAVEL O O O O O
+청양 유명한 축구장,S-LOCATION O S-TRAVEL
+부여 에버랜드 구경거리 가고 싶어,S-LOCATION S-TRAVEL O O O
+공주 소풍 가고 싶어,S-LOCATION S-TRAVEL O O
+스트레스 풀고 싶은데 논산 운동 장소 없나,O O O S-LOCATION S-TRAVEL O O
+서천 박물관 알려줘,S-LOCATION S-TRAVEL O
+군산 꽃구경 원해요,S-LOCATION S-TRAVEL O
+추운데 익산 스키장 어때,O S-LOCATION S-TRAVEL O
+김제 꽃 보고 싶은데 식물원 알려줘,S-LOCATION O O O S-TRAVEL O
+사랑 받는 부안 산책로,O O S-LOCATION S-TRAVEL
+완주 갈만한 깨끗한 바다 있는가,S-LOCATION O O S-TRAVEL O
+영광 사찰 알고 싶다고,S-LOCATION S-TRAVEL O O
+장성 바다 있지,S-LOCATION S-TRAVEL O
+담양 벚꽃 볼거리 띄워주세요,S-LOCATION S-TRAVEL O O
+전북 순창 유명한 가을 축제 볼거리 알려줘 봐요,B-LOCATION E-LOCATION O S-DATE S-TRAVEL O O O
+신안 등산 갈 거에요,S-LOCATION S-TRAVEL O O
+광주 시장 추천 좀 해줘,S-LOCATION S-TRAVEL O O O
+영암 물놀이 여행 어디 갈까,S-LOCATION S-TRAVEL O O O
+장흥 문학관 볼거리 보여줘 봐요,S-LOCATION S-TRAVEL O O O
+강진 넓은 경기장 알려주세요,S-LOCATION O S-TRAVEL O
+해남 7월 축제 가고 싶어,S-LOCATION S-DATE S-TRAVEL O O
+진도 등산 갈거야,S-LOCATION S-TRAVEL O
+완도 겨울 축제 추천해 줘라,S-LOCATION S-DATE S-TRAVEL O O
+고흥 주변 축제 있니,S-LOCATION O S-TRAVEL O
+거금도 넓은 방있는 호텔,S-LOCATION O O S-TRAVEL
+여수 물놀이 하고 싶어,S-LOCATION S-TRAVEL O O
+순천 가까운 스키 볼거리 어디에요,S-LOCATION O S-TRAVEL O O
+화순 가까운 놀이동산 볼거리 부탁드립니다,S-LOCATION O S-TRAVEL O O
+놀기 좋은 보성 계곡,O O S-LOCATION S-TRAVEL
+나주 갈만한 등산 볼거리 가보고 싶네요,S-LOCATION O S-TRAVEL O O O
+남해 가까운 바다 볼거리,S-LOCATION O S-TRAVEL O
+동검도 바다 있죠,S-LOCATION S-TRAVEL O
+광양 해수욕장 장소 추천해 줘,S-LOCATION S-TRAVEL O O O
+호남 7월 축제 알려달라고요,S-LOCATION S-DATE S-TRAVEL O
+유명한 의령 미술관 보여줘 봐요,O S-LOCATION S-TRAVEL O O
+산청 가까운 산 볼거리 어디,S-LOCATION O S-TRAVEL O O
+합천 단풍 볼거리 말해줘,S-LOCATION S-TRAVEL O O
+창녕 11월 축제 추천 좀 부탁할게요,S-LOCATION S-DATE S-TRAVEL O O O
+밀양 바다 볼거리 추천해 줘,S-LOCATION S-TRAVEL O O O
+기장 겨울 풍경 예쁜 산 알려줘,S-LOCATION S-DATE O O S-TRAVEL O
+울주 주목받는 축제,S-LOCATION O S-TRAVEL
+경주 가까운 바다 궁금해,S-LOCATION O S-TRAVEL O
+영덕 축제 있는지 좀 알려주세요,S-LOCATION S-TRAVEL O O O
+영양 유명한 축제 알려줘 봐,S-LOCATION O S-TRAVEL O O
+안동 유명한 전시관 추천해 봐요,S-LOCATION O S-TRAVEL O O
+의성 놀이공원 있어요,S-LOCATION S-TRAVEL O
+동해 유명한 깨끗한 바다 볼거리,S-LOCATION O O S-TRAVEL O
+서울 연극 가고 싶어요,S-LOCATION S-TRAVEL O O
+태백 축제 몇 가지 알려줘,S-LOCATION S-TRAVEL O O O
+속초 대포항 가까운 놀이공원 어디,B-LOCATION E-LOCATION O S-TRAVEL O
+속초 단풍 축제 읊어봐,S-LOCATION B-TRAVEL E-TRAVEL O
+양구 깨끗한 바다 볼거리 알려줄래,S-LOCATION O S-TRAVEL O O
+칠곡면 스키 타고 싶은데 스키장 추천해 줘,S-LOCATION O O O S-TRAVEL O O
+휴전면 축구장 어디 있냐,S-LOCATION S-TRAVEL O O
+더워서 화천 계곡 가보고 싶은데요,O S-LOCATION S-TRAVEL O O
+강원 오봉산 가을 연극 할래,S-LOCATION S-TRAVEL S-DATE S-TRAVEL O
+놀고 싶은데 즐길만한 볼거리 있을까,O O O O O
+춘천 유명한 해수욕장 가볼래,S-LOCATION O S-TRAVEL O
+철원 갈만한 스키장 볼거리 가보고 싶네,S-LOCATION O S-TRAVEL O O O
+명성 축제 띄워주었으면 좋겠어요,S-LOCATION S-TRAVEL O O
+백운 경기장 알려주지 않을래,S-LOCATION S-TRAVEL O O
+어디 볼거리 추천할래,O O O
+구룡포 등산로 띄워주었음 좋겠어요,S-LOCATION S-TRAVEL O O
+모가면 문학관 추천해 줘,S-LOCATION S-TRAVEL O O
+설성면 괜찮은 등산로 있는지 모르겠는데 해결 좀 해줘,S-LOCATION O S-TRAVEL O O O O O
+연제구 민속놀이 배우고 싶어,S-LOCATION S-TRAVEL O O
+수영구 알법한 축제 알려줘,S-LOCATION O S-TRAVEL O
+사상구 유명한 꽃구경 정보 알고 싶어,S-LOCATION O S-TRAVEL O O O
+기장구 가족끼리 계곡 여행 가고 싶어,S-LOCATION O S-TRAVEL O O O
+미추홀구 취사 가능한 산림,S-LOCATION O O S-TRAVEL
+서울 테마공원 있는지 모르겠어,S-LOCATION S-TRAVEL O O
+남동구 가까운 바다 있으면 말해줘,S-LOCATION O S-TRAVEL O O
+부평구 갈만한 절 있을까요,S-LOCATION O S-TRAVEL O
+가까운 바다 볼거리 있어요,O S-TRAVEL O O
+유명한 꽃놀이 정보 알려주세요,O S-TRAVEL O O
+유명한 에버랜드 볼거리 있어,O S-TRAVEL O O
+추천할만한 축구 볼거리 있어,O S-TRAVEL O O
+볼거리 몰라서 문제네요,O O O
+경기장 알려주지 않겠니,S-TRAVEL O O
+유명한 스키장 어디 있어요,O S-TRAVEL O O
+가까운 등산 볼거리 볼래,O S-TRAVEL O O
+꽃구경 보여주지 않을래,S-TRAVEL O O
+전시관 좀 알려줘,S-TRAVEL O O
+갈만한 깨끗한 바다 촬영장 있나요,O O S-TRAVEL O O
+넓은 경기장 추천해 줘,O S-TRAVEL O O
+여름 갈만한 촬영장 알려주세요,S-DATE O O O
+문학관 촬영장 알려줄 수 있어,S-TRAVEL O O O O
+해수욕장 가고 싶네,S-TRAVEL O O
+촬영장 있지 않을까,O O O
+어디 축제 좋겠어,O S-TRAVEL O
+깨끗한 계곡 말해줘,O S-TRAVEL O
+촬영장 보고 싶다고요,O O O
+혹시 동물원 촬영장 알려줄 수 있을까,O S-TRAVEL O O O O
+주변 꽃 핀 공원 있으면 알려줘,O S-TRAVEL O S-TRAVEL O O
+촬영장 가보고 싶은데,O O O
+가까운 바다 촬영장 알려줘 봐요,O S-TRAVEL O O O
+가까운 식물원 촬영장 어디 가야 할지 모르겠어,O S-TRAVEL O O O O O
+유명한 등산 촬영장 추천 부탁한다,O S-TRAVEL O O O
+꽃 축제 열리는 곳 알려줘,B-TRAVEL E-TRAVEL O O O
+꽃놀이 있을지 고민이네,S-TRAVEL O O
+전시관 촬영장 보여줘 봐,S-TRAVEL O O O
+계곡 있나요,S-TRAVEL O
+꽃구경 둘이서 하고 싶어,S-TRAVEL O O O
+물놀이 할만한 곳 있을까,S-TRAVEL O O O
+가까운 에버랜드 위치 모르겠어,O S-TRAVEL O O
+유명한 계곡 여행지 있죠,O S-TRAVEL O O
+어디 여행지 갈 건가요,O O O O
+넓은 풋살장 있는지 모르겠어요,O S-TRAVEL O O
+여행지 추천해 달라고,O O O
+박물관 있니,S-TRAVEL O
+유명한 바다 여행지 알려줘,O S-TRAVEL O O
+여행지 없을까요,O O
+여름 여행지 알려줘,S-DATE S-TRAVEL O
+추천하는 여행지,O O
+괜찮은 꽃구경 있을지 고민되네,O S-TRAVEL O O
+가까운 바다 여행지 있지,O S-TRAVEL O O
+가까운 꽃놀이 여행지 볼래요,O S-TRAVEL O O
+더운데 워터파크 갈까,O S-TRAVEL O
+계곡 괜찮은가,S-TRAVEL O
+유명한 야구장 여행지 추천해 줘요,O S-TRAVEL O O O
+갈만한 절 여행지 추천해 줘,O S-TRAVEL O O O
+바다 관련된 여행지 좀 보여줘,S-TRAVEL O O O O
+갈만한 여행지 있어,O O O
+갈만한 산 있어요,O S-TRAVEL O
+식물원 추천해,S-TRAVEL O
+수목원 여행지 알고 싶어,S-TRAVEL O O O
+유명한 깨끗한 바다 여행지 어디 있냐,O O S-TRAVEL O O O
+연극 여행지 추천해 줘,S-TRAVEL O O O
+수영장 어디,S-TRAVEL O
+바다 여행지 있어,S-TRAVEL O O
+야구 여행지 갈만한 곳 추천해 줘,S-TRAVEL O O O O O
+유명한 산 여행지 알고 싶어,O S-TRAVEL O O O
+계곡 가고 싶어,S-TRAVEL O O
+여행지 있지 않을까요,O O O
+갈만한 바다 여행지 부탁드려요,O S-TRAVEL O O
+가까운 연극 여행지 추천해주길 바래,O S-TRAVEL O O O
+사람들 원하는 여행지,O O O
+주변 높지 않은 산 추천해 줘,O O O S-TRAVEL O O
+계곡 여행지 보고 싶어,S-TRAVEL O O O
+괜찮은 사찰 여행지 있나요,O S-TRAVEL O O
+여행지 어디 가면 좋을까,O O O O
+가까운 연극 여행지 보여주길 바래,O S-TRAVEL O O O
+어느 여행지 가야 잘했다 소문 날까,O O O O O O
+가까운 바다 있니,O S-TRAVEL O
+괜찮은 숲 알려줘,O S-TRAVEL O
+갈만한 단풍 여행지 보고싶어요,O S-TRAVEL O O
+연인 갈법한 여행지,O O O
+계곡 어디 좋니,S-TRAVEL O O
+갈만한 꽃놀이 있어,O S-TRAVEL O
+어디 여행지 갈 건가,O O O O
+배 타고 싶어요,S-TRAVEL O O
+가까운 바다 여행지 있어,O S-TRAVEL O O
+꽃구경 해보는 것 어때,S-TRAVEL O O O
+튤립 핀 곳 있어,S-TRAVEL O O O
+여행지 추천해 줘,O O O
+깨끗한 바다 없나,O S-TRAVEL O
+예쁜 바다 여행지 알려주세요,O S-TRAVEL O O
+동물원 여행지 있어,S-TRAVEL O O
+가까운 수목원 어디인지 모르겠어요,O S-TRAVEL O O
+어디서 꽃구경 해,O S-TRAVEL O
+냉동실 같은 계곡,O O S-TRAVEL
+해수욕장 할래,S-TRAVEL O
+봄꽃 축제 갈만한 곳 있어,B-TRAVEL E-TRAVEL O O O
+가까운 놀이동산 여행지 부탁해요,O S-TRAVEL O O
+산책로 구경시켜주지 않을래,S-TRAVEL O O
+해수욕장 가능한가요,S-TRAVEL O
+유명한 단풍 여행지,O S-TRAVEL O
+가까운 템플스테이 여행지 갈래요,O S-TRAVEL O O
+경기장 어떤가요,S-TRAVEL O
+가까운 사찰 여행지 알려줬으면 해요,O S-TRAVEL O O O
+괜찮은 여행지 몰라서 문제네,O O O O
+자전거 탈래,S-TRAVEL O
+즐길만한 축제 알려줘,O S-TRAVEL O
+혼자 놀이동산 갈래,O S-TRAVEL O
+유명한 해수욕장 여행지 추천 원해요,O S-TRAVEL O O O
+가까운 단풍놀이 여행지 보여줬으면 해,O S-TRAVEL O O O
+단풍놀이 원해요,S-TRAVEL O
+당신이라면 어디 여행지 갈거야,O O O O
+놀이공원 여행지 있어,S-TRAVEL O O
+유명한 계곡 여행지 있어요,O S-TRAVEL O O
+쉬고 싶은데 갈만한 여행지 있을까,O O O O O
+유명한 경기장 여행지 알려줘,O S-TRAVEL O O
+꽃놀이 가고 싶어요,S-TRAVEL O O
+유명한 수영장 있나,O S-TRAVEL O
+공기좋은 등산로,O S-TRAVEL
+가까운 산 여행지 궁금해요,O S-TRAVEL O O
+여행지 어디 있냐,O O O
+가까운 템플스테이 여행지 알려주면 좋겠어요,O S-TRAVEL O O O
+갈만한 산책로 있지 않아요,O S-TRAVEL O O
+유명한 해수욕장 여행지 추천 원해,O S-TRAVEL O O O
+계곡 보고 싶어,S-TRAVEL O O
+벚꽃 축제 보러 갈래,B-TRAVEL E-TRAVEL O O
+유명한 스키장 가고 싶어,O S-TRAVEL O O
+유명한 절 원해요,O S-TRAVEL O
+템플스테이 추천 필요해요,S-TRAVEL O O
+꽃구경 갈래요,S-TRAVEL O
+가까운 바다 여행지 알려줘 봐,O S-TRAVEL O O O
+유명한 야구 여행지 보여줘 봐요,O S-TRAVEL O O O
+등산 갈래,S-TRAVEL O
+노래 듣고 싶어,S-TRAVEL O O
+멋진 박물관 보여줘,O S-TRAVEL O
+여행지 있는지 고민이네,O O O
+야구장 알려줘,S-TRAVEL O
+유명한 절 여행지 원해요,O S-TRAVEL O O
+나만 알고 싶은 산림 여행지,O O O S-TRAVEL O
+가까운 단풍 여행지 추천해주면 좋겠어,O S-TRAVEL O O O
+바닷가 타고 싶어,S-TRAVEL O O
+가까운 시장 여행지 있죠,O S-TRAVEL O O
+동물원 여행지 추천해 봐요,S-TRAVEL O O O
+여행지 뭐 있어,O O O
+스트레스 풀릴 여행지,O O O
+사랑 받는 바닷가,O O S-TRAVEL
+주변 산책 갈만한 데 있어,O S-TRAVEL O O O
+시장 여행지 알려줘,S-TRAVEL O O
+가까운 계곡 추천 좀 해줘 봐,O S-TRAVEL O O O O
+꽃놀이 정보 알려줘,S-TRAVEL O O
+여행지 알려달라고,O O
+단풍 놀이 여행지 어디,B-TRAVEL E-TRAVEL O O
+꽃놀이 보고 싶어요,S-TRAVEL O O
+가벼운 산책로,O S-TRAVEL
+유명한 스키장,O S-TRAVEL
+어디 여행지 가는게 좋을까,O O O O
+전통놀이 배우려면 어떻게 해야돼,S-TRAVEL O O O
+맑은 계곡,O S-TRAVEL
+여행지 어디 갈 데 있어,O O O O O
+좋은 바닷가,O S-TRAVEL
+재밌는 축제 원해,O S-TRAVEL O
+식물원 가고 싶은데 갈만한 곳 있어,S-TRAVEL O O O O O
+여행지 알려줘라,O O
+가까운 단풍 여행지 보여주면 좋겠어,O S-TRAVEL O O O
+많이 찾는 시장 구경,O O S-TRAVEL O
+여행지 어떨 것 같아,O O O O
+가볼법한 여행지 보여줘요,O O O
+가까운 사찰 여행지 보여줬으면 해요,O S-TRAVEL O O O
+축제 갈만한 곳 있어,S-TRAVEL O O O
+꽃구경 어때요,S-TRAVEL O
+문학관 여행지 궁금해요,S-TRAVEL O O
+가봄직한 여행지 있을까요,O O O
+거리상 짧은 여행지,O O O
+풍경 좋은 산 있니,O O S-TRAVEL O
+배드민턴장 추천해 줘요,S-TRAVEL O O
+유명한 박물관 여행지 있냐,O S-TRAVEL O O
+가까운 스키장 여행지 갈래,O S-TRAVEL O O
+놀이동산 여행지 있지,S-TRAVEL O O
+유명한 놀이공원 있죠,O S-TRAVEL O
+소풍 가고 싶은데 갈만한 여행지 띄워줘,S-TRAVEL O O O O O
+여행지 추천해 달라고요,O O O
+유명한 깨끗한 시장 여행지 어디 있을까,O O S-TRAVEL O O O
+축구장 어딨을까,S-TRAVEL O
+동물원 보여줘 봐,S-TRAVEL O O
+가까운 동물원 여행지 어디 가야 하지,O S-TRAVEL O O O O
+가까운 시장 여행지 보여줘 봐,O S-TRAVEL O O O
+여행지 어딨냐,O O
+공기 상쾌한 여행지 보여주세요,O O O O
+유명한 스키장 어디 있어,O S-TRAVEL O O
+가까운 야구장 여행지 알고 싶어요,O S-TRAVEL O O O
+단풍구경 갈래,S-TRAVEL O
+사찰 여행지 가보고 싶어요,S-TRAVEL O O O
+가까운 동물원 여행지 어디 가야 할까요,O S-TRAVEL O O O O
+가까운 스키 여행지 어딘가요,O S-TRAVEL O O
+경기장 어디 있니,S-TRAVEL O O
+벚꽃 축제 가봐야 하는데,B-TRAVEL E-TRAVEL O O
+가봐야 하는 꽃놀이 여행지 알려주세요,O O S-TRAVEL O O
+갈만한 절 있을까,O S-TRAVEL O
+갈만한 시장 여행지 부탁합니다,O S-TRAVEL O O
+박물관 여행지 갈 데 없나요,S-TRAVEL O O O O
+해수욕장 원한다,S-TRAVEL O
+가까운 스키 여행지 어디죠,O S-TRAVEL O O
+휴식 취할만한 관광지 어딨니,S-TRAVEL O O O
+여행지 띄워주었음 좋겠어,O O O
+비 오면 시장 여행 힘들텐데,O O S-TRAVEL O O
+템플스테이 가고 싶네요,S-TRAVEL O O
+생각없이 갈만한 놀이동산 알려주세요,O O S-TRAVEL O
+시장 원해,S-TRAVEL O
+테니스장 알고 싶네요,S-TRAVEL O O
+추천할만한 놀이공원,O S-TRAVEL
+놀이공원 공연 추천 부탁해요,S-TRAVEL O O O
+경기장 없을까,S-TRAVEL O
+즐길만한 공연 가고 싶어,O O O O
+가까운 식물원 어디 가야 할지 모르겠어요,O S-TRAVEL O O O O
+혹시 미술관 공연 있니,O S-TRAVEL O O
+성지순례 공연,O O
+배구장 가고 싶네,S-TRAVEL O O
+갈만한 등산 공연 알고 싶어요,O S-TRAVEL O O O
+머리 식힐만한 공연 없나,O O O O
+동물원 공연 알려줘 봐요,S-TRAVEL O O O
+등산해보고 싶은데 갈만한 곳,S-TRAVEL O O O
+유명한 산,O S-TRAVEL
+가볼 만한 놀이공원 알려줘,O O S-TRAVEL O
+꽃구경 장소 알려주세요,S-TRAVEL O O
+자주 갈법한 공연 알려줘,O O O O
+괜찮은 산책로,O S-TRAVEL
+추천할만한 야구 공연,O S-TRAVEL O
+공연 띄워줘,O O
+물놀이 원해 갈만한 곳,S-TRAVEL O O O
+식물원 알려줘 봐,S-TRAVEL O O
+산 공연,S-TRAVEL O
+공연 알려주지 않을래,O O O
+단풍놀이 공연 갈래,S-TRAVEL O O
+단풍놀이 공연 모두 알려주세요,S-TRAVEL O O O
+시장구경 어딜 가야 잘했다 할까,S-TRAVEL O O O O
+괜찮은 시장 공연 추천해 줘,O S-TRAVEL O O O
+갈만한 꽃놀이 공연 구경하고 싶다,O S-TRAVEL O O O
+가까운 공연 추천해 줘,O O O O
+워터파크 좀 알려줘,S-TRAVEL O O
+갈만한 공연 있어야 하는데,O O O O
+단풍 공연 추천해 주세요,S-TRAVEL O O O
+인기 좋은 등산로 없나요,O O S-TRAVEL O
+어디 공연 갈거니,O O O
+많이 찾는 꽃구경,O O S-TRAVEL
+수영 할만한 곳 있니,S-TRAVEL O O O
+축구장 공연장,S-TRAVEL O
+너라면 어디 공연장 갈래,O O O O
+유명한 계곡 공연장 있지,O S-TRAVEL O O
+재밌는 축제 원해요,O S-TRAVEL O
+갈만한 등산 공연장 추천받고 싶어요,O S-TRAVEL O O O
+경기장 구경하고 싶어,S-TRAVEL O O
+박물관 공연장 갈 데 없나,S-TRAVEL O O O O
+공연장 몰라서 문젠데,O O O
+갈만한 스키장 공연장 가보고 싶네요,O S-TRAVEL O O O
+가까운 물놀이 빨리 말해요,O S-TRAVEL O O
+갈만한 산 말해주세요,O S-TRAVEL O
+심심한데 산책 장소 있나,O S-TRAVEL O O
+가까운 등산 갈래,O S-TRAVEL O
+가볍게 가볼만한 공연장 없을까,O O O O
+축구 공연장 보여줘,S-TRAVEL O O
+문학관 공연장 추천해 봐,S-TRAVEL O O O
+꽃 핀 곳 알려줘,S-TRAVEL O O O
+가까운 스키장 공연장 있나요,O S-TRAVEL O O
+꽃구경 하고 싶다,S-TRAVEL O O
+꽃구경 어디 가야 잘했다 할까,S-TRAVEL O O O O
+가기 좋은 계곡 추천해 줘,O O S-TRAVEL O O
+분위기 있는 카페,O O S-TRAVEL
+경기장 어디,S-TRAVEL O
+꽤 유명한 축제,O O S-TRAVEL
+유명한 스키장 어디 있죠,O S-TRAVEL O O
+무서운 놀이동산 있나요,O S-TRAVEL O
+어디 공연장 추천할래요,O O O
+문학관 공연장 궁금해,S-TRAVEL O O
+갈만한 스키 여행지 말해주실래요,O S-TRAVEL O O
+갈만한 스키 여행지 보여주세요,O S-TRAVEL O O
+여행지 어디 있냐,O O O
+가까운 단풍놀이 여행지 알려주길 바래,O S-TRAVEL O O O
+여행지 몰라서 문젠데요,O O O
+상쾌한 여행지,O O
+인기많은 여행지,O O
+시장 있나요,S-TRAVEL O
+갈만한 연극 여행지 알고 싶은데요,O S-TRAVEL O O O
+당구장 띄워줘요,S-TRAVEL O
+가까운 수목원 어디인지 모르겠어,O S-TRAVEL O O
+시장 보고 싶다고요,S-TRAVEL O O
+연극 보고 싶어,S-TRAVEL O O
+가까운 계곡 추천 좀 해줘 봐요,O S-TRAVEL O O O O
+놀이동산 있어,S-TRAVEL O
+스키장 추천해 줘,S-TRAVEL O O
+좋은 수영장 알려줄래,O S-TRAVEL O
+추천해 주고 싶은 꽃놀이,O O O S-TRAVEL
+꽃구경 해보고 싶네,S-TRAVEL O O
+여행지 띄워주겠니,O O
+시간 가는줄 모르는 공연 있나요,O O O S-TRAVEL O
+추천해봄직한 여행지 알려줘,O O O
+꽃구경 추천받고 싶네,S-TRAVEL O O
+가까운 문학관 여행지 가보는 것 어때,O S-TRAVEL O O O O
+가까운 절 여행지 보여주길 바래요,O S-TRAVEL O O O
+유명한 박물관 보여줘 봐,O S-TRAVEL O O
+보령 근처 가볼 만한 관광지 알려줘봐요,S-LOCATION O O O O O
+쳥양 근처 구경하기 좋은 구경거리 보여줘,S-LOCATION O O O O O
+부여군 근처 가볼 만한 곳 없니,S-LOCATION O O O O O
+미추홀구 좋은데 있니,S-LOCATION O O
+연수구 가면 어디 갈까,S-LOCATION O O O
+남동구 갈만한 곳 보여줘,S-LOCATION O O O
+부평구 유명한 곳 어디 있니,S-LOCATION O O O O
+계양구 관광지 말씀해 주세요,S-LOCATION O O O
+건대 근처 유명한 곳 있니,S-LOCATION O O O O
+가평 좋은 관광지 없나,S-LOCATION O O O
+의정부 유명한 관광지 없나요,S-LOCATION O O O
+양주 관광지 궁금해,S-LOCATION O O
+중구 구경거리 어디 있냐,S-LOCATION O O O
+북구 관광지 추천 해주라,S-LOCATION O O O
+춘천 관광 할만 한 구경거리 추천 해주세요,S-LOCATION O O O O O O
+전북 무주 갈만한 여행지 있을까,B-LOCATION E-LOCATION O O O
+경상도 놀기 좋은 구경거리 어디 있니,S-LOCATION O O O O O
+서울 관광할만한 구경거리 알려줘,S-LOCATION O O O
+전라도 가봐야 하는 구경거리 알려줘,S-LOCATION O O O O
+경기도 광주 여행지 추천해줘,B-LOCATION E-LOCATION O O
+충청북도 가볼 만한 관광지 알려주세요,S-LOCATION O O O O
+충청도 가기 좋은 관광지 알려줘,S-LOCATION O O O O
+경상도 관광해볼 만한 관광지 어디 있냐,S-LOCATION O O O O O
+서울 들려야 하는 여행지 알려줘,S-LOCATION O O O O
+전북 임실 여행지 있을까,B-LOCATION E-LOCATION O O
+경상북도 들려야 하는 관광지 알려주라,S-LOCATION O O O O
+나주 유명한 여행장소 어디 있니,S-LOCATION O O O O
+전라도 구경할만한 관광지 알려주라,S-LOCATION O O O
+여름 여행지 관광지 어디 있냐,S-DATE O O O O
+칠곡 유명한 구경거리 어디 있냐,S-LOCATION O O O O
+경상도 들러봐야 하는 구경거리 어디 있니,S-LOCATION O O O O O
+청주 꼭 들려야 하는 여행지 추천 해줘,S-LOCATION O O O O O O
+안암 들러봐야 하는 관광지 알려줘,S-LOCATION O O O O
+경기도 들려야 하는 관광지 알려주세요,S-LOCATION O O O O
+죽전 꼭 가봐야 하는 관광지 알려주세요,S-LOCATION O O O O O
+경기 안양 여행지 알려주세요,B-LOCATION E-LOCATION O O
+철원 볼 만 한 구경거리 알고싶어,S-LOCATION O O O O O
+충북 갈만 한 구경거리 추천 해줘,S-LOCATION O O O O O
+충남 가기 좋은 관광지 어디 있니,S-LOCATION O O O O O
+경상남도 구경 하기 좋은 구경거리 추천 해주라,S-LOCATION O O O O O O
+강원도 가기 좋은 관광지 알려주라,S-LOCATION O O O O
+경주 가까운 관광지 알려주세요,S-LOCATION O O O
+진짜 꼭 들려야 하는 관광지 알려주라,O O O O O O
+제주도 유명한 관광지 어디 좋을까,S-LOCATION O O O O
+제주 서귀포 여행 가는데 관광지 추천,B-LOCATION E-LOCATION O O O O
+밀양 여행지 갈만한 곳 없을까,S-LOCATION O O O O
+아마 여행 갈 것 같은데 무주 여행지 추천,O O O O O S-LOCATION O O
+나 여행 가는데 인천 진짜 좋은 여행지 없을까,O O O S-LOCATION O O O O
+아마 다음 달 여행 가는데 여행지 있나,O B-DATE E-DATE O O O O
+청계천 여행할만한 관광지 알려주라,S-LOCATION O O O
+구로구 놀만한 구경거리 추천해 줘,S-LOCATION O O O O
+강화도 볼만한 구경거리 추천해 주세요,S-LOCATION O O O O
+울릉도 갈만한 관광지 알려줄래,S-LOCATION O O O
+동구 유명한 관광지 알고싶어,S-LOCATION O O O
+서구 놀기 좋은 관광지 추천 해주라,S-LOCATION O O O O O
+파주 관광할만한 구경거리 추천 해주라,S-LOCATION O O O O
+계룡 근처 한 관광지 알려줘,S-LOCATION O O O O
+수원 가까운 여행지 추천 해줘,S-LOCATION O O O O
+평택 들러봐야 하는 구경거리 알려주라,S-LOCATION O O O O
+금천구 가기 좋은 구경거리 알려주세요,S-LOCATION O O O O
+우도 가볼 만한 관광지 추천해 주라,S-LOCATION O O O O O
+광명 꼭 들려야 하는 관광지 추천 해주라,S-LOCATION O O O O O O
+시흥 이번 여행 어디 갈지 추천,S-LOCATION O O O O O
+아마 보령 여행 갈 것 같은데 어디 갈까,O S-LOCATION O O O O O O
+다음 달 아마 충남 태안 놀러 가는데 어디 갈까,B-DATE E-DATE O B-LOCATION E-LOCATION O O O O
+청양 유명한 장소 어디 있니 궁금해,S-LOCATION O O O O O
+공주 여행 어디 갈까,S-LOCATION O O O
+포천 가면 어디 갈까,S-LOCATION O O O
+이번 화천 여행 갈 것 같거든 어디 갈까,O S-LOCATION O O O O O O
+서울 관광지 궁금하네 알려줘,S-LOCATION O O O
+대구 관광지 알고 싶어,S-LOCATION O O O
+광주 관광지 나한테 추천 해주겠니,S-LOCATION O O O O
+대전 관광지 알 수 있을까,S-LOCATION O O O O
+여수 유명한 놀 곳 있나,S-LOCATION O O O O
+창녕 여행지 어디 좋아,S-LOCATION O O O
+연천 볼만한 거 뭐 있냐,S-LOCATION O O O O
+나 모레 포천 가는데 어디 갈까,O S-DATE S-LOCATION O O O
+우리 내일 가평 가는데 어디 좋니,O S-DATE S-LOCATION O O O
+나 이번 달 남자친구랑 놀러 가는데 어디 좋아,O B-DATE E-DATE O O O O O
+우리 가을 여행 가는데 어디 갈만한 곳 없으려나,O S-DATE O O O O O O
+완산구 뭐 있지 볼만한 거,S-LOCATION O O O O
+인사동 진짜 좋은 곳 알려주겠니,S-LOCATION O O O O
+갈만한 여행지 어디 있을까요,O O O O
+모레 부산 가는데 추천해줘,S-DATE S-LOCATION O O
+이번 주 여행 가는데 특히 광주 어디 갈까,B-DATE E-DATE O O O S-LOCATION O O
+양구 괜찮은 곳 있니,S-LOCATION O O O
+양양 이번 가는데 여행지 어디 추천할래,S-LOCATION O O O O O
+나 모레 포천 가는데 괜찬은 곳 있냐,O S-DATE S-LOCATION O O O O
+내일 아마 울진 가거든 어디 좋니,S-DATE O S-LOCATION O O O
+문산 갈만한 곳 보여줘,S-LOCATION O O O
+경상남도 유명한 곳 어디 있니 내일 여행 가거든,S-LOCATION O O O O S-DATE O O
+아마 나 모레 여행 갈듯 한데 대덕 어디 갈까,O O S-DATE O O O S-LOCATION O O
+송파구 놀만한 구경거리 어디 있니,S-LOCATION O O O O
+성동구 들러봐야 하는 구경거리 추천 해주라,S-LOCATION O O O O O
+양천구 볼만한 구경거리 알고싶어,S-LOCATION O O O
+동대문 꼭 들려야 하는 관광지 있을까 내일 가기 했거든,S-LOCATION O O O O O S-DATE O O
+남서울 진짜 좋은 명소 추천 좀 해줘,S-LOCATION O O O O O O
+강북구 꼭 들려야 하는 관광지 알려줄래,S-LOCATION O O O O O
+중구 볼만한 관광지 알려주라,S-LOCATION O O O
+오랜만 광주 여행한다 어디 갈지 말해줘,O S-LOCATION O O O O
+간만 여행 가는데 인천 갈 것 같거든 관광지 추천 좀,O O O S-LOCATION O O O O O O
+양천 구경 할만한 명소 알려줄래,S-LOCATION O O O O
+종로 가기 좋은 명소 알려주세요,S-LOCATION O O O O
+금천구 들려야 하는 명소 추천 해주라,S-LOCATION O O O O O
+홍대 근처 구경하기 좋은 관광지 추천 해주라,S-LOCATION O O O O O O
+이대 근처 구경하기 좋은 명소 알고싶어,S-LOCATION O O O O O
+건대 꼭 들려야 하는 관광지 알려줘,S-LOCATION O O O O O
+종로구 놀만한 관광지 어디 있냐,S-LOCATION O O O O
+평창 관광할만한 명소 알려줘,S-LOCATION O O O
+완주 가까운 관광지 알려주라,S-LOCATION O O O
+여름 진천 관광지 어디 좋니,S-DATE S-LOCATION O O O
+모레 명소 추천 해주라,S-DATE O O O
+내일모레 목포 가는데 관광지 알려줘,S-DATE S-LOCATION O O O
+아마 여행 갈 거 같으니까 관광지 추천,O O O O O O O
+나 친구랑 모레 놀러 가는데 서울 관광지 어디 추천,O O S-DATE O O S-LOCATION O O O
+근데 진짜 좋은 관광지 없을까,O O O O O
+그 때 갔던 관광지 추천,O O O O O
+가을 친구랑 아마 놀러 가는데 부산 관광지 어디 추천,S-DATE O O O O S-LOCATION O O O
+봄 진짜 좋은 관광지 없을까,S-DATE O O O O
+강원도 갈만한 관광지 추천,S-LOCATION O O O
+영덕 명소 어디 있니,S-LOCATION O O O
+겨울 관광지 알려줄래,S-DATE O O
+서산 명소 추천 해주세요,S-LOCATION O O O
+서천 소문난 명소 알려줘,S-LOCATION O O O
+이번 관광지 알려주라,O O O
+오늘 명소 알려줄래,S-DATE O O
+모레 명소 추천 해줘,S-DATE O O O
+가을 관광지 알려주라,S-DATE O O
+봄 관광지 추천 해주라,S-DATE O O O
+여름 강남 명소 알려줘,S-DATE S-LOCATION O O
+가을 명소 추천 해주세요,S-DATE O O O
+겨울 관광지 추천 해줘,S-DATE O O O
+1월 관광지 어디 있냐,S-DATE O O O
+2월 진천 관광지 어디 좋니,S-DATE S-LOCATION O O O
+3월 명소 추천 해주라,S-DATE O O O
+4월 목포 가는데 관광지 알려줘,S-DATE S-LOCATION O O O
+5월 관광지 어디 있냐,S-DATE O O O
+6월 오산 관광지 어디 좋니,S-DATE S-LOCATION O O O
+7월 좋은 곳 추천 해줘,S-DATE O O O O
+8월 관광지 어디 있을까요,S-DATE O O O
+9월 부산 가는데 추천해줘,S-DATE S-LOCATION O O
+10월 여행 어디 갈까,S-DATE O O O
+11월 영광 제일 유명한 명소 알려줄래,S-DATE S-LOCATION O O O O
+12월 어디 여행 명소 추천해줘,S-DATE O O O O
+영월 주변 진짜 유명한 명소 있을까,S-LOCATION O O O O O
+1월 2일 명소 추천,B-DATE E-DATE O O
+2월 8일 관광 명소 추천해줘,B-DATE E-DATE O O O
+3월 16일 어디 갈까,B-DATE E-DATE O O
+4월 24일 제일 유명한 명소 알려줄래,B-DATE E-DATE O O O O
+5월 3일 여행 장소 추천해줘,B-DATE E-DATE O O O
+6월 9일 진짜 유명한 명소 있을까,B-DATE E-DATE O O O O

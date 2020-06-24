@@ -38,7 +38,7 @@ class Preprocessor:
         length = sequence.size()[0]
         if length > self.max_len:
             sequence = sequence[:self.max_len]
-            length = 8  # 마스킹시에 길이가 max_len 넘어가면 안됨
+            length = self.max_len  # 마스킹시에 길이가 max_len 넘어가면 안됨
             # 문장이 max_len보다 길면 뒷부분을 자릅니다.
 
         else:
@@ -51,7 +51,7 @@ class Preprocessor:
 
         return sequence, length
 
-    def label_sequencing(self, entity_label, entity_dict):
+    def label_sequencing(self, entity_label: torch.Tensor, entity_dict: dict) -> torch.Tensor:
         """
         엔티티 라벨의 경우에는 라벨도 각각 길이가 다르게 됩니다.
         e.g. [O, DATE, O](size=3),  [DATE, O, O, O](size=4)
@@ -82,7 +82,7 @@ class Preprocessor:
 
         return entity_label.unsqueeze(0)
 
-    def tokenize(self, sentence, train=False):
+    def tokenize(self, sentence: str, train: bool = False) -> list:
         """
         문장의 맞춤법을 교정하고 토큰화 합니다.
         유저의 입력문장의 경우에만 맞춤법 교정을 진행하고,
@@ -106,27 +106,31 @@ class Preprocessor:
 
             return self.__naver_fix(' '.join(out)).split()
 
-    def __naver_fix(self, text):
+    def __naver_fix(self, text: str) -> str:
         """
         ajax 크롤링을 이용하여 네이버 맞춤법 검사기 API를 사용합니다.
 
         :param text: 맞춤법을 수정할 문장
         :return: 맞춤법이 수정된 문장
         """
+
         if len(text) > 500:
             raise Exception('500글자 이상 넘을 수 없음!')
 
         sess = Session()
+
         # ajax 크롤링을 이용합니다 (네이버 맞춤법 검사기)
-        data = sess.get(url='https://m.search.naver.com/p/csearch/ocontent/spellchecker.nhn',
-                        params={
-                            '_callback':
-                                'window.__jindo2_callback._spellingCheck_0',
-                            'q': text},
-                        headers={
-                            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36',
-                            'referer': 'https://search.naver.com/'
-                        })
+        data = sess.get(
+            url='https://m.search.naver.com/p/csearch/ocontent/spellchecker.nhn',
+            params={
+                '_callback':
+                    'window.__jindo2_callback._spellingCheck_0',
+                'q': text},
+            headers={
+                'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36',
+                'referer': 'https://search.naver.com/'
+            }
+        )
 
         data = json.loads(data.text[42:-2])  # json 파싱
         html = data['message']['result']['html']  # 원하는부분 가져오기

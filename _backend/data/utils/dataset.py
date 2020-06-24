@@ -1,9 +1,11 @@
 import os
 import random
+
+import numpy as np
 import pandas as pd
 import torch
-import numpy as np
 from torch.utils.data import TensorDataset, DataLoader
+
 from _backend.data.utils.organizer import Organizer
 from _backend.data.utils.preprocessor import Preprocessor
 from _backend.decorators import data
@@ -16,7 +18,6 @@ class Dataset:
     def __init__(self, ood: bool):
         """
         학습과 추론에 사용할 데이터셋을 생성하는 클래스입니다.
-        전처리기는 현재는 한 가지만 구현되어 있으며, 추후 추가될 수 있습니다.
         ood는 Out of distribution 데이터셋 사용 여부입니다.
         ood 데이터를 쓰면 Threshold 설정 없이 Automatic Fallback Detection이 가능합니다.
 
@@ -62,14 +63,13 @@ class Dataset:
 
         intent_dataset = pd.read_csv(self.intent_data_dir)
         intent_train, intent_test = self.__make_intent(intent_dataset, emb_processor)
-        intent_train, intent_test = self.__mini_batch(intent_train), tuple(intent_test)
-        # 테스트는 여러 에폭을 거치지 않고 마지막에만 한번 수행되기 때문에 tuple로 리턴합니다.
+        intent_train, intent_test = self.__mini_batch(intent_train), self.__mini_batch(intent_test)
 
         if self.__ood:
             ood_dataset = self.__load_ood()
             ood_train, ood_test = self.__make_intent(ood_dataset, emb_processor)
             ood_train, ood_test = tuple(ood_train), tuple(ood_test)
-            # ood 역시 마지막에 한번만 학습 및 테스트 하므로 둘다 tuple로 리턴합니다.
+            # ood는 마지막에 한번만 학습 및 테스트 하므로 둘다 tuple로 리턴합니다.
             return intent_train, intent_test, ood_train, ood_test
 
         else:
@@ -85,7 +85,7 @@ class Dataset:
 
         entity_dataset = pd.read_csv(self.entity_data_dir)
         entity_train, entity_test = self.__make_entity(entity_dataset, emb_processor)
-        return self.__mini_batch(entity_train), tuple(entity_test)
+        return self.__mini_batch(entity_train), self.__mini_batch(entity_test)
 
     def load_predict(self, text: str, emb_processor: BaseProcessor) -> torch.Tensor:
         """
@@ -202,12 +202,13 @@ class Dataset:
 
         elif kinds == 'entity':
             # 라벨 태그(B-DATE, I-LOCATION 등을 하나씩 꺼내와서 1, 2와 같은 숫자로 맵핑)
+
             labels = [[self.entity_dict[t] for t in lable_tag.split()]
                       for lable_tag in dataset[kinds]]
 
         return list(zip(questions, labels))
 
-    def __tokenize_dataset(self, dataset: list):
+    def __tokenize_dataset(self, dataset):
         """
         데이터셋(2차원)을 토큰화 합니다.
 
@@ -220,9 +221,9 @@ class Dataset:
         # 때문에 만약 타입이 list가 아닌 스칼라는 (즉, 인텐트 라벨의 경우는)
         # 강제로 길이가 1인 리스트로 만들어서 (unsqueeze) 차원을 맞춥니다.
 
-        return [[self.__prep.tokenize(q, train=True),  # question부분은 토크나이징
-                 l if type(l) == list else [l]]  # intent 라벨 unsqueeze해주기
-                for (q, l) in dataset]  # 데이터 셋에서 하나씩 꺼내와서
+        return [[self.__prep.tokenize(question, train=True),  # question부분은 토크나이징
+                 [label] if type(label) != list else label]  # intent 라벨 unsqueeze해주기
+                for (question, label) in dataset]  # 데이터 셋에서 하나씩 꺼내와서
 
     def __split_data(self, dataset: list) -> tuple:
         """
@@ -254,12 +255,12 @@ class Dataset:
         question_list, label_list, length_list = [], [], []
 
         for i, (question, label) in enumerate(dataset):
-            question = emb_processor.predict(question)  # 임베딩
-            question, length = self.__prep.pad_sequencing(question)  # 패드시퀀싱
+            question = emb_processor.predict(question)
+            question, length = self.__prep.pad_sequencing(question)
 
-            question_list.append(question.unsqueeze(0))  # 배치단위로 합치기 위해 unsqueeze (2 => 3차원)
-            label_list.append(torch.tensor(label))  # 라벨은 그대로 2차원
-            length_list.append(torch.tensor(length).unsqueeze(0))  # 길이는 0 => 1차원
+            question_list.append(question.unsqueeze(0))
+            label_list.append(torch.tensor(label))
+            length_list.append(torch.tensor(length).unsqueeze(0))
 
         return question_list, label_list, length_list
 
@@ -283,6 +284,9 @@ class Dataset:
         :return: 미니배치 트레이닝용 데이터로더 객체
         """
 
-        return DataLoader(TensorDataset(*tensors),
-                          batch_size=self.batch_size,
-                          shuffle=True)
+        return DataLoader(
+            dataset=TensorDataset(*tensors),
+            batch_size=self.batch_size,
+            shuffle=True,
+            pin_memory=True
+        )

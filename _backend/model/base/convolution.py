@@ -10,7 +10,7 @@ class Convolution(nn.Module):
         :param _in: 입력 채널 사이즈
         :param _out: 출력 채널 사이즈
         :param kernel_size: 커널 사이즈
-        :param residual: 레지듀얼 여부
+        :param residual: skip connection 여부
         """
 
         super().__init__()

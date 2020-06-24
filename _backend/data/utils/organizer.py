@@ -59,7 +59,7 @@ class Organizer:
             entity_file, labels = self.__process_entity_file(file_name)
             integrated_file += entity_file
 
-            for label in label_set:
+            for label in labels:
                 label_set.add(label)
 
         self.__check_label_kinds(label_set)  # 라벨 종류 체크
@@ -68,7 +68,7 @@ class Organizer:
         entity_dict = self.__make_entity_dict(label_set)
         return entity_dict
 
-    def __process_intent_file(self, file_name):
+    def __process_intent_file(self, file_name: str) -> list:
         """
         개별 인텐트 파일 단위의 프로세싱입니다.
         파일명으로부터 인텐트를 뽑아내고 question문장과 인텐트 튜플리스트를 반환합니다.
@@ -82,7 +82,7 @@ class Organizer:
         intents = file_name.split('.')[0]  # [ABC.csv] 에서 '.'보다 앞부분(ABC)을 인텐트로 구분
         return [(question, intents) for question in questions]  # question과 label 세트 반환
 
-    def __process_entity_file(self, file_name):
+    def __process_entity_file(self, file_name: str) -> tuple:
         """
         개별 엔티티 파일 단위의 프로세싱입니다.
         엔티티 데이터의 유효성을 검증한 뒤 (check_num_of_label, check_label_kinds)
@@ -99,12 +99,13 @@ class Organizer:
                        for question, labels
                        in zip(entity_file['question'], entity_file['label'])]
 
-        labels = [label for _, labels in entity_file
+        labels = [label
+                  for _, labels in entity_file
                   for label in labels]
 
         return entity_file, labels
 
-    def __make_intent_dict(self, intents):
+    def __make_intent_dict(self, intents) -> dict:
         """
         학습 등에 사용되는 인텐트 라벨 딕셔너리를 생성합니다.
 
@@ -123,7 +124,15 @@ class Organizer:
 
         return label_dict
 
-    def __make_entity_dict(self, label_set):
+    def __make_entity_dict(self, label_set: set) -> dict:
+        """
+        학습 등에 사용되는 엔티티 라벨 딕셔너리를 생성합니다.
+
+        :param label_set: 엔티티 집합 (중복 X)
+        :return: 엔티티 딕셔너리 (e.g. {B-DATE:1, B-LOCATION:2, ...})
+        """
+
+        label_set = sorted(list(label_set))
         label_dict = {}
 
         for i, entity in enumerate(label_set):
@@ -149,7 +158,7 @@ class Organizer:
                 raise Exception("THERE ARE LABEL ERROR : {}".format(entity))
                 # 에러가 발생한 부분의 엔티티(라벨)를 보여줌
 
-    def __check_num_of_label(self, data_df):
+    def __check_num_of_label(self, data_df: DataFrame) -> int:
         """
         데이터(question)부분과 레벨(entity)부분의 갯수가 안맞으면 에러를 발생시킵니다.
         e.g. [오늘, 전주, 날씨, 어떠니](size=4) , [DATE, LOCATION, O](size=3) → 에러발생
@@ -167,7 +176,7 @@ class Organizer:
             entity = str(label).split(' ')
 
             if len(question) != len(entity):
-                print(i - 2, question, entity)
+                print(question, entity)
                 number_of_error += 1
 
         if number_of_error != 0:

@@ -35,6 +35,16 @@ class CenterLoss(BaseLoss):
         return self.center_loss_function(feat, label, self.centers)
 
     def compute_loss(self, label, logits, feats, mask=None):
+        """
+        학습을 위한 total loss를 계산합니다.
+
+        :param label: label
+        :param logits: logits
+        :param feats: feature
+        :param mask: mask vector
+        :return: total loss
+        """
+
         nll_loss = F.cross_entropy(logits, label)
         center_loss = self(feats, label)
         return nll_loss + self.center_factor * center_loss

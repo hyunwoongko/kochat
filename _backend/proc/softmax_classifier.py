@@ -3,10 +3,7 @@
 @when : 5/9/2020
 @homepage : https://github.com/gusdnd852
 """
-
 import torch
-from torch.optim import Adam
-from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 from _backend.decorators import intent
 from _backend.loss.cross_entropy_loss import CrossEntropyLoss
@@ -17,68 +14,101 @@ from _backend.proc.base.torch_processor import TorchProcessor
 class SoftmaxClassifier(TorchProcessor):
 
     def __init__(self, model):
-        super().__init__(model=model)
+        """
+        Intent 분류 모델을 학습시키고 테스트 및 추론합니다.
+        Softmax Classification은 OOD 탐지기능이 없기 때문에 반드시 n개의 클래스 중 하나로 분류합니다.
+        Calibrate되지 않은 Softmax score를 OOD 탐지의 기준으로 삼으면 발생할 수 있는 문제들은
+        아래의 논문에 자세하게 설명되어있습니다. 때문에 OOD 탐지가 필요하면 IntentClassifier를 이용해주세요.
+
+        - paper : Deep Neural Networks are Easily Fooled: High Confidence Predictions for Unrecognizable Images
+        - arxiv : https://arxiv.org/abs/1412.1897
+
+        :param model: Intent Classification 모델
+        """
+
         self.label_dict = model.label_dict
         self.loss = CrossEntropyLoss(model.label_dict)
-        self.optimizers = [Adam(
-            params=self.model.parameters(),
-            lr=self.lr,
-            weight_decay=self.weight_decay)]
+        super().__init__(model, model.parameters())
 
-        self.lr_scheduler = ReduceLROnPlateau(
-            optimizer=self.optimizers[0],
-            verbose=True,
-            factor=self.lr_scheduler_factor,
-            min_lr=self.lr_scheduler_min_lr,
-            patience=self.lr_scheduler_patience)
+    def predict(self, sequence: torch.Tensor) -> str:
+        """
+        사용자의 입력에 inference합니다.
 
-    def predict(self, sequence):
+        :param sequence: 입력 시퀀스
+        :return: 분류 결과 (클래스) 리턴
+        """
+
         self._load_model()
         self.model.eval()
 
-        logits = self.model(sequence).float()
-        logits = self.model.clf_logits(logits.squeeze())
-        _, predict = torch.max(logits, dim=0)
+        logits, _ = self._feed_forward(sequence)
+        _, predict = torch.max(logits, dim=1)
         return list(self.label_dict)[predict.item()]
 
-    def _fit(self, epoch) -> tuple:
-        loss_list, accuracy_list = [], []
-        for train_feature, train_label, train_length in self.train_data:
-            feats = train_feature.float().to(self.device)
-            labels = train_label.long().to(self.device)
-            feats = self.model(feats).float()
-            logits = self.model.clf_logits(feats)
+    def _train_epoch(self, epoch):
+        """
+        학습시 1회 에폭에 대한 행동을 정의합니다.
+        
+        :param epoch: 현재 에폭
+        :return: 평균 loss, 예측 리스트, 라벨 리스트
+        """
 
-            total_loss = self.loss.compute_loss(labels, logits, None)
-            for opt in self.optimizers: opt.zero_grad()
-            total_loss.backward()
-            for opt in self.optimizers: opt.step()
+        loss_list, predict_list, label_list = [], [], []
+        self.model.train()
 
-            loss_list.append(total_loss.item())
-            _, predict = torch.max(logits, dim=1)
-            acc = self._get_accuracy(labels, predict)
-            accuracy_list.append(acc)
+        for feats, labels, lengths in self.train_data:
+            feats, labels = feats.to(self.device), labels.to(self.device)
+            predicts, losses = self._forward(feats, labels)
+            losses = self._backward(losses)
 
-        loss = sum(loss_list) / len(loss_list)
-        accuracy = sum(accuracy_list) / len(accuracy_list)
+            loss_list.append(losses)
+            predict_list.append(predicts)
+            label_list.append(labels)
 
-        if epoch > self.lr_scheduler_warm_up:
-            self.lr_scheduler.step(loss)
+        losses = sum(loss_list) / len(loss_list)
+        predicts = torch.cat(predict_list, dim=0)
+        labels = torch.cat(label_list, dim=0)
+        return losses, predicts, labels
 
-        return loss, accuracy
+    def _test_epoch(self, epoch):
+        """
+        테스트시 1회 에폭에 대한 행동을 정의합니다.
+        
+        :param epoch: 현재 에폭
+        :return: 평균 loss, 예측 리스트, 라벨 리스트
+        """
 
-    def test(self) -> dict:
-        self._load_model()
+        loss_list, predict_list, label_list = [], [], []
         self.model.eval()
 
-        test_feature, test_label, test_length = self.test_data
-        feats = test_feature.float().to(self.device)
-        labels = test_label.long().to(self.device)
-        feats = self.model(feats).to(self.device)
+        for feats, labels, lengths in self.test_data:
+            feats, labels = feats.to(self.device), labels.to(self.device)
+            predicts, losses = self._forward(feats, labels)
+
+            loss_list.append(losses)
+            predict_list.append(predicts)
+            label_list.append(labels)
+
+        losses = sum(loss_list) / len(loss_list)
+        predicts = torch.cat(predict_list, dim=0)
+        labels = torch.cat(label_list, dim=0)
+        return losses, predicts, labels
+
+    def _forward(self, feats, labels=None, lengths=None):
+        """
+        모델의 feed forward에 대한 행동을 정의합니다.
+
+        :param feats: 입력 feature
+        :param labels: label 리스트
+        :return: 모델의 예측, loss
+        """
+
+        feats = self.model(feats)
         logits = self.model.clf_logits(feats)
+        _, predicts = torch.max(logits, dim=1)
 
-        _, predict = torch.max(logits, dim=1)
-        test_result = {'test_accuracy': self._get_accuracy(labels, predict)}
-
-        print(test_result)
-        return test_result
+        if labels is None:
+            return predicts
+        else:
+            loss = self.loss.compute_loss(labels, logits, None)
+            return predicts, loss

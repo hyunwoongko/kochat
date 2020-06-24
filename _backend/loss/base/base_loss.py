@@ -32,12 +32,3 @@ class BaseLoss(nn.Module):
         """
 
         raise NotImplementedError
-
-    def get_loss_name(self):
-        """
-        시각화 자료 저장시 클래스 이름으로 파일을 저장하기 위해 쓰입니다.
-
-        :return: 해당 Loss 클래스의 이름
-        """
-
-        return self.__class__.__name__
