@@ -11,7 +11,16 @@ class WeatherCrawler(Crawler):
         self.editor = WeatherEditor()
         self.answerer = WeatherAnswerer()
 
-    def crawl(self, location, date):
+    def crawl(self, location: str, date: str) -> str:
+        """
+        날씨를 크롤링합니다.
+        (try-catch로 에러가 나지 않는 함수)
+
+        :param location: 지역
+        :param date: 날짜
+        :return: 만들어진진 문장
+       """
+
         try:
             return self.crawl_debug(location, date)
         except:
@@ -19,13 +28,22 @@ class WeatherCrawler(Crawler):
                 '그 날씨는 알 수가 없어요.'
             )
 
-    def crawl_debug(self, location, date):
+    def crawl_debug(self, location: str, date: str) -> str:
+        """
+        날씨를 크롤링합니다.
+        (에러가 나는 디버깅용 함수)
+
+        :param location: 지역
+        :param date: 날짜
+        :return: 만들어진진 문장
+        """
+
         if date in self.date['today']:
             return self.__today(location)
         elif date in self.date['tomorrow']:
             return self.__tomorrow(location)
-        elif date in self.date['after_tomorrow']:
-            return self.__after_tomorrow(location)
+        elif date in self.date['after']:
+            return self.__after(location)
         elif date in self.date['specific']:
             return self.__specific(location, date)
         else:
@@ -36,27 +54,51 @@ class WeatherCrawler(Crawler):
                     '그 때의 날씨는 알 수가 없어요.'
                 )
 
-    def __today(self, location):
+    def __today(self, location: str) -> str:
+        """
+        오늘 날씨를 검색하고 조합합니다.
+
+        :param location: 지역
+        :return: 오늘 날씨
+        """
+
         result = self.searcher.naver_search(location)
         result = self.editor.edit_today(result)
-        return self.answerer.comparison_with_yesterday_form("오늘", location, result)
+        return self.answerer.comparison_with_yesterday_form(location, "오늘", result)
 
-    def __tomorrow(self, location):
+    def __tomorrow(self, location: str) -> str:
+        """
+        내일 날씨를 검색하고 조합합니다.
+
+        :param location: 지역
+        :return: 내일 날씨
+        """
+
         result = self.searcher.naver_search(location)
         result, josa = self.editor.edit_tomorrow(result)
-        return self.answerer.morning_afternoon_form("내일", location, result, josa)
+        return self.answerer.morning_afternoon_form(location, "내일", result, josa)
 
-    def __after_tomorrow(self, location):
+    def __after(self, location: str) -> str:
+        """
+        모네 날씨를 검색하고 조합합니다.
+
+        :param location: 지역
+        :return: 모레 날씨
+        """
+
         result = self.searcher.naver_search(location)
-        result, josa = self.editor.edit_after_tomorrow(result)
-        return self.answerer.morning_afternoon_form("모레", location, result, josa)
+        result, josa = self.editor.edit_after(result)
+        return self.answerer.morning_afternoon_form(location, "모레", result, josa)
 
-    def __specific(self, location, date):
+    def __specific(self, location: str, date: str) -> str:
+        """
+        특정 날짜 (e.g. 수요일, 6월 20일 등)의
+        날씨를 검색하고 조합합니다.
+
+        :param location: 지역
+        :return: 오늘 날씨
+        """
+
         result = self.searcher.google_search(location, date)
         result = self.editor.edit_specific(result)
         return self.answerer.specific_date_form(location, date, result)
-
-    def __this_week(self, location):
-        week_date = ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일']
-        result = [self.__specific(location, date) for date in week_date]
-        return ' '.join(result)

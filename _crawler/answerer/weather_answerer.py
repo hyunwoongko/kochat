@@ -3,31 +3,62 @@ from _crawler.answerer.base.answerer import Answerer
 
 class WeatherAnswerer(Answerer):
 
-    def comparison_with_yesterday_form(self, location, date, result):
-        weather, comparison, temperature = result[0], result[1], result[2]
+    def comparison_with_yesterday_form(self, location: str, date: str, result: dict) -> str:
+        """
+        어제 온도와 비교하는 출력 포맷
+
+        :param location: 지역
+        :param date: 날짜
+        :param result: 데이터 딕셔너리
+        :return: 출력 메시지
+        """
 
         msg = self.weather.format(location=location)
-        msg += '{location} {date}지역은 섭씨 {temperature}도이며, {comparison}. {weather}' \
-            .format(date=date, location=location, temperature=temperature,
-                    comparison=comparison, weather=weather)
+        msg += '{date} {location}지역은 섭씨 {temperature}도이며, {comparison}. {weather}' \
+            .format(date=date, location=location,
+                    temperature=result['temperature'],
+                    comparison=result['comparison'],
+                    weather=result['weather'])
+
         return msg
 
-    def specific_date_form(self, location, date, result):
-        weather, temperature = result[0], result[1]
+    def specific_date_form(self, location: str, date: str, result: dict) -> str:
+        """
+        특정 날짜 (오전/오후 구분 없는) 출력 포맷
+        
+        :param location: 지역
+        :param date: 날짜
+        :param result: 데이터 딕셔너리
+        :return: 출력 메시지
+        """
+
         msg = self.weather.format(location=location)
-        msg += '{location} {date}지역은 섭씨 {temperature}도이며, {weather}' \
-            .format(date=date, location=location, temperature=temperature, weather=weather)
+        msg += '{date} {location}지역은 섭씨 {temperature}도이며, {weather}' \
+            .format(date=date, location=location,
+                    temperature=result['temperature'],
+                    weather=result['weather'])
 
         return msg
 
-    def morning_afternoon_form(self, location, date, result, josa):
-        morning_weather, morning_temp = result[0], result[1]
-        afternoon_weather, afternoon_temp = result[2], result[3]
+    def morning_afternoon_form(self, location: str, date: str, result: dict, josa: list) -> str:
+        """
+        오전-오후로 구성된 출력 포맷
+
+        :param location: 지역
+        :param date: 날짜
+        :param josa: 조사 리스트
+        :param result: 데이터 딕셔너리
+        :return: 출력 메시지
+        """
+
         msg = self.weather.format(location=location)
-        msg += '{location} {date}지역은 오전에{j1} 섭씨 {t1}도이며, {w1} ' \
+        msg += '{date} {location}지역은 오전에{j1} 섭씨 {t1}도이며, {w1} ' \
                '오후에{j2} 섭씨 {t2}도이며, {w2}' \
             .format(date=date, location=location,
-                    j1=josa[0], t1=morning_temp, w1=morning_weather,
-                    j2=josa[1], t2=afternoon_temp, w2=afternoon_weather)
+                    j1=josa[0], j2=josa[1],
+                    t1=result['morning_temperature'],
+                    t2=result['afternoon_temperature'],
+                    w1=result['morning_weather'],
+                    w2=result['afternoon_weather'])
 
         return msg

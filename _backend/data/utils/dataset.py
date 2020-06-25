@@ -4,6 +4,7 @@ import random
 import numpy as np
 import pandas as pd
 import torch
+from torch import Tensor
 from torch.utils.data import TensorDataset, DataLoader
 
 from _backend.data.utils.organizer import Organizer
@@ -21,7 +22,6 @@ class Dataset:
         ood는 Out of distribution 데이터셋 사용 여부입니다.
         ood 데이터를 쓰면 Threshold 설정 없이 Automatic Fallback Detection이 가능합니다.
 
-        :param preprocessor: 전처리기 객체입니다.
         :param ood: Out of distribution dataset 사용 여부입니다.
         """
 
@@ -68,8 +68,7 @@ class Dataset:
         if self.__ood:
             ood_dataset = self.__load_ood()
             ood_train, ood_test = self.__make_intent(ood_dataset, emb_processor)
-            ood_train, ood_test = tuple(ood_train), tuple(ood_test)
-            # ood는 마지막에 한번만 학습 및 테스트 하므로 둘다 tuple로 리턴합니다.
+            ood_train, ood_test = self.__mini_batch(ood_train), self.__mini_batch(ood_test)
             return intent_train, intent_test, ood_train, ood_test
 
         else:
@@ -87,7 +86,7 @@ class Dataset:
         entity_train, entity_test = self.__make_entity(entity_dataset, emb_processor)
         return self.__mini_batch(entity_train), self.__mini_batch(entity_test)
 
-    def load_predict(self, text: str, emb_processor: BaseProcessor) -> torch.Tensor:
+    def load_predict(self, text: str, emb_processor: BaseProcessor) -> Tensor:
         """
         실제 애플리케이션 등에서 유저 입력에 대한 인퍼런스를 수행할 때
         사용자가 입력한 Raw 텍스트(str)를 텐서로 변환합니다.
@@ -195,8 +194,8 @@ class Dataset:
 
         if kinds == 'intent':
             labels = dataset[kinds].map(self.intent_dict)
-            labels.fillna(len(self.intent_dict), inplace=True)
-            # ood 파일의 경우에는 intent dict에 라벨이 없기 때문에 nan가 됨.
+            labels.fillna(-1, inplace=True)
+            # ood는 intent dict에 라벨이 없기 때문에 nan가 되는데 -1로 대체함.
             labels = labels.astype(int).tolist()
             # fillna하면 float이 되기 때문에 이를 int로 바꿔줌
 
@@ -222,7 +221,7 @@ class Dataset:
         # 강제로 길이가 1인 리스트로 만들어서 (unsqueeze) 차원을 맞춥니다.
 
         return [[self.__prep.tokenize(question, train=True),  # question부분은 토크나이징
-                 [label] if isinstance(label, list) else label]  # intent 라벨 unsqueeze해주기
+                 [label] if not isinstance(label, list) else label]  # intent 라벨 unsqueeze해주기
                 for (question, label) in dataset]  # 데이터 셋에서 하나씩 꺼내와서
 
     def __split_data(self, dataset: list) -> tuple:

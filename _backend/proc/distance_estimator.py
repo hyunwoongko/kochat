@@ -1,6 +1,8 @@
 import numpy as np
+from sklearn.base import BaseEstimator
 from sklearn.model_selection import GridSearchCV
 from sklearn.neighbors import KNeighborsClassifier
+from torch import Tensor
 
 from _backend.decorators import intent
 from _backend.proc.base.sklearn_processor import SklearnProcessor
@@ -9,7 +11,7 @@ from _backend.proc.base.sklearn_processor import SklearnProcessor
 @intent
 class DistanceEstimator(SklearnProcessor):
 
-    def __init__(self, grid_search=True):
+    def __init__(self, grid_search: bool = True):
         """
         Nearest Neighbors 알고리즘을 기반으로 가장 가까운 K개의 샘플을 검색한뒤
         가장 많이 검색된 클래스로 분류하고, 샘플들과의 거리를 출력하는 클래스입니다.
@@ -21,7 +23,7 @@ class DistanceEstimator(SklearnProcessor):
         self.grid_search = grid_search
         super().__init__(self.model)
 
-    def fit(self, feats, label, mode):
+    def fit(self, feats: Tensor, label: Tensor, mode: str) -> tuple:
         """
         Distance Estimator를 학습 및 검증합니다.
 
@@ -31,8 +33,10 @@ class DistanceEstimator(SklearnProcessor):
         :return: predict, K개 sample에 대한 distances
         """
 
-        feats = feats.detach().cpu().numpy()
-        label = label.detach().cpu().numpy()
+        if not isinstance(label, np.ndarray):
+            label = label.detach().cpu().numpy()
+        if not isinstance(feats, np.ndarray):
+            feats = feats.detach().cpu().numpy()
 
         if mode == 'train':
             self._train_epoch(feats, label)
@@ -40,7 +44,7 @@ class DistanceEstimator(SklearnProcessor):
         predict, distance = self._test_epoch(feats)
         return predict, distance
 
-    def predict(self, sequence):
+    def predict(self, sequence: Tensor) -> tuple:
         """
         사용자의 입력에 inference합니다.
 
@@ -48,13 +52,16 @@ class DistanceEstimator(SklearnProcessor):
         :return: 분류결과와 가장 가까운 K개의 샘플과의 거리
         """
 
-        sequence = sequence.detach().cpu().numpy()
-        sequence = np.expand_dims(sequence, axis=0)
+        self._load_model()
 
+        if not isinstance(sequence, np.ndarray):
+            sequence = sequence.detach().cpu().numpy()
+
+        sequence = np.expand_dims(sequence, axis=0)
         predict, distance = self._test_epoch(sequence)
         return predict, distance
 
-    def _train_epoch(self, feats, label):
+    def _train_epoch(self, feats: np.ndarray, label: np.ndarray):
         """
         학습시 1회 에폭에 대한 행동을 정의합니다.
         grid_search가 True인 경우 grid search를 수행합니다.
@@ -70,21 +77,19 @@ class DistanceEstimator(SklearnProcessor):
 
         self._save_model()
 
-    def _test_epoch(self, feats):
+    def _test_epoch(self, feats: np.ndarray) -> tuple:
         """
         테스트시 1회 에폭에 대한 행동을 정의합니다.
 
-        :param epoch: 입력 features
+        :param feats: 입력 features
         :return: 분류결과와 가장 가까운 K개의 샘플과의 거리
         """
-
-        self._load_model()
 
         predict = self.model.predict(feats)
         distance, _ = self.model.kneighbors(feats)
         return predict, distance
 
-    def _grid_search(self, feats, label):
+    def _grid_search(self, feats: np.ndarray, label: np.ndarray) -> BaseEstimator:
         """
         가장 적합한 K와 여러가지 파라미터를 선택하기 위해 그리드 서치를 진행합니다.
 

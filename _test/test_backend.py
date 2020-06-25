@@ -4,7 +4,6 @@ import warnings
 from _backend.data.utils.dataset import Dataset
 from _backend.loss.center_loss import CenterLoss
 from _backend.loss.crf_loss import CRFLoss
-from _backend.loss.cross_entropy_loss import CrossEntropyLoss
 from _backend.model.embed_fasttext import EmbedFastText
 from _backend.model.entity_lstm import EntityLSTM
 from _backend.model.intent_cnn import IntentCNN
@@ -25,21 +24,15 @@ embed = GensimProcessor(
 )
 # embed.fit(dataset.load_embed())
 
-# 3. 의도 분류기를 학습합니다
-intent = SoftmaxClassifier(
-    model=IntentCNN(dataset.intent_dict)
-)
-intent.fit(dataset.load_intent(embed))
-
 entity = EntityRecognizer(
     model=EntityLSTM(dataset.entity_dict),
     loss=CRFLoss(dataset.entity_dict)
 )
-# entity.fit(dataset.load_entity(embed))
+entity.fit(dataset.load_entity(embed))
 
 intent = IntentClassifier(
     model=IntentCNN(dataset.intent_dict),
     loss=CenterLoss(dataset.intent_dict)
 )
 
-# intent.fit(dataset.load_intent(embed))
+intent.fit(dataset.load_intent(embed))

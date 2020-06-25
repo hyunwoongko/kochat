@@ -1,3 +1,5 @@
+import numpy as np
+from sklearn.base import BaseEstimator
 from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import Pipeline
 
@@ -8,9 +10,10 @@ from _backend.proc.base.sklearn_processor import SklearnProcessor
 @intent
 class FallbackDetector(SklearnProcessor):
 
-    def __init__(self, label_dict, grid_search=True):
+    def __init__(self, label_dict: dict, grid_search: bool = True):
         """
-
+        OOD 데이터셋이 존재하는 경우,
+        In distribution 데이터와 Out dist
         :param grid_search:
         """
 
@@ -19,25 +22,41 @@ class FallbackDetector(SklearnProcessor):
         self.grid_search = grid_search
         super().__init__(self.model)
 
-    def fit(self, distance, label):
+    def fit(self, distance, label, mode: str):
         """
         Fallback Detector를 학습 및 검증합니다.
 
         :param distance: Distance Estimator의 출력
         :param label: 라벨 리스트
+        :param mode: train or test
+        :return: mode가 test인 경우, predicts와 label을 리턴합니다.
         """
+
+        if not isinstance(label, np.ndarray):
+            label = label.detach().cpu().numpy()
+        if not isinstance(distance, np.ndarray):
+            distance = distance.detach().cpu().numpy()
 
         binary_label_set = []
 
         for i in label:
-            if i < len(self.label_dict):
-                # in distribution
+            if i >= 0:
+                # in distribution (0 이상)
                 binary_label_set.append(0)
             else:
-                # out distribution
+                # out distribution (-1)
                 binary_label_set.append(1)
 
-        self._train_epoch(distance, binary_label_set)
+        binary_label_set = np.array(binary_label_set)
+        binary_label_set = np.expand_dims(binary_label_set, axis=1)
+        distance = np.expand_dims(distance, axis=1)
+
+        if mode == 'train':
+            self._train_epoch(distance, binary_label_set)
+
+        else:
+            predicts = self._test_epoch(distance)
+            return predicts, binary_label_set
 
     def predict(self, distance):
         """
@@ -47,10 +66,15 @@ class FallbackDetector(SklearnProcessor):
         :return: Fallback 여부 반환
         """
 
+        if not isinstance(distance, np.ndarray):
+            distance = distance.detach().cpu().numpy()
+
+        self._load_model()
+
         predicts = self._test_epoch(distance)
         return predicts
 
-    def _train_epoch(self, distance, label):
+    def _train_epoch(self, distance: np.ndarray, label: np.ndarray):
         """
         학습시 1회 에폭에 대한 행동을 정의합니다.
         grid_search가 True인 경우 grid search를 수행합니다.
@@ -66,7 +90,7 @@ class FallbackDetector(SklearnProcessor):
 
         self._save_model()
 
-    def _test_epoch(self, distance):
+    def _test_epoch(self, distance: np.ndarray):
         """
         테스트시 1회 에폭에 대한 행동을 정의합니다.
 
@@ -77,7 +101,7 @@ class FallbackDetector(SklearnProcessor):
         predicts = self.model.predict(distance)
         return predicts
 
-    def _grid_search(self, distance, label):
+    def _grid_search(self, distance: np.ndarray, label: np.ndarray) -> BaseEstimator:
         pipeline = Pipeline([('detector', self.model)])
         parameters = {'detector': self.fallback_detectors}
 

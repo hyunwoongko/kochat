@@ -2,14 +2,14 @@ import torch
 from torch import nn
 from torch.autograd import Function, Variable
 from torch.nn import functional as F
-
+from torch import Tensor
 from _backend.decorators import intent
 from _backend.loss.base.base_loss import BaseLoss
 
 
 @intent
 class CenterLoss(BaseLoss):
-    def __init__(self, label_dict):
+    def __init__(self, label_dict: dict):
         """
         Center Loss를 계산합니다.
 
@@ -24,7 +24,7 @@ class CenterLoss(BaseLoss):
         self.centers = nn.Parameter(torch.randn(self.classes, self.d_loss))
         self.center_loss_function = CenterLossFunction.apply
 
-    def forward(self, feat, label):
+    def forward(self, feat: Tensor, label: Tensor) -> Tensor:
         batch_size = feat.size(0)
         feat = feat.view(batch_size, 1, 1, -1).squeeze()
 
@@ -34,7 +34,7 @@ class CenterLoss(BaseLoss):
 
         return self.center_loss_function(feat, label, self.centers)
 
-    def compute_loss(self, label, logits, feats, mask=None):
+    def compute_loss(self, label: Tensor, logits: Tensor, feats: Tensor, mask: nn.Module = None) -> Tensor:
         """
         학습을 위한 total loss를 계산합니다.
 

@@ -3,9 +3,8 @@
 @since {6/21/2020}
 @see : https://github.com/gusdnd852
 """
-from _app.restful_api import KochatApi
+from _app.restful.kochat_api import KochatApi
 from _backend.data.utils.dataset import Dataset
-from _backend.data.utils.organizer import Organizer
 from _backend.loss.center_loss import CenterLoss
 from _backend.loss.crf_loss import CRFLoss
 from _backend.model.embed_fasttext import EmbedFastText
@@ -16,14 +15,8 @@ from _backend.proc.base.gensim_processor import GensimProcessor
 from _backend.proc.intent_classifier import IntentClassifier
 
 if __name__ == '__main__':
-    dataset = Dataset(
-        preprocessor=Organizer(),
-        ood=True
-    )
-
-    embed_processor = GensimProcessor(
-        model=EmbedFastText()
-    )
+    dataset = Dataset(ood=True)
+    embed_processor = GensimProcessor( model=EmbedFastText())
 
     intent_classifier = IntentClassifier(
         model=IntentCNN(dataset.intent_dict),
@@ -42,7 +35,4 @@ if __name__ == '__main__':
         entity_recognizer=entity_recognizer
     )
 
-    kochat_api.run(
-        ip='0.0.0.0',
-        port=9893
-    )
+    kochat_api.run(port=8080)

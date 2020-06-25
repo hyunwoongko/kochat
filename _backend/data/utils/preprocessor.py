@@ -7,6 +7,7 @@ import json
 import re
 
 import torch
+from torch import Tensor
 from konlpy.tag import Okt
 from requests import Session
 
@@ -24,7 +25,7 @@ class Preprocessor:
 
         self.__okt = Okt()
 
-    def pad_sequencing(self, sequence: torch.Tensor) -> tuple:
+    def pad_sequencing(self, sequence: Tensor) -> tuple:
         """
         패드 시퀀싱 함수입니다.
         max_len보다 길이가 길면 자르고, 짧으면 뒤에 패딩(영벡터)를 추가합니다.
@@ -51,7 +52,7 @@ class Preprocessor:
 
         return sequence, length
 
-    def label_sequencing(self, entity_label: torch.Tensor, entity_dict: dict) -> torch.Tensor:
+    def label_sequencing(self, entity_label: Tensor, entity_dict: dict) -> Tensor:
         """
         엔티티 라벨의 경우에는 라벨도 각각 길이가 다르게 됩니다.
         e.g. [O, DATE, O](size=3),  [DATE, O, O, O](size=4)

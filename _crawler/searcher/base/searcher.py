@@ -17,13 +17,31 @@ class Searcher(Crawler, metaclass=ABCMeta):
     def _make_query(self, *args, **kwargs):
         raise NotImplementedError
 
-    def __BS4(self, base_url, query):
-        url = base_url + urllib.parse.quote(query)
+    def __bs4(self, url: str, query: str) -> bs4.BeautifulSoup:
+        """
+        beautiful soup 4를 이용하여 정적 웹페이지에 대한 크롤링을 시도합니다.
+
+        :param url: 베이스 url
+        :param query: 검색할 쿼리
+        :return: parsing된 html
+        """
+
+        url = url + urllib.parse.quote(query)
         out = bs4.BeautifulSoup(urlopen(Request(url, headers=self.headers)).read(), 'html.parser')
         return out
 
-    def _bs4_contents(self, url, selectors, query=""):
-        out = self.__BS4(url, query)
+    def _bs4_contents(self, url: str, selectors: list, query: str = ""):
+        """
+        beautiful soup 4를 이용하여 정적 웹페이지에 대한 크롤링을 시도합니다.
+        셀렉터를 적용하여 입력한 셀렉터에 해당하는 태그 안의 contents를 로드합니다.
+
+        :param url: 베이스 url
+        :param selectors: 검색할 셀렉터
+        :param query: 검색할 쿼리
+        :return: 크롤링된 콘텐츠
+        """
+
+        out = self.__bs4(url, query)
         try:
             crawled = []
             for selector in selectors:
@@ -33,8 +51,18 @@ class Searcher(Crawler, metaclass=ABCMeta):
         except:
             return None
 
-    def _bs4_documents(self, url, selectors, query=""):
-        out = self.__BS4(url, query)
+    def _bs4_documents(self, url: str, selectors: list, query: str = ""):
+        """
+        beautiful soup 4를 이용하여 정적 웹페이지에 대한 크롤링을 시도합니다.
+        셀렉터를 적용하여 입력한 셀렉터에 해당하는 태그를 포함한 모든 document 구조를 로드합니다.
+
+        :param url: 베이스 url
+        :param selectors: 검색할 셀렉터
+        :param query: 검색할 쿼리
+        :return: 크롤링된 콘텐츠
+        """
+
+        out = self.__bs4(url, query)
         try:
             crawled = []
             for selector in selectors:
@@ -44,7 +72,15 @@ class Searcher(Crawler, metaclass=ABCMeta):
         except:
             return None
 
-    def _ajax_json(self, url, query):
+    def _json(self, url: str, query: str):
+        """
+        json을 이용하여 동적 웹페이지에 대한 크롤링을 시도합니다.
+
+        :param url: 베이스 url
+        :param query: 검색할 쿼리
+        :return: 크롤링된 json 파일
+        """
+
         url += urllib.parse.quote(query)
         req = requests.get(url, headers=self.headers)
         if req.status_code == requests.codes.ok:

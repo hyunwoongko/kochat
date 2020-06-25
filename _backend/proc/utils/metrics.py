@@ -14,15 +14,15 @@ from sklearn.metrics import \
 
 class Metrics:
 
-    def __init__(self, label_dict, logging_precision):
-        self.label_dict = label_dict
+    def __init__(self, logging_precision):
         self.p = logging_precision
         self.train_label, self.train_predict = None, None
         self.test_label, self.test_predict = None, None
+        self.ood_label, self.ood_predict = None, None
 
     def evaluate(self, label, predict, mode) -> dict:
         """
-        accuracy와 loss를 출력합니다.
+        여러가지 메트릭에 의한 결과를 반환합니다.
 
         :param label: 라벨
         :param predict: 예측
@@ -38,6 +38,10 @@ class Metrics:
             self.test_label = label
             self.test_predict = predict
 
+        elif mode == 'ood':
+            self.ood_label = label
+            self.ood_predict = predict
+
         else:
             raise Exception("mode는 train과 test만 가능합니다.")
 
@@ -51,7 +55,7 @@ class Metrics:
                 'recall': recall_score(label, predict, average='macro'),
                 'f1_score': f1_score(label, predict, average='macro')}
 
-    def report(self, mode):
+    def report(self, label_dict, mode):
         """
         분류 보고서와 confusion matrix를 출력합니다.
         여기에는 Precision, Recall, F1 Score, Accuracy 등이 포함됩니다.
@@ -67,6 +71,10 @@ class Metrics:
             label = self.test_label
             predict = self.test_predict
 
+        elif mode == 'ood':
+            label = self.ood_label
+            predict = self.ood_predict
+
         else:
             raise Exception("mode는 train과 test만 가능합니다.")
 
@@ -79,7 +87,7 @@ class Metrics:
             classification_report(
                 y_true=label,
                 y_pred=predict,
-                target_names=list(self.label_dict),
+                target_names=list(label_dict),
                 output_dict=True
             )
         )

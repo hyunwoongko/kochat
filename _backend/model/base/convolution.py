@@ -1,9 +1,10 @@
+import torch
 from torch import nn
-
+from torch import Tensor
 
 class Convolution(nn.Module):
 
-    def __init__(self, _in, _out, kernel_size, residual):
+    def __init__(self, _in: int, _out: int, kernel_size: int, residual: bool):
         """
         기본적인 Convolution - BN - Relu 블럭입니다.
 
@@ -23,7 +24,7 @@ class Convolution(nn.Module):
         self.relu = nn.ReLU()
         self.residual = residual
 
-    def forward(self, x):
+    def forward(self, x: Tensor) -> Tensor:
         _x = x
         x = self.conv(x)  # convolution
         x = self.norm(x)  # batch normalization

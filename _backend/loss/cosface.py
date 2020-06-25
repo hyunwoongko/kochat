@@ -2,7 +2,7 @@ import torch
 from torch import nn
 from torch.autograd import Variable
 from torch.nn import functional as F
-
+from torch import Tensor
 from _backend.decorators import intent
 from _backend.loss.base.base_loss import BaseLoss
 
@@ -10,7 +10,7 @@ from _backend.loss.base.base_loss import BaseLoss
 @intent
 class CosFace(BaseLoss):
 
-    def __init__(self, label_dict):
+    def __init__(self, label_dict: dict):
         """
         Cosface (=LMCL) Loss를 계산합니다
 
@@ -24,7 +24,7 @@ class CosFace(BaseLoss):
         self.classes = len(label_dict)
         self.centers = nn.Parameter(torch.randn(self.classes, self.d_loss))
 
-    def forward(self, feat, label):
+    def forward(self, feat: Tensor, label: Tensor) -> Tensor:
         batch_size = feat.shape[0]
         norms = torch.norm(feat, p=2, dim=-1, keepdim=True)
         nfeat = torch.div(feat, norms)
@@ -40,7 +40,7 @@ class CosFace(BaseLoss):
         margin_logits = self.cosface_s * (logits - y_onehot)
         return margin_logits
 
-    def compute_loss(self, label, logits, feats, mask=None):
+    def compute_loss(self, label: Tensor, logits: Tensor, feats: Tensor, mask: nn.Module = None) -> Tensor:
         """
         학습을 위한 total loss를 계산합니다.
 

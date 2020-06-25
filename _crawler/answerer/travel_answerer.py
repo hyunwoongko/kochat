@@ -8,7 +8,16 @@ from _crawler.answerer.base.answerer import Answerer
 
 class TravelAnswerer(Answerer):
 
-    def travel_form(self, location, travel, result):
+    def travel_form(self, location: str, travel: str, result: dict) -> str:
+        """
+        여행지 출력 포맷
+        
+        :param location: 지역
+        :param travel: 여행지
+        :param result: 데이터 딕셔너리
+        :return: 출력 메시지
+        """
+
         msg = self.travel.format(location=location)
         msg += '{location} 근처의 '
 

@@ -1,12 +1,13 @@
 import torch
 from torch.nn import functional as F
-
+from torch import Tensor
+from torch import nn
 from _backend.loss.base.base_loss import BaseLoss
 
 
 class CrossEntropyLoss(BaseLoss):
 
-    def __init__(self, label_dict):
+    def __init__(self, label_dict: dict):
         """
         cross entropy loss를 계산합니다.
 
@@ -16,10 +17,10 @@ class CrossEntropyLoss(BaseLoss):
         super(CrossEntropyLoss, self).__init__()
         self.label_dict = label_dict
 
-    def forward(self, input, target):
+    def forward(self, input: Tensor, target: Tensor) -> Tensor:
         return F.cross_entropy(input, target)
 
-    def compute_loss(self, label, logits, feats, mask=None):
+    def compute_loss(self, label: Tensor, logits: Tensor, feats: Tensor = None, mask: nn.Module = None) -> Tensor:
         """
         학습을 위한 total loss를 계산합니다.
 

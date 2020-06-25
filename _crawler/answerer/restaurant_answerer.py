@@ -8,8 +8,17 @@ from _crawler.answerer.base.answerer import Answerer
 
 class RestaurantAnswerer(Answerer):
 
-    def recommendation_form(self, location, restaurant, result):
-        msg = self.restaurant.format(location=location, restaurant=restaurant)
+    def recommendation_form(self, location: str, restaurant: str, result: dict) -> str:
+        """
+        맛집 출력 포맷
+
+        :param location: 지역
+        :param restaurant: 맛집종류
+        :param result: 데이터 딕셔너리
+        :return: 출력 메시지
+        """
+
+        msg = self.restaurant.format(location=location)
         msg += '{location} 근처의 '
 
         msg = self.add_msg_from_dict(result, 'category', msg, '{category}인')

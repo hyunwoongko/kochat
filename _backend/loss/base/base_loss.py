@@ -1,5 +1,6 @@
 from abc import abstractmethod
 
+from torch import Tensor
 from torch import nn
 
 from _backend.decorators import loss
@@ -17,7 +18,7 @@ class BaseLoss(nn.Module):
         super().__init__()
 
     @abstractmethod
-    def compute_loss(self, label, logits, feats, mask=None):
+    def compute_loss(self, label: Tensor, logits: Tensor, feats: Tensor, mask: nn.Module = None) -> Tensor:
         """
         전체 Loss를 계산합니다. Loss함수들이 기본적으로 가지고 있는 forward와 다른점은
         예를 들자면 Center Loss의 경우 Softmax Loss + Center Loss가 전체 Loss가 됩니다.

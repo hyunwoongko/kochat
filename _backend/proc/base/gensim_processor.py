@@ -6,6 +6,9 @@
 import os
 from time import time
 
+import torch
+from torch import Tensor
+from gensim.models.base_any2vec import BaseWordEmbeddingsModel
 from gensim.models.callbacks import CallbackAny2Vec
 
 from _backend.decorators import gensim
@@ -15,7 +18,7 @@ from _backend.proc.base.base_processor import BaseProcessor
 @gensim
 class GensimProcessor(BaseProcessor):
 
-    def __init__(self, model):
+    def __init__(self, model: BaseWordEmbeddingsModel):
         """
         Gensim 모델의 Training, Inference
         등을 관장하는 프로세서 클래스입니다.
@@ -26,10 +29,10 @@ class GensimProcessor(BaseProcessor):
         super().__init__(model)
         self.callback = self.GensimLogger(
             name=self.__class__.__name__,
-            print=self._print
+            _print=self._print
         )  # 학습 진행사항 출력 콜백
 
-    def fit(self, dataset):
+    def fit(self, dataset: list):
         """
         데이터셋으로 Vocabulary를 생성하고
         모델을 학습 및 저장시킵니다.
@@ -47,9 +50,8 @@ class GensimProcessor(BaseProcessor):
         )
 
         self._save_model()
-        return self.model
 
-    def predict(self, sequence):
+    def predict(self, sequence: str) -> Tensor:
         """
         사용자의 입력을 임베딩합니다.
 
@@ -84,7 +86,7 @@ class GensimProcessor(BaseProcessor):
 
     class GensimLogger(CallbackAny2Vec):
 
-        def __init__(self, name, _print):
+        def __init__(self, name: str, _print):
             """
             Gensim 모델의 학습 과정을 디버깅하기 위한 callback
 
@@ -96,21 +98,25 @@ class GensimProcessor(BaseProcessor):
             self.name = name
             self._print = _print
 
-        def on_epoch_begin(self, model):
+        def on_epoch_begin(self, model: BaseWordEmbeddingsModel):
             """
             epoch 시작시에 시간 측정을 시작합니다.
 
-            :param model:
-            :return:
+            :param model: 학습할 모델
             """
             self.eta = time()
 
-        def on_epoch_end(self, model):
-            sec = round(time() - self.eta, 4)
+        def on_epoch_end(self, model: BaseWordEmbeddingsModel):
+            """
+            epoch 종료시에 걸린 시간을 체크하여 출력합니다.
+
+            :param model: 학습할 모델
+            """
+
             self._print(
                 name=self.name,
                 msg='Epoch : {epoch}, ETA : {sec} sec'
-                    .format(epoch=self.epoch, sec=sec)
+                    .format(epoch=self.epoch, sec=round(time() - self.eta, 4))
             )
 
             self.epoch += 1

@@ -1,13 +1,13 @@
 import torch
-from torch import nn
-
+from torch import nn, autograd
+from torch import Tensor
 from _backend.decorators import entity
 
 
 @entity
 class EntityLSTM(nn.Module):
 
-    def __init__(self, label_dict, bidirectional=True):
+    def __init__(self, label_dict: dict, bidirectional: bool = True):
         """
         Entity Recognition을 위한 LSTM 모델 클래스입니다.
 
@@ -26,12 +26,12 @@ class EntityLSTM(nn.Module):
 
         self.out = nn.Linear(self.d_model * self.direction, len(label_dict))
 
-    def init_hidden(self, batch_size):
+    def init_hidden(self, batch_size: int) -> autograd.Variable:
         param1 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
         param2 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
         return torch.autograd.Variable(param1), torch.autograd.Variable(param2)
 
-    def forward(self, x):
+    def forward(self, x: Tensor) -> Tensor:
         b, l, v = x.size()
         out, _ = self.lstm(x, self.init_hidden(b))
         logits = self.out(out)

@@ -3,9 +3,9 @@
 @when : 5/11/2020
 @homepage : https://github.com/gusdnd852
 """
-
+import torch
 from torch import nn
-
+from torch import Tensor
 from _backend.decorators import intent
 from _backend.model.base.convolution import Convolution
 
@@ -13,7 +13,7 @@ from _backend.model.base.convolution import Convolution
 @intent
 class IntentCNN(nn.Module):
 
-    def __init__(self, label_dict, residual=True):
+    def __init__(self, label_dict: dict, residual: bool = True):
         """
         Intent Classification을 위한 CNN 클래스입니다.
 
@@ -34,7 +34,7 @@ class IntentCNN(nn.Module):
         self.ret_logits = nn.Linear(self.d_loss, len(self.label_dict))
         self.clf_logits = nn.Linear(self.d_model * self.max_len, len(self.label_dict))
 
-    def forward(self, x):
+    def forward(self, x: Tensor) -> Tensor:
         x = x.permute(0, 2, 1)
         x = self.stem(x)
         x = self.hidden_layers(x)

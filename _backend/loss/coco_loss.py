@@ -1,4 +1,5 @@
 import torch
+from torch import Tensor
 from torch import nn
 from torch.nn import functional as F
 
@@ -9,7 +10,7 @@ from _backend.loss.base.base_loss import BaseLoss
 @intent
 class COCOLoss(BaseLoss):
 
-    def __init__(self, label_dict):
+    def __init__(self, label_dict: dict):
         """
         COCO Loss를 계산합니다.
 
@@ -23,7 +24,7 @@ class COCOLoss(BaseLoss):
         self.classes = len(label_dict)
         self.centers = nn.Parameter(torch.randn(self.classes, self.d_loss))
 
-    def forward(self, feat):
+    def forward(self, feat: Tensor):
         norms = torch.norm(feat, p=2, dim=-1, keepdim=True)
         nfeat = torch.div(feat, norms)
         snfeat = self.coco_alpha * nfeat
@@ -32,7 +33,8 @@ class COCOLoss(BaseLoss):
         logits = torch.matmul(snfeat, torch.transpose(ncenters, 0, 1))
         return logits
 
-    def compute_loss(self, label, logits, feats, mask=None):
+    def compute_loss(self, label: Tensor, logits: Tensor, feats: Tensor, mask: nn.Module = None) -> Tensor:
+
         """
         학습을 위한 total loss를 계산합니다.
 

@@ -4,6 +4,8 @@
 @homepage : https://github.com/gusdnd852
 """
 import torch
+from torch import Tensor
+from torch import nn
 
 from _backend.decorators import intent
 from _backend.loss.cross_entropy_loss import CrossEntropyLoss
@@ -13,7 +15,7 @@ from _backend.proc.base.torch_processor import TorchProcessor
 @intent
 class SoftmaxClassifier(TorchProcessor):
 
-    def __init__(self, model):
+    def __init__(self, model: nn.Module):
         """
         Intent 분류 모델을 학습시키고 테스트 및 추론합니다.
         Softmax Classification은 OOD 탐지기능이 없기 때문에 반드시 n개의 클래스 중 하나로 분류합니다.
@@ -30,7 +32,7 @@ class SoftmaxClassifier(TorchProcessor):
         self.loss = CrossEntropyLoss(model.label_dict)
         super().__init__(model, model.parameters())
 
-    def predict(self, sequence: torch.Tensor) -> str:
+    def predict(self, sequence: Tensor) -> str:
         """
         사용자의 입력에 inference합니다.
 
@@ -41,11 +43,11 @@ class SoftmaxClassifier(TorchProcessor):
         self._load_model()
         self.model.eval()
 
-        logits, _ = self._feed_forward(sequence)
+        logits, _ = self._forward(sequence)
         _, predict = torch.max(logits, dim=1)
         return list(self.label_dict)[predict.item()]
 
-    def _train_epoch(self, epoch):
+    def _train_epoch(self, epoch: int) -> tuple:
         """
         학습시 1회 에폭에 대한 행동을 정의합니다.
         
@@ -70,7 +72,7 @@ class SoftmaxClassifier(TorchProcessor):
         labels = torch.cat(label_list, dim=0)
         return losses, predicts, labels
 
-    def _test_epoch(self, epoch):
+    def _test_epoch(self, epoch: int) -> tuple:
         """
         테스트시 1회 에폭에 대한 행동을 정의합니다.
         
@@ -94,12 +96,13 @@ class SoftmaxClassifier(TorchProcessor):
         labels = torch.cat(label_list, dim=0)
         return losses, predicts, labels
 
-    def _forward(self, feats, labels=None, lengths=None):
+    def _forward(self, feats: Tensor, labels: Tensor = None, lengths: Tensor = None):
         """
         모델의 feed forward에 대한 행동을 정의합니다.
 
         :param feats: 입력 feature
         :param labels: label 리스트
+        :param lengths: 패딩을 제외한 입력의 길이 리스트
         :return: 모델의 예측, loss
         """
 

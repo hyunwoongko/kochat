@@ -5,15 +5,15 @@
 """
 
 import torch
-from torch import nn
-
+from torch import nn, autograd
+from torch import Tensor
 from _backend.decorators import intent
 
 
 @intent
 class IntentLSTM(nn.Module):
 
-    def __init__(self, label_dict, bidirectional=True):
+    def __init__(self, label_dict: dict, bidirectional: bool = True):
         """
         Intent Classification을 위한 LSTM 클래스입니다.
 
@@ -36,12 +36,12 @@ class IntentLSTM(nn.Module):
         self.ret_logits = nn.Linear(self.d_loss * self.direction, len(self.label_dict))
         self.clf_logits = nn.Linear(self.d_model, len(self.label_dict))
 
-    def init_hidden(self, batch_size):
+    def init_hidden(self, batch_size: int) -> autograd.Variable:
         param1 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
         param2 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
-        return torch.autograd.Variable(param1), torch.autograd.Variable(param2)
+        return autograd.Variable(param1), autograd.Variable(param2)
 
-    def forward(self, x):
+    def forward(self, x: Tensor) -> Tensor:
         b, l, v = x.size()
         out, (h_s, c_s) = self.lstm(x, self.init_hidden(b))
         return h_s[0]

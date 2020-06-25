@@ -2,6 +2,7 @@ import torch
 from torch import nn
 from torch.autograd import Variable
 from torch.nn import functional as F
+from torch import Tensor
 
 from _backend.decorators import intent
 from _backend.loss.base.base_loss import BaseLoss
@@ -25,7 +26,7 @@ class LargeMarginGaussianMixture(BaseLoss):
         self.centers = nn.Parameter(torch.randn(self.classes, self.d_loss))
         self.log_covs = nn.Parameter(torch.zeros(self.classes, self.d_loss))
 
-    def forward(self, feat, label):
+    def forward(self, feat: Tensor, label: Tensor) -> Tensor:
         batch_size = feat.shape[0]
         log_covs = torch.unsqueeze(self.log_covs, dim=0)
 
@@ -55,7 +56,7 @@ class LargeMarginGaussianMixture(BaseLoss):
         likelihood = (1.0 / batch_size) * (cdist + reg)
         return margin_logits, likelihood
 
-    def compute_loss(self, label, logits, feats, mask=None):
+    def compute_loss(self, label: Tensor, logits: Tensor, feats: Tensor, mask: nn.Module = None) -> Tensor:
         """
         학습을 위한 total loss를 계산합니다.
 

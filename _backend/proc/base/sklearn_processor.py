@@ -4,15 +4,19 @@
 @homepage : https://github.com/gusdnd852
 """
 import os
+from typing import Any
+
 import joblib
 from abc import abstractmethod
+
+from sklearn.base import BaseEstimator
 from sklearn.utils._testing import ignore_warnings
 from _backend.proc.base.base_processor import BaseProcessor
 
 
 class SklearnProcessor(BaseProcessor):
 
-    def __init__(self, model):
+    def __init__(self, model: BaseEstimator):
         """
         Sklearn 모델의 Training, Testing, Inference
         등을 관장하는 프로세서 클래스입니다.
@@ -60,5 +64,5 @@ class SklearnProcessor(BaseProcessor):
         raise NotImplementedError
 
     @ignore_warnings(category=Warning)
-    def _grid_search(self, feats, label):
+    def _grid_search(self, feats: Any, label: Any):
         pass  # 반드시 구현할 필요는 없음.

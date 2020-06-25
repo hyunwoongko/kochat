@@ -4,6 +4,8 @@
 @homepage : https://github.com/gusdnd852
 """
 import torch
+from torch import nn
+from torch import Tensor
 
 from _backend.decorators import entity
 from _backend.loss.crf_loss import CRFLoss
@@ -14,7 +16,7 @@ from _backend.proc.base.torch_processor import TorchProcessor
 @entity
 class EntityRecognizer(TorchProcessor):
 
-    def __init__(self, model, loss, masking=True):
+    def __init__(self, model: nn.Module, loss: nn.Module, masking: nn.Module = True):
         """
         개체명 인식 (Named Entity Recognition) 모델을 학습시키고
         테스트 및 추론을 진행합니다. Loss함수를 변경해서 CRF를 추가할 수 있습니다.
@@ -34,7 +36,7 @@ class EntityRecognizer(TorchProcessor):
 
         super().__init__(model, self.parameters)
 
-    def predict(self, sequence):
+    def predict(self, sequence: Tensor) -> list:
         """
         사용자의 입력에 inference합니다.
         
@@ -57,7 +59,7 @@ class EntityRecognizer(TorchProcessor):
 
         return predicts[:length]
 
-    def _train_epoch(self, epoch):
+    def _train_epoch(self, epoch: int) -> tuple:
         """
         학습시 1회 에폭에 대한 행동을 정의합니다.
 
@@ -82,7 +84,7 @@ class EntityRecognizer(TorchProcessor):
         labels = torch.flatten(torch.cat(label_list, dim=0))
         return losses, predicts, labels
 
-    def _test_epoch(self, epoch):
+    def _test_epoch(self, epoch: int) -> tuple:
         """
         테스트시 1회 에폭에 대한 행동을 정의합니다.
 
@@ -106,12 +108,13 @@ class EntityRecognizer(TorchProcessor):
         labels = torch.flatten(torch.cat(label_list, dim=0))
         return losses, predicts, labels
 
-    def _forward(self, feats, labels=None, length=None):
+    def _forward(self, feats: Tensor, labels: Tensor = None, length: Tensor = None) -> tuple or Tensor:
         """
         모델의 feed forward에 대한 행동을 정의합니다.
 
         :param feats: 입력 feature
         :param labels: label 리스트
+        :param lengths: 패딩을 제외한 입력의 길이 리스트
         :return: 모델의 예측, loss
         """
 

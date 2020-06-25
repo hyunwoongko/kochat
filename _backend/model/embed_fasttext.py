@@ -1,6 +1,6 @@
 import torch
 from gensim.models import FastText
-
+from torch import Tensor
 from _backend.decorators import gensim
 
 
@@ -18,10 +18,10 @@ class EmbedFastText(FastText):
                          min_count=self.min_count,
                          iter=self.iter)
 
-    def __call__(self, sequence):
+    def __call__(self, sequence: str):
         return self.forward(sequence)
 
-    def forward(self, sequence):
+    def forward(self, sequence: str) -> Tensor:
         sentence_vector = []
 
         for word in sequence:

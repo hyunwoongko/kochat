@@ -1,58 +1,59 @@
-import numpy as np
+import re
+
 from _crawler.editor.base.editor import Editor
-from _crawler.answerer.dust_answerer import DustAnswerer
 
 
 class DustEditor(Editor):
 
-    def edit_new_everyday(self, location, date, results):
-        results = np.array(results)
-        results = results.reshape(3, 6)
+    def edit_morning_afternoon(self, location: str, date: str, results: dict) -> tuple:
+        """
+        오전-오후 형식의 데이터 딕셔너리를 수정합니다.
 
-        if date in self.date['today']:
-            results = results[:, 0:2]  # 오늘 오전, 오후
-        elif date in self.date['tomorrow']:
-            results = results[:, 2:4]  # 내일 오전, 오후
-        else:  # after_tomorrow
-            results = results[:, 4:6]  # 모레 오전, 오후
+        :param location: 지역
+        :param date: 날짜
+        :param results: 입력 딕셔너리
+        :return: 수정된 딕셔너리
+        """
 
-        josa = self.enumerate_josa('는', '도', self._flatten_list(results))
-        morning = [ment[kinds] for kinds, ment in zip(results[:, 0], self.dust.values())]
-        afternoon = [ment[kinds] for kinds, ment in zip(results[:, 1], self.dust.values())]
-        ments = np.concatenate([np.expand_dims(morning, 0), np.expand_dims(afternoon, 0)]).T
-        return np.concatenate(ments), josa
+        data_dict = {'morning_fine_dust': None,
+                     'afternoon_fine_dust': None,
+                     'morning_ultra_dust': None,
+                     'afternoon_ultra_dust': None,
+                     'morning_ozon': None,
+                     'afternoon_ozon': None}
 
-    def edit_old_today(self, location, date, results):
-        fine_dust = results[6]  # 미세먼지
-        ultra_fine = results[0]  # 초미세먼지
-        ozon = results[1]  # 오존
+        result_list = []
 
-        results = [fine_dust, ultra_fine, ozon]
-        josa = self.enumerate_josa('는', '도', results)
-        ments = [ment[kinds] for kinds, ment in zip(results, self.dust.values())]
-        return ments, josa
+        # 날짜에 따라 딱 6개씩만 결과를 넣음
+        for k, v in results.items():
+            if date in self.date['today'] and 'today_' in k:
+                result_list.append(v)
+            elif date in self.date['tomorrow'] and 'tomorrow_' in k:
+                result_list.append(v)
+            elif date in self.date['after'] and 'after_' in k:
+                result_list.append(v)
 
-    def edit_old_tomorrow(self, location, date, results):
+        for k, r in zip(data_dict.keys(), result_list):
+            dust_state = re.sub(' ', '', r)
+            data_dict[k] = self.dust[dust_state]
 
+        josa = self.enumerate_josa('는', '도', result_list)
+        return data_dict, josa
 
-        if date in self.date['tomorrow']:
-            # 내일 오전, 오후
-            fine = results[0:2]
-            ultra_fine = results[4:6]
-            ozon = results[8:10]
-        else:  # after_tomorrow
-            # 모레 오전, 오후
-            fine = results[2:4]
-            ultra_fine = results[6:8]
-            ozon = results[10:12]
+    def edit_single(self, location: str, date: str, results: dict) -> tuple:
+        """
+        오전-오후 구분이 없는 형식의 딕셔너리를 수정합니다.
 
-        results = [fine, ultra_fine, ozon]
-        josa = self.enumerate_josa('는', '도', np.concatenate(results))
+        :param location: 지역
+        :param date: 날짜
+        :param results: 입력 딕셔너리
+        :return: 수정된 딕셔너리
+        """
 
-        results = np.array(results).T
-        morning, afternoon = results[0], results[1]
+        for k, v in results.items():
+            if v is not None:
+                dust_state = re.sub(' ', '', v)
+                results[k] = self.dust[dust_state]
 
-        morning = [ment[kinds] for kinds, ment in zip(morning, self.dust.values())]
-        afternoon = [ment[kinds] for kinds, ment in zip(afternoon, self.dust.values())]
-        ments = np.concatenate([np.expand_dims(morning, 0), np.expand_dims(afternoon, 0)]).T
-        return np.concatenate(ments), josa
+        josa = self.enumerate_josa('는', '도', list(results.values()))
+        return results, josa

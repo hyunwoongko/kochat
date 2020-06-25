@@ -12,19 +12,37 @@ class DustCrawler(Crawler):
         self.editor = DustEditor()
         self.searcher = DustSearcher()
 
-        self.num_component_when_success1 = 18
-        self.num_component_when_success2 = 60
         self.date_coverage = self.date['today'] + \
                              self.date['tomorrow'] + \
-                             self.date['after_tomorrow']
+                             self.date['after']
 
-    def crawl(self, location, date):
+    def crawl(self, location: str, date: str) -> str:
+        """
+        미세먼지를 크롤링합니다.
+        (try-catch로 에러가 나지 않는 함수)
+
+        :param location: 지역
+        :param date: 날짜
+        :return: 해당지역 날짜 미세먼지
+        """
+
         try:
             return self.crawl_debug(location, date)
         except:
-            return self.answerer.sorry("해당 대기 오염정보는 알 수 없습니다.")
+            return self.answerer.sorry(
+                "해당 대기 오염정보는 알 수 없습니다."
+            )
 
-    def crawl_debug(self, location, date):
+    def crawl_debug(self, location: str, date: str) -> str:
+        """
+        미세먼지를 크롤링합니다.
+        (에러가 나는 디버깅용 함수)
+
+        :param location: 지역
+        :param date: 날짜
+        :return: 해당지역 날짜 미세먼지
+        """
+
         if date in self.date_coverage:
             # 네이버 미세먼지 API 신버전으로 우선 탐색
             return self.__new_everyday(location, date)
@@ -35,50 +53,66 @@ class DustCrawler(Crawler):
                 + "의 대기오염 정보만 알 수 있어요!"
             )
 
-    def __new_everyday(self, location, date):
+    def __new_everyday(self, location: str, date: str) -> str:
         """
-        네이버 미세먼지 신버전 (오늘/내일/모레) 검색
-        실패시 구버전 검색 시도
-        """
-        result = self.searcher.new_everyday(location, date)
+        네이버 미세먼지는 신/구버전이 있는데,
+        주요 도시는 신버전으로, 군/구/읍/면/동 등 시 이하의 행정구역은 구버전으로 구현되어있음.
+        우선 신버전(오늘,내일,모레)으로 검색한 뒤  실패시 구버전 검색 시도
 
-        if len(result) == self.num_component_when_success1:  # 성공시 반드시 18개의 상태가 리턴됨
-            result, josa = self.editor.edit_new_everyday(location, date, result)
+        :param location: 지역
+        :param date: 날짜
+        :return: 해당지역 날짜 미세먼지
+        """
+
+        try:
+            result = self.searcher.new_everyday(location, date)
+            result, josa = self.editor.edit_morning_afternoon(location, date, result)
             return self.answerer.morning_afternoon_form(location, date, result, josa)
-        else:
-            # 실패시 네이버 미세먼지 구버전으로 검색 시도
+        except:
             return self.__old_version(location, date)
 
-    def __old_version(self, location, date):
+    def __old_version(self, location: str, date: str) -> str:
         """
-        앞전에 날짜를 체크했기 때문에 반드시 Date Coverage 안에 있음
-        네이버 미세먼지 구버전 (오늘) or (내일/모레) 검색 시도
+        네이버 미세먼지는 신/구버전이 있는데,
+        주요 도시는 신버전으로, 군/구/읍/면/동 등 시 이하의 행정구역은 구버전으로 구현되어있음.
+        신버전에서 실패할시 구버전으로 검색을 시도함 (날짜에 따라 오늘, 내일/모레 뷰가 다름)
+
+        :param location: 지역
+        :param date: 날짜
+        :return: 해당지역 날짜 미세먼지
         """
+
         if date in self.date['today']:
             return self.__old_today(location, date)
         else:
             return self.__old_tomorrow(location, date)
 
-    def __old_today(self, location, date):
+    def __old_today(self, location: str, date: str) -> str:
         """
-        성공시 메시지 출력, 실패시 실패 메시지 출력
+        네이버 미세먼지는 신/구버전이 있는데,
+        주요 도시는 신버전으로, 군/구/읍/면/동 등 시 이하의 행정구역은 구버전으로 구현되어있음.
+        신버전에서 실패할시 구버전(오늘) 검색을 시도함.
+
+        :param location: 지역
+        :param date: 날짜
+        :return: 해당지역 날짜 미세먼지
         """
+
         result = self.searcher.old_today(location, date)
+        result, josa = self.editor.edit_single(location, date, result)
+        return self.answerer.single_form(location, date, result, josa)
 
-        if len(result) == self.num_component_when_success1:  # 성공시 반드시 18개의 상태가 리턴됨
-            result, josa = self.editor.edit_old_today(location, date, result)
-            return self.answerer.single_form(location, date, result, josa)
-        else:
-            return DustAnswerer().sorry()
+    def __old_tomorrow(self, location: str, date: str) -> str:
+        """
+        네이버 미세먼지는 신/구버전이 있는데,
+        주요 도시는 신버전으로, 군/구/읍/면/동 등 시 이하의 행정구역은 구버전으로 구현되어있음.
+        신버전에서 실패할시 구버전(내일/모레) 검색을 시도함.
 
-    def __old_tomorrow(self, location, date):
+        :param location: 지역
+        :param date: 날짜
+        :return: 해당지역 날짜 미세먼지
         """
-        성공시 메시지 출력, 실패시 실패 메시지 출력
-        """
+
         result = self.searcher.old_tomorrow(location, date)
-
-        if len(result) == self.num_component_when_success2:  # 성공시 반드시 60개의 상태가 리턴됨
-            result, josa = self.editor.edit_old_tomorrow(location, date, result)
-            return self.answerer.morning_afternoon_form(location, date, result, josa)
-        else:
-            return self.answerer.sorry()
+        result, josa = self.editor.edit_morning_afternoon(location, date, result)
+        return self.answerer.morning_afternoon_form(location, date, result, josa)

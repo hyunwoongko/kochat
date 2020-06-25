@@ -1,11 +1,12 @@
 from abc import abstractmethod
+from typing import Any
 
 from _backend.decorators import proc
 
 
 @proc
 class BaseProcessor:
-    def __init__(self, model):
+    def __init__(self, model: Any):
         """
         모든 프로세서의 부모클래스입니다.
         모델들의 이름과 파일 주소를 가지고 있고, 다양한 추상 메소드를 가지고 있습니다.
@@ -45,7 +46,7 @@ class BaseProcessor:
     def _save_model(self):
         raise NotImplementedError
 
-    def _print(self, msg, name=None):
+    def _print(self, msg: str, name: str = None):
         """
         Processor는 내용 출력시 반드시 자신의 이름을 출력해야합니다.
 

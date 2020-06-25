@@ -1,4 +1,5 @@
 import torch
+from torch import Tensor
 from torch import nn
 
 from _backend.decorators import loss
@@ -16,7 +17,7 @@ class Masking(nn.Module):
 
         super().__init__()
 
-    def forward(self, sequence_length):
+    def forward(self, sequence_length: Tensor) -> Tensor:
         batch_size = sequence_length.size(0)
         masks = []
 

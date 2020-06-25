@@ -6,9 +6,12 @@
 import os
 from abc import abstractmethod
 from time import time
+from typing import List
 
 import torch
 from torch import nn
+from torch import Tensor
+from torch.nn.parameter import Parameter
 from torch.optim import Adam
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 
@@ -19,7 +22,7 @@ from _backend.proc.utils.visualizer import Visualizer
 
 class TorchProcessor(BaseProcessor):
 
-    def __init__(self, model, parameters):
+    def __init__(self, model: nn.Module, parameters: Parameter or List[Parameter]):
         """
         Pytorch 모델의 Training, Testing, Inference
         등을 관장하는 프로세서 클래스입니다.
@@ -29,7 +32,7 @@ class TorchProcessor(BaseProcessor):
 
         super().__init__(model)
         self.visualizer = Visualizer(self.model_dir, self.model_file)
-        self.metrics = Metrics(self.label_dict, self.logging_precision)
+        self.metrics = Metrics(self.logging_precision)
         self.model = model.to(self.device)
         self._initialize_weights(self.model)
 
@@ -47,7 +50,7 @@ class TorchProcessor(BaseProcessor):
             min_lr=self.lr_scheduler_min_lr,
             patience=self.lr_scheduler_patience)
 
-    def fit(self, dataset, test: bool = True):
+    def fit(self, dataset: tuple, test: bool = True):
         """
         Pytorch 모델을 학습/테스트하고
         모델의 출력값을 다양한 방법으로 시각화합니다.
@@ -55,12 +58,15 @@ class TorchProcessor(BaseProcessor):
 
         :param dataset: 학습할 데이터셋
         :param test: 테스트 여부
-        :return: 학습된 모델을 리턴합니다.
         """
 
         # 데이터 셋 unpacking
         self.train_data = dataset[0]
         self.test_data = dataset[1]
+
+        if len(dataset) > 2:
+            self.ood_train = dataset[2]
+            self.ood_test = dataset[3]
 
         for i in range(self.epochs + 1):
             eta = time()
@@ -82,14 +88,12 @@ class TorchProcessor(BaseProcessor):
             self._print('Epoch : {epoch}, ETA : {eta} sec '
                         .format(epoch=i, eta=round(time() - eta, 4)))
 
-        return self.model
-
     @abstractmethod
-    def _train_epoch(self, epoch):
+    def _train_epoch(self, epoch: int):
         raise NotImplementedError
 
     @abstractmethod
-    def _test_epoch(self, epoch):
+    def _test_epoch(self, epoch: int):
         raise NotImplementedError
 
     def _load_model(self):
@@ -114,7 +118,7 @@ class TorchProcessor(BaseProcessor):
 
         torch.save(self.model.state_dict(), self.model_file + '.pth')
 
-    def _initialize_weights(self, model):
+    def _initialize_weights(self, model: nn.Module):
         """
         model의 가중치를 초기화합니다.
         기본값으로 He Initalization을 사용합니다.
@@ -125,7 +129,7 @@ class TorchProcessor(BaseProcessor):
         if hasattr(model, 'weight') and model.weight.dim() > 1:
             nn.init.kaiming_uniform(model.weight.data)
 
-    def _visualize(self, loss, label, predict, mode):
+    def _visualize(self, loss: Tensor, label: Tensor, predict: Tensor, mode: str):
         """
         모델의 feed forward 결과를 다양한 방법으로 시각화합니다.
 
@@ -137,7 +141,7 @@ class TorchProcessor(BaseProcessor):
 
         # 결과 계산하고 저장함
         eval_dict = self.metrics.evaluate(label, predict, mode=mode)
-        report, matrix = self.metrics.report(mode)
+        report, matrix = self.metrics.report(self.label_dict, mode)
         self.visualizer.save_result(loss, eval_dict, mode=mode)
 
         # 결과를 시각화하여 출력함
@@ -146,10 +150,10 @@ class TorchProcessor(BaseProcessor):
         self.visualizer.draw_graphs()
 
     @abstractmethod
-    def _forward(self, feats, labels=None, lengths=None):
+    def _forward(self, feats: Tensor, labels: Tensor = None, lengths: Tensor = None):
         raise NotImplementedError
 
-    def _backward(self, loss):
+    def _backward(self, loss: Tensor):
         """
         모든 trainable parameter에 대한 
         backpropation을 진행합니다.
