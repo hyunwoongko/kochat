@@ -1,14 +1,9 @@
-<<<<<<< HEAD:_app/restful/scenario_manager.py
+<< << << < HEAD: _app / restful / scenario_manager.py
 """
 @auther Hyunwoong
 @since {6/20/2020}
 @see : https://github.com/gusdnd852
 """
-from _app.scenarios.dust_scenario import DustScenario
-from _app.scenarios.fallback_scenario import FallbackScenario
-from _app.scenarios.restaurant_scenario import RestaurantScenario
-from _app.scenarios.travel_scenario import TravelScenario
-from _app.scenarios.weather_scenario import WeatherScenario
 
 
 class ScenarioManager:
@@ -52,17 +47,18 @@ class ScenarioManager:
             return self.travel_scen(text, entity)
         else:
             return self.fallback_scen()
-=======
+
+== == == =
 """
 @auther Hyunwoong
 @since {6/20/2020}
 @see : https://github.com/gusdnd852
 """
-from _app.scenarios.dust_scenario import DustScenario
-from _app.scenarios.fallback_scenario import FallbackScenario
-from _app.scenarios.restaurant_scenario import RestaurantScenario
-from _app.scenarios.travel_scenario import TravelScenario
-from _app.scenarios.weather_scenario import WeatherScenario
+from _dialogue.scenario.dust_scenario import DustScenario
+from _dialogue.scenario.fallback_scenario import FallbackScenario
+from _dialogue.scenario.restaurant_scenario import RestaurantScenario
+from _dialogue.scenario.travel_scenario import TravelScenario
+from _dialogue.scenario.weather_scenario import WeatherScenario
 
 
 class ScenarioManager:
@@ -106,4 +102,6 @@ class ScenarioManager:
             return self.travel_scen(text, entity)
         else:
             return self.fallback_scen()
->>>>>>> 998bcd017cd44db5c996455ee9ee1193cb11520e:_app/restful/scenario_manager.py
+
+>> >> >> > 998
+bcd017cd44db5c996455ee9ee1193cb11520e: _app / restful / scenario_manager.py

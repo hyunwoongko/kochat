@@ -4,13 +4,8 @@
 @homepage : https://github.com/gusdnd852
 """
 import torch
-<<<<<<< HEAD
-from torch import Tensor
-from torch import nn
-=======
 from torch import nn
 from torch import Tensor
->>>>>>> 998bcd017cd44db5c996455ee9ee1193cb11520e
 
 from _backend.decorators import entity
 from _backend.loss.base.base_loss import BaseLoss
@@ -22,11 +17,8 @@ from _backend.proc.base.torch_processor import TorchProcessor
 @entity
 class EntityRecognizer(TorchProcessor):
 
-<<<<<<< HEAD
     def __init__(self, model: nn.Module, loss: BaseLoss, masking: bool = True):
-=======
-    def __init__(self, model: nn.Module, loss: nn.Module, masking: nn.Module = True):
->>>>>>> 998bcd017cd44db5c996455ee9ee1193cb11520e
+
         """
         개체명 인식 (Named Entity Recognition) 모델을 학습시키고
         테스트 및 추론을 진행합니다. Loss함수를 변경해서 CRF를 추가할 수 있습니다.
@@ -118,11 +110,8 @@ class EntityRecognizer(TorchProcessor):
         labels = torch.flatten(torch.cat(label_list, dim=0))
         return losses, predicts, labels
 
-<<<<<<< HEAD
     def _forward(self, feats: Tensor, labels: Tensor = None, length: Tensor = None):
-=======
-    def _forward(self, feats: Tensor, labels: Tensor = None, length: Tensor = None) -> tuple or Tensor:
->>>>>>> 998bcd017cd44db5c996455ee9ee1193cb11520e
+
         """
         모델의 feed forward에 대한 행동을 정의합니다.
 
