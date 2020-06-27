@@ -1,60 +1,9 @@
 question,label
 먼지 알려주겠니,O O
 먼지 정보 알려주세요,O O O
-그 때 먼지 어떨까,O O O O
-그 때 먼지 좋으려나,O O O O
-미세먼지 어떨 것 같은데,O O O O
-먼지 어때,O O
-미세먼지 말해줄래,O O
-먼지 어떠니,O O
-먼지 많이 꼈나,O O O
-먼지 어떠냐,O O
-야 미세먼지 어때,O O O
-토요일 먼지 알려줘,S-DATE O O
-먼지 어떠려나,O O
 전주 미세먼지 어떤지 말해줘,S-LOCATION O O O
 미세먼지 궁금해서 물어봤어,O O O
-먼지 알려주세요,O O
-공기 어떠려나,O O
-현재 공기 어떠려나,S-DATE O O
-토요일 먼지 알려주겠니,S-DATE O O
-먼지 궁금해,O O
-지금 먼지 어떤데,S-DATE O O
-저기 먼지 어때,O O O
-먼지 완전 문젠데,O O O
-세종 먼지 한 번 알려줘,S-LOCATION O O O O
-모레 먼지 궁금해,S-DATE O O
-먼지 궁금해요,O O
-먼지 어떨까,O O
-지금 공기 상태 심해지네,S-DATE O O O
-현재 먼지 어때,S-DATE O O
-공기 상태 좀 알려줄래,O O O O
-궁금해 먼지,O O
-어때 좀 먼지,O O O
-월요일 근데 먼지 어떠려나,S-DATE O O O
-미세먼지 없니 현재,O O S-DATE
-지금 미세먼지 없니 현재,S-DATE O O S-DATE
-공기 어때 현재,O O S-DATE
-공기상태 알려줘,O O
-아 먼지 심하네,O O O
-어떤데 먼지,O O
-먼지 알려줬으면 졸겠어,O O O
-미세먼지 없나,O O
-지금 먼지 많네,S-DATE O O
-월요일 여행갈건데 먼지 알려줘,S-DATE O O O
-먼지 궁금하네,O O
-토요일 먼지 심하니,S-DATE O O
-월요일 미세먼지 어떨까,S-DATE O O
-먼지 많이 심하려나,O O O
-알려주세요 먼지,O O
-먼지 꼈나,O O
-먼지 끼었나,O O
-현재 지금 먼지 많니,B-DATE E-DATE O O
-먼지 알려주세요 궁금해요,O O O
-맑으려나 월요일,O O
-먼지 궁금해서,O O
-먼지 안 심해야 하는데,O O O O
-공기상태 알려줘,O O
+화요일 마스크 필요할까,S-DATE O O
 월요일 공기 깨끗하니,S-DATE O O
 서울 다음 주 먼지 알려줄래요,S-LOCATION B-DATE E-DATE O O
 부안 먼지 어떻게 돼,S-LOCATION O O O
@@ -64,6 +13,16 @@ question,label
 구암 다음 주 공기 알려줘,S-LOCATION B-DATE E-DATE O O
 이번 주 영등포 공기 말해줘,B-DATE E-DATE S-LOCATION O O
 구로 다음 주 공기 알려줄래,S-LOCATION B-DATE E-DATE O O
+마스크 챙겨야하나 모르겠네,O O O
+월요일 여행갈건데 먼지 알려줘,S-DATE O O O
+먼지 궁금하네,O O
+토요일 먼지 심하니,S-DATE O O
+월요일 미세먼지 어떨까,S-DATE O O
+현재 지금 먼지 많니,B-DATE E-DATE O O
+먼지 알려주세요 궁금해요,O O O
+먼지 궁금해서,O O
+먼지 안 심해야 하는데,O O O O
+공기상태 알려줘,O O
 일산 공기 상태 어떻게 돼요,S-LOCATION O O O O
 토요일 안암 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O O O
 월요일 공기 알려줄 수 있어,S-DATE O O O O
@@ -72,6 +31,13 @@ question,label
 이번 주 보령 공기 줘,B-DATE E-DATE S-LOCATION O O
 공기 맑을까,O O
 공기 공기 심하니,O O O
+밀양 공기 심하면 안되는데,S-LOCATION O O O
+공기 맑을까 그 때,O O O O
+혹시 공기 심하니,O O O
+그 때 혹시 공기 상태 나쁠까,O O O O O O
+나 화요일 여행가는데 공기 알려줘,O S-DATE O O O
+미세먼지 없나,O O
+지금 먼지 많네,S-DATE O O
 현재 미세먼지 많이 없니,S-DATE O O O
 먼지 많이 없니,O O O
 공기 많이 깨끗하지,O O O
@@ -92,14 +58,6 @@ question,label
 공기 상태 나쁠까,O O O
 혹시 화요일 공기 심하니 마스크 챙길까,O S-DATE O O O O
 마스크 필요하니,O O
-화요일 마스크 필요할까,S-DATE O O
-마스크 챙겨야하나 모르겠네,O O O
-밀양 공기 심하면 안되는데,S-LOCATION O O O
-공기 맑을까 그 때,O O O O
-혹시 공기 심하니,O O O
-그 때 혹시 공기 상태 나쁠까,O O O O O O
-나 화요일 여행가는데 공기 알려줘,O S-DATE O O O
-그 때 혹시 심하니,O O O O
 하늘 심하니,O O
 미세먼지 없으려,O O
 먼지 꼈니,O O
@@ -269,6 +227,15 @@ question,label
 울릉도 금요일 마스크 챙길까 말까,S-LOCATION S-DATE O O O
 먼지 궁금한데 알려주겠니,O O O
 혹시 먼지 알려줘,O O O
+그 때 혹시 심하니,O O O O
+먼지 알려주세요,O O
+공기 어떠려나,O O
+지금 미세먼지 없니 현재,S-DATE O O S-DATE
+공기 어때 현재,O O S-DATE
+공기상태 알려줘,O O
+아 먼지 심하네,O O O
+어떤데 먼지,O O
+먼지 알려줬으면 졸겠어,O O O
 인천 금요일모레 먼지 궁금해요,S-LOCATION S-DATE O O
 내일모레 먼지 궁금해,S-DATE O O
 내일 공기 깨끗하니,S-DATE O O
@@ -288,6 +255,10 @@ question,label
 저번 주 먼지 말해주세요,B-DATE E-DATE O O
 이번 주 먼지 없니,B-DATE E-DATE O O
 먼지 어떠냐,O O
+먼지 많이 심하려나,O O O
+알려주세요 먼지,O O
+먼지 꼈나,O O
+먼지 끼었나,O O
 지금 어떤데 먼지,S-DATE O O
 다음 주 광명 먼지 알려주세요,B-DATE E-DATE S-LOCATION O O
 지금 평택 먼지 알려주세요,S-DATE S-LOCATION O O
@@ -423,6 +394,17 @@ question,label
 양양 의정부 미세먼지 없을까,B-LOCATION E-LOCATION O O
 내일 화천 마스크 필요해,S-DATE S-LOCATION O O
 청송 마스크 쓸까,S-LOCATION O O
+그 때 먼지 어떨까,O O O O
+그 때 먼지 좋으려나,O O O O
+미세먼지 어떨 것 같은데,O O O O
+먼지 어때,O O
+미세먼지 말해줄래,O O
+먼지 어떠니,O O
+먼지 많이 꼈나,O O O
+먼지 어떠냐,O O
+야 미세먼지 어때,O O O
+토요일 먼지 알려줘,S-DATE O O
+먼지 어떠려나,O O
 내일 구례 마스크 챙길까 말까,S-DATE S-LOCATION O O O
 무주 공기상태 궁금한데 알려주겠니,S-LOCATION O O O
 진안 혹시 공기상태 알려줘,S-LOCATION O O O
@@ -552,7 +534,24 @@ question,label
 교동도 황사 알려줘,S-LOCATION O O
 자은도 가려는데 오늘 황사 알려줄래,S-LOCATION O S-DATE O O
 압해도 가는데 황사 궁금해요,S-LOCATION O O O
-대연평도 가려는데 오늘 황사 어때,S-LOCATION O S-DATE O O
+연평도 가려는데 오늘 황사 어때,S-LOCATION O S-DATE O O
+현재 공기 어떠려나,S-DATE O O
+토요일 먼지 알려주겠니,S-DATE O O
+먼지 궁금해,O O
+지금 먼지 어떤데,S-DATE O O
+저기 먼지 어때,O O O
+먼지 완전 문젠데,O O O
+세종 먼지 한 번 알려줘,S-LOCATION O O O O
+모레 먼지 궁금해,S-DATE O O
+먼지 궁금해요,O O
+먼지 어떨까,O O
+지금 공기 상태 심해지네,S-DATE O O O
+현재 먼지 어때,S-DATE O O
+공기 상태 좀 알려줄래,O O O O
+궁금해 먼지,O O
+어때 좀 먼지,O O O
+월요일 근데 먼지 어떠려나,S-DATE O O O
+미세먼지 없니 현재,O O S-DATE
 생일도 황사 알려주세요,S-LOCATION O O
 원산도 오늘 황사 알려줘,S-LOCATION S-DATE O O
 안도 오늘 황사 어때,S-LOCATION S-DATE O O

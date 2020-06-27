@@ -4,13 +4,6 @@ question,label
 그 때 기온 어떨까,O O O O
 그 때 기온 좋으려나,O O O O
 기온 어떨 것 같은데,O O O O
-기온 어때,O O
-기온 말해줄래,O O
-기온 어떠니,O O
-구름 많이 꼈나,O O O
-기온 어떠냐,O O
-야 기온 어때,O O O
-기온 시원하니,O O
 따뜻하니 기온,O O
 인천 기온 따뜻해,S-LOCATION O O
 부산 시원해,S-LOCATION O
@@ -381,6 +374,13 @@ question,label
 여주 다음 주 날씨 알려줄래,S-LOCATION B-DATE E-DATE O O
 정읍 날씨 어떻게 돼요,S-LOCATION O O O
 오늘 음성군 날씨 좀 알려줄수 있니,S-DATE S-LOCATION O O O O
+기온 어때,O O
+기온 말해줄래,O O
+기온 어떠니,O O
+구름 많이 꼈나,O O O
+기온 어떠냐,O O
+야 기온 어때,O O O
+기온 시원하니,O O
 이번 주 공주 날씨 알려줄래,B-DATE E-DATE S-LOCATION O O
 완주 다음 주 날씨 알려줘,S-LOCATION B-DATE E-DATE O O
 이번 주 상주 날씨 줘,B-DATE E-DATE S-LOCATION O O
