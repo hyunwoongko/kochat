@@ -205,13 +205,11 @@ git clone 명령어를 사용해서 방금 만든 레포지토리를 clone합니
 #### 3.3.1. Docker (Recommend)
 
 ![docker](docs/docker.png)
-
-Kochat은 전용 도커 이미지를 지원합니다. <br>
-
 ```shell script
 sudo docker pull gusdnd852/kochat:latest
 ```
-위의 명령어로 도커이미지를 내려받을 수 있습니다. 
+
+Kochat은 전용 도커 이미지를 지원합니다. 위의 명령어로 도커이미지를 내려받을 수 있습니다. 
 만약 도커를 사용하신다면 도커 이미지를 활용해서 개발환경을 원터치로 세팅하는 것을 추천드립니다.
 pytorch버전은 가장 자주 쓰이는 10.1을 사용했는데, 만약 cuda 10.1 이하의 gpu를 사용하신다면 
 requirements.txt에 있는 pytorch 디펜던시를 수정하시고 루트 경로에 있는 도커파일을 기반으로 
@@ -219,7 +217,7 @@ requirements.txt에 있는 pytorch 디펜던시를 수정하시고 루트 경로
 <br><br>
 
 #### 3.3.2. PIP로 직접 다운로드
-```shell script
+```
 matplotlib==3.2.1
 pandas==1.0.4
 torch~=1.5.1+cu101
@@ -234,11 +232,11 @@ scikit-learn==0.23.1
 beautifulsoup4==4.9.1
 pytorch-crf==0.7.2
 ```
-이 프로젝트는 pytorch, sklearn, gensim, flask, konlpy 등 다양한 디펜던시가 필요합니다.
-필요한 디펜던시는 모두 requirements.txt에 정의해두었으니 확인하시고 다운로드 받으면 됩니다.
 ```shell script
 pip install requiremnets.txt
 ```
+만약 도커를 사용하지 않으신다면 pip를 이용하여 직접 디펜던시들을 다운로드 받아야합니다.
+필요한 디펜던시는 모두 requirements.txt에 정의해두었으니 확인하시고 다운로드 받으면 됩니다.
 pytorch버전은 가장 자주 쓰이는 10.1을 사용했는데, 만약 cuda 10.1 이하의 gpu를 사용하신다면 
 requirements.txt에 있는 pytorch 디펜던시를 수정하시고 다운로드 받으시면 됩니다.
 <br><br>
@@ -256,7 +254,7 @@ OS = 'Others'
 # OS = 'Windows'
 ```
 
-OS를 설정했으면 다음 설정을 이어나갑니다.
+OS를 설정했으면 다음으로 프로젝트 루트경로를 설정합니다.
 
 ```python
 # 2. root_dir은 본인의 프로젝트 루트 경로를 적습니다. 
