@@ -9,15 +9,27 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.svm import LinearSVC
 
 OS = 'Others'
+root_dir = "/home{_}gusdnd852{_}Github{_}kochat"
+
+"""
+
+초기 CONFIGURATION
+
+=====================================================
+
+세부 CONFIGURATION
+
+"""
+
 _ = '\\' if OS == 'Windows' else '/'
 
 BACKEND = {
-    'device': 'cuda' if torch.cuda.is_available() else 'cpu',
-    'root_dir': "/home{_}gusdnd852{_}Github{_}kochat{_}_backend{_}".format(_=_),  # 백엔드 루트경로
+    'root_dir': root_dir + "{_}_backend{_}".format(_=_),  # 백엔드 루트경로
     'vector_size': 64,  # 단어 벡터 사이즈
     'batch_size': 512,  # 미니배치 사이즈
     'max_len': 8,  # 문장의 최대 길이 (패드 시퀀싱)
     'delimeter': _,
+    'device': 'cuda' if torch.cuda.is_available() else 'cpu',
 }
 
 DATA = {
