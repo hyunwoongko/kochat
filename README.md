@@ -96,6 +96,24 @@ Close domain 챗봇이란 한정된 대화 범위 안에서 사용자가 원하�
 요즘 출시되는 시리나 빅스비 같은 인공지능 비서, 인공지능 스피커들은 특수 기능도 수행해야하고
 사용자와 잡담도 잘 해야하므로 Open domain 챗봇과 Close domain 챗봇이 모두 포함되어 있는 경우가 많습니다.
 <br><br>
+<p align="center">
+<table>
+    <thead>
+        <tr>
+            <th align="left">Column1</th>
+            <th align="center">Column1</th>
+            <th align="right">Column1</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td align="left">Column1</td>
+            <td align="center">Column1</td>
+            <td align="right">Column1</td>
+        </tr>
+    </tbody>
+</table>
+</p>
 
 |구분|Open domain|Close domain|
 |:---:|:---:|:---:|
