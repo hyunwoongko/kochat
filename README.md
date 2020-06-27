@@ -36,7 +36,7 @@ Kochat의 구성을 사용하면서 개발자가 원하는 모델이나 Loss함�
 아직은 초기레벨이기 때문에 많은 모델과 기능을 지원하지는 않지만 점차 모델과 기능을 늘려나갈 계획입니다.
 <br><br><br>
 
-### 1.1 기존 챗봇 빌더와의 차이점
+### 1.1. 기존 챗봇 빌더와의 차이점
 - 기존에 상용화된 많은 챗봇 빌더와 Kochat은 타깃으로 하는 사용자가 다릅니다.
 상용화된 챗봇 빌더들은 매우 간편한 웹 기반의 UX/UI를 제공하며 일반인을 타깃으로 합니다.
 그에 반해 **Kochat은 챗봇빌더 보다는 개발자를 타깃으로하는 프레임워크에 가깝습니다.**
@@ -52,7 +52,7 @@ Loss 함수를 바꾸거나 본인이 원하면 아예 새로운 기능을 첨�
 웬만한 챗봇 빌더들 보다 더 다양한 기능을 무료로 제공할 예정입니다.
 <br><br>
 
-### 1.2 Kochat 제작 동기
+### 1.2. Kochat 제작 동기
 
 이전에 여기저기서 코드를 긁어모아서 만든, 수준 낮은 제 딥러닝 chatbot 레포지토리가 
 생각보다 큰 관심을 받으면서, 한국어로 된 딥러닝 챗봇 구현체가 정말 많이 없다는 것을 느꼈습니다. 
@@ -85,7 +85,7 @@ Kochat은 앞으로도 계속 오픈소스 프로젝트로 유지될 것이며, 
 이 챕터에서는 챗봇의 분류와 구현방법, Kochat은 어떻게 챗봇을 구현하고 있는지에 대해 간단하게 소개합니다. 
 <br><br>
 
-### 2.1 챗봇의 분류
+### 2.1. 챗봇의 분류
 ![open_close](docs/open_close.jpeg)
 
 챗봇은 크게 비목적대화를 위한 Open domain 챗봇과 목적대화를 위한 Close domain 챗봇으로 나뉩니다.
@@ -105,12 +105,12 @@ Close domain 챗봇이란 한정된 대화 범위 안에서 사용자가 원하�
 
 <br><br>
 
-### 2.2 챗봇의 구현
+### 2.2. 챗봇의 구현
 챗봇을 구현하는 방법은 크게 통계기반의 챗봇과 딥러닝 기반의 챗봇으로 나뉩니다.
 여기에서는 딥러닝 기반의 챗봇만 소개하도록 하겠습니다.
 <br><br>
  
-#### 2.2.1 Open domain 챗봇
+#### 2.2.1. Open domain 챗봇
 
 ![seq2seq](docs/seq2seq.png)
 
@@ -125,7 +125,7 @@ Close domain 챗봇이란 한정된 대화 범위 안에서 사용자가 원하�
 차후 버전에서 다양한 Seq2Seq 모델도 추가할 예정입니다.)
 <br><br>
 
-#### 2.2.2 Close domain 챗봇
+#### 2.2.2. Close domain 챗봇
 
 ![slot_filling](docs/slot_filling.jpg)
 
@@ -138,7 +138,6 @@ Open domain처럼 End to end로 구현하려는 [다양한](https://arxiv.org/pd
 챗봇 애플리케이션이 기존 방식인 Slot Filling 방식으로 구현되고 있습니다.
 <br><br>
 
-#### 2.2.1 Slot Filling (슬롯 채우기)
 Slot Filling 방식은 미리 기능을 수행할 정보를 담는 '슬롯'을 먼저 정의한 다음,
 사용자의 말을 듣고 어떤 슬롯을 선택할지 정하고, 해당 슬롯을 채워나가는 방식입니다.
 그리고 이러한 Slot Filling 방식 챗봇의 구현을 위해 '인텐트'와 '엔티티'라는 개념이 등장합니다.
@@ -147,7 +146,7 @@ Slot Filling 방식은 미리 기능을 수행할 정보를 담는 '슬롯'을 �
 핵심 기능을 구현해야한다고 합시다. 
 <br><br>
 
-##### 2.2.1.1 인텐트(의도) 분류하기 : 슬롯 고르기
+#### 2.2.2.1. 인텐트(의도) 분류하기 : 슬롯 고르기
 
 ![intent_classification](docs/intent_classification.jpg)
 
@@ -158,7 +157,7 @@ Slot Filling 방식은 미리 기능을 수행할 정보를 담는 '슬롯'을 �
 어떤 API를 사용해야할지 알아냅니다.
 <br><br>
 
-##### 2.2.1.2 엔티티(개체명) 인식하기
+#### 2.2.2.2. 엔티티(개체명) 인식하기
 
 ![entity_recognition](docs/entity_recognition.jpg)
 
@@ -169,7 +168,7 @@ Slot Filling 방식은 미리 기능을 수행할 정보를 담는 '슬롯'을 �
 지역에 관련된 정보는 아직 찾아내지 못했기 때문에 다시 되물어서 찾아내야합니다. 
 <br><br>
 
-##### 2.2.1.3 대답 생성하기
+#### 2.2.2.3. 대답 생성하기
 
 ![response_generation](docs/response_generation.jpg)
 
@@ -192,7 +191,7 @@ Kochat은 이 세가지 모듈과 이를 서빙할 Restful API까지 모두 포�
 추후에 기회가 되면 pip 형식으로도 제공하도록 하겠습니다.
 <br><br>
 
-#### 3.1 템플릿 레포지토리 만들기
+### 3.1. 템플릿 레포지토리 만들기
 
 ![kochat_main](docs/getting_started_01.jpg)
 
@@ -209,9 +208,9 @@ Kochat은 이 세가지 모듈과 이를 서빙할 Restful API까지 모두 포�
 git clone 명령어를 사용해서 방금 만든 레포지토리를 clone합니다.
 <br><br>
 
-#### 3.3 개발환경 설정하기
+### 3.3. 개발환경 설정하기
 
-##### 3.3.1. Docker (Recommend)
+#### 3.3.1. Docker (Recommend)
 이 프로젝트는 전용 도커 이미지를 지원합니다. <br>
 
 ```shell script
@@ -224,7 +223,7 @@ requirements.txt에 있는 pytorch 디펜던시를 수정하시고 루트 경로
 이미지를 새로 빌드하셔서 사용하시면 됩니다.
 <br><br>
 
-##### 3.3.2. PIP로 직접 다운로드
+#### 3.3.2. PIP로 직접 다운로드
 이 프로젝트는 pytorch, sklearn, gensim, flask, konlpy 등 다양한 디펜던시가 필요합니다.
 필요한 디펜던시는 모두 requirements.txt에 정의해두었으니 확인하시고 다운로드 받으면 됩니다.
 ```shell script
@@ -235,7 +234,7 @@ requirements.txt에 있는 pytorch 디펜던시를 수정하시고 다운로드 
 <br><br>
 
 
-#### 3.3 configuration 설정하기
+### 3.3. configuration 설정하기
 `_backed`패키지의 `config.py`에 데이터/모델 저장 경로 등 다양한 설정 값들이 있습니다.
 레포지토리를 열고 나서 가장 먼저 초기 설정 (운영체제와 루트 경로)를 해줘야합니다.
 
@@ -264,7 +263,7 @@ root_dir = "/home{_}gusdnd852{_}Github{_}kochat"
 <br><br>
 
 
-#### 3.4 데이터셋 삽입하기
+### 3.4. 데이터셋 삽입하기
 이제 만들려는 챗봇의 데이터를 삽입합니다. 데이터는 `_backend/data/raw`폴더에 삽입합니다. 
 그 전에 데이터셋의 포맷을 먼저 살펴봅시다. 우리는 Intent와 Entity 데이터 셋이 필요합니다.
 그러나 이 두가지 데이터 셋을 따로 만들려면 상당히 번거로울 것입니다. Kochat은 여러개로 분할된 
@@ -389,65 +388,15 @@ OOD 데이터셋이 없어도 챗봇의 동작에는 문제가 없지만, OOD데
  
 <br><br>
 
-## 3. 아키텍처와 컴포넌트
+## 4. 아키텍처와 컴포넌트
 작성 예정.. (UML 다이어그램 및 도식도 첨가하기)
 <br><br>
 
-## 4. 사용법
-
-#### 4.1. Dataset
-Dataset 클래스는 학습에 필요한 데이터셋을 생성하는 클래스입니다. 
-여러개의 Raw File을 한개의 통합된 데이터 셋으로 만들고, 이를 전처리 및
-임베딩하여 사용자 입장에서는 Vocabulary 관리나 텐서 사이즈 등을
-신경 쓰지 않고 손쉽게 학습에 필요한 데이터 셋을 코드 몇 줄 만으로 세팅할 수 있습니다.
-<br><br>
-
-- 4.1.1. Dataset 생성하기
-```python
-prep = Preprocessor()
-# 전처리기 객체 생성
-
-dataset = Dataset(prep, ood=True)
-# ood 데이터셋 사용시
-
-dataset = Dataset(prep, ood=False)
-# ood 데이터셋 미사용시
-```
-ood 데이터 셋은 Out of distribution의 약자로, 현재 개발하려는 도메인 이외의 의도가
-담긴 데이터셋을 의미합니다. ood 데이터셋이 없어도 Kochat을 이용하는 데에는 전혀 지장이 없지만,
-ood 데이터 셋이 갖춰지면 Fallback Detection의 Threshold를 자동으로 설정하고, 현재 구축한 모델의
-Fallback Detection 성능을 validation할 수 있습니다. 또한 Dataset 클래스에는 데이터를
-지속적으로 동기화하고, 특히 Entity 라벨에 존재하는 오타 및 실수를 자동으로 점검하여 사용자에게 보고합니다.
-
-<br>
-
-- 4.1.2. 학습을 위한 데이터셋 만들기
-```python
-embed_processor = GensimProcessor(
-    model=EmbedFastText())
-# 임베딩을 위한 임베딩 프로세서 생성
-
-embed_dataset = dataset.load_embed()
-# 임베딩 프로세서를 학습시키기 위한 데이터셋 빌드 및 로딩
-
-embed_processor.fit(embed_dataset)
-# 임베딩 프로세서 학습 (데이터 생성에 필수적입니다)
-
-intent_dataset = dataset.load_intent(embed_processor)
-# 인텐트 학습용 데이터셋 빌드 및 로딩
-
-entity_dataset = dataset.load_entity(embed_processor)
-# 엔티티 학습용 데이터셋 빌드 및 로딩
-```
-<br><br>
+## 5. 사용법
 
 ## 5. 실험 및 시각화
-작성 예정.. (모델별 성능 그래프, 모델별 이슈, 2차원부터 N차원까지 각 로스함수별 피쳐스페이스 분포, CRF 성능비교 등 첨부하기)
-<br><br>
 
 ## 6. 컨트리뷰터
-작성 예정..
-<br><br>
 
 #### 7.2. TODO (앞으로 할 일)
 - [ ] 간단한 웹 인터페이스 기반 데모 페이지 제작하기
