@@ -49,18 +49,101 @@ Loss 함수를 바꾸거나 본인이 원하면 아예 새로운 기능을 첨�
 
 ## Table of contents
 - [1. Kochat 시작하기](#1-kochat-시작하기)
+<<<<<<< HEAD
+    - [1.1 템플릿 레포지토리 만들기]()
+=======
+>>>>>>> 998bcd017cd44db5c996455ee9ee1193cb11520e
 - [2. 챗봇에 대한 간략한 설명](#2-챗봇에-대한-간략한-설명)
     - [2.1 챗봇의 분류](#21-챗봇의-분류)
 - [3. 아키텍처와 컴포넌트](#3-아키텍처와-컴포넌트)
 - [4. 라이브러리 사용법](#4-사용법)
+<<<<<<< HEAD
 
 <br><br>
 
+## 1. Kochat 시작하기
+우선 초기버전 코드는 Kochat 프레임워크 자체가 프레임워크로서 설계된 것이 
+아니라 제가 구동해보고 정확하게 잘 돌아가는지에 초점을 맞춘 상태이기 때문에
+템플릿 레포지토리로 제공하는 것이 저한테도 편리하고 프레임워크를 사용하는 
+쪽에서도 편리할 것이라고 판단하였습니다. (configuraion, 파일 경로 등등 
+처음부터 잡으려면 시간이 많이 들고 오류도 굉장히 잦을 것으로 판단되기 때문에..)
+우선 지금은 템플릿 레포지토리로 제공하고, 추후에 기회가 되면 pip로도 
+제공하도록 하겠습니다.
+<br><br>
+
+#### 1.1 템플릿 레포지토리 만들기
+
+![kochat_main](docs/getting_started_01.jpg)
+
+상단의 Use this template 버튼을 클릭하여 템플릿 레포지토리를 생성합니다.
+<br><br>
+
+![kochat_main](docs/getting_started_02.jpg)
+
+레포지토리 이름과 설명 등의 정보를 기입한 뒤, 레포지토리를 생성합니다.
+<br><br>
+
+![kochat_main](docs/getting_started_03.jpg)
+=======
+>>>>>>> 998bcd017cd44db5c996455ee9ee1193cb11520e
+
+git clone 명령어를 사용해서 레포지토리를 clone합니다.
+<br><br>
+
+<<<<<<< HEAD
+#### 1.2 configuration 설정하기
+
+`_backed`패키지의 `config.py`에 데이터/모델 저장 경로 등 다양한 설정 값들이 있습니다.
+레포지토리를 열고 나서 가장 먼저 이 설정 값을 변경합니다.
+
+```python
+"""
+1. 여기에서 본인의 운영체제를 설정합니다. 
+
+Windows의 경우 'Windows', 그 외의 경우 'Others' 
+이는 파일 경로 delimeter 설정을 위해서 입니다. ('/' vs '\\')
+"""
+
+OS = 'Others' # or 'Windows'
+_ = '\\' if OS == 'Windows' else '/'
+```
+
+OS를 설정했으면 다음 설정을 이어나갑니다.
+
+```python
+"""
+2. 두번째로 레포지토리 root_dir을 설정합니다.
+맨 뒤에 '_backend{_}.format(_=_)'를 꼭 붙이셔야 합니다!!
+
+windows → "C:{_}yourdirectory{_}yourdirectory{_}..._backend{_}".format(_=_)
+linux → "/home{_}yourdirectory{_}yourdirectory{_}..._backend{_}".format(_=_)
+"""
+
+BACKEND = {
+    # ... 생략
+    'root_dir': "/home{_}gusdnd852{_}Github{_}kochat{_}_backend{_}".format(_=_),  # 백엔드 루트경로
+    # ... 생략
+}
+```
+
+기본 configuration 설정은 모두 끝났습니다. 기본 설정 말고도 아래에 훨씬 많은 설정들이 있기 때문에
+주석을 잘 보시고 원하는 부분의 설정값을 변경하셔서 사용하시길 바랍니다.
+<br><br>
+
+
+#### 1.3 데이터 삽입하기
+이제 만들려는 챗봇의 데이터를 삽입합니다. 데이터는 `_backend/data/raw`폴더에 삽입합니다. 
+
+
+
+
+=======
 ## 1. Kochat 시작하기
 현재는 템플릿 레포지토리로 Kochat 프레임워크를 제공하고 있으며 pip 빌드는 준비 중에 있습니다. 
 위의 use this template 버튼을 누르시면 자신만의 챗봇 애플리케이션을 쉽게 빌드할 수 있습니다.
 <br><br>
 
+>>>>>>> 998bcd017cd44db5c996455ee9ee1193cb11520e
 ## 2. 챗봇에 대한 간략한 설명
 이 챕터에서는 챗봇의 분류와 구현방법, Kochat은 어떻게 챗봇을 구현하고 있는지에 대해 간단하게 소개합니다. 
 <br><br>

@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="780cd61c-be1d-447e-86eb-535c9827fa32" name="linux-chatbot" url="http://119.206.99.242">
-        <fileTransfer rootFolder="/home/gusdnd852/Github/chatbot" accessType="SFTP" host="119.206.99.242" port="22" sshConfigId="c409d54d-1a62-4cf5-a28f-6b25ed6c038a" sshConfig="gusdnd852@119.206.99.242:22 password">
+        <fileTransfer rootFolder="/home/gusdnd852/Github/kochat" accessType="SFTP" host="119.206.99.242" port="22" sshConfigId="c409d54d-1a62-4cf5-a28f-6b25ed6c038a" sshConfig="gusdnd852@119.206.99.242:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

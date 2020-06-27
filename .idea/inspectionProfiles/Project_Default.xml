@@ -7,13 +7,14 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="6">
+          <list size="7">
             <item index="0" class="java.lang.String" itemvalue="pandas" />
             <item index="1" class="java.lang.String" itemvalue="gensim" />
             <item index="2" class="java.lang.String" itemvalue="matplotlib" />
             <item index="3" class="java.lang.String" itemvalue="torch" />
             <item index="4" class="java.lang.String" itemvalue="flask" />
             <item index="5" class="java.lang.String" itemvalue="konlpy" />
+            <item index="6" class="java.lang.String" itemvalue="beautifulsoup4" />
           </list>
         </value>
       </option>

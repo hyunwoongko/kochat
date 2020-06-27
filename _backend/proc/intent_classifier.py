@@ -4,13 +4,22 @@
 @homepage : https://github.com/gusdnd852
 """
 from time import time
+<<<<<<< HEAD
+
+import numpy as np
+import torch
+from torch import Tensor
+from torch import nn
+=======
 import numpy as np
 import torch
 from torch import nn
 from torch import Tensor
+>>>>>>> 998bcd017cd44db5c996455ee9ee1193cb11520e
 from torch.optim import SGD
 
 from _backend.decorators import intent
+from _backend.loss.base.base_loss import BaseLoss
 from _backend.proc.base.torch_processor import TorchProcessor
 from _backend.proc.distance_estimator import DistanceEstimator
 from _backend.proc.fallback_detector import FallbackDetector
@@ -19,7 +28,11 @@ from _backend.proc.fallback_detector import FallbackDetector
 @intent
 class IntentClassifier(TorchProcessor):
 
+<<<<<<< HEAD
+    def __init__(self, model: nn.Module, loss: BaseLoss, grid_search: bool = True):
+=======
     def __init__(self, model: nn.Module, loss: nn.Module, grid_search: bool = True):
+>>>>>>> 998bcd017cd44db5c996455ee9ee1193cb11520e
         """
         Intent 분류 모델을 학습시키고 테스트 및 추론합니다.
         Intent Classifier는 Memory Network의 일종으로 거리 기반의 Fallback Detection을 수행할 수 있습니다.
@@ -55,7 +68,11 @@ class IntentClassifier(TorchProcessor):
         # ood 데이터가 있는 경우에 fallback detector 자동 학습/테스트
         if self.ood_train and self.ood_test:
             eta = time()
+<<<<<<< HEAD
+            self.__ood_train_epoch()
+=======
             self._ood_train_epoch()
+>>>>>>> 998bcd017cd44db5c996455ee9ee1193cb11520e
             predicts, labels = self.__ood_test_epoch()
 
             self.metrics.evaluate(labels, predicts, mode='ood')
@@ -83,13 +100,21 @@ class IntentClassifier(TorchProcessor):
         self.model.eval()
 
         _, feats = self._forward(sequence)
+<<<<<<< HEAD
+        predict, distance = self.distance_estimator.predict(feats)
+=======
         predict, distance = self.distance_estimator.predict(sequence)
+>>>>>>> 998bcd017cd44db5c996455ee9ee1193cb11520e
 
         if calibrate:
             self.__calibrate_msg(distance)
 
         if self.fallback_detction_criteria == 'auto':
+<<<<<<< HEAD
+            if self.fallback_detector.predict(distance) == 0:
+=======
             if self.fallback.predict(distance) == 0:
+>>>>>>> 998bcd017cd44db5c996455ee9ee1193cb11520e
                 return list(self.label_dict)[predict[0]]
 
         elif self.fallback_detction_criteria == 'mean':
@@ -181,7 +206,11 @@ class IntentClassifier(TorchProcessor):
 
         return losses, predicts, labels
 
+<<<<<<< HEAD
+    def __ood_train_epoch(self):
+=======
     def _ood_train_epoch(self):
+>>>>>>> 998bcd017cd44db5c996455ee9ee1193cb11520e
         """
         out of distribution 데이터셋을 가지고
         Fallback Detector를 학습합니다.
@@ -204,7 +233,11 @@ class IntentClassifier(TorchProcessor):
         feats = torch.cat(feats_list, dim=0)
         labels = torch.cat(label_list, dim=0)
 
+<<<<<<< HEAD
+        _, distance = self.distance_estimator.fit(feats, labels, mode='test')
+=======
         distance, _ = self.distance_estimator.fit(feats, labels, mode='test')
+>>>>>>> 998bcd017cd44db5c996455ee9ee1193cb11520e
         self.fallback_detector.fit(distance, labels, mode='train')
 
     def __ood_test_epoch(self) -> tuple:
@@ -224,7 +257,11 @@ class IntentClassifier(TorchProcessor):
         feats = torch.cat(feats_list, dim=0)
         labels = torch.cat(label_list, dim=0)
 
+<<<<<<< HEAD
+        _, distance = self.distance_estimator.fit(feats, labels, mode='test')
+=======
         distance, _ = self.distance_estimator.fit(feats, labels, mode='test')
+>>>>>>> 998bcd017cd44db5c996455ee9ee1193cb11520e
         predicts, labels = self.fallback_detector.fit(distance, labels, mode='test')
         return predicts, labels
 
