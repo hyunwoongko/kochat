@@ -104,18 +104,20 @@ Close domain 챗봇이 모두 포함되어 있는 경우가 많습니다.
 여기에서는 딥러닝 기반의 챗봇만 소개하도록 하겠습니다.
 <br><br>
  
+#### 2.2.1 Open domain 챗봇
 먼저 Open domain 챗봇의 경우는 딥러닝 분야에서는 대부분, End to End 
 신경망 기계번역 방식(Seq2Seq)으로 구현되어왔습니다. Seq2Seq은 한 문장을 다른 문장으로 
-변환/번역하는 방식으로 "나는 배고프다"라는 입력이 주어지면 번역기가 "I'm Hungry"라고 
-번역해내듯이, 챗봇에 적용하면 "나는 배고프다"라는 입력이 주어질 때, 
-"많이 배고프신가요?" 등의 대답으로 번역해내는 방식을 말합니다. 
-최근에 발표된 Google의 [Meena](https://ai.googleblog.com/2020/01/towards-conversational-agent-that-can.html)
-같은 모델을 보면, 복잡한 모델 아키텍처나 학습 프레임워크 없이 End to End (Seq2Seq) 모델만으로
-매우 방대한 데이터셋과 컴퓨팅 리소스를 활용하여 정말 사람과 근접한 수준으로 대화할 수 있게 되었습니다.
-(현재버전 프레임워크에서는 close domain 만 지원합니다. 차후 버전에서 
-다양한 seq2seq 모델도 추가할 예정입니다.)
+변환/번역하는 방식으로 번역기에게 "나는 배고프다"라는 입력이 주어지면 "I'm Hungry"라고 
+번역해내듯이, 챗봇 Seq2Seq는 "나는 배고프다"라는 입력이 주어질 때, "많이 배고프신가요?" 등의 대답으로 번역합니다. 
 <br><br>
 
+최근에 발표된 Google의 [Meena](https://ai.googleblog.com/2020/01/towards-conversational-agent-that-can.html)
+같은 모델을 보면, 복잡한 모델 아키텍처나 학습 프레임워크 없이 End to End (Seq2Seq) 모델만으로도
+매우 방대한 데이터셋과 높은 성능의 컴퓨팅 리소스를 활용하면 정말 사람과 근접한 수준으로 대화할 수 있다는 것으로 알려져있습니다.
+(그러나 현재버전 프레임워크에서는 Close domain 만 지원합니다. 차후 버전에서 다양한 seq2seq 모델도 추가할 예정입니다.)
+<br><br>
+
+#### 2.2.2 Close domain 챗봇
 Close domain 챗봇은 대부분 Slot Filling 방식으로 구현되어 왔습니다. 물론 Close domain 챗봇도
 Open domain처럼 End to end로 구현하려는 [다양한](https://arxiv.org/pdf/1605.07683.pdf) 
 [시도](https://arxiv.org/pdf/1702.03274.pdf) [들도](https://arxiv.org/pdf/1708.05956.pdf) 
