@@ -7,11 +7,11 @@
 
 <br>
 
-## Table of contents
+## 목차
 
 <br>
 
-## 1. Introduction
+## 1. 개요
 
 ![kochat_main](docs/image1.jpg)
 
