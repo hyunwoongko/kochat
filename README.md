@@ -11,7 +11,7 @@
 
 <br>
 
-## 1. 개요
+## 1. Kochat 이란?
 
 ![kochat_main](docs/image1.jpg)
 
@@ -83,13 +83,13 @@ Kochat은 앞으로도 계속 오픈소스 프로젝트로 유지될 것이며, 
 <br><br>
 
 ### 2.1 챗봇의 분류
-챗봇은 크게 목적대화를 위한 Close domain 챗봇, 그리고 비목적대화를 위한 Open domain 챗봇으로 나뉩니다.
-Close domain 챗봇이란 한정된 대화 범위 안에서 사용자가 원하는 목적을 달성하기 위한 챗봇으로 
-주로 피자 예약봇, 금융 상담봇 등이 이에 해당하며 Goal oriented 챗봇이라고도 불립니다. 
+챗봇은 크게 비목적대화를 위한 Open domain 챗봇과 목적대화를 위한 Close domain 챗봇으로 나뉩니다.
 Open domain 챗봇은 주로 잡담 등을 수행하는 챗봇을 의미하는데, 
 여러분이 잘 알고있는 심심이 등이 챗봇이 대표적인 Open domain 챗봇이며 Chit-chat이라고도 불립니다.
-요즘 출시되는 시리나 빅스비 같은 인공지능 비서, 인공지능 스피커들은 Open domain 챗봇과 
-Close domain 챗봇이 모두 포함되어 있는 경우가 많습니다.
+Close domain 챗봇이란 한정된 대화 범위 안에서 사용자가 원하는 목적을 달성하기 위한 챗봇으로 
+주로 피자 예약봇, 금융 상담봇 등이 이에 해당하며 Goal oriented 챗봇이라고도 불립니다. 
+요즘 출시되는 시리나 빅스비 같은 인공지능 비서, 인공지능 스피커들은 특수 기능도 수행해야하고
+사용자와 잡담도 잘 해야하므로 Open domain 챗봇과 Close domain 챗봇이 모두 포함되어 있는 경우가 많습니다.
 <br><br>
 
 |구분|Open domain|Close domain|
