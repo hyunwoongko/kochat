@@ -117,7 +117,7 @@ class Visualizer:
 
         label_length = len(target_names)
         figure_base_size = (label_length * 1.5)
-        ticks_font_size = (label_length * 1.5) + 7
+        ticks_font_size = (label_length * 1.5) + 3
         title_font_size = (label_length * 3) + 7
 
         cmap = plt.get_cmap('Blues')

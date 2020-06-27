@@ -24,7 +24,7 @@ root_dir = "/home{_}gusdnd852{_}Github{_}kochat"
 _ = '\\' if OS == 'Windows' else '/'
 
 BACKEND = {
-    'root_dir': root_dir + "{_}_backend{_}".format(_=_),  # 백엔드 루트경로
+    'root_dir': root_dir.format(_=_) + "{_}_backend{_}".format(_=_),  # 백엔드 루트경로
     'vector_size': 64,  # 단어 벡터 사이즈
     'batch_size': 512,  # 미니배치 사이즈
     'max_len': 8,  # 문장의 최대 길이 (패드 시퀀싱)
@@ -73,7 +73,7 @@ INTENT = {
     'loss_lr': 1e-2,  # 인텐트 학습시 사용되는 러닝레이트
     'weight_decay': 1e-4,  # 인텐트 학습시 사용되는 가중치 감쇠 정도
     'epochs': 500,  # 인텐트 학습 횟수
-    'd_model': 128,  # 인텐트 모델의 차원
+    'd_model': 256,  # 인텐트 모델의 차원
     'd_loss': 32,  # 인텐트 로스의 차원 (시각화차원, 높을수록 ood 디텍션이 정확해지지만 느려집니다.)
     'layers': 1,  # 인텐트 모델의 히든 레이어(층)의 수
 
@@ -106,7 +106,7 @@ ENTITY = {
     'loss_lr': 1e-4,  # 엔티티 학습시 사용되는 로스 러닝레이트 (아직 사용되지 않음)
     'weight_decay': 1e-4,  # 엔티티 학습시 사용되는 가중치 감쇠 정도
     'epochs': 500,  # 엔티티 학습 횟수
-    'd_model': 128,  # 엔티티 모델의 차원
+    'd_model': 256,  # 엔티티 모델의 차원
     'layers': 1,  # 엔티티 모델의 히든 레이어(층)의 수
 
     'lr_scheduler_factor': 0.75,  # 러닝레이트 스케줄러 감소율
