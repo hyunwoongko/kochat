@@ -1,0 +1,600 @@
+question,label
+짭짤한 빵 맛집 알려줘,O S-RESTAURANT O O
+인기 많은 팥빵 빵집 추천 좀 해줄래,O O B-RESTAURANT E-RESTAURANT O O O
+매콤한 숙주 볶음 알려줘,O B-RESTAURANT E-RESTAURANT O
+매운 떡뽁이 맛집 가볼까,O S-RESTAURANT O O
+달콤한 브라우니 먹고싶어,O S-RESTAURANT O
+괜찮은 마카롱 먹고싶어 배고파,O S-RESTAURANT O O
+괜찮은 달달한 브런치 카페 추천 좀,O O S-RESTAURANT O O O
+대천 괜찮은 밀면 코스요리 알려주겠니,S-LOCATION O S-RESTAURANT O O
+창원 티비 나왔던 코스요리 추천,S-LOCATION O O O O
+강원도 텔레비전 나왔었던 칼국수 코스요리 어디더라,S-LOCATION O O S-RESTAURANT O O
+광주 요즘 괜찮은 바베큐 먹고싶어 배고파,S-LOCATION O O S-RESTAURANT O O
+대구 주변 태국 음식 원조 식당 어디,S-LOCATION O S-RESTAURANT O O O O
+서울 베트남 음식 먹고싶어 배고파,S-LOCATION S-RESTAURANT O O O
+대전 인기 많은 돈가스 코스요리 어디니,S-LOCATION O O S-RESTAURANT O O
+유명한 창원 브라우니 카페,O S-LOCATION S-RESTAURANT O
+마카롱 카페 달콤한 머랭쿠키,S-RESTAURANT O O S-RESTAURANT
+마라탕 진짜 잘하는 곳 어디 있어,S-RESTAURANT O O O O O
+한식 무한리필 알려줘,S-RESTAURANT O O
+백반집 원조 식당 어디니,S-RESTAURANT O O O
+양식 먹고 싶은데 무한리필 있니,S-RESTAURANT O O O O
+매콤한 매운탕 무한리필 알려줘,O S-RESTAURANT O O
+만두 무한리필 알려줘,S-RESTAURANT O O
+찐빵 무한리필 알려주세요,S-RESTAURANT O O
+짬뽕 무한리필 알려주세요,S-RESTAURANT O O
+초밥 진짜 잘하는 곳 어디 맛있니,S-RESTAURANT O O O O O
+국밥집 어디,S-RESTAURANT O
+국밥 먹고싶어,S-RESTAURANT O
+뜨끈하고 든든하게 국밥 먹고싶어,O O S-RESTAURANT O
+감자탕 먹고싶어,S-RESTAURANT O
+라면 식당 어디,S-RESTAURANT O O
+라멘 원조 식당 추천 좀 해줘,S-RESTAURANT O O O O O
+일식집 알려줄래,S-RESTAURANT O
+동두천 스테이크 무한리필 어디,S-LOCATION S-RESTAURANT O O
+매콤한 스테이크 무한리필 가볼까,O S-RESTAURANT O O
+강남 함박 스테이크 무한리필 원조 식당 먹을까,S-LOCATION B-RESTAURANT E-RESTAURANT O O O O
+알리오 올리오 강남구 무한리필 먹을까,B-RESTAURANT E-RESTAURANT S-LOCATION O O
+창녕 파스타 무한리필 추천해주겠니,S-LOCATION S-RESTAURANT O O
+밀양 매콤한 파스타 인심 후한 곳 있니,S-LOCATION O S-RESTAURANT O O O O
+임실 족발 무한리필 먹을까,S-LOCATION S-RESTAURANT O O
+익산 양식집 무한리필 추천 해줄래,S-LOCATION S-RESTAURANT O O O
+군산 일식집 무한리필 초밥 추천해줘,S-LOCATION S-RESTAURANT O S-RESTAURANT O
+스테이크 무한리필 먹을까,S-RESTAURANT O O
+매콤한 스테이크 무한리필 가볼까,O S-RESTAURANT O O
+무한리필 원조 식당 먹을까,O O O O
+알리오 올리오 푸드 먹을까,B-RESTAURANT E-RESTAURANT O O
+파스타 푸드 추천해주겠니,S-RESTAURANT O O
+매운 파스타 인심 후한 곳 있니,O S-RESTAURANT O O O O
+족발 푸드 먹을까,S-RESTAURANT O O
+양식집 식당 추천 해줄래,S-RESTAURANT O O O
+일식집 푸드 초밥 추천해줘,S-RESTAURANT O S-RESTAURANT O
+분식집 떡볶이 푸드 먹을까,B-RESTAURANT E-RESTAURANT O O
+돈까스 먹고싶다,S-RESTAURANT O
+중식 푸드 먹을까,S-RESTAURANT O O
+주변 케익 빵집 추천해줘,O S-RESTAURANT O O
+분식 푸드 먹을까,S-RESTAURANT O O
+갈메기 마포구 푸드,S-RESTAURANT S-LOCATION O
+강동 푸드 가볼까,S-LOCATION O O
+마포 갈메기 푸드 무한리필,S-LOCATION S-RESTAURANT O O
+중랑구 아구찜 푸드 알려주세요,S-LOCATION S-RESTAURANT O O
+브런치 푸드 알려주세요,S-RESTAURANT O O
+백종원 음식점 어디 있어,S-RESTAURANT O O O
+노원구 브런치 푸드 알려주세요,S-LOCATION S-RESTAURANT O O
+이태원 짬뽕집 식당 음식점,S-LOCATION S-RESTAURANT O O
+식당 푸드 먹어,O O O
+골목식당 푸드 먹어,O O O
+짜장면 잘하는 푸드 어디지,S-RESTAURANT O O O
+주변 연어초밥집 먹어,O S-RESTAURANT O
+연어 무한리필 푸드 알려줄래,S-RESTAURANT O O O
+광어 회 먹고싶어,B-RESTAURANT E-RESTAURANT O
+주변 술집 추천해줘,O S-RESTAURANT O
+맥주 먹고싶어,S-RESTAURANT O
+떡볶이 가게 추천,S-RESTAURANT O O
+사람 많은 맥주 술집 추천해줘,O O S-RESTAURANT O O
+광어 초밥 추천해줄래,B-RESTAURANT E-RESTAURANT O
+삼겹살 푸드 알려주세요,S-RESTAURANT O O
+국수 식당 추천해주세요,S-RESTAURANT O O
+고기국수 잘하는 식당 알려줄래요,S-RESTAURANT O O O
+갈비집 추천해줘요,S-RESTAURANT O
+삼겹살 인심 후한 곳 알려주세요,S-RESTAURANT O O O O
+매운 국수 식당 알려주세요,O S-RESTAURANT O O
+스파게티 먹고싶어요,S-RESTAURANT O
+국수 먹고싶어요,S-RESTAURANT O
+사람 많은 순대 식당 떡볶이 식당,O O S-RESTAURANT O S-RESTAURANT O
+스파게티 식당 추천해줘요,S-RESTAURANT O O
+티본 스테이크 식당 먹어,O S-RESTAURANT O O
+바비큐 식당 가볼까,S-RESTAURANT O O
+매운 바베큐 식당 먹어,O S-RESTAURANT O O
+유명한 태국 음식 원조 식당 먹어,O B-RESTAURANT E-RESTAURANT O O O
+베트남 음식 식당 먹어,B-RESTAURANT E-RESTAURANT O O
+돈가스 식당 어딜까,S-RESTAURANT O O
+소고기 음식 원조 식당 먹어,S-RESTAURANT O O O O
+진짜 유명한 비빔밥 잘하는 식당 어디니,O O S-RESTAURANT O O O
+제육 볶음 원조 식당 먹어,B-RESTAURANT E-RESTAURANT O O O
+면 음식 잘하는 식당 갈까,S-RESTAURANT O O O O
+매운 불고기 식당 추천 좀,O S-RESTAURANT O O O
+베트남 음식점 먹어,S-RESTAURANT O O
+음식점 맛 좋은 곳 먹어,O O O O O
+마카롱 가게 먹어,S-RESTAURANT O O
+달달한 브런치 카페 추천 좀,O S-RESTAURANT O O O
+밀면 가게 어딜까,S-RESTAURANT O O
+냉모밀 잘하는 식당 주변 있니,S-RESTAURANT O O O O
+비빔냉면 식당 추천해줘,S-RESTAURANT O O
+시원한 물냉면 먹고싶어,O S-RESTAURANT O
+곱창 레스토랑 알려줘,S-RESTAURANT O O
+시원한 맥주 잘하는 레스토랑 어디니,O S-RESTAURANT O O O
+옥수수 레스토랑 알려줘,S-RESTAURANT O O
+대창 레스토랑 추천해줄래,S-RESTAURANT O O
+양대창 먹고싶네,S-RESTAURANT O
+물냉면 레스토랑 추천해줘,S-RESTAURANT O O
+돼지 국밥 추천해줘,B-RESTAURANT E-RESTAURANT O
+콩나물 국밥 먹고싶은데 레스토랑 있니,B-RESTAURANT E-RESTAURANT O O O
+타코 가게 알려줘,S-RESTAURANT O O
+순대 국밥 잘하는 밥집 있니,B-RESTAURANT E-RESTAURANT O O O
+인도음식 어딜까,S-RESTAURANT O
+밀면 먹을까,S-RESTAURANT O
+쫄면 먹을까 알려줘,S-RESTAURANT O O
+오리 고기 먹을까 추천해줘,B-RESTAURANT E-RESTAURANT O O
+꽃게탕 먹어 어디니,S-RESTAURANT O O
+근처 짜글이 가게 알려줘,O S-RESTAURANT O O
+돼지고기 짜글이 알려줘,B-RESTAURANT E-RESTAURANT O
+타코야끼 먹어 알려줘,S-RESTAURANT O O
+샌드위치 잘하는 먹어 어디니,S-RESTAURANT O O O
+유명한 밀면 먹어,O S-RESTAURANT O
+유명한 쫄면 길거리 알려줘,O S-RESTAURANT O O
+유명한 오리 고기 길거리 추천해줘,O B-RESTAURANT E-RESTAURANT O O
+유명한 꽃게탕 길거리 어디니,O S-RESTAURANT O O
+유명한 근처 짜글이 길거리 알려줘,O O S-RESTAURANT O O
+유명한 돼지고기 짜글이 어딜까,O B-RESTAURANT E-RESTAURANT O
+유명한 타코야끼 길거리 알려줘,O S-RESTAURANT O O
+유명한 샌드위치 잘하는 길거리 어디니,O S-RESTAURANT O O O
+냉채 길거리 알려줘,S-RESTAURANT O O
+냉채 족발 주변 있니,B-RESTAURANT E-RESTAURANT O O
+주변 카레 불고기 가게 알려줘,O B-RESTAURANT E-RESTAURANT O O
+유명한 거리 어디지,O O O
+인기 많은 거리 추천해줘,O O O O
+괜찮은 근처 불고기 거리 추천 좀,O O S-RESTAURANT O O O
+괜찮은 베트남 음식점 알려줘,O S-RESTAURANT O O
+괜찮은 음식점 맛 좋은 곳 알려줘,O O O O O O
+최고 맛있는 베트남 음식점 알려줘,O O S-RESTAURANT O O
+진짜 좋은 음식점 맛 좋은 곳 어딜까,O O O O O O O
+맛 좋은 음식점 거리 알려줘,O O O O O
+괜찮은 마카롱 거리 알려줘,O S-RESTAURANT O O
+괜찮은 달달한 브런치 카페 추천 좀,O O S-RESTAURANT O O O
+괜찮은 밀면 거리 알려주겠니,O S-RESTAURANT O O
+티비 나왔던 음식 추천,O O O O
+텔레비전 나왔었던 고깃집 어디더라,O O S-RESTAURANT O
+요즘 유명한 바베큐 거리 어디,O O S-RESTAURANT O O
+주변 태국 음식 원조 식당 어디,O B-RESTAURANT E-RESTAURANT O O O
+베트남 음식 거리 어디,S-RESTAURANT O O O
+인기 많은 돈가스 거리 어디니,O O S-RESTAURANT O O
+근처 소고기 음식 원조 식당 어디,O S-RESTAURANT O O O O
+요즘 비빔밥 잘하는 거리 어디니,O S-RESTAURANT O O O
+크림 파스타 거리,B-RESTAURANT E-RESTAURANT O
+해물탕 거리 어디니 먹고 싶다,S-RESTAURANT O O O O
+먹고싶은 시루떡 거리,O S-RESTAURANT O
+떡집 맛있는 곳 어디,S-RESTAURANT O O O
+고깃집 어디 잘해,S-RESTAURANT O O
+인기 있는 제육 볶음 원조 식당 어디,O O B-RESTAURANT E-RESTAURANT O O O
+사람 많은 치킨 버거 음식점,O O B-RESTAURANT E-RESTAURANT O
+많이 가는 음식점 추천,O O O O
+치킨집 추천해줘,S-RESTAURANT O
+치킨 맛있는 곳 추천 해줄래,S-RESTAURANT O O O O
+근처 통닭집 추천해줘,O S-RESTAURANT O
+주변 양념 치킨 잘 하는 곳 추천,O B-RESTAURANT E-RESTAURANT O O O O
+마라롱샤 음식점 어디니,S-RESTAURANT O O
+마라샹궈 음식점 추천 해줘,S-RESTAURANT O O O
+마라탕 잘 하는 곳 어디 있어,S-RESTAURANT O O O O O
+한식 음식점 어디,S-RESTAURANT O O
+백반집 원조 식당 어디니,S-RESTAURANT O O O
+양식 먹고 싶은데 음식점 있니,S-RESTAURANT O O O O
+근처 매운탕 음식점 어디,O S-RESTAURANT O O
+만두 음식점 어디,S-RESTAURANT O O
+찐빵 음식점 알려주세요,S-RESTAURANT O O
+짬뽕 음식점 알려주세요,S-RESTAURANT O O
+초밥 잘 하는 곳 어디 맛있니,S-RESTAURANT O O O O O
+국밥집 어디,S-RESTAURANT O
+국밥 먹고싶어,S-RESTAURANT O
+뜨끈하고 든든하게 국밥 먹고싶어,O O S-RESTAURANT O
+감자탕 먹고싶어,S-RESTAURANT O
+라면 음식점 어디,S-RESTAURANT O O
+라멘 원조 식당 추천 좀 해줘,S-RESTAURANT O O O O O
+일식집 알려줄래,S-RESTAURANT O
+스테이크 음식점 어디,S-RESTAURANT O O
+근처 스테이크 음식점 어디지,O S-RESTAURANT O O
+음식점 원조 식당 어디,O O O O
+알리오 올리오 음식점 어디,B-RESTAURANT E-RESTAURANT O O
+파스타 음식점 추천해주겠니,S-RESTAURANT O O
+근처 파스타 잘 하는 곳 있니,O S-RESTAURANT O O O O
+족발 음식점 어디,S-RESTAURANT O O
+양식집 음식점 추천 해줄래,S-RESTAURANT O O O
+일식집 음식점 초밥 추천해줘,S-RESTAURANT O S-RESTAURANT O
+분식집 떡볶이 음식점 어디,B-RESTAURANT E-RESTAURANT O O
+돈까스 먹고싶다,S-RESTAURANT O
+중식 음식점 어디,S-RESTAURANT O O
+주변 케익 빵집 추천해줘,O S-RESTAURANT O O
+분식 음식점 어디,S-RESTAURANT O O
+아구찜 음식점 알려주세요,S-RESTAURANT O O
+브런치 명가 알려주세요,S-RESTAURANT O O
+짬뽕집 어디,S-RESTAURANT O
+주변 먹어 분식점 추천,O S-RESTAURANT O O
+스테이크 먹어 분식점 추천,B-RESTAURANT E-RESTAURANT O O
+와플 분식점 어디지,S-RESTAURANT O O
+짜장면 잘하는 명가 어디지,S-RESTAURANT O O O
+주변 연어초밥집 어디,O S-RESTAURANT O
+연어 무한리필 명가 알려줄래,S-RESTAURANT O O O
+광어 회 먹고싶어,B-RESTAURANT E-RESTAURANT O
+주변 술집 추천해줘,O S-RESTAURANT O
+맥주 먹고싶어,S-RESTAURANT O
+맥주 명가 추천해줘,S-RESTAURANT O O
+광어 초밥 추천해줄래,S-RESTAURANT O O
+삼겹살 명가 알려주세요,S-RESTAURANT O O
+국수 명가 추천해주세요,S-RESTAURANT O O
+고기국수 잘하는 명가 알려줄래요,S-RESTAURANT O O O
+갈비집 추천해줘요,S-RESTAURANT O
+삼겹살 잘 하는 곳 알려주세요,S-RESTAURANT O O O O
+근처 국수 명가 알려주세요,O S-RESTAURANT O O
+스파게티 먹고싶어요,S-RESTAURANT O
+국수 먹고싶어요,S-RESTAURANT O
+순대 명가 떡볶이 명가,S-RESTAURANT O S-RESTAURANT O
+스파게티 명가 추천해줘요,S-RESTAURANT O O
+티본 스테이크 명가 어디,B-RESTAURANT E-RESTAURANT O O
+바비큐 명가 어디지,S-RESTAURANT O O
+근처 바베큐 명가 어디,O S-RESTAURANT O O
+태국 음식 원조 식당 어디,S-RESTAURANT O O O O
+베트남 음식 명가 어디,S-RESTAURANT O O O
+돈가스 명가 어디니,S-RESTAURANT O O
+소고기 음식 원조 식당 어디,S-RESTAURANT O O O O
+비빔밥 잘하는 명가 어디니,S-RESTAURANT O O O
+제육 볶음 원조 식당 어디,B-RESTAURANT E-RESTAURANT O O O
+면 음식 잘하는 명가 어디지,S-RESTAURANT O O O O
+근처 불고기 음식점 추천 좀,O S-RESTAURANT O O O
+베트남 음식점 어디,S-RESTAURANT O O
+음식점 맛 좋은 곳 어디,O O O O O
+마카롱 먹고싶어 배고파,S-RESTAURANT O O
+달달한 브런치 카페 추천 좀,O S-RESTAURANT O O O
+밀면 명가 알려주겠니,S-RESTAURANT O O
+냉모밀 잘하는 명소 주변 있니,S-RESTAURANT O O O O
+비빔냉면 명소 추천해줘,S-RESTAURANT O O
+시원한 물냉면 먹고싶어,O S-RESTAURANT O
+곱창 먹고싶어 배고파,S-RESTAURANT O O
+시원한 맥주 잘하는 명소 어디니,O S-RESTAURANT O O O
+옥수수 먹고싶어 배고파,S-RESTAURANT O O
+대창 명소 추천해줄래,S-RESTAURANT O O
+양대창 먹고싶네,S-RESTAURANT O
+냉면 명소 추천해줘,S-RESTAURANT O O
+돼지 국밥 추천해줘,B-RESTAURANT E-RESTAURANT O
+콩나물 국밥 먹고싶은데 명소 있니,B-RESTAURANT E-RESTAURANT O O O
+타코 먹고싶어 배고파,S-RESTAURANT O O
+순대 국밥 잘하는 밥집 있니,B-RESTAURANT E-RESTAURANT O O O
+인도음식 먹고싶어지네,S-RESTAURANT O
+밀면 명소,S-RESTAURANT O
+쫄면 먹고싶어 배고파,S-RESTAURANT O O
+오리 고기 명소 추천해줘,B-RESTAURANT E-RESTAURANT O O
+꽃게탕 명소 어디니,S-RESTAURANT O O
+근처 짜글이 먹고싶어 배고파,O S-RESTAURANT O O
+돼지고기 짜글이 어디,B-RESTAURANT E-RESTAURANT O
+타코야끼 음식점 어디,S-RESTAURANT O O
+샌드위치 잘하는 코스요리 어디니,S-RESTAURANT O O O
+좋은 밀면 코스요리,O S-RESTAURANT O
+좋은 쫄면 먹고싶어 배고파,O S-RESTAURANT O O
+좋은 오리 고기 코스요리 추천해줘,O B-RESTAURANT E-RESTAURANT O O
+좋은 꽃게탕 식당 어디니,O S-RESTAURANT O O
+좋은 근처 짜글이 먹고싶어 배고파,O O S-RESTAURANT O O
+맛좋은 돼지고기 짜글이 어디,O B-RESTAURANT E-RESTAURANT O
+맛좋은 타코야끼 먹고싶어 배고파,O S-RESTAURANT O O
+맛좋은 샌드위치 잘하는 식당 어디니,O S-RESTAURANT O O O
+냉채 먹고싶어 배고파,S-RESTAURANT O O
+냉채 족발 주변 있니,B-RESTAURANT E-RESTAURANT O O
+주변 카레 불고기 먹고싶어 배고파,O B-RESTAURANT E-RESTAURANT O O
+분식집 잘 하는 곳 어디,S-RESTAURANT O O O O
+맛좋은 코스요리 어디지,O O O
+인기 많은 식당 추천해줘,O O O O
+괜찮은 근처 불고기 코스요리 추천 좀,O O S-RESTAURANT O O O
+괜찮은 베트남 음식점 어디,O S-RESTAURANT O O
+괜찮은 음식점 맛 좋은 곳 어디,O O O O O O
+최고 맛있는 베트남 음식점 어디,O O S-RESTAURANT O O
+진짜 좋은 음식점 맛 좋은 곳 어디,O O O O O O O
+맛 좋은 음식점 먹고싶어 배고파,O O O O O
+대구 근처 소고기 음식 원조 식당 어디,S-LOCATION O S-RESTAURANT O O O O
+요즘 전주 비빔밥 잘하는 코스요리 어디니,O S-LOCATION S-RESTAURANT O O O
+전주 크림 파스타 먹고싶어,S-LOCATION B-RESTAURANT E-RESTAURANT O
+부산 해물탕 코스요리 어디니 먹고 싶다,S-LOCATION S-RESTAURANT O O O O
+먹고싶은 경창 창원 무지개떡 코스요리,O B-LOCATION E-LOCATION S-RESTAURANT O
+청주 떡집 맛있는 곳 어디니,S-LOCATION S-RESTAURANT O O O
+순창 고깃집 어디 잘해,S-LOCATION S-RESTAURANT O O
+인기 있는 부산 제육 볶음 원조 식당 어디니,O O S-LOCATION B-RESTAURANT E-RESTAURANT O O O
+부천 자장면 음식점 먹고 싶은데,S-LOCATION O O O O
+구리 짱개 먹고싶어,S-LOCATION S-RESTAURANT O
+광양 짜장면 어디 잘해 추천 해주라,S-LOCATION S-RESTAURANT O O O O
+목포 초밥 코스요리 추천해줘,S-LOCATION S-RESTAURANT O O
+수제비 안산 코스요리 어디 있어,S-RESTAURANT S-LOCATION O O O
+여수 김치찌개 먹거리 알려줄래,S-LOCATION S-RESTAURANT O O
+괜찮은 순천 찌개 먹거리 추천해줘,O S-LOCATION S-RESTAURANT O O
+햄버거 먹고싶어 배고파,S-RESTAURANT O O
+인천 근처 햄버거 먹거리 어디니,S-LOCATION O S-RESTAURANT O O
+울산 수제버거 음식점 맛있니,S-LOCATION S-RESTAURANT O O
+춘천 치킨집 추천해줘,S-LOCATION S-RESTAURANT O
+춘천 닭갈비 먹거리 어디니,S-LOCATION S-RESTAURANT O O
+군산 꼴뚜기 먹거리 추천해줘,S-LOCATION S-RESTAURANT O O
+쭈꾸미 볶음 먹거리 어디니,B-RESTAURANT E-RESTAURANT O O
+고르곤졸라 피자 먹거리 어디니,B-RESTAURANT E-RESTAURANT O O
+피자 먹고싶어 먹거리 추천,S-RESTAURANT O O O
+영월 먹거리 어디니,S-LOCATION O O
+안암 진짜 잘하는 돌솥밥 먹거리 어디니,S-LOCATION O O S-RESTAURANT O O
+청주 냉면 맛있는 곳 추천 해줄래,S-LOCATION S-RESTAURANT O O O O
+진천 근처 통닭집 추천해줘,S-LOCATION O S-RESTAURANT O
+해남 주변 양념 치킨 잘 하는 곳 추천,S-LOCATION O B-RESTAURANT E-RESTAURANT O O O O
+안산 마라롱샤 먹거리 어디니,S-LOCATION S-RESTAURANT O O
+무주 마라샹궈 먹어 배고파 해줘,S-LOCATION S-RESTAURANT O O O
+평창 마라탕 잘 하는 곳 어디 있어,S-LOCATION S-RESTAURANT O O O O O
+한식 먹거리 어디니,S-RESTAURANT O O
+백반집 인스타 먹거리 어디니,S-RESTAURANT O O O
+남서울 양식 먹고 싶은데 먹거리 있니,S-LOCATION S-RESTAURANT O O O O
+남양주 근처 매운탕 먹거리 어디니,S-LOCATION O S-RESTAURANT O O
+세종 만두 먹거리 어디니,S-LOCATION S-RESTAURANT O O
+새우 튀김 인스타 먹거리 어디니,B-RESTAURANT E-RESTAURANT O O O
+양천 왔는데 배고파,S-LOCATION O O
+가평 먹거리 어디니,S-LOCATION O O
+거창 잘하는 먹거리 곱창집,S-LOCATION O O S-RESTAURANT
+과일 탕수육 먹어 배고프네 좀 추천,B-RESTAURANT E-RESTAURANT O O O O
+창녕 찌개 식당 어딜까,S-LOCATION S-RESTAURANT O O
+태안 고깃집 식당 어디 추천,S-LOCATION S-RESTAURANT O O O
+고흥 꿔바로우 식당 어디,S-LOCATION S-RESTAURANT O O
+화순 순두부 먹어 배고파,S-LOCATION S-RESTAURANT O O
+두부 찌개 식당,B-RESTAURANT E-RESTAURANT O
+어묵탕 진짜 잘하는 식당,S-RESTAURANT O O O
+오뎅탕 잘하는 음식점 어디니,S-RESTAURANT O O O
+거창 식당 어디니,S-RESTAURANT O O
+가평 돌솥 비빔밥 추천,S-LOCATION B-RESTAURANT E-RESTAURANT O
+고창 직화구이 식당 어디니,S-LOCATION S-RESTAURANT O O
+고등어 식당 어디니,S-RESTAURANT O O
+참치 타다끼 식당 어디니,B-RESTAURANT E-RESTAURANT O O
+육회 비빔밥 먹어 말까,B-RESTAURANT E-RESTAURANT O O
+순두부 찌개 식당 알려줄래,B-RESTAURANT E-RESTAURANT O O
+탕 먹고싶다 배고파,S-RESTAURANT O O
+고구마 맛탕 식당 어디지,B-RESTAURANT E-RESTAURANT O O
+고등어 조림 먹어 배고프네 좀,B-RESTAURANT E-RESTAURANT O O O
+숭어 먹어 배고파해줘,S-RESTAURANT O O
+활어 회 맛있는 식당 어디,B-RESTAURANT E-RESTAURANT O O O
+피순대 식당,S-RESTAURANT O
+머랭쿠키 잘하는 무한리필 있니,S-RESTAURANT O O O
+초콜릿 무한리필 알려줘,S-RESTAURANT O O
+초콜릿 무한리필 가볼까,S-RESTAURANT O O
+무한리필점 유명한 곳 어디 있니,O O O O O
+수제비 무한리필 어디 있어,S-RESTAURANT O O O
+김치찌개 무한리필 알려줄래,S-RESTAURANT O O
+유명한 찌개 무한리필 추천해줘,O S-RESTAURANT O O
+햄버거 무한리필 알려줘,S-RESTAURANT O O
+달콤한 햄버거 무한리필 어디니,O S-RESTAURANT O O
+수제버거 어디 맛있니,S-RESTAURANT O O
+치킨집 추천해줘,S-RESTAURANT O
+치킨 맛있는 곳 추천 해줄래,S-RESTAURANT O O O O
+달콤한 통닭집 추천해줘,O S-RESTAURANT O
+주변 양념 치킨 진짜 잘하는 곳 추천,O B-RESTAURANT E-RESTAURANT O O O O
+마라롱샤 무한리필 어디니,S-RESTAURANT O O
+마라샹궈 무한리필 추천 해줘,S-RESTAURANT O O O
+간 식당 어디니,S-RESTAURANT O O
+고추장 불고기 식당 어디니,B-RESTAURANT E-RESTAURANT O O
+백숙집 어디니,S-RESTAURANT O
+옻 백숙 잘하는 본점 추천,B-RESTAURANT E-RESTAURANT O O O
+닭고기 본점 어디 없나,S-RESTAURANT O O O
+괴산 본점 추천 해주겠니,S-LOCATION O O O
+강남 어떤 거 먹을지 몰라,S-LOCATION O O O O
+함양 파전 맛있는 본점,S-LOCATION S-RESTAURANT O O
+감자전 본점 알려줄래,S-RESTAURANT O O
+김치전 진짜 본점 인스타 먹거리 어디니,S-RESTAURANT O O O O O
+소주 먹고싶은데 본점 있니,S-RESTAURANT O O O
+소주 어울리는 본점 추천,S-RESTAURANT O O O
+과자 간식 본점 어디니,B-RESTAURANT E-RESTAURANT O O
+증평 인기 많은 술집 갈까,S-LOCATION O O S-RESTAURANT O
+영월 사람 많은 본점 추천,S-LOCATION O O O O
+장흥 사람 많은 술집 갈까,S-LOCATION O O O O
+영덕 대게 본점 갈까,S-LOCATION S-RESTAURANT O O
+정선 뭐 먹을까,S-LOCATION O O
+천안 호두과자 본점 어디니,S-LOCATION S-RESTAURANT O O
+창원 맛 좋고 괜찮은 본점,S-LOCATION O O O O
+본점,O
+음식점,O
+식당 추천해줘,O O
+맛집 추천,O O
+괜찮은 음식점 추천,O O O
+가평 본점 어디니,S-LOCATION O O
+오믈렛 본점 어디니,S-RESTAURANT O O
+맛집 알려줘,O O
+주변 맛집 알려줘,O O O
+맛 좋은 맛집 알려줄래,O O O O
+고깃집 추천해줘,S-RESTAURANT O
+사탕 맛있는 곳 알려줘,S-RESTAURANT O O O
+유명한 고깃집 무한리필 추천해줘,O S-RESTAURANT O O
+무한리필집 추천 해줄래,O O O
+부대찌개 잘하는 맛집 알려줘,S-RESTAURANT O O O
+주변 샐러드 맛집 가볼까,O S-RESTAURANT O O
+짭짤한 찜닭집 알려줘,O S-RESTAURANT O
+찜닭 맛집 추천해줘,S-RESTAURANT O O
+김치찌개 알려줘,S-RESTAURANT O
+튀김 잘하는 맛집 어디니,S-RESTAURANT O O O
+주변 아구찜 맛집 알려줘,O S-RESTAURANT O O
+간장게장 잘하는 곳 가볼까,S-RESTAURANT O O O
+샐러드 먹고 싶은데 맛집 가볼까,S-RESTAURANT O O O O
+카레 먹고싶어,S-RESTAURANT O
+자장면 먹고싶은데,S-RESTAURANT O
+초밥 식당 추천해줘,S-RESTAURANT O O
+서양 분식 본점 알려줄래,B-RESTAURANT E-RESTAURANT O O
+불고기 음식점 괜찮은 곳 어디니,S-RESTAURANT O O O O
+볶음밥 맛있는 곳 어디있어,S-RESTAURANT O O O
+양파 볶음 맛 좋은 곳 어디,B-RESTAURANT E-RESTAURANT O O O O
+기사식당 괜찮은 곳,S-RESTAURANT O O
+기사 식당 진짜 맛있는 곳 있니,B-RESTAURANT E-RESTAURANT O O O O
+진도 활어 회 원조,S-LOCATION B-RESTAURANT E-RESTAURANT O
+군산 달걀 볶음밥 원조,S-LOCATION B-RESTAURANT E-RESTAURANT O
+곡성 오믈렛 원조,S-LOCATION S-RESTAURANT O
+단양 비빔밥 원조 어디지,S-LOCATION S-RESTAURANT O O
+순창 고추장 불고기 괜찮은 원조 어디,S-LOCATION B-RESTAURANT E-RESTAURANT O O O
+혹시 의령 괜찮은 원조,O S-LOCATION O O
+양양 괜찮은 원조 추천,S-LOCATION O O O
+내일 화천 여행 가는데 원조 갈까,S-DATE S-LOCATION O O O O
+청송 진짜 괜찮은 국수 원조 어딘데,S-LOCATION O O S-RESTAURANT O O
+내일 구례 가는데 맛 좋은 원조 음식점 갈까,S-DATE S-LOCATION O O O O O O
+무주 식당 궁금한데 알려주겠니,S-LOCATION O O O
+진안 혹시 괜찮은 음식점 있을까,S-LOCATION O O O O
+양구 음식점 원조 어딜까요,S-LOCATION O O O
+군위 원조 어딜까,S-LOCATION O O
+의왕 제일 괜찮은 원조 있니,S-LOCATION O O O O
+광양 인기 많은 음식점,S-LOCATION O O O
+식당 맛 좋은 원조 어디,O O O O O
+제천 원조 알려줄래,S-LOCATION O O
+논산 핫한 닭 갈비 어디지,S-LOCATION O B-RESTAURANT E-RESTAURANT O
+의정부 원조 추천 좀,S-LOCATION O O O
+제일 맛 좋은 원조 음식점 어디,O O O O O O
+칠곡 원조 어디지,S-LOCATION O O
+여주 음식점 알려줄래,S-LOCATION O O
+정읍 음식점 어디니,S-LOCATION O O
+음성군 음식점 어디있어,S-LOCATION O O
+양평 해장국 음식점 알려줄수 있어,S-LOCATION S-RESTAURANT O O O
+내장탕 음식점 추천해줘,S-RESTAURANT O O
+야채 죽 맛있는 곳 어디,B-RESTAURANT E-RESTAURANT O O O
+죽 먹을까,S-RESTAURANT O
+공주 치킨 음식점 알려줄래,S-LOCATION S-RESTAURANT O O
+완주 입 맛 까다로운 음식점 추천,S-LOCATION O O O O O
+상주 음식점 줘,S-LOCATION O O
+강진 진짜 맛 좋은 음식점 추천할까,S-LOCATION O O O O O
+보은 고추장 혹시 음식점 없으려나,S-LOCATION S-RESTAURANT O O O
+오늘 인제 도토리 묵 먹거리 추천해줘,S-DATE S-LOCATION B-RESTAURANT E-RESTAURANT O O
+진도 낙지 볶음 먹거리 좋으려나,S-LOCATION B-RESTAURANT E-RESTAURANT O O
+군산 먹거리 먹거리 나쁠까 정말,S-LOCATION O O O O
+곡성 도토리 묵 먹거리 없을까,S-LOCATION B-RESTAURANT E-RESTAURANT O O
+단양 김밥 먹거리 맛있겠지 아마,S-LOCATION S-RESTAURANT O O O
+전북 순창 김밥 볶음 먹거리 가면 좋겠다,B-LOCATION E-LOCATION B-RESTAURANT E-RESTAURANT O O O
+혹시 의령 참치찌개 먹거리 안 맛있겠지,O S-LOCATION S-RESTAURANT O O O
+양양 참치전 맛집 없을까,S-LOCATION S-RESTAURANT O O
+화천 김치전 맛집 필요해,S-LOCATION S-RESTAURANT O O
+오늘 청송 물회 맛집 가볼까,S-DATE S-LOCATION S-RESTAURANT O O
+구례 파전 볶음 맛집 챙길까 말까,S-LOCATION B-RESTAURANT E-RESTAURANT O O O
+무주 맛집 궁금한데 알려주겠니,S-LOCATION O O O
+진안 혹시 볶음 맛집 어디지,S-LOCATION O S-RESTAURANT O O
+막걸리 핫한 양구 맛집 어딜까요,S-RESTAURANT O S-LOCATION O O
+막걸리 핫한 군위 맛집 어딜까,S-RESTAURANT O S-LOCATION O O
+장수 가는데 뭐 먹어볼까,S-LOCATION O O O
+영양 오징어 숙회 맛집 알려주겠니,S-LOCATION B-RESTAURANT E-RESTAURANT O O
+울릉 베이컨 맛집 정보 알려주세요,S-LOCATION S-RESTAURANT O O O
+혹시 그 때 종로구 맛집 어떨까,O O O S-LOCATION O O
+그 때 관악구 맛집 좋겠지,O O S-LOCATION O O
+서초구 베이컨 맛집 어떨 것 같은데,S-LOCATION S-RESTAURANT O O O O
+강동구 맛집 어떨까요,S-LOCATION O O
+도봉구 목살 맛집 어때요,S-LOCATION S-RESTAURANT O O
+중랑구 산 낙지 맛있는 곳 추천,S-LOCATION B-RESTAURANT E-RESTAURANT O O O
+광진구 오징어 튀김 맛집,S-LOCATION B-RESTAURANT E-RESTAURANT O
+전주 비빔밥 맛집 없을까,S-LOCATION S-RESTAURANT O O
+전주 상추튀김 맛집 없을까,S-LOCATION S-RESTAURANT O O
+서울 마포구 맛집 어딜까요,B-LOCATION E-LOCATION O O
+서울 영등포구 맛집 어딜까요,B-LOCATION E-LOCATION O O
+홍대 담백한 맛집 추천해줘,S-LOCATION O O O
+서울 성동구 맛집 추천해줘,B-LOCATION E-LOCATION O O
+서울 송파구 맛집 필요해,B-LOCATION E-LOCATION O O
+서울 서초구 맛집 어딜까,B-LOCATION E-LOCATION O O
+막창 어디지 배고파,S-RESTAURANT O O
+망원동 가는데 배고파,S-LOCATION O O
+갈비탕 맛집 어디지,S-RESTAURANT O O
+설렁탕 어디인지 배고프네,S-RESTAURANT O O
+부산 회 맛집 궁금해,S-LOCATION S-RESTAURANT O O
+함흥 냉면 맛집 궁금해,S-LOCATION S-RESTAURANT O O
+파전 맛집 알려줄래,S-RESTAURANT O O
+부추전 맛집 필요해,S-RESTAURANT O O
+감자탕 맛집 궁금해,S-RESTAURANT O O
+이태원 맛집 궁금해,S-LOCATION O O
+순대국밥 핫한 맛집 어때,S-RESTAURANT O O O
+스파게티 핫한 먹어 어디인지,S-RESTAURANT O O O
+핫한 치킨 먹어 어디인지,O S-RESTAURANT O O
+마라도 자장면 레스토랑 궁금해,S-LOCATION S-RESTAURANT O O
+유성구 핫한 빵 레스토랑 알려주세요,S-LOCATION O S-RESTAURANT O O
+육회 비빔밥 레스토랑 어디인지,S-RESTAURANT S-RESTAURANT O O
+비빔국수 핫한 레스토랑 어디인지,S-RESTAURANT O O O
+수제피자 레스토랑 궁금해,S-RESTAURANT O O
+수제햄버거 레스토랑 굼금해,S-RESTAURANT O O
+탕수육 핫한 레스토랑 궁금해요,S-RESTAURANT O O O
+내일 계룡 가는데 배고파,S-DATE S-LOCATION O O
+내일 청주 가는데 레스토랑 궁긍해,S-DATE S-LOCATION O O O
+상당구 있는 레스토랑 어디인지,S-LOCATION O O O
+서대문구 가는데 담백한 레스토랑 어디인지,S-LOCATION O O O O
+칼국수 레스토랑 궁금해,S-RESTAURANT O O
+커피 레스토랑 어디인지,S-RESTAURANT O O
+마포구 담백한 레스토랑 어디인지,S-LOCATION O O O
+동작구 담백한 레스토랑 궁금해,S-LOCATION O O O
+팥죽 인스타 요리 어디인지,S-RESTAURANT O O O
+담백한 스파게티 인스타 요리 어디였지,O S-RESTAURANT O O O
+담백한 돼지국밥 인스타 요리 궁금해,O S-RESTAURANT O O O
+전복구이 인스타 요리 어디였지,S-RESTAURANT O O O
+을왕리 가는데 뭐 먹을까,S-LOCATION O O O
+담백한 오리고기 인스타 요리 어디였지,O S-RESTAURANT O O O
+동대문구 요리 어디였지,S-LOCATION O O
+신촌 요리 필요해,S-LOCATION O O
+팥빙수 요리 어디였지,S-RESTAURANT O O
+떡볶이 요리 궁금해,S-RESTAURANT O O
+도봉구 주변 요리 어디였지,S-LOCATION O O O
+성수동 주변 요리 궁금해,S-LOCATION O O O
+노원구 주변 요리 알려주세요,S-LOCATION O O O
+금천구 주변 요리 어디였지,S-LOCATION O O O
+삼계탕 요리 어디였지,S-RESTAURANT O O
+구로구 주변 요리 어디였지,S-LOCATION O O O
+광진구 주변 요리 어디였지,S-LOCATION O O O
+관악구 주변 요리 어디였지,S-LOCATION O O O
+타코 요리 알려줘,S-RESTAURANT O O
+와플 뭐 먹을지 모르겠어,S-RESTAURANT O O O
+카레 요리 알려줘,S-RESTAURANT O O
+돌솥밥 잘하는 곳 말려줘,S-RESTAURANT O O O
+추어탕 잘하는 곳 알려주세요,S-RESTAURANT O O O
+역삼동 가는데 요리 알려줘,S-LOCATION O O O
+대치동 잘하는 곳 궁금해,S-LOCATION O O O
+청담동 잘하는 곳 알려줘,S-LOCATION O O O
+도곡동 가는데 화제 곳 알려줘,S-LOCATION O O O O
+신사동 잘하는 곳 궁금해요,S-LOCATION O O O
+압구정동 요리 알려주세요,S-LOCATION O O
+서교동 요리 궁금해,S-LOCATION O O
+아현동 잘하는 곳 알려줘,S-LOCATION O O O
+강서구 뭐 먹어야해,S-LOCATION O O
+신수동 주변 요리 알려줘,S-LOCATION O O O
+닭갈비 화제 요리 알려줘,S-RESTAURANT O O O
+망원동 백숙 요리 알려줘,S-LOCATION S-RESTAURANT O O
+합정동 찜닭 요리 알려줘,S-LOCATION S-RESTAURANT O O
+영등포구 주변 요리 알려줘,S-LOCATION O O O
+강북구 주변 요리 알려줘,S-LOCATION O O O
+수제 파스타 요리 궁금해,B-RESTAURANT E-RESTAURANT O O
+숯불갈비 요리 알려줘,S-RESTAURANT O O
+바베큐 요리 알려줘,S-RESTAURANT O O
+화덕구이 요리 궁금해요,S-RESTAURANT O O
+부대찌개 요리 궁금해요,S-RESTAURANT O O
+김치돼지찜 요리 궁금해,S-RESTAURANT O O
+고로케 요리 궁금해,S-RESTAURANT O O
+수제비 요리 알려줘,S-RESTAURANT O O
+비빔국수 요리 알려줘,S-RESTAURANT O O
+육개장 요리 갈까,S-RESTAURANT O O
+강동 주변 요리 갈까,S-LOCATION O O O
+이대 주변 요리 있을까,S-LOCATION O O O
+노량진 주변 요리 알려줘,S-LOCATION O O O
+강남 주변 요리 알려줘,S-LOCATION O O O
+목포 주변 요리 갈까,S-LOCATION O O O
+춘천 주변 요리 알려줘,S-LOCATION O O O
+시흥 주변 요리 알려줘,S-LOCATION O O O
+안산 맛집 알려줘,S-LOCATION O O
+속초 뭐 먹을까,S-LOCATION O O
+청주 맛집 갈까,S-LOCATION O O
+부산 뭐 먹을까,S-LOCATION O O
+강릉 주변 맛집 가볼까,S-LOCATION O O O
+전주 맛집 궁금해,S-LOCATION O O
+수원 주변 맛집 궁금해,S-LOCATION O O O
+용인 주변 맛집 알려줘,S-LOCATION O O O
+제주 서귀포 주변 뭐 먹을까,B-LOCATION E-LOCATION O O O
+강원도 평택 주변 맛집 궁금해,B-LOCATION E-LOCATION O O O
+해장국 화제 맛집 알려줘,S-RESTAURANT O O O
+유부전골 잘하는 곳 알려줘,S-RESTAURANT O O O
+족발 잘하는 곳 알려줘,S-RESTAURANT O O O
+파주 담백한 족발 맛집 알려줘,S-LOCATION O O O O
+대구탕 화제 맛집 알려줘,S-RESTAURANT O O O
+복어탕 화제 맛집 어딘데,S-RESTAURANT O O O
+쭈꾸미 화제 맛집 어딘데,S-RESTAURANT O O O
+홍어 화제 맛집 알려줘,S-RESTAURANT O O O
+갈비찜 잘하는 곳 추천해줘,S-RESTAURANT O O O
+잡채 잘하는 곳 추천해줘,S-RESTAURANT O O O
+북어 군침 맛집 추천해줘,S-RESTAURANT O O O
+만두 군침 맛집 추천해줘,S-RESTAURANT O O O
+굴 군침 맛집 추천해줘,S-RESTAURANT O O O
+녹차 먹고싶은데 어디서 먹어,S-RESTAURANT O O O
+광명 왔는데 여기 맛집 있을까,S-LOCATION O O O O
+인천 왔는데 담백한 맛집 알려줘,S-LOCATION O O O O
+대전 담백한 주변 맛집 알려줘,S-LOCATION O O O O
+울산 왔는데 주변 맛집 어딘데,S-LOCATION O O O O
+광주 왔거든 담백한 맛집 알려줘,S-LOCATION O O O O
+대구 왔는데 맛집 알려줘,S-LOCATION O O O
+부산 왔다 맛집 있을까,S-LOCATION O O O
+인천 짭짤한 맛집 알려줘,S-LOCATION O O O
+닭강정 잘하는 집 알려줘,S-RESTAURANT O O O
+순대 잘하는 집 어딘데,S-RESTAURANT O O O
+콩나물국밥 잘하는 집 알려줘,S-RESTAURANT O O O
+닭볶음탕 잘하는 집 알려줘,S-RESTAURANT O O O
+초밥 유명한 맛집 어딘데,S-RESTAURANT O O O
+시래깃국 유명한 곳 추천해줘,S-RESTAURANT O O O
+아귀찜 유명한 곳 말해줘,S-RESTAURANT O O O
+서울 왔는데 여기서 맛집 소개해줘,S-LOCATION O O O O
+여기서 뭐 먹을까,O O O

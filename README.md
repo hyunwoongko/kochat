@@ -412,9 +412,9 @@ Kochat 프레임워크는 수 많은 Configuration을 적용할 때, 의존성 �
 ```python
 # 데코레이터 예시
 
-from _backend.decorators import intent
-from _backend.decorators import entity
-from _backend.decorators import loss
+from decorators import intent
+from decorators import entity
+from decorators import loss
 from torch import nn
 
 
@@ -505,7 +505,7 @@ tokenizing 이슈
 사용됩니다.
 
 ```python
-from _backend.data.utils import Dataset
+from data import Dataset
 
 dataset = Dataset(ood=False)
 
