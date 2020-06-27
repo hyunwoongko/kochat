@@ -245,27 +245,27 @@ requirements.txt에 있는 pytorch 디펜던시를 수정하시고 다운로드 
 ### 3.3. configuration 설정하기
 `_backed`패키지의 `config.py`에 데이터/모델 저장 경로 등 다양한 설정 값들이 있습니다.
 레포지토리를 열고 나서 가장 먼저 초기 설정 (운영체제와 루트 경로)를 해줘야합니다.
+<br><br>
+
+#### 3.3.1. 운영체제 설정
+OS에는 'Windows' 혹은 'Others'를 적습니다. 
+이는 delimeter 설정을 위해서 입니다. ('/' vs '\\')
 
 ```python
-# 1. OS는 'Windows' 혹은 'Others'를 적어주세요
-# 이는 delimeter 설정을 위해서 입니다. ('/' vs '\\')
-
 OS = 'Others' 
 # OS = 'Windows'
 ```
+<br><br>
 
-OS를 설정했으면 다음으로 프로젝트 루트경로를 설정합니다.
+#### 3.3.2. 루트 경로 설정
+root_dir은 본인의 프로젝트 루트 경로를 적습니다. 
+구분자로 {_}를 사용하고, 맨 끝에는 붙이지 않습니다.
 
 ```python
-# 2. root_dir은 본인의 프로젝트 루트 경로를 적습니다. 
-# 구분자로 {_}를 사용하고, 맨 끝에는 붙이지 않습니다.
-
-root_dir = "/home{_}gusdnd852{_}Github{_}kochat"
-# root_dir = 'C:'
-
-# windows 예시 : "C:{_}yourdirectory{_}yourdirectory{_}..." (C 뒤에 ':'을 꼭 붙여주세요)
-# linux/mac 예시 : "/home{_}yourdirectory{_}yourdirectory{_}..." (home 앞에 '/'를 꼭 붙여주세요)
+root_dir = "/home{_}yourdirectory{_}yourdirectory{_}yourdirectory"
+# root_dir = "C:{_}yourdirectory{_}yourdirectory{_}yourdirectory"
 ```
+
 기본 configuration 설정은 모두 끝났습니다. 기본 설정 말고도 아래에 훨씬 많은 설정들이 있기 때문에
 주석을 잘 보시고 원하는 부분의 설정값을 변경하셔서 사용하시길 바랍니다.
 <br><br>
@@ -273,7 +273,7 @@ root_dir = "/home{_}gusdnd852{_}Github{_}kochat"
 
 ### 3.4. 데이터셋 삽입하기
 이제 만들려는 챗봇의 데이터를 삽입합니다. 데이터는 `_backend/data/raw`폴더에 삽입합니다. 
-그 전에 데이터셋의 포맷을 먼저 살펴봅시다. 우리는 Intent와 Entity 데이터 셋이 필요합니다.
+그 전에 데이터셋의 포맷을 먼저 살펴봅시다. 우선 Slot Filling을 위해서 Intent와 Entity 데이터 셋이 필요합니다.
 그러나 이 두가지 데이터 셋을 따로 만들려면 상당히 번거로울 것입니다. Kochat은 여러개로 분할된 
 Entity 데이터셋을 하나의 파일로 합쳐서 Intent 데이터셋을 자동으로 생성합니다.
 이 때 intent명은 파일명이 됩니다. 이렇게 하면 한가지 포맷만으로 인텐트와 엔티티 모두 커버 가능합니다.
@@ -317,10 +317,13 @@ question,label
 question에서 각 단어, label에서 각 엔티티는 띄어쓰기로 구분해서 작성합니다.
 예시 데이터셋에서는 엔티티 라벨은 BIO 스키마를 확장한 [BIOES](https://arxiv.org/pdf/1806.04470.pdf) 
 스키마를 사용하여 작성하였습니다. 그러나 Entity 스키마는 어떠한 방식을 사용하셔도 무방합니다. 
-config에서 정의할 수 있습니다. 참고로 엔티티(개체명) 인식에 익숙하지 않으시다면 [여기](https://keep-steady.tistory.com/20) 를
-참고하시면 좋습니다. 데이터셋 구성의 핵심은 각 엔티티 데이터셋을 Intent에 따라 다른 파일로 분리해서 만들어야한다는 것입니다. 
+config에서 정의할 수 있습니다. 데이터셋 구성의 핵심은 각 엔티티 데이터셋을 Intent에 따라 다른 파일로 분리해서 만들어야한다는 것입니다. 
 이 파일을 기준으로 Kochat은 아래와 같은 두가지 통합 데이터셋을 자동으로 생성합니다.
 <br><br>
+
+p.s.엔티티(개체명) 인식에 익숙하지 않으시다면 [여기](https://keep-steady.tistory.com/20) 를
+참고하시면 좋습니다.
+
 
 ```
 intent_data.csv
@@ -388,7 +391,7 @@ question,intent
 
 
 OOD 데이터셋이 없어도 챗봇의 동작에는 문제가 없지만, OOD데이터셋이 있으면 
-설정에 있어서 매우 번거로운 부분을 몇부분 자동화 시킬 수 있습니다. 
+설정에 있어서 매우 번거로운 부분들을 자동화 시킬 수 있습니다. 
 이에 대한 자세한 내용은 "4. 아키텍처와 컴포넌트"에서 자세히 후술합니다.
 (OOD 데이터셋은 그렇게까지 많지 않아도 됩니다. 
 예시의 경우도 총 3000라인의 데이터 중 600줄 정도만 만들어도 잘 작동합니다.)
