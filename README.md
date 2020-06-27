@@ -1,10 +1,5 @@
 # Kochat (Korean Chatbot)
 
-[![CodeFactor](https://www.codefactor.io/repository/github/gusdnd852/kochat/badge/master)](https://www.codefactor.io/repository/github/gusdnd852/kochat/overview/master)
-[![codebeat badge](https://codebeat.co/badges/e0c94e18-4127-4553-a576-a3cb28fdd925)](https://codebeat.co/projects/github-com-gusdnd852-kochat-master)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
-![license](https://camo.githubusercontent.com/9de77196777ad799157befc0c599963dd909ce25/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f6166666a6c6a6f6f333538312f457870616e6461)
-
 <br>
 
 ## 목차
@@ -13,7 +8,7 @@
 
 ## 1. Kochat 이란?
 
-![kochat_main](docs/image1.jpg)
+![kochat_main](docs/01_introduction_kochat.jpg)
 
 **Kochat은 한국어 전용 챗봇 개발 프레임워크로, 머신러닝 개발자라면 
 누구나 무료로 손쉽게 한국어 챗봇을 개발 할 수 있도록 돕는 오픈소스 프레임워크**입니다.
@@ -25,15 +20,16 @@ Restful Api 및 애플리케이션, 또 이들을 유기적으로 연결할 파�
 이런 부분들에 훨씬 시간과 노력이 많이 필요합니다.
 <br><br>
 
-![kochat_main](docs/image2.jpg)
+![kochat_main](docs/01_introduction_mlcode.jpg)
 
 Kochat은 이러한 부분을 해결하기 위해 제작되었습니다. 
-데이터 전처리, 아키텍처, 모델과의 파이프라인, 실험 결과 시각화, 성능평가 등은 
-Kochat의 구성을 사용하면서 개발자가 원하는 모델이나 Loss함수, 데이터 셋 등만 
-간단하게 작성하여 내가 원하는 모델의 성능을 빠르게 실험할 수 있게 도와줍니다.
+데이터 전처리, 아키텍처, 모델과의 파이프라인, 실험 결과 시각화, 
+성능평가 등은 Kochat의 구성을 사용하면서 개발자가 원하는 모델이나 Loss함수, 
+데이터 셋 등만 간단하게 작성하여 내가 원하는 모델의 성능을 빠르게 실험할 수 있게 도와줍니다.
 또한 프리 빌트인 모델들과 Loss 함수등을 지원하여 딥러닝이나 자연어처리에 대해 잘 모르더라도 
 프로젝트에 데이터만 추가하면 손쉽게 상당히 높은 성능의 챗봇을 개발할 수 있게 도와줍니다. 
-아직은 초기레벨이기 때문에 많은 모델과 기능을 지원하지는 않지만 점차 모델과 기능을 늘려나갈 계획입니다.
+아직은 초기레벨이기 때문에 많은 모델과 기능을 지원하지는 않지만 점차 모델과 
+기능을 늘려나갈 계획입니다.
 <br><br>
 
 ### 1.1. 기존 챗봇 빌더와의 차이점
@@ -47,14 +43,15 @@ Loss 함수를 바꾸거나 본인이 원하면 아예 새로운 기능을 첨�
 만약 새로운 모델을 개발하거나 새로운 기능을 추가하고싶다면 얼마든지 레포지토리에 컨트리뷰션
 할 수 있습니다.
 
-- **Kochat은 무료입니다.** 매달 사용료를 내야하는 챗봇 빌더들에 비해 자체적인 서버만 가지고 있다면
-비용제약 없이 얼마든지 챗봇을 개발하고 서비스 할 수 있습니다. 아직은 기능이 미약하지만 추후에는 정말 
-웬만한 챗봇 빌더들 보다 더 다양한 기능을 무료로 제공할 예정입니다.
+- **Kochat은 무료입니다.** 매달 사용료를 내야하는 챗봇 빌더들에 비해 자체적인 서버만 
+가지고 있다면 비용제약 없이 얼마든지 챗봇을 개발하고 서비스 할 수 있습니다. 
+아직은 기능이 미약하지만 추후에는 정말 웬만한 챗봇 빌더들 보다 더 다양한 기능을 무료로 
+제공할 예정입니다.
 <br><br>
 
 ### 1.2. Kochat 제작 동기
 
-![rasa](docs/rasa.png)
+![rasa](docs/01_introduction_rasa.png)
 
 이전에 여기저기서 코드를 긁어모아서 만든, 수준 낮은 제 딥러닝 chatbot 레포지토리가 
 생각보다 큰 관심을 받으면서, 한국어로 된 딥러닝 챗봇 구현체가 정말 많이 없다는 것을 느꼈습니다. 
@@ -66,26 +63,28 @@ Loss 함수를 바꾸거나 본인이 원하면 아예 새로운 기능을 첨�
 
 그러던 중, 미국의 [RASA](https://rasa.com)라는 챗봇 프레임워크를 보게 되었습니다. 
 RASA는 개발자가 직접 소스코드를 수정할 수 있기 때문에 다양한 부분을 커스터마이징 할 수 있습니다. 
-그러나 한국어를 제대로 지원하지 않아서, 전용 토크나이저를 추가하는 등 매우 번거로운 작업이 필요하고 
-실제로 너무 다양한 컴포넌트가 존재하여 익숙해지는데 조금 어려운 편입니다. 
+그러나 한국어를 제대로 지원하지 않아서, 전용 토크나이저를 추가하는 등 매우 번거로운 작업이 
+필요하고 실제로 너무 다양한 컴포넌트가 존재하여 익숙해지는데 조금 어려운 편입니다. 
 때문에 누군가 한국어 기반이면서 조금 더 컴팩트한 챗봇 프레임워크를 제작한다면 
 챗봇을 개발해야하는 개발자들에게 정말 유용할 것이라고 생각되었고 직접 이러한 프레임워크를 
 만들어보자는 생각에 Kochat을 제작하게 되었습니다. <br><br>
 
 Kochat은 한국어(Korean)의 앞글자인 Ko와 제 이름 앞 글자인 Ko를 따와서 지었습니다.
-Kochat은 앞으로도 계속 오픈소스 프로젝트로 유지될 것이며, 적어도 1~2달에 1번 이상은 새로운 모델을 추가하고, 
-기존 소스코드의 버그를 수정하는 등 유지보수 작업을 이어갈 것이며 처음에는 미천한 실력인 제가 시작했지만,
-그 끝은 RASA처럼 정말 유용하고 높은 성능을 보여주는 수준높은 오픈소스 프레임워크가 되었으면 좋겠습니다. :)
+Kochat은 앞으로도 계속 오픈소스 프로젝트로 유지될 것이며, 적어도 1~2달에 1번 이상은 
+새로운 모델을 추가하고, 기존 소스코드의 버그를 수정하는 등 유지보수 작업을 이어갈 것이며 
+처음에는 미천한 실력인 제가 시작했지만, 그 끝은 RASA처럼 정말 유용하고 높은 성능을 보여주는 
+수준높은 오픈소스 프레임워크가 되었으면 좋겠습니다. :)
 
 <br><br><br>
 
 ## 2. 챗봇에 대한 간략한 설명
-이 챕터에서는 챗봇의 분류와 구현방법, Kochat은 어떻게 챗봇을 구현하고 있는지에 대해 간단하게 소개합니다. 
+이 챕터에서는 챗봇의 분류와 구현방법, Kochat은 어떻게 챗봇을 구현하고 있는지에 대해 
+간단하게 소개합니다. 
 <br><br>
 
 ### 2.1. 챗봇의 분류
 
-![chatbot_table](docs/chatbot_table.jpg)
+![chatbot_table](docs/02_chatbot_table.jpg)
 
 챗봇은 크게 비목적대화를 위한 Open domain 챗봇과 목적대화를 위한 Close domain 챗봇으로 나뉩니다.
 Open domain 챗봇은 주로 잡담 등을 수행하는 챗봇을 의미하는데, 
@@ -103,7 +102,7 @@ Close domain 챗봇이란 한정된 대화 범위 안에서 사용자가 원하�
  
 #### 2.2.1. Open domain 챗봇
 
-![seq2seq](docs/seq2seq.png)
+![seq2seq](docs/02_chatbot_seq2seq.png)
 
 먼저 Open domain 챗봇의 경우는 딥러닝 분야에서는 대부분, End to End 
 신경망 기계번역 방식(Seq2Seq)으로 구현되어왔습니다. Seq2Seq은 한 문장을 다른 문장으로 
@@ -112,13 +111,12 @@ Close domain 챗봇이란 한정된 대화 범위 안에서 사용자가 원하�
 최근에 발표된 Google의 [Meena](https://ai.googleblog.com/2020/01/towards-conversational-agent-that-can.html)
 같은 모델을 보면, 복잡한 모델 아키텍처나 학습 프레임워크 없이 End to End (Seq2Seq) 모델만으로도
 매우 방대한 데이터셋과 높은 성능의 컴퓨팅 리소스를 활용하면 정말 사람과 근접한 수준으로 대화할 수 있다는 것으로 알려져있습니다.
-(그러나 현재버전 프레임워크에서는 Close domain 만 지원합니다. 
-차후 버전에서 다양한 Seq2Seq 모델도 추가할 예정입니다.)
+(그러나 현재버전 프레임워크에서는 Close domain 만 지원합니다. 차후 버전에서 다양한 Seq2Seq 모델도 추가할 예정입니다.)
 <br><br>
 
 #### 2.2.2. Close domain 챗봇
 
-![slot_filling](docs/slot_filling.jpg)
+![slot_filling](docs/02_chatbot_slot_filling.jpg)
 
 Close domain 챗봇은 대부분 Slot Filling 방식으로 구현되어 왔습니다. 물론 Close domain 챗봇도
 Open domain처럼 End to end로 구현하려는 [다양한](https://arxiv.org/pdf/1605.07683.pdf) 
@@ -139,7 +137,7 @@ Slot Filling 방식은 미리 기능을 수행할 정보를 담는 '슬롯'을 �
 
 #### 2.2.2.1. 인텐트(의도) 분류하기 : 슬롯 고르기
 
-![intent_classification](docs/intent_classification.jpg)
+![intent_classification](docs/02_chatbot_intent_classification.jpg)
 
 가장 먼저 사용자에게 문장을 입력받았을 때, 우리는 저 4가지 정보제공 기능 중
 어떤 기능을 실행해야하는지 알아채야합니다. 이 것을 인텐트(Intent)분류. 즉, 의도 분류라고 합니다.
@@ -150,7 +148,7 @@ Slot Filling 방식은 미리 기능을 수행할 정보를 담는 '슬롯'을 �
 
 #### 2.2.2.2. 엔티티(개체명) 인식하기
 
-![entity_recognition](docs/entity_recognition.jpg)
+![entity_recognition](docs/02_chatbot_entity_recognition.jpg)
 
 그 다음 해야할 일은 바로 개체명인식 (Named Entity Recognition)입니다.
 어떤 API를 호출할지 알아냈다면, 이제 그 API를 호출하기 위한 파라미터를 찾아야합니다.
@@ -161,15 +159,17 @@ Slot Filling 방식은 미리 기능을 수행할 정보를 담는 '슬롯'을 �
 
 #### 2.2.2.3. 대답 생성하기
 
-![response_generation](docs/response_generation.jpg)
+![response_generation](docs/02_chatbot_response_generation.jpg)
 
 슬롯이 모두 채워졌다면 API를 실행시켜서 외부로부터 정보를 제공받습니다.
 API로부터 결과가 도착하면, 미리 만들어둔 템플릿 문장에 해당 실행 결과를 삽입하여 대답을 만들어내고,
-이 대답을 사용자에게 response합니다.
+이 대답을 사용자에게 response합니다. 이 API는 자유롭게 원하는 API를 사용하면 됩니다. 
+예제 애플리케이션에서는 주로 웹 크롤링을 이용하여 API를 구성하였고, 크롤러 구현 아키텍처에 대해서도 후술하도록 하겠습니다. 
 <br><br>
 
 Slot Filling 방식의 챗봇은 위와 같은 흐름으로 진행됩니다. 따라서 이러한 방식의 챗봇을 구현하려면
-최소한 3가지의 모듈이 필요합니다. 첫번째로 인텐트 분류모델, 엔티티 인식모델, 그리고 대답 생성모듈입니다.
+최소한 3가지의 모듈이 필요합니다. 첫번째로 인텐트 분류모델, 엔티티 인식모델, 
+그리고 대답 생성모듈(예제에서는 크롤링)입니다.
 Kochat은 이 세가지 모듈과 이를 서빙할 Restful API까지 모두 포함하고 있습니다. 
 이에 대해서는 "4. 컴포넌트 및 아키텍처" 챕터에서 각각 모델을 어떻게 구현했는지 자세히 설명합니다.
 
@@ -185,17 +185,17 @@ Kochat은 이 세가지 모듈과 이를 서빙할 Restful API까지 모두 포�
 
 ### 3.1. 템플릿 레포지토리 만들기
 
-![kochat_main](docs/getting_started_01.jpg)
+![kochat_main](docs/03_getting_started_making.jpg)
 
 상단의 Use this template 버튼을 클릭하여 템플릿 레포지토리를 생성합니다.
 <br><br>
 
-![kochat_main](docs/getting_started_02.jpg)
+![kochat_main](docs/03_getting_started_naming.jpg)
 
 레포지토리 이름과 설명 등의 정보를 기입한 뒤, 레포지토리를 생성합니다.
 <br><br>
 
-![kochat_main](docs/getting_started_03.jpg)
+![kochat_main](docs/03_getting_started_cloning.jpg)
 
 git clone 명령어를 사용해서 방금 만든 레포지토리를 clone합니다.
 <br><br>
@@ -204,7 +204,7 @@ git clone 명령어를 사용해서 방금 만든 레포지토리를 clone합니
 
 #### 3.3.1. Docker (Recommend)
 
-![docker](docs/docker.png)
+![docker](docs/03_getting_started_docker.png)
 ```shell script
 sudo docker pull gusdnd852/kochat:latest
 ```
@@ -220,7 +220,7 @@ requirements.txt에 있는 pytorch 디펜던시를 수정하시고 루트 경로
 ```
 matplotlib==3.2.1
 pandas==1.0.4
-torch~=1.5.1+cu101
+torch==1.5.1+cu101
 gensim==3.8.3
 konlpy==0.5.2
 flask==1.1.2
@@ -248,14 +248,14 @@ requirements.txt에 있는 pytorch 디펜던시를 수정하시고 다운로드 
 <br><br>
 
 #### 3.3.1. 운영체제 설정
-OS에는 'Windows' 혹은 'Others'를 적습니다. 
+OS에는 본인 운영체제에 맞게 'Windows' 혹은 'Others'를 적습니다. 
 이는 delimeter 설정을 위해서 입니다. ('/' vs '\\')
+<br><br>
 
 ```python
 OS = 'Others' 
 # OS = 'Windows'
 ```
-<br><br>
 
 #### 3.3.2. 루트 경로 설정
 root_dir은 본인의 프로젝트 루트 경로를 적습니다. 
@@ -328,7 +328,7 @@ p.s.엔티티(개체명) 인식에 익숙하지 않으시다면 [여기](https:/
 ```
 intent_data.csv
 
-question,intent
+question,label
 날씨 알려주겠니,weather
 날씨 정보 알려주세요,weather
 그 때 기온 어떨까,weather
@@ -350,7 +350,7 @@ question,intent
 ```
 entity_data.csv
 
-question,entity
+question,label
 날씨 알려주겠니,O O
 날씨 정보 알려주세요,O O O
 그 때 기온 어떨까,O O O O
@@ -366,6 +366,7 @@ question,entity
 제주 많이 공기 상태 나쁠까,S-LOCATION O O O O
 먼지 너무 많이 없나,O O O O
 혹시 목요일 먼지 심하니 마스크 챙길까,O S-DATE O O O O
+...
 ```
 이 두가지 데이터셋을 이용하여 인텐트 분류기와 엔티티 인식기를 학습합니다. 
 그리고 추가로 입력할 수 있는 또 하나의 데이터 셋이 있는데 그 것은 바로 OOD 데이터셋입니다.
@@ -374,34 +375,160 @@ OOD 데이터셋은 `_backend/data/ood`에 추가합니다. OOD란 Out of distri
 <br><br>
 
 ```
-question,intent
-정치적 요즘 이슈 최근 알려줘,뉴스이슈
-요즘 이슈 알려줘,뉴스이슈
-요즘 사회적인 이슈 알려줘,뉴스이슈
-최근 이슈 알려줘,뉴스이슈
-알바하기 너무 힘들다,잡담
-세상에 쉬운 일은 없어,잡담
-알바하는데 같이 일하는 사람 좋아,잡담
-알아들은 척했는데 모르겠어,잡담
-엔플라잉 옥탑방 노래 틀어줘요,음악
-재키와이 노래 들을래요,음악
-백재범 노래 들을래요,음악
-비 노래 깡 듣고 싶다,음악
+question,label
+정치적 요즘 이슈 최근 알려줘,OOD
+요즘 이슈 알려줘,OOD
+요즘 사회적인 이슈 알려줘,OOD
+최근 이슈 알려줘,OOD
+알바하기 너무 힘들다,OOD
+세상에 쉬운 일은 없어,OOD
+알바하는데 같이 일하는 사람 좋아,OOD
+알아들은 척했는데 모르겠어,OOD
+엔플라잉 옥탑방 노래 틀어줘요,OOD
+재키와이 노래 들을래요,OOD
+백재범 노래 들을래요,OOD
+비 노래 깡 듣고 싶다,OOD
 ```
 
 
 OOD 데이터셋이 없어도 챗봇의 동작에는 문제가 없지만, OOD데이터셋이 있으면 
 설정에 있어서 매우 번거로운 부분들을 자동화 시킬 수 있습니다. 
 이에 대한 자세한 내용은 "4. 아키텍처와 컴포넌트"에서 자세히 후술합니다.
-(OOD 데이터셋은 그렇게까지 많지 않아도 됩니다. 
-예시의 경우도 총 3000라인의 데이터 중 600줄 정도만 만들어도 잘 작동합니다.)
+OOD 데이터셋을 만드는 게 부담스러우시다면, OOD 데이터셋은 그렇게까지 많지 않아도 됩니다. 
+예시의 경우도 총 3000라인의 데이터 중 600줄 정도만 만들어도 잘 작동합니다.
 
  
 <br><br>
 
 ## 4. 아키텍처와 컴포넌트
-작성 예정.. (UML 다이어그램 및 도식도 첨가하기)
+
+### 4.0 데코레이터를 통한 Configuration 주입
+Kochat 프레임워크는 수 많은 Configuration을 적용할 때, 의존성 문제를 최소화시키기 위해
+데코레이터를 이용해 외부에서 Configuration을 주입해주는 방식을 선택했습니다.
+따라서 클래스나 메소드/함수 등을 만들 때 아래처럼 데코레이터만 붙여주면 의존성에 대한 걱정 없이
+해당 configuration에 정의된 데이터에 접근할 수 있습니다. 데코레이터의 소스코드는 각 패키지의 
+`decorators.py`에 정의되어 있습니다.
+
+```python
+# 데코레이터 예시
+
+from _backend.decorators import intent
+from _backend.decorators import entity
+from _backend.decorators import loss
+from torch import nn
+
+
+@intent
+class YourIntentModel(nn.Module):
+
+    def __init__(self):
+        super().__init__()
+        """your model's parameters"""
+   
+    def forward(self, x):
+        """your model's forwarding"""
+        return x
+
+@entity
+class YourEntityModel(nn.Module):
+
+    def __init__(self):
+        super().__init__()
+        """your model's parameters"""
+   
+    def forward(self, x):
+        """your model's forwarding"""
+        return x
+
+@loss
+class YourLoss(nn.Module):
+    def __init__(self):
+        super().__init__()
+        """your loss's parameters"""
+   
+    def forward(self, x):
+        """your loss's forwarding"""
+        return x
+```
+
 <br><br>
+
+
+
+### 4.1 `_backend/data` 패키지
+![diagram](docs/class_diagram_dataset.jpg)
+
+가장 먼저 `_backend/data`에 있는 컴포넌트에 대해 소개합니다. 
+`_backend/data` 패키지에는 총 3개의 클래스가 존재합니다. 각각에 대하여 간략하게 소개합니다.
+<br><br>
+
+#### 4.1.1. `Organizer`
+`Organizer` 클래스는 `raw` 폴더에 있는 데이터 파일들을 점검하여 유효성을 확인하고
+문제가 없다면 하나로 합쳐서 통합 intent 데이터파일과 통합 entity 데이터 파일을 만듭니다.
+그리고 label_dictionary를 만들어서 `Dataset`에게 반환합니다. 
+`Organizer` 클래스는 후술할 `Dataset` 클래스 내부에 포함되어있기 때문에 
+프레임워크의 사용자 입장에서 직접 사용할 일은 아마 없을 것 입니다.
+<br><br>
+
+#### 4.1.2. `Preprocessor`
+`Preprocessor` 클래스는 데이터의 맞춤법을 자동으로 검사하고, 토크나이징, 패드시퀀싱 등의 
+전처리 작업을 수행하는 클래스입니다. `Preprocessor`역시 `Dataset`클래스 안에 
+내장 되어있기 때문에 `Organizer`와 마찬가지로 프레임워크의 사용자 입장에서 직접 
+사용할 일은 아마 없을 것 입니다. 프레임워크 사용자의 경우 `Preprocessor`의 코드를 직접 
+사용하진 않지만 tokenizing의 작동 방식은 자세히 알아둘 필요가 있기 때문에 관련 내용은 
+아래에서 설명합니다. 
+
+```
+tokenizing 이슈
+
+1. 학습/테스트시에는 데이터 전처리 속도를 향상 시키기 위해 맞춤법 검사 및 konlpy 
+토크나이저의 사용이 모두 off됩니다. (오로지 띄어쓰기를 기준으로 split()합니다.) 
+때문에 학습 데이터를 만들 때는 맞춤법과 띄어쓰기를 유의해서 만들어주시길 바랍니다.
+
+2. 위에서 말한 것 처럼 추론시에만 네이버 맞춤법 검사기와 토크나이저가 사용됩니다. 
+그러나 네이버 맞춤법 검사기의 경우 네이버의 허락 없이 무단 크롤링하여 구현한 것이기 
+때문에 단순히 공부 및 과제 등의 프로젝트용으로 사용한다면 큰 문제가 되지 않겠지만 
+이 코드를 상업적 이용하게 되면 법적인 문제가 될 수 있습니다. 
+후술할 데이터셋 클래스의 load_predict() 함수에서 'naver_fix' 파라미터를 False로 
+끄게 되면 맞춤법 검사 기능은 사용하지 않고 konlpy 토크나이징만 사용할 수 있습니다.
+
+3. 맞춤법 부분의 이슈는 현재는 네이버 맞춤법 검사기를 사용하고 있지만 차후 버전에서는
+자체적인 띄어쓰기 및 맞춤법 모델들 구현하여 적용할 예정입니다.
+무단으로 네이버의 맞춤법 검사기를 사용해 구현한 점에 있어서 대단히 죄송합니다.
+```
+<br><br>
+
+#### 4.1.3. `Dataset`
+`Dataset` 클래스는 `Organizer`클래스가 만들어낸 통합 데이터셋 파일을 전처리하고 임베딩한 뒤
+미니배치 단위로 잘라서 학습/테스트용 데이터로서 사용할 수 있게 준비시킵니다.
+주로 학습에 필요한 데이터셋을 생성하거나, 모델이나 Loss 함수들이 필요한 label_dict를 반환할 때 
+사용됩니다.
+
+```python
+from _backend.data.utils import Dataset
+
+dataset = Dataset(ood=False)
+
+emb_dataset = dataset.load_embed() # 임베딩 학습용 데이터셋
+intent_dataest = dataset.load_intent(emb_proc) # 인텐트 학습용 데이터셋
+entity_dataset = dataset.load_entity(emb_proc) # 엔티티 학습용 데이터셋
+
+intent_dict = dataset.intent_dict # 인텐트 라벨 딕셔너리
+entity_dict = dataset.entity_dict # 엔티티 라벨 딕셔너리
+```
+<br><br>
+
+### 4.2. `_backend/proc` 패키지
+Kochat 프레임워크에서 가장 중요한 패키지로서 다양한 학습 프로세서를 보유하고 있습니다.
+프로세서란 모델과 데이터셋을 입력받고 학습, 추론, 테스트 등을 진행하는 클래스로서
+실질적으로 Kochat에서 작업 실행기로서 가장 자주 사용되는 클래스입니다.
+<br><br>
+
+#### 4.2.1. AbstractProcessor들의 상속구조
+
+![diagram](docs/class_diagram_abstract_processor.jpg)
+
+
 
 ## 5. 사용법
 

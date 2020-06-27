@@ -1,6 +1,6 @@
 matplotlib==3.2.1
 pandas==1.0.4
-torch~=1.5.1+cu101
+torch==1.5.1+cu101
 gensim==3.8.3
 konlpy==0.5.2
 flask==1.1.2

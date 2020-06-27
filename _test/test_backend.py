@@ -9,7 +9,7 @@ from _backend.model.entity_lstm import EntityLSTM
 from _backend.model.intent_cnn import IntentCNN
 from _backend.proc.base.gensim_processor import GensimProcessor
 from _backend.proc.entity_recognizer import EntityRecognizer
-from _backend.proc.intent_classifier import IntentClassifier
+from _backend.proc.distance_intent_classifier import DistanceIntentClassifier
 
 warnings.simplefilter("ignore")
 os.environ["PYTHONWARNINGS"] = "ignore"
@@ -23,15 +23,15 @@ embed = GensimProcessor(
 )
 embed.fit(dataset.load_embed())
 
-entity = EntityRecognizer(
-    model=EntityLSTM(dataset.entity_dict),
-    loss=CrossEntropyLoss(dataset.entity_dict)
-)
-entity.fit(dataset.load_entity(embed))
-
-intent = IntentClassifier(
+intent = DistanceIntentClassifier(
     model=IntentCNN(dataset.intent_dict),
     loss=CrossEntropyLoss(dataset.intent_dict)
 )
 
 intent.fit(dataset.load_intent(embed))
+
+entity = EntityRecognizer(
+    model=EntityLSTM(dataset.entity_dict),
+    loss=CrossEntropyLoss(dataset.entity_dict)
+)
+entity.fit(dataset.load_entity(embed))

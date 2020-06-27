@@ -1,16 +1,13 @@
 from flask import Flask
 
-from _app.restful.scenario_manager import ScenarioManager
-from _backend.data.utils.dataset import Dataset
-from _backend.proc.base.base_processor import BaseProcessor
-
 
 class KochatApi:
 
-    def __init__(self, dataset: Dataset,
-                 embed_processor: BaseProcessor,
-                 intent_classifier: BaseProcessor,
-                 entity_recognizer: BaseProcessor):
+    def __init__(self, scenario,
+                 dataset,
+                 embed_processor,
+                 intent_classifier,
+                 entity_recognizer):
         """
         Flask를 이용해 구현한 RESTFul API 클래스입니다.
 
@@ -23,7 +20,7 @@ class KochatApi:
         self.__app = Flask(__name__)
         self.__app.config['JSON_AS_ASCII'] = False
 
-        self.scenario = ScenarioManager()
+        self.scenario = scenario
         self.dataset = dataset
         self.embed_processor = embed_processor
         self.intent_classifier = intent_classifier

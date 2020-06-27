@@ -35,9 +35,9 @@ class Organizer:
             integrated_file += intent_file
             # 개별 파일 단위 프로세싱 이후 하나의 파일로 통합
 
-        intent_df = DataFrame(integrated_file, columns=['question', 'intent'])
+        intent_df = DataFrame(integrated_file, columns=['question', 'label'])
         intent_df.to_csv(self.intent_data_dir, index=False)
-        intent_dict = self.__make_intent_dict(intent_df['intent'])
+        intent_dict = self.__make_intent_dict(intent_df['label'])
         return intent_dict
 
     def organize_entity(self) -> dict:
@@ -64,7 +64,7 @@ class Organizer:
 
         self.__check_label_kinds(label_set)  # 라벨 종류 체크
         entity_df = DataFrame([[' '.join(q), ' '.join(l)] for q, l in integrated_file])
-        entity_df.to_csv(self.entity_data_dir, index=False, header=['question', 'entity'])
+        entity_df.to_csv(self.entity_data_dir, index=False, header=['question', 'label'])
         entity_dict = self.__make_entity_dict(label_set)
         return entity_dict
 

@@ -117,7 +117,6 @@ class Visualizer:
 
         label_length = len(target_names)
         figure_base_size = (label_length * 1.5)
-        ticks_font_size = (label_length * 1.5) + 3
         title_font_size = (label_length * 3) + 7
 
         cmap = plt.get_cmap('Blues')
@@ -132,8 +131,8 @@ class Visualizer:
         )
 
         tick_marks = np.arange(label_length)
-        plt.xticks(tick_marks, target_names, fontsize=ticks_font_size)
-        plt.yticks(tick_marks, target_names, fontsize=ticks_font_size)
+        plt.xticks(tick_marks, target_names)
+        plt.yticks(tick_marks, target_names)
         plt.colorbar(im, fraction=0.046, pad=0.04)
         thresh = cm.max() / 1.5
 
