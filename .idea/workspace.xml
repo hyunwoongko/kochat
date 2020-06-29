@@ -20,212 +20,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d122a472-58ee-4a2b-8505-15e95560cd02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/data/dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/data/organizer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/data/preprocessor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/decorators.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/loss/base_loss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/loss/center_loss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/loss/coco_loss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/loss/cosface.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/loss/crf_loss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/loss/cross_entropy_loss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/loss/entity/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/loss/gaussian_mixture.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/loss/intent/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/loss/masking.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/model/convolution.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/model/embed/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/model/embed/fasttext.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/model/entity/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/model/entity/lstm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/model/intent/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/model/intent/cnn.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/model/intent/lstm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/proc/base_processor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/proc/embed/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/proc/embed/gensim_processor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/proc/entity/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/proc/intent/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/proc/intent/distance_estimator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/proc/intent/fallback_detector.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/proc/intent/softmax_classifier.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/proc/sklearn_processor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/proc/torch_processor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/utils/metrics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/kochat/utils/visualizer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/kochat-0.6-py3-none-any.whl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat.egg-info/PKG-INFO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat.egg-info/SOURCES.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat.egg-info/dependency_links.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat.egg-info/not-zip-safe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat.egg-info/requires.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat.egg-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/app/kochat_api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/app/scenario.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/app/scenario_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/data/dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/data/organizer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/data/preprocessor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/decorators.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/loss/base/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/loss/base/base_loss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/loss/base/cross_entropy_loss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/loss/base/masking.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/loss/entity/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/loss/entity/crf_loss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/loss/intent/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/loss/intent/center_loss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/loss/intent/coco_loss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/loss/intent/cosface.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/loss/intent/gaussian_mixture.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/model/embed/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/model/embed/fasttext.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/model/entity/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/model/entity/lstm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/model/intent/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/model/intent/cnn.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/model/intent/lstm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/model/layers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/model/layers/convolution.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/proc/base/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/proc/base/base_processor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/proc/base/sklearn_processor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/proc/base/torch_processor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/proc/embed/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/proc/embed/gensim_embedder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/proc/entity/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/proc/entity/entity_recognizer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/proc/intent/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/proc/intent/distance_classifier.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/proc/intent/distance_estimator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/proc/intent/fallback_detector.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/proc/intent/intent_classifier.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/proc/intent/softmax_classifier.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/utils/metrics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/utils/visualizer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/decorators.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loss/base/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loss/base/base_loss.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loss/center_loss.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loss/coco_loss.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loss/cosface.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loss/crf_loss.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loss/cross_entropy_loss.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loss/gaussian_mixture.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loss/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loss/utils/masking.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/base/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/base/convolution.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/embed_fasttext.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/entity_lstm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/intent_cnn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/intent_lstm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/base/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/base/base_processor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/base/gensim_processor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/base/sklearn_processor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/base/torch_processor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/distance_estimator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/fallback_detector.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/softmax_intent_classifier.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/utils/metrics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/utils/visualizer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/restful/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/restful/kochat_api.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/restful/scenario_manager.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/scenarios/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/scenarios/base_scenario.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/scenarios/dust_scenario.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/scenarios/fallback_scenario.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/scenarios/restaurant_scenario.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/scenarios/travel_scenario.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/scenarios/weather_scenario.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_app/web/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/kochat/data/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/kochat/loss/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/data/entity_data.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/data/intent_data.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/data/ood/close_domain.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/data/ood/open_domain.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/data/raw/dust.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/data/raw/restaurant.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/data/raw/travel.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/data/raw/weather.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/data/utils/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/data/utils/dataset.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/data/utils/organizer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/data/utils/preprocessor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/decorators.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/kochat/model/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/base/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/kochat/proc/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/base/base_loss.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/center_loss.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/coco_loss.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/cosface.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/crf_loss.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/cross_entropy_loss.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/gaussian_mixture.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/utils/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/loss/utils/masking.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/kochat/utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/model/base/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/data/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/model/base/convolution.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/model/embed_fasttext.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/model/entity_lstm.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/model/intent_cnn.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/model/intent_lstm.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/proc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/loss/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/proc/base/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/proc/base/base_processor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/proc/base/gensim_processor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/proc/base/sklearn_processor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/proc/base/torch_processor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/proc/distance_estimator.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/proc/entity_recognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/kochat/proc/entity/entity_recognizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/proc/fallback_detector.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/proc/intent_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/kochat/proc/intent/distance_classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/proc/softmax_classifier.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/proc/utils/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/proc/utils/metrics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_backend/proc/utils/visualizer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/answerer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/answerer/base/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/answerer/base/answerer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/answerer/base/baseanswerer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/answerer/dust_answerer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/answerer/restaurant_answerer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/answerer/travel_answerer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/answerer/weather_answerer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/crawler/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/crawler/base/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/crawler/base/base_crawler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/crawler/base/crawler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/crawler/dust_crawler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/crawler/retaurant_crawler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/crawler/travel_crawler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/crawler/weather_crawler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/decorators.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/editor/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/editor/base/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/editor/base/base_editor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/editor/base/editor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/editor/dust_editor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/editor/restaurant_editor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/editor/travel_editor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/editor/weather_editor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/searcher/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/searcher/base/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/searcher/base/base_searcher.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/searcher/base/searcher.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/searcher/dust_searcher.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/searcher/restaurant_searcher.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/searcher/travel_searcher.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_crawler/searcher/weather_searcher.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_test/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_test/test_app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_test/test_backend.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_test/test_crawler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/class_diagram_01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/class_diagram_02.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/class_diagram_03.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/class_diagram_04.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/class_diagram_05.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/class_diagram_06.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/getting_started_01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/getting_started_02.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/getting_started_03.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/image1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/image2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/uml.mdj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/loss/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/entity_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/intent_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ood/ood_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw/dust.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw/restaurant.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw/travel.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw/weather.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/utils/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/utils/dataset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/utils/organizer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/utils/preprocessor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/proc/entity/entity_recognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/entity/entity_recognizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/proc/intent/distance_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/intent/distance_classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proc/distance_intent_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/proc/distance_intent_classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proc/entity_recognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/proc/entity_recognizer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -559,7 +405,7 @@
       <workItem from="1593113733141" duration="23051000" />
       <workItem from="1593179284763" duration="10259000" />
       <workItem from="1593230152086" duration="47815000" />
-      <workItem from="1593291711820" duration="40508000" />
+      <workItem from="1593291711820" duration="41097000" />
     </task>
     <servers />
   </component>
