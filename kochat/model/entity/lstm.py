@@ -22,7 +22,7 @@ class LSTM(nn.Module):
                             hidden_size=self.d_model,
                             num_layers=self.layers,
                             batch_first=True,
-                            bidirectional=True if self.direction == 2 else False)
+                            bidirectional=bidirectional)
 
         self.out = nn.Linear(self.d_model * self.direction, len(label_dict))
 

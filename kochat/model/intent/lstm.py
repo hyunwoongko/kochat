@@ -28,9 +28,9 @@ class LSTM(nn.Module):
                             hidden_size=self.d_model,
                             num_layers=self.layers,
                             batch_first=True,
-                            bidirectional=True if self.direction == 2 else False)
+                            bidirectional=bidirectional)
 
-        self.features = nn.Linear(self.d_model * self.direction, self.d_loss)
+        self.features = nn.Linear(self.d_model, self.d_loss)
         self.classifier = nn.Linear(self.d_loss, len(self.label_dict))
 
     def init_hidden(self, batch_size: int) -> autograd.Variable:
