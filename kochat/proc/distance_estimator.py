@@ -6,7 +6,7 @@ from sklearn.utils._testing import ignore_warnings
 from torch import Tensor
 
 from kochat.decorators import intent
-from kochat.proc.base.sklearn_processor import SklearnProcessor
+from kochat.proc.sklearn_processor import SklearnProcessor
 
 
 @intent

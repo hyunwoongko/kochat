@@ -11,7 +11,7 @@ from abc import abstractmethod
 
 from sklearn.base import BaseEstimator
 from sklearn.utils._testing import ignore_warnings
-from kochat.proc.base.base_processor import BaseProcessor
+from kochat.proc.base_processor import BaseProcessor
 
 
 class SklearnProcessor(BaseProcessor):

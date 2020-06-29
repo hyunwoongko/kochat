@@ -5,7 +5,7 @@ from torch.nn import functional as F
 from torch import Tensor
 
 from kochat.decorators import intent
-from kochat.loss.base.base_loss import BaseLoss
+from kochat.loss.base_loss import BaseLoss
 
 
 @intent

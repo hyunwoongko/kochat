@@ -15,7 +15,7 @@ from torch.nn.parameter import Parameter
 from torch.optim import Adam
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 
-from kochat.proc.base.base_processor import BaseProcessor
+from kochat.proc.base_processor import BaseProcessor
 from kochat.utils.metrics import Metrics
 from kochat.utils.visualizer import Visualizer
 

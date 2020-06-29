@@ -8,10 +8,10 @@ from torch import nn
 from torch import Tensor
 
 from kochat.decorators import entity
-from kochat.loss.base.base_loss import BaseLoss
-from kochat.loss.entity.crf_loss import CRFLoss
-from kochat.loss.base.masking import Masking
-from kochat.proc.base.torch_processor import TorchProcessor
+from kochat.loss.base_loss import BaseLoss
+from kochat.loss.crf_loss import CRFLoss
+from kochat.loss.masking import Masking
+from kochat.proc.torch_processor import TorchProcessor
 
 
 @entity

@@ -11,7 +11,7 @@ from gensim.models.callbacks import CallbackAny2Vec
 from torch import Tensor
 
 from kochat.decorators import gensim
-from kochat.proc.base.base_processor import BaseProcessor
+from kochat.proc.base_processor import BaseProcessor
 
 
 @gensim

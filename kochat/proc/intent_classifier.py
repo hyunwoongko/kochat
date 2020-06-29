@@ -6,7 +6,7 @@
 from abc import ABCMeta, abstractmethod
 from time import time
 
-from kochat.proc.base.torch_processor import TorchProcessor
+from kochat.proc.torch_processor import TorchProcessor
 
 
 class IntentClassifier(TorchProcessor, metaclass=ABCMeta):

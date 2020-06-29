@@ -11,7 +11,7 @@ from torch.utils.data import TensorDataset, DataLoader
 from kochat.data.organizer import Organizer
 from kochat.data.preprocessor import Preprocessor
 from kochat.decorators import data
-from kochat.proc.base.base_processor import BaseProcessor
+from kochat.proc.base_processor import BaseProcessor
 
 
 @data

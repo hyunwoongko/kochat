@@ -3,7 +3,7 @@ from torch import nn
 from torchcrf import CRF
 
 from kochat.decorators import entity
-from kochat.loss.base.base_loss import BaseLoss
+from kochat.loss.base_loss import BaseLoss
 
 
 @entity

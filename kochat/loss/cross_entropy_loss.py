@@ -2,7 +2,7 @@ import torch
 from torch.nn import functional as F
 from torch import Tensor
 from torch import nn
-from kochat.loss.base.base_loss import BaseLoss
+from kochat.loss.base_loss import BaseLoss
 
 
 class CrossEntropyLoss(BaseLoss):

@@ -10,10 +10,10 @@ from torch import nn
 from torch.optim import SGD
 
 from kochat.decorators import intent
-from kochat.loss.base.base_loss import BaseLoss
-from kochat.proc.intent.distance_estimator import DistanceEstimator
-from kochat.proc.intent.fallback_detector import FallbackDetector
-from kochat.proc.intent.intent_classifier import IntentClassifier
+from kochat.loss.base_loss import BaseLoss
+from kochat.proc.distance_estimator import DistanceEstimator
+from kochat.proc.fallback_detector import FallbackDetector
+from kochat.proc.intent_classifier import IntentClassifier
 
 
 @intent
