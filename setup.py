@@ -12,7 +12,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(
     name='kochat',
-    version='0.10',
+    version='0.11',
     description='Korean opensource chatbot framework',
     long_description=long_description,
     long_description_content_type='text/markdown',
