@@ -1,11 +1,11 @@
 from typing import List
 
 from flask import Flask
+
+from kochat.app.scenario import Scenario
+from kochat.app.scenario_manager import ScenarioManager
 from kochat.data.dataset import Dataset
 from kochat.proc.base_processor import BaseProcessor
-
-from app.scenario import Scenario
-from app.scenario_manager import ScenarioManager
 
 
 class KochatApi:

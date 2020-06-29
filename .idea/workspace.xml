@@ -20,32 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d122a472-58ee-4a2b-8505-15e95560cd02" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/kochat/data/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/data/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/loss/base/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/loss/base/base_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/loss/base_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/loss/base/cross_entropy_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/loss/cross_entropy_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/loss/base/masking.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/loss/masking.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/loss/entity/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/loss/entity/crf_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/loss/crf_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/loss/intent/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/loss/intent/center_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/loss/center_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/loss/intent/coco_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/loss/coco_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/loss/intent/cosface.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/loss/cosface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/loss/intent/gaussian_mixture.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/loss/gaussian_mixture.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/base/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/base/base_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/base_processor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/base/sklearn_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/sklearn_processor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/base/torch_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/torch_processor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/embed/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/embed/gensim_embedder.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/gensim_embedder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/entity/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/entity/entity_recognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/entity_recognizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/intent/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/intent/distance_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/distance_classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/intent/distance_estimator.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/distance_estimator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/intent/fallback_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/fallback_detector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/intent/intent_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/intent_classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/intent/softmax_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/softmax_classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/app/kochat_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/app/kochat_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/data/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/loss/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/loss/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/proc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -378,7 +359,7 @@
       <workItem from="1593113733141" duration="23051000" />
       <workItem from="1593179284763" duration="10259000" />
       <workItem from="1593230152086" duration="47815000" />
-      <workItem from="1593291711820" duration="43698000" />
+      <workItem from="1593291711820" duration="44098000" />
     </task>
     <servers />
   </component>
