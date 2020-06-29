@@ -31,7 +31,7 @@ class LSTM(nn.Module):
                             bidirectional=True if self.direction == 2 else False)
 
         self.features = nn.Linear(self.d_model * self.direction, self.d_loss)
-        self.classifier = nn.Linear(self.d_loss * self.direction, len(self.label_dict))
+        self.classifier = nn.Linear(self.d_loss, len(self.label_dict))
 
     def init_hidden(self, batch_size: int) -> autograd.Variable:
         param1 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
