@@ -357,8 +357,9 @@ NER_tagging + '-' + NER_categories의 형태가 아니면 에러를 반환합니
 
 #### 3.5.5. OOD 데이터셋
 OOD란 Out of distribution의 약자로, 분포 외 데이터셋을 의미합니다.
-즉, 현재 챗봇이 지원하는 기능 이외의 데이터를 의미하는데, OOD 데이터셋을 갖추면
-매우 귀찮은 몇몇 부분들을 효과적으로 자동화 할 수 있습니다. 
+즉, 현재 챗봇이 지원하는 기능 이외의 데이터를 의미합니다.
+OOD 데이터셋이 없어도 Kochat을 이용하는데에는 아무런 문제가 없지만,
+OOD 데이터셋을 갖추면 매우 귀찮은 몇몇 부분들을 효과적으로 자동화 할 수 있습니다. 
 (주로 Fallback Detection threshold 설정)
 OOD 데이터셋은 아래처럼 "root/data/ood"에 추가합니다.
 
@@ -526,7 +527,7 @@ lstm = entity.LSTM(label_dict=dataset.entity_dict, bidirectional=True)
 #### 4.2.4. 커스텀 모델
 Kochat은 프레임워크이기 때문에 커스텀 모델을 지원합니다. 
 Pytorch로 작성한 커스텀 모델을 직접 학습시키기고 챗봇 애플리케이션에 사용할 수 있습니다.
-그러나 만약 built-in 프로세서를 사용하려면 아래의 몇가지 규칙을 반드시 따라야합니다.
+그러나 만약 커스텀 모델을 사용하려면 아래의 몇가지 규칙을 반드시 따라야합니다.
 <br><br>
 
 #### 4.2.4.1. Gensim embed 모델
