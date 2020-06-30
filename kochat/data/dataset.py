@@ -17,18 +17,19 @@ from kochat.proc.base_processor import BaseProcessor
 @data
 class Dataset:
 
-    def __init__(self, ood: bool):
+    def __init__(self, ood: bool, naver_fix: bool = True):
         """
         학습과 추론에 사용할 데이터셋을 생성하는 클래스입니다.
         ood는 Out of distribution 데이터셋 사용 여부입니다.
         ood 데이터를 쓰면 Threshold 설정 없이 Automatic Fallback Detection이 가능합니다.
 
+        :param naver_fix: 네이버 맞춤법 검사기 사용 여부 (상업적 이용시 꺼주세요)
         :param ood: Out of distribution dataset 사용 여부입니다.
         """
 
         self.ood = ood
         self.org = Organizer()
-        self.prep = Preprocessor()
+        self.prep = Preprocessor(naver_fix=naver_fix)
 
         self.intent_dict = self.org.organize_intent()
         self.entity_dict = self.org.organize_entity()
@@ -87,18 +88,17 @@ class Dataset:
         entity_train, entity_test = self.__make_entity(entity_dataset, emb_processor)
         return self.__mini_batch(entity_train), self.__mini_batch(entity_test)
 
-    def load_predict(self, text: str, emb_processor: BaseProcessor, naver_fix: bool = True) -> Tensor:
+    def load_predict(self, text: str, emb_processor: BaseProcessor) -> Tensor:
         """
         실제 애플리케이션 등에서 유저 입력에 대한 인퍼런스를 수행할 때
         사용자가 입력한 Raw 텍스트(str)를 텐서로 변환합니다.
 
         :param text: 사용자의 텍스트 입력입니다.
         :param emb_processor: 임베딩 과정이 들어가므로 임베딩 프로세서를 입력해야합니다.
-        :param naver_fix: 네이버 맞춤법 검사기 사용 여부
         :return: 유저 입력 추론용 텐서를 리턴합니다.
         """
 
-        text = self.prep.tokenize(text, train=False, naver_fix=naver_fix)  # 토크나이징
+        text = self.prep.tokenize(text, train=False)  # 토크나이징
 
         if len(text) == 0:
             raise Exception("문장 길이가 0입니다.")

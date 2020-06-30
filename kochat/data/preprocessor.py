@@ -17,13 +17,16 @@ from kochat.decorators import data
 @data
 class Preprocessor:
 
-    def __init__(self):
+    def __init__(self, naver_fix):
         """
         데이터를 전처리하는 여러가지 기능읃 가진 클래스입니다.
         패드시퀀싱, 토큰화, 맞춤법 교정등의 기능을 제공합니다.
+
+        :param naver_fix: 네이버 맞춤법 검사기 사용 여부 (상업적 이용시 꺼주세요)
         """
 
         self.okt = Okt()
+        self.nave_fix = naver_fix
 
     def pad_sequencing(self, sequence: Tensor) -> tuple:
         """
@@ -43,7 +46,8 @@ class Preprocessor:
             # 문장이 max_len보다 길면 뒷부분을 자릅니다.
 
         else:
-            pad = torch.zeros(self.max_len, self.vector_size)
+            pad = torch.ones(self.max_len, self.vector_size) * self.PAD
+
             for i in range(length):
                 pad[i] = sequence[i]
             sequence = pad
@@ -83,15 +87,15 @@ class Preprocessor:
 
         return entity_label.unsqueeze(0)
 
-    def tokenize(self, sentence: str, train: bool = False, naver_fix: bool = True) -> list:
+    def tokenize(self, sentence: str, train: bool = False) -> list:
         """
         문장의 맞춤법을 교정하고 토큰화 합니다.
         유저의 입력문장의 경우에만 맞춤법 교정을 진행하고,
         학습/테스트 데이터는 띄어쓰기 기준으로 자릅니다.
 
         :param sentence: 토큰화할 문장
+        :param naver_fix: 네이버 맞춤법 검사기 사용 여부 (상업적 이용시 꺼주세요)
         :param train: 학습모드 여부 (True이면 맞춤법 교정 X)
-        :param naver_fix: 네이버 맞춤법 검사기 사용 여부
         :return: 토큰화된 문장
         """
 
@@ -99,16 +103,13 @@ class Preprocessor:
             return sentence.split()
 
         else:  # 사용자 데이터는 전처리를 과정을 거침 (fix → tok → fix)
-            if naver_fix:
+            if self.naver_fix:
                 sentence = self.__naver_fix(sentence)
 
-            sentence = self.okt.pos(sentence)
-
-            # 조사와 구두점은 잘라냅니다.
-            out = [word for word, pos in sentence
+            out = [word for word, pos in self.okt.pos(sentence)
                    if pos not in ['Josa', 'Punctuation']]
 
-            if naver_fix:
+            if self.naver_fix:
                 return self.__naver_fix(' '.join(out)).split()
 
             return out

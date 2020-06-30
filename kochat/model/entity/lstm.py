@@ -24,8 +24,6 @@ class LSTM(nn.Module):
                             batch_first=True,
                             bidirectional=bidirectional)
 
-        self.out = nn.Linear(self.d_model * self.direction, len(label_dict))
-
     def init_hidden(self, batch_size: int) -> autograd.Variable:
         param1 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
         param2 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
@@ -34,6 +32,6 @@ class LSTM(nn.Module):
     def forward(self, x: Tensor) -> Tensor:
         b, l, v = x.size()
         out, _ = self.lstm(x, self.init_hidden(b))
-        logits = self.out(out)
-        logits = logits.permute(0, 2, 1)
-        return logits
+
+        # size = [batch_size, max_len, d_model * direction]
+        return out

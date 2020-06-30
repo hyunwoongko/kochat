@@ -5,8 +5,9 @@
 """
 
 import torch
-from torch import nn, autograd
 from torch import Tensor
+from torch import nn, autograd
+
 from kochat.decorators import intent
 
 
@@ -29,9 +30,6 @@ class LSTM(nn.Module):
                             num_layers=self.layers,
                             batch_first=True,
                             bidirectional=bidirectional)
-
-        self.features = nn.Linear(self.d_model, self.d_loss)
-        self.classifier = nn.Linear(self.d_loss, len(self.label_dict))
 
     def init_hidden(self, batch_size: int) -> autograd.Variable:
         param1 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)

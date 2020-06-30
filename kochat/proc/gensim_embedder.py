@@ -6,6 +6,8 @@
 import os
 from time import time
 
+import torch
+import numpy as np
 from gensim.models.base_any2vec import BaseWordEmbeddingsModel
 from gensim.models.callbacks import CallbackAny2Vec
 from torch import Tensor
@@ -24,7 +26,6 @@ class GensimEmbedder(BaseProcessor):
 
         :param model: Gensim 모델을 입력해야합니다.
         """
-
         super().__init__(model)
         self.callback = self.GensimLogger(
             name=self.__class__.__name__,
@@ -59,7 +60,7 @@ class GensimEmbedder(BaseProcessor):
         """
 
         self._load_model()
-        return self.model(sequence)
+        return self._forward(self.model, sequence)
 
     def _load_model(self):
         """
@@ -82,6 +83,19 @@ class GensimEmbedder(BaseProcessor):
             os.makedirs(self.model_dir)
 
         self.model.save(self.model_file + '.gensim')
+
+    def _forward(self, model, sequence: str) -> Tensor:
+        sentence_vector = []
+
+        for word in sequence:
+            try:
+                word_vector = torch.tensor(model.wv[word])
+            except KeyError as _:
+                word_vector = torch.ones(self.vector_size) * self.OOV
+
+            sentence_vector.append(word_vector.unsqueeze(dim=0))
+
+        return torch.cat(sentence_vector, dim=0)
 
     class GensimLogger(CallbackAny2Vec):
 

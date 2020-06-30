@@ -452,7 +452,7 @@ from kochat.data import Dataset
 
 
 # 클래스 생성시 raw파일들을 검증하고 통합합니다.
-dataset = Dataset(ood=True)  
+dataset = Dataset(ood=True, naver_fix=True)  
 
 # 임베딩 데이터셋 생성
 embed_dataset = dataset.load_embed() 
@@ -474,7 +474,7 @@ from kochat.data import Dataset
 
 
 # 클래스 생성시 raw파일들을 검증하고 통합합니다.
-dataset = Dataset(ood=True)  
+dataset = Dataset(ood=True, naver_fix=True)  
 
 # 인텐트 라벨 딕셔너리를 생성합니다.
 intent_dict = dataset.intent_dict 
@@ -482,6 +482,22 @@ intent_dict = dataset.intent_dict
 # 엔티티 라벨 딕셔너리를 생성합니다.
 entity_dict = dataset.entity_dict
 ```
+
+<br>
+
+#### ⚠ Warning
+
+`Dataset`클래스는 전처리시 토큰화를 수행할 때,
+학습/테스트 데이터는 띄어쓰기를 기준으로 토큰화를 수행하고, 실제 사용자의 입력에
+추론할 때는 네이버 맞춤법 검사기와 Konlpy 토크나이저를 사용하여 토큰화를 수행합니다.
+네이버 맞춤법 검사기를 사용하면 성능은 더욱 향상되겠지만, 상업적으로 이용시 문제가
+발생할 수 있고, 이에 대해 개발자는 어떠한 책임도 지지 않습니다.  <br><br>
+
+
+만약 Kochat을 상업적으로 이용하시려면 `Dataset` 생성시 `naver_fix`파라미터를 
+`False`로 설정해주시길 바랍니다. `False` 설정시에는 Konlpy 토큰화만 수행하며,
+추후 버전에서는 네이버 맞춤법 검사기를 자체적인 띄어쓰기 검사모듈 등으로 
+교체할 예정입니다.
 <br><br>
 
 ### 4.2. `from kochat.model`
@@ -496,7 +512,11 @@ entity_dict = dataset.entity_dict
 from kochat.model import embed
 
 
-# 1. Gensim의 FastText 모델의 Wrapper입니다.
+# 1. Gensim의 Word2Vec 모델의 Wrapper입니다.
+# (OOV 토큰의 값은 config에서 설정 가능합니다.)
+word2vec = embed.Word2Vec()
+
+# 2. Gensim의 FastText 모델의 Wrapper입니다.
 fasttext = embed.FastText()
 ```
 <br>
@@ -526,32 +546,34 @@ lstm = entity.LSTM(label_dict=dataset.entity_dict, bidirectional=True)
 
 #### 4.2.4. 커스텀 모델
 Kochat은 프레임워크이기 때문에 커스텀 모델을 지원합니다. 
-Pytorch로 작성한 커스텀 모델을 직접 학습시키기고 챗봇 애플리케이션에 사용할 수 있습니다.
-그러나 만약 커스텀 모델을 사용하려면 아래의 몇가지 규칙을 반드시 따라야합니다.
+Gensim, Pytorch로 작성한 커스텀 모델을 직접 학습시키기고 챗봇 애플리케이션에 사
+용할 수 있습니다. 그러나 만약 커스텀 모델을 사용하려면 아래의 몇가지 규칙을 반드시 
+따라야합니다.
 <br><br>
 
-#### 4.2.4.1. Gensim embed 모델
+#### 4.2.4.1. 커스텀 Gensim embed 모델
 임베딩의 경우 현재는 Gensim 모델만 지원합니다. 추후에 Pytorch로 된
 임베딩 모델(ELMO, BERT)등도 지원할 계획입니다.
-Gensim Embedding 모델은 아래와 같은 형태로 구현합니다.
-새로운 Gensim 임베딩 모델을 구현할 때 참고하시길 바랍니다.
+Gensim Embedding 모델은 아래와 같은 형태로 구현해야합니다.
+<br><br>
+
+1. `@gensim` 데코레이터 설정
+2. Gensim의 `BaseWordEmbeddingsModel`모델 중 한 가지 상속받기
+4. `super().__init__()`에 파라미터 삽입하기 (self.XXX로 접근가능)
+<br><br>
 
 ```python
-import torch
-from torch import Tensor
 from gensim.models import FastText
 from kochat.decorators import gensim
-
 
 # 1. @gensim 데코레이터를 설정하면 
 # config의 GENSIM에 있는 모든 데이터에 접근 가능합니다.
 
-@gensim 
-class FastText(FastText): 
+@gensim
+class FastText(FastText):
 
-# 2. Gensim의 BaseWordEmbeddingsModel의 서브클래스를 상속받습니다.
+# 2. BaseWordEmbeddingsModel 모델중 한 가지를  상속받습니다.
 
- 
     def __init__(self):
         super().__init__(size=self.vector_size,
                          window=self.window_size,
@@ -559,45 +581,21 @@ class FastText(FastText):
                          min_count=self.min_count,
                          iter=self.iter)
 
-        # 3. self.XXX와 같은 방식으로 config 값에 접근 가능합니다.
-        # (단, @gensim 데코레이터를 설정했을시만 접근 가능)
-
-   
-    def forward(self, sequence: str) -> Tensor:
-        # 4. forward 함수를 구현합니다.
-        # forward 함수에는 문자열 입력이 주어집니다.
-
-        sentence_vector = []
-
-        for word in sequence:
-            word_vector = self.wv[word]  
-            # 4.1. self.wv[word]를 이용하여 word벡터를 불러옵니다.
-
-            word_vector = torch.tensor(word_vector)  
-            # 4.2. kochat은 torch로 만들어진 프레임워크이기 때문에 torch.tensor로 만들어줍니다.
-            
-            word_vector = torch.unsqueeze(word_vector, dim=0)  
-            # 4.3. 리스트에 담기 전에 concat을 위해 unsqueeze합니다.
-            
-            sentence_vector.append(word_vector)
-            # 4.4. 리스트에 벡터를 담습니다.
-
-        return torch.cat(sentence_vector, dim=0)  
-        # 4.5. 단어 벡터들이 담긴 리스트를 0번 dimension에서 concat합니다.
-
-
-    def __call__(self, sequence: str):
-        # 5. __call__ 함수를 구현합니다. 
- 
-        return self.forward(sequence)
-        # __call__함수에서는 단순히 self.forward 함수를 반환합니다.
+    # 3. `super().__init__()`로 필요한 파라미터를 넣어서 초기화해줍니다.
 ```
 <br><br>
 
 #### 4.2.4.2. Intent 모델
 인텐트 모델은 torch로 구현합니다.
-인텐트 모델에는 `self.label_dict`, `self.features`, `self.classifier`가 반드시 존재해야합니다.
-아래 구현 예를 보면 더 자세히 알 수 있습니다.
+인텐트 모델에는 `self.label_dict` 가 반드시 존재해야하며, 
+더 세부적인 규칙은 다음과 같습니다.
+<br><br>
+
+1. `@intent` 데코레이터 설정
+2. `torch.nn.Module` 상속받기
+3. 파라미터로 label_dict를 입력받고 `self.label_dict`에 할당하기
+6. `forward()` 함수에서 forwarding 후 [batch_size, -1] 로 만들어서 리턴하기
+<br><br>
 
 ```python
 from torch import nn
@@ -614,7 +612,6 @@ class CNN(nn.Module):
 
 # 2. torch.nn의 Module을 상속받습니다.
 
- 
     def __init__(self, label_dict: dict, residual: bool = True):
         super(CNN, self).__init__()
         self.label_dict = label_dict
@@ -625,25 +622,13 @@ class CNN(nn.Module):
             Convolution(self.d_model, self.d_model, kernel_size=1, residual=residual)
             for _ in range(self.layers)])
 
-        self.features = nn.Linear(self.d_model * self.max_len, self.d_loss)
-        self.classifier = nn.Linear(self.d_loss, len(self.label_dict))
-
-        # 4. self.features와 self.classifier를 반드시 가지고 있어야합니다.
-        # features : 이전 출력층으로부터 나온 feature들을 self.d_loss로 압축 (distance기반 loss 적용됨)
-        # classifier : 최종 출력층으로서 d_loss의 feature들을 분류할 클래스 갯수로 압축 (cross entropy 적용)
-
-
     def forward(self, x: Tensor) -> Tensor:
         x = x.permute(0, 2, 1)
         x = self.stem(x)
         x = self.hidden_layers(x)
-        x = x.view(x.size(0), -1)
-        
-        # 5. forward 함수에서는 self.features와 self.classifier를 forwarding 하지 않습니다.
-        # self.features 바로 이전까지만 forwarding하고 사이즈를 [batch_size, -1]로 만들어서 출력하면
-        # processor 클래스에서 알아서 self.features와 self.classifier를 적용합니다.
 
-        return x
+        return x.view(x.size(0), -1)
+        # 4. 출력을 [batch_size, -1]로 만들고 반환합니다.
 ````
 ```python
 import torch
@@ -673,14 +658,6 @@ class LSTM(nn.Module):
                             batch_first=True,
                             bidirectional=bidirectional)
 
-        self.features = nn.Linear(self.d_model, self.d_loss)
-        self.classifier = nn.Linear(self.d_loss, len(self.label_dict))
-
-        # 4. self.features와 self.classifier를 반드시 가지고 있어야합니다.
-        # features : 이전 출력층으로부터 나온 feature들을 self.d_loss로 압축 (distance기반 loss 적용됨)
-        # classifier : 최종 출력층으로서 d_loss의 feature들을 분류할 클래스 갯수로 압축 (cross entropy 적용)
-
-
     def init_hidden(self, batch_size: int) -> autograd.Variable:
         param1 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
         param2 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
@@ -690,10 +667,7 @@ class LSTM(nn.Module):
         b, l, v = x.size()
         out, (h_s, c_s) = self.lstm(x, self.init_hidden(b))
 
-        # 5. forward 함수에서는 self.features와 self.classifier를 forwarding 하지 않습니다.
-        # self.features 바로 이전까지만 forwarding하고 사이즈를 [batch_size, -1]로 만들어서 출력하면
-        # processor 클래스에서 알아서 self.features에와 self.classifier를 적용합니다.
-
+        # 4. 출력을 [batch_size, -1]로 만들고 반환합니다.
         return h_s[0]
 ```
 

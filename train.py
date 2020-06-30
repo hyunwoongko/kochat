@@ -5,13 +5,13 @@
 """
 
 from kochat.data import Dataset
-from kochat.loss import CrossEntropyLoss
 from kochat.loss import CRFLoss
-from kochat.proc import GensimEmbedder
-from kochat.proc import EntityRecognizer
-from kochat.proc import DistanceClassifier
-from kochat.proc import SoftmaxClassifier
+from kochat.loss import CrossEntropyLoss
 from kochat.model import intent, embed, entity
+from kochat.proc import DistanceClassifier
+from kochat.proc import EntityRecognizer
+from kochat.proc import GensimEmbedder
+from kochat.proc import SoftmaxClassifier
 
 dataset = Dataset(ood=True)
 
