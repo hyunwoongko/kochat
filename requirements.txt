@@ -1,13 +1,10 @@
 matplotlib==3.2.1
 pandas==1.0.4
-torch==1.5.1+cu101
 gensim==3.8.3
 konlpy==0.5.2
-flask==1.1.2
-sklearn==0.0
 numpy==1.18.5
-requests==2.24.0
 joblib==0.15.1
 scikit-learn==0.23.1
-beautifulsoup4==4.9.1
 pytorch-crf==0.7.2
+requests==2.24.0
+flask==1.1.2

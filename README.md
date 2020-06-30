@@ -1,14 +1,18 @@
-# Kochat (Korean Chatbot)
 
-<br>
+# Kochat
+[![PyPI version](https://badge.fury.io/py/kochat.svg)](https://badge.fury.io/py/kochat)
+![GitHub](https://img.shields.io/github/license/gusdnd852/kochat)
+[![CodeFactor](https://www.codefactor.io/repository/github/gusdnd852/kochat/badge)](https://www.codefactor.io/repository/github/gusdnd852/kochat)
+![01_introduction_kochat](https://user-images.githubusercontent.com/38183241/85958000-1b8ed080-b9cd-11ea-99d6-69b472f3e2ff.jpg)
+<br><br><br>
 
-## 목차
 
-<br>
+## Table of contents
+
+<br><br><br>
 
 ## 1. Kochat 이란?
 
-![kochat_main](docs/01_introduction_kochat.jpg)
 
 **Kochat은 한국어 전용 챗봇 개발 프레임워크로, 머신러닝 개발자라면 
 누구나 무료로 손쉽게 한국어 챗봇을 개발 할 수 있도록 돕는 오픈소스 프레임워크**입니다.
@@ -20,7 +24,7 @@ Restful Api 및 애플리케이션, 또 이들을 유기적으로 연결할 파�
 이런 부분들에 훨씬 시간과 노력이 많이 필요합니다.
 <br><br>
 
-![kochat_main](docs/01_introduction_mlcode.jpg)
+![01_introduction_mlcode](https://user-images.githubusercontent.com/38183241/85958001-1c276700-b9cd-11ea-8782-d521b4514cee.jpg)
 
 Kochat은 이러한 부분을 해결하기 위해 제작되었습니다. 
 데이터 전처리, 아키텍처, 모델과의 파이프라인, 실험 결과 시각화, 
@@ -51,7 +55,7 @@ Loss 함수를 바꾸거나 본인이 원하면 아예 새로운 기능을 첨�
 
 ### 1.2. Kochat 제작 동기
 
-![rasa](docs/01_introduction_rasa.png)
+![01_introduction_rasa](https://user-images.githubusercontent.com/38183241/85958002-1c276700-b9cd-11ea-8201-48976d8cf91d.png)
 
 이전에 여기저기서 코드를 긁어모아서 만든, 수준 낮은 제 딥러닝 chatbot 레포지토리가 
 생각보다 큰 관심을 받으면서, 한국어로 된 딥러닝 챗봇 구현체가 정말 많이 없다는 것을 느꼈습니다. 
@@ -77,14 +81,14 @@ Kochat은 앞으로도 계속 오픈소스 프로젝트로 유지될 것이며, 
 
 <br><br><br>
 
-## 2. 챗봇에 대한 간략한 설명
+## 2. About Chatbot 
 이 챕터에서는 챗봇의 분류와 구현방법, Kochat은 어떻게 챗봇을 구현하고 있는지에 대해 
 간단하게 소개합니다. 
 <br><br>
 
 ### 2.1. 챗봇의 분류
 
-![chatbot_table](docs/02_chatbot_table.jpg)
+![02_chatbot_table](https://user-images.githubusercontent.com/38183241/85957998-1af63a00-b9cd-11ea-8ed3-e3527fe790a7.jpg)
 
 챗봇은 크게 비목적대화를 위한 Open domain 챗봇과 목적대화를 위한 Close domain 챗봇으로 나뉩니다.
 Open domain 챗봇은 주로 잡담 등을 수행하는 챗봇을 의미하는데, 
@@ -102,7 +106,7 @@ Close domain 챗봇이란 한정된 대화 범위 안에서 사용자가 원하�
  
 #### 2.2.1. Open domain 챗봇
 
-![seq2seq](docs/02_chatbot_seq2seq.png)
+![02_chatbot_seq2seq](https://user-images.githubusercontent.com/38183241/85957996-19c50d00-b9cd-11ea-8a86-8d814e737f45.png)
 
 먼저 Open domain 챗봇의 경우는 딥러닝 분야에서는 대부분, End to End 
 신경망 기계번역 방식(Seq2Seq)으로 구현되어왔습니다. Seq2Seq은 한 문장을 다른 문장으로 
@@ -116,7 +120,7 @@ Close domain 챗봇이란 한정된 대화 범위 안에서 사용자가 원하�
 
 #### 2.2.2. Close domain 챗봇
 
-![slot_filling](docs/02_chatbot_slot_filling.jpg)
+![02_chatbot_slot_filling](https://user-images.githubusercontent.com/38183241/85957997-1a5da380-b9cd-11ea-9ead-9cb554efceaf.jpg)
 
 Close domain 챗봇은 대부분 Slot Filling 방식으로 구현되어 왔습니다. 물론 Close domain 챗봇도
 Open domain처럼 End to end로 구현하려는 [다양한](https://arxiv.org/pdf/1605.07683.pdf) 
@@ -137,7 +141,7 @@ Slot Filling 방식은 미리 기능을 수행할 정보를 담는 '슬롯'을 �
 
 #### 2.2.2.1. 인텐트(의도) 분류하기 : 슬롯 고르기
 
-![intent_classification](docs/02_chatbot_intent_classification.jpg)
+![02_chatbot_intent_classification](https://user-images.githubusercontent.com/38183241/85957993-1893e000-b9cd-11ea-858c-f0dd607f3825.jpg)
 
 가장 먼저 사용자에게 문장을 입력받았을 때, 우리는 저 4가지 정보제공 기능 중
 어떤 기능을 실행해야하는지 알아채야합니다. 이 것을 인텐트(Intent)분류. 즉, 의도 분류라고 합니다.
@@ -148,7 +152,7 @@ Slot Filling 방식은 미리 기능을 수행할 정보를 담는 '슬롯'을 �
 
 #### 2.2.2.2. 엔티티(개체명) 인식하기
 
-![entity_recognition](docs/02_chatbot_entity_recognition.jpg)
+![02_chatbot_entity_recognition](https://user-images.githubusercontent.com/38183241/85957992-17fb4980-b9cd-11ea-9a57-de36bc37a979.jpg)
 
 그 다음 해야할 일은 바로 개체명인식 (Named Entity Recognition)입니다.
 어떤 API를 호출할지 알아냈다면, 이제 그 API를 호출하기 위한 파라미터를 찾아야합니다.
@@ -159,7 +163,7 @@ Slot Filling 방식은 미리 기능을 수행할 정보를 담는 '슬롯'을 �
 
 #### 2.2.2.3. 대답 생성하기
 
-![response_generation](docs/02_chatbot_response_generation.jpg)
+![02_chatbot_response_generation](https://user-images.githubusercontent.com/38183241/85957995-19c50d00-b9cd-11ea-8f88-50fea23df8d5.jpg)
 
 슬롯이 모두 채워졌다면 API를 실행시켜서 외부로부터 정보를 제공받습니다.
 API로부터 결과가 도착하면, 미리 만들어둔 템플릿 문장에 해당 실행 결과를 삽입하여 대답을 만들어내고,
@@ -171,366 +175,528 @@ Slot Filling 방식의 챗봇은 위와 같은 흐름으로 진행됩니다. 따
 최소한 3가지의 모듈이 필요합니다. 첫번째로 인텐트 분류모델, 엔티티 인식모델, 
 그리고 대답 생성모듈(예제에서는 크롤링)입니다.
 Kochat은 이 세가지 모듈과 이를 서빙할 Restful API까지 모두 포함하고 있습니다. 
-이에 대해서는 "4. 컴포넌트 및 아키텍처" 챕터에서 각각 모델을 어떻게 구현했는지 자세히 설명합니다.
+이에 대해서는 "4. Usage" 챕터에서 각각 모델이 어떻게 구현되어 있는지 자세히 설명합니다.
 
 <br><br><br>
 
-## 3. Kochat 시작하기
-우선 초기버전 코드는 Kochat 프레임워크 자체가 프레임워크로서 설계된 것이 아니라 정확하게 잘 돌아가는지에 
-초점을 맞춘 상태이기 때문에 템플릿 레포지토리로 제공하는 것이 저한테도 편리하고 프레임워크를 사용하는 
-쪽에서도 편리할 것이라고 판단하였습니다. (configuraion, 파일 경로 등등 처음부터 잡으려면 시간이 많이 
-들고 오류도 굉장히 잦을 것으로 판단되기 때문에..) 우선 지금은 템플릿 레포지토리로 제공하고, 
-추후에 기회가 되면 pip 형식으로도 제공하도록 하겠습니다.
-<br><br>
+## 3. Getting Started
 
-### 3.1. 템플릿 레포지토리 만들기
+### 3.1. Requirements 
+Kochat을 이용하려면 반드시 본인의 OS와 머신에 맞는 Pytorch가 설치 되어있어야합니다.
+만약 Pytorch를 설치하지 않으셨다면 [여기](https://pytorch.org/get-started/locally/) 에서 다운로드 받아주세요.
+(Kochat을 설치한다고 해서 Pytorch가 함께 설치되지 않습니다. 본인 버전에 맞는 Pytorch를 다운로드 받아주세요)
 
-![kochat_main](docs/03_getting_started_making.jpg)
+<br>
 
-상단의 Use this template 버튼을 클릭하여 템플릿 레포지토리를 생성합니다.
-<br><br>
-
-![kochat_main](docs/03_getting_started_naming.jpg)
-
-레포지토리 이름과 설명 등의 정보를 기입한 뒤, 레포지토리를 생성합니다.
-<br><br>
-
-![kochat_main](docs/03_getting_started_cloning.jpg)
-
-git clone 명령어를 사용해서 방금 만든 레포지토리를 clone합니다.
-<br><br>
-
-### 3.3. 개발환경 설정하기
-
-#### 3.3.1. Docker (Recommend)
-
-![docker](docs/03_getting_started_docker.png)
+### 3.2. pip install 
+pip를 이용해 Kochat을 간단하게 다운로드하고 사용할 수 있습니다. 
+아래 명령어를 통해서 kochat을 다운로드 받아주세요.
 ```shell script
-sudo docker pull gusdnd852/kochat:latest
+pip install kochat
 ```
 
-Kochat은 전용 도커 이미지를 지원합니다. 위의 명령어로 도커이미지를 내려받을 수 있습니다. 
-만약 도커를 사용하신다면 도커 이미지를 활용해서 개발환경을 원터치로 세팅하는 것을 추천드립니다.
-pytorch버전은 가장 자주 쓰이는 10.1을 사용했는데, 만약 cuda 10.1 이하의 gpu를 사용하신다면 
-requirements.txt에 있는 pytorch 디펜던시를 수정하시고 루트 경로에 있는 도커파일을 기반으로 
-이미지를 새로 빌드하셔서 사용하시면 됩니다.
-<br><br>
+<br>
 
-#### 3.3.2. PIP로 직접 다운로드
+### 3.3 Dependencies
+패키지를 구현하는데 사용된 디펜던시는 아래와 같습니다. 
+(Kochat 설치시 함께 설치됩니다.)
 ```
 matplotlib==3.2.1
 pandas==1.0.4
-torch==1.5.1+cu101
 gensim==3.8.3
 konlpy==0.5.2
-flask==1.1.2
-sklearn==0.0
 numpy==1.18.5
-requests==2.24.0
 joblib==0.15.1
 scikit-learn==0.23.1
-beautifulsoup4==4.9.1
 pytorch-crf==0.7.2
+requests==2.24.0
+flask==1.1.2
 ```
-```shell script
-pip install requiremnets.txt
-```
-만약 도커를 사용하지 않으신다면 pip를 이용하여 직접 디펜던시들을 다운로드 받아야합니다.
-필요한 디펜던시는 모두 requirements.txt에 정의해두었으니 확인하시고 다운로드 받으면 됩니다.
-pytorch버전은 가장 자주 쓰이는 10.1을 사용했는데, 만약 cuda 10.1 이하의 gpu를 사용하신다면 
-requirements.txt에 있는 pytorch 디펜던시를 수정하시고 다운로드 받으시면 됩니다.
+
+<br>
+
+### 3.4 Configuration 파일 추가하기
+pip를 이용해 Kochat을 내려받았다면 프로젝트에, kochat의 configuration 파일을 추가해야합니다.
+[여기](https://github.com/gusdnd852/kochat/files/4843589/kochat_config.zip) 에서 Configuration파일을
+다운로드 받고, 압축을 풀어서 interpreter의 working directory에 넣습니다. (kochat api를 실행하는 파일과
+동일한 경로에 있어야합니다. 자세한 예시는 아래 데모에서 확인하실 수 있습니다.) 
+config 파일에는 다양한 설정 값들이 존재하니 확인하고 입맛대로 변경하시면 됩니다.
+
+<br>
+
+### 3.5 데이터셋 넣기
+이제 여러분이 학습시킬 데이터셋을 넣어야합니다. 
+그 전에 데이터셋의 포맷에 대해서 간단하게 알아봅시다. 
+Kochat은 기본적으로 Slot filling을 기반으로
+하고 있기 때문에 Intent와 Entity 데이터셋이 필요합니다. 
+그러나 이 두가지 데이터셋을 따로 만들면 상당히 번거로워지기 때문에 
+한가지 포맷으로 두가지 데이터를 자동으로 생성합니다.
+아래 데이터셋 규칙들에 맞춰서 데이터를 생성해주세요
 <br><br>
 
+#### 3.5.1. 데이터 포맷
+기본적으로 intent와 entity를 나누려면, 두가지를 모두 구분할 수 있어야합니다.
+그래서 선택한 방식은 인텐트는 파일로 구분, 엔티티는 라벨로 구분하는 것이였습니다.
+추후 릴리즈 버전에서는 Rasa처럼 훨씬 쉬운 방식으로 변경하려고 합니다만, 초기버전에서는
+다소 불편하더라도 아래의 포맷을 따라주시길 바랍니다. <br>
 
-### 3.3. configuration 설정하기
-`_backed`패키지의 `config.py`에 데이터/모델 저장 경로 등 다양한 설정 값들이 있습니다.
-레포지토리를 열고 나서 가장 먼저 초기 설정 (운영체제와 루트 경로)를 해줘야합니다.
-<br><br>
-
-#### 3.3.1. 운영체제 설정
-OS에는 본인 운영체제에 맞게 'Windows' 혹은 'Others'를 적습니다. 
-이는 delimeter 설정을 위해서 입니다. ('/' vs '\\')
-<br><br>
-
-```python
-OS = 'Others' 
-# OS = 'Windows'
-```
-
-#### 3.3.2. 루트 경로 설정
-root_dir은 본인의 프로젝트 루트 경로를 적습니다. 
-구분자로 {_}를 사용하고, 맨 끝에는 붙이지 않습니다.
-
-```python
-root_dir = "/home{_}yourdirectory{_}yourdirectory{_}yourdirectory"
-# root_dir = "C:{_}yourdirectory{_}yourdirectory{_}yourdirectory"
-```
-
-기본 configuration 설정은 모두 끝났습니다. 기본 설정 말고도 아래에 훨씬 많은 설정들이 있기 때문에
-주석을 잘 보시고 원하는 부분의 설정값을 변경하셔서 사용하시길 바랍니다.
-<br><br>
-
-
-### 3.4. 데이터셋 삽입하기
-이제 만들려는 챗봇의 데이터를 삽입합니다. 데이터는 `_backend/data/raw`폴더에 삽입합니다. 
-그 전에 데이터셋의 포맷을 먼저 살펴봅시다. 우선 Slot Filling을 위해서 Intent와 Entity 데이터 셋이 필요합니다.
-그러나 이 두가지 데이터 셋을 따로 만들려면 상당히 번거로울 것입니다. Kochat은 여러개로 분할된 
-Entity 데이터셋을 하나의 파일로 합쳐서 Intent 데이터셋을 자동으로 생성합니다.
-이 때 intent명은 파일명이 됩니다. 이렇게 하면 한가지 포맷만으로 인텐트와 엔티티 모두 커버 가능합니다.
-말로만 설명하면 어려우니 예시 데이터셋을 보겠습니다.
-
-```
-dust.csv
-
-question,label
-서울 다음 주 먼지 알려줄래요,S-LOCATION B-DATE E-DATE O O
-부안 먼지 어떻게 돼,S-LOCATION O O O
-토요일 서천 공기 상태 좀 알려줄수 있니,S-DATE S-LOCATION O O O O O
-월요일 공기상태 알려줄수 있어,S-DATE O O O
-이번 주 가로수길 공기 알려줄래,B-DATE E-DATE S-LOCATION O O
-구암 다음 주 공기 알려줘,S-LOCATION B-DATE E-DATE O O
-이번 주 영등포 공기 말해줘,B-DATE E-DATE S-LOCATION O O
-구로 다음 주 공기 알려줄래,S-LOCATION B-DATE E-DATE O O
-마스크 챙겨야하나 모르겠네,O O O
-...
-```
-```
-restaurant.csv
-
-question,label
-짭짤한 빵 맛집 알려줘,S-LOCATION S-RESTAURANT O O
-인기 많은 팥빵 빵집 추천 좀 해줄래,O O S-RESTAURANT O O O O
-대천 괜찮은 밀면 코스요리 알려주겠니,S-LOCATION O S-RESTAURANT O O
-창원 티비 나왔던 코스요리 추천,S-LOCATION O O O O
-강원도 텔레비전 나왔었던 칼국수 코스요리 어디더라,S-LOCATION O O S-RESTAURANT O O
-광주 요즘 괜찮은 바베큐 먹고싶어 배고파,S-LOCATION O O S-RESTAURANT O O
-대구 주변 태국 음식 원조 식당 어디,S-LOCATION O S-RESTAURANT O O O O
-서울 베트남 음식 먹고싶어 배고파,S-LOCATION S-RESTAURANT O O O
-대전 인기 많은 돈가스 코스요리 어디니,S-LOCATION O O S-RESTAURANT O O
-유명한 창원 브라우니 카페,O S-LOCATION S-RESTAURANT O
-...
-```
-
-위와 같이 각 인텐트에 대한 질문들과 그에 대한 엔티티들을 작성합니다. 
-이 때, 맨 윗줄에 컬럼명을 반드시 적어야하는데 문장의 경우는 
-컬럼명을 `question`, entity의 경우는 컬럼명을 `label`로 만들어야 합니다.
-question에서 각 단어, label에서 각 엔티티는 띄어쓰기로 구분해서 작성합니다.
-예시 데이터셋에서는 엔티티 라벨은 BIO 스키마를 확장한 [BIOES](https://arxiv.org/pdf/1806.04470.pdf) 
-스키마를 사용하여 작성하였습니다. 그러나 Entity 스키마는 어떠한 방식을 사용하셔도 무방합니다. 
-config에서 정의할 수 있습니다. 데이터셋 구성의 핵심은 각 엔티티 데이터셋을 Intent에 따라 다른 파일로 분리해서 만들어야한다는 것입니다. 
-이 파일을 기준으로 Kochat은 아래와 같은 두가지 통합 데이터셋을 자동으로 생성합니다.
-<br><br>
-
-p.s.엔티티(개체명) 인식에 익숙하지 않으시다면 [여기](https://keep-steady.tistory.com/20) 를
-참고하시면 좋습니다.
-
-
-```
-intent_data.csv
-
-question,label
-날씨 알려주겠니,weather
-날씨 정보 알려주세요,weather
-그 때 기온 어떨까,weather
-그 때 기온 좋으려나,weather
-...
-부안 일요일 마스크 필요하니,dust
-내일 옥천 마스크 필요할까,dust
-영광 마스크 챙겨야하나 모르겠네,dust
-...
-전라도 광주 미술관 구경거리 부탁해,travel
-서울 유명한 꽃놀이 정보,travel
-서울 가까운 바다 구경거리 추천해 봐,travel
-...
-유명한 창원 브라우니 카페,restaurant
-마카롱 카페 달콤한 머랭쿠키,restaurant
-머랭쿠키 잘하는 무한리필 있니,restaurant
-...
-```
-```
-entity_data.csv
-
-question,label
-날씨 알려주겠니,O O
-날씨 정보 알려주세요,O O O
-그 때 기온 어떨까,O O O O
-...
-유명한 꽃놀이 정보 알려주세요,O S-TRAVEL O O
-유명한 에버랜드 볼거리 있어,O S-TRAVEL O O
-추천할만한 축구 볼거리 있어,O S-TRAVEL O O
-...
-좋은 꽃게탕 식당 어디니,O S-RESTAURANT O O
-좋은 근처 짜글이 먹고싶어 배고파,O O S-RESTAURANT O O
-맛좋은 돼지고기 짜글이 어디,O B-RESTAURANT E-RESTAURANT O
-...
-제주 많이 공기 상태 나쁠까,S-LOCATION O O O O
-먼지 너무 많이 없나,O O O O
-혹시 목요일 먼지 심하니 마스크 챙길까,O S-DATE O O O O
-...
-```
-이 두가지 데이터셋을 이용하여 인텐트 분류기와 엔티티 인식기를 학습합니다. 
-그리고 추가로 입력할 수 있는 또 하나의 데이터 셋이 있는데 그 것은 바로 OOD 데이터셋입니다.
-OOD 데이터셋은 `_backend/data/ood`에 추가합니다. OOD란 Out of distribution 데이터셋으로
-아래처럼 4가지 인텐트 외의 데이터를 말합니다. 
-<br><br>
-
+- weather.csv
 ```
 question,label
-정치적 요즘 이슈 최근 알려줘,OOD
-요즘 이슈 알려줘,OOD
-요즘 사회적인 이슈 알려줘,OOD
-최근 이슈 알려줘,OOD
-알바하기 너무 힘들다,OOD
-세상에 쉬운 일은 없어,OOD
-알바하는데 같이 일하는 사람 좋아,OOD
-알아들은 척했는데 모르겠어,OOD
-엔플라잉 옥탑방 노래 틀어줘요,OOD
-재키와이 노래 들을래요,OOD
+날씨 알려주세요,O O
+월요일 인제 비오니,S-DATE S-LOCATION O
+군산 날씨 추울까 정말,S-LOCATION O O O
+곡성 비올까,S-LOCATION O
+내일 단양 눈 오겠지 아마,S-DATE S-LOCATION O O O
+강원도 춘천 가는데 오늘 날씨 알려줘,B-LOCATION E-LOCATION O S-DATE O O
+전북 군산 가는데 화요일 날씨 알려줄래,B-LOCATION E-LOCATION O S-DATE O O
+제주 서귀포 가려는데 화요일 날씨 알려줘,B-LOCATION E-LOCATION O S-DATE O O
+오늘 제주도 날씨 알려줘,S-DATE S-LOCATION O O
+... (생략)
+```
+- travel.csv
+```
+question,label
+어디 관광지 가겠냐,O O O
+파주 유명한 공연장 알려줘,S-LOCATION O S-TRAVEL O
+창원 여행 갈만한 바다,S-LOCATION O O S-TRAVEL
+평택 갈만한 스키장 여행 해보고 싶네,S-LOCATION O S-TRAVEL O O O
+제주도 템플스테이 여행 갈 데 추천해 줘,S-LOCATION S-TRAVEL O O O O O
+전주 가까운 바다 관광지 보여줘 봐요,S-LOCATION O S-TRAVEL O O O
+용인 가까운 축구장 어딨어,S-LOCATION O S-TRAVEL O
+붐비는 관광지,O O
+청주 가을 풍경 예쁜 산 가보고 싶어,S-LOCATION S-DATE O O S-TRAVEL O O
+... (생략)
+```
+
+위 처럼 question,label이라는 헤더(컬럼명)을 가장 윗줄에 위치시키고,
+그 아래로 두개의 컬림 question과 label에 해당하는 내용을 작성합니다.
+각 단어 및 엔티티는 띄어쓰기로 구분됩니다.
+예시 데이터는 BIO태깅을 개선한 BIOES태깅을 사용하여 라벨링했는데, 엔티티 태깅 방식은 자유롭게
+고르셔도 됩니다. (config에서 설정 가능합니다.) 엔티티 태깅 스키마에 관련된 자세한 내용은 
+[여기](https://en.wikipedia.org/wiki/Inside%E2%80%93outside%E2%80%93beginning_(tagging)) 를 참고하세요.
+
+<br>
+
+#### 3.5.2. 데이터셋 저장 경로
+데이터셋 저장경로는 기본적으로 config파일이 있는 곳을 root로 생각했을 때,
+"root/data/raw"입니다. 이 경로는 config의 DATA 챕터에서 변경 가능합니다.
+```
+root
+  |_data
+    |_raw
+      |_weather.csv
+      |_dust.csv
+      |_retaurant.csv
+      |_...
+```
+<br>
+
+#### 3.5.3. 인텐트 단위로 파일 분할
+각 인텐트 단위로 파일을 분할합니다. 이 때, 파일명이 인텐트명이 됩니다.
+파일명은 한글로 해도 상관 없긴 하지만, 리눅스 운영체제의 경우 시각화시 
+matplotlib에 한글폰트가 설치되어있지 않다면 글자가 깨지니,
+가급적이면 시각화를 위해 영어로 하는 것을 권장합니다. 
+(만약 글자가 깨지지 않으면 한글로 해도 무방하니, 한글로 하려면 폰트를 설치해주세요.)
+```
+root
+  |_data
+    |_raw
+      |_weather.csv      ← intent : weather
+      |_dust.csv         ← intent : dust
+      |_retaurant.csv    ← intent : restaurant
+      |_...
+```
+<br>
+
+#### 3.5.4. 파일의 헤더(컬럼명) 설정
+파일의 헤더(컬럼명)은 반드시 question과 label로 해주세요.
+헤더를 config에서 바꿀 수 있게 할까도 생각했지만, 
+별로 큰 의미가 없는 것 같아서
+우선은 고정된 값인 question과 label로 설정하였습니다.
+```
+question,label ← 중요 !!!
+... (생략)
+```
+<br>
+
+#### 3.5.4. 라벨링 실수 검출기능
+샘플 당 question의 단어 갯수와 label의 엔티티 갯수는 동일해야하며 config에 정의한 엔티티만 사용 가능합니다.
+이러한 라벨링 실수는 Kochat이 데이터를 변환할때 검출해서 어디가 틀렸는지 알려줍니다.
+
+```
+case 1: 라벨링 매칭 실수 방지
+
+
+question = 전주 눈 올까 (size : 3)
+label = S-LOCATION O O O (size : 4)
+
+→ 에러 발생! (question과 label의 수가 다름)
+```
+
+```
+case 2: 라벨링 오타 방지
+
+
+(in kochat_config.py)
+DATA = {
+    ... (생략)
+
+    'NER_categories': ['DATE', 'LOCATION', 'RESTAURANT', 'TRAVEL'],  # 사용자 정의 태그
+    'NER_tagging': ['B', 'E', 'I', 'S'],  # NER의 BEGIN, END, INSIDE, SINGLE 태그
+    'NER_outside': 'O',  # NER의 O태그 (Outside를 의미)
+}
+
+question = 전주 눈 올까
+label = Z-LOC O O
+
+→ 에러 발생! (정의되지 않은 엔티티 : Z-LOC)
+NER_tagging + '-' + NER_categories의 형태가 아니면 에러를 반환합니다.
+```
+<br>
+
+#### 3.5.5. OOD 데이터셋
+OOD란 Out of distribution의 약자로, 분포 외 데이터셋을 의미합니다.
+즉, 현재 챗봇이 지원하는 기능 이외의 데이터를 의미하는데, OOD 데이터셋을 갖추면
+매우 귀찮은 몇몇 부분들을 효과적으로 자동화 할 수 있습니다. 
+(주로 Fallback Detection threshold 설정)
+OOD 데이터셋은 아래처럼 "root/data/ood"에 추가합니다.
+
+```
+root
+  |_data
+    |_raw
+      |_weather.csv      
+      |_dust.csv         
+      |_retaurant.csv
+      |_...
+    |_ood
+      |_ood_data_!.csv    ← data/ood폴더에 위치하게 합니다.
+      |_ood_data_2.csv    ← data/ood폴더에 위치하게 합니다.
+```
+<br>
+
+OOD 데이터셋은 아래와 같이 question과 OOD의 의도로 라벨링합니다.
+예시 데이터셋은 전부 의도대로 라벨링했지만, 이 의도를 사용하진 않기 때문에
+그냥 아무값으로나 라벨링해도 사실 무관합니다.
+
+```
+예시_ood_데이터.csv
+
+question,label
+최근 있던일 최근 이슈 알려줘,뉴스이슈
+최근 핫했던 것 알려줘,뉴스이슈
+나한테 좋은 명언해줄 수 있냐,명언
+나 좋은 명언 좀 들려주라,명언
+좋은 명언 좀 해봐,명언
+백재범 노래 들을래요,음악
+비 노래 깡 듣고 싶다,음악
+영화 ost 추천해줘,음악
+지금 시간 좀 알려달라고,날짜시간
+지금 시간 좀 알려줘,날짜시간
+지금 몇 시 몇 분인지 아니,날짜시간
+명절 스트레스 ㅜㅜ,잡담
+뭐하고 놀지 ㅎㅎ,잡담
+나랑 놀아주라 좀,잡담
+뭐하고 살지,잡담
+... (생략)
+```
+<br>
+
+이렇게 라벨링 해도 되지만 어차피 라벨 데이터를 사용하지 않기 때문에 아래처럼 라벨링해도 무관합니다.
+```
+예시_ood_데이터.csv
+
+question,label
+최근 있던일 최근 이슈 알려줘,OOD
+최근 핫했던 것 알려줘,OOD
+나한테 좋은 명언해줄 수 있냐,OOD
+나 좋은 명언 좀 들려주라,OOD
+좋은 명언 좀 해봐,OOD
 백재범 노래 들을래요,OOD
 비 노래 깡 듣고 싶다,OOD
+영화 ost 추천해줘,OOD
+지금 시간 좀 알려달라고,OOD
+지금 시간 좀 알려줘,OOD
+지금 몇 시 몇 분인지 아니,OOD
+명절 스트레스 ㅜㅜ,OOD
+뭐하고 놀지 ㅎㅎ,OOD
+나랑 놀아주라 좀,OOD
+뭐하고 살지,OOD
+... (생략)
 ```
 
+OOD 데이터는 물론 많으면 좋겠지만 만드는 것 자체가 부담이기 때문에 적은 수만 넣어도 됩니다.
+예시 데이터의 경우는 총 3000라인의 데이터 중 600라인정도의 OOD 데이터를 삽입하였습니다.
+추후 버전에서는 가벼운 N-gram 기법(마르코프 체인 등)을 이용하여 OOD 데이터 생성을 자동화
+할 계획입니다. 데이터까지 모두 삽입하셨다면 kochat을 이용할 준비가 끝났습니다. 아래 챕터에서는 
+자세한 사용법에 대해 알려드리겠습니다.
+<br><br><br>
 
-OOD 데이터셋이 없어도 챗봇의 동작에는 문제가 없지만, OOD데이터셋이 있으면 
-설정에 있어서 매우 번거로운 부분들을 자동화 시킬 수 있습니다. 
-이에 대한 자세한 내용은 "4. 아키텍처와 컴포넌트"에서 자세히 후술합니다.
-OOD 데이터셋을 만드는 게 부담스러우시다면, OOD 데이터셋은 그렇게까지 많지 않아도 됩니다. 
-예시의 경우도 총 3000라인의 데이터 중 600줄 정도만 만들어도 잘 작동합니다.
+## 4. Usage
+### 4.1. `from kochat.data`
+`kochat.data` 패키지에는 `Dataset` 클래스가 있습니다. `Dataset`클래스는 
+분리된 raw 데이터 파일들을 하나로 합쳐서 통합 intent파일과 통합 entity파일로 만들고, 
+embedding, intent, entity, inference에 관련된 데이터셋을 미니배치로 잘라서 
+pytorch의 `DataLoader`형태로 제공합니다. 
+또한 모델, Loss 함수 등을 생성할 때 파라미터로 입력하는 `label_dict`를 제공합니다.
+`Dataset` 클래스를 생성할 때 필요한 파라미터인 `ood`는 OOD 데이터셋 사용 여부입니다. 
+True로 설정하면 ood 데이터셋을 사용합니다. 
+
+<br>
+
+- Dataset 기능 1. 데이터셋 생성
+```python
+from kochat.data import Dataset
+
+
+# 클래스 생성시 raw파일들을 검증하고 통합합니다.
+dataset = Dataset(ood=True)  
+
+# 임베딩 데이터셋 생성
+embed_dataset = dataset.load_embed() 
+
+# 인텐트 데이터셋 생성 (임베딩 프로세서 필요)
+intent_dataset = dataset.load_intent(emb) 
+
+# 엔티티 데이터셋 생성 (임베딩 프로세서 필요)
+entity_dataset = dataset.load_entity(emb) 
+
+# 추론용 데이터셋 생성 (임베딩 프로세서 필요)
+predict_dataset = dataset.load_predict("서울 맛집 추천해줘", emb) 
+```
+<br>
+
+- Dataset 기능 2. 라벨 딕셔너리 생성
+```python
+from kochat.data import Dataset
+
+
+# 클래스 생성시 raw파일들을 검증하고 통합합니다.
+dataset = Dataset(ood=True)  
+
+# 인텐트 라벨 딕셔너리를 생성합니다.
+intent_dict = dataset.intent_dict 
+
+# 엔티티 라벨 딕셔너리를 생성합니다.
+entity_dict = dataset.entity_dict
+```
+<br><br>
+
+### 4.2. `from kochat.model`
+`model` 패키지는 사전 정의된 다양한 built-in 모델들이 저장된 패키지입니다.
+현재 버전에서는 아래 목록에 해당하는 모델들을 지원합니다. 추후 버전이 업데이트 되면
+지금보다 훨씬 다양한 built-in 모델을 지원할 예정입니다. 아래 목록을 참고하여 사용해주시길 바랍니다.
+
+<br>
+
+#### 4.2.1. embed 모델
+```python
+from kochat.model import embed
+
+
+# 1. Gensim의 FastText 모델의 Wrapper입니다.
+fasttext = embed.FastText()
+```
+<br>
+
+#### 4.2.2. intent 모델
+```python
+from kochat.model import intent
+
+
+# 1. Residual Learning을 지원하는 1D CNN입니다.
+cnn = intent.CNN(label_dict=dataset.intent_dict, residual=True)
+
+# 2. Bidirectional을 지원하는 LSTM입니다.
+lstm = intent.LSTM(label_dict=dataset.intent_dict, bidirectional=True)
+```
+<br>
+
+#### 4.2.3. entity 모델
+```python
+from kochat.model import entity
+
+
+# 1. Bidirectional을 지원하는 LSTM입니다.
+lstm = entity.LSTM(label_dict=dataset.entity_dict, bidirectional=True)
+```
+<br>
+
+#### 4.2.4. 커스텀 모델
+Kochat은 프레임워크이기 때문에 커스텀 모델을 지원합니다. 
+Pytorch로 작성한 커스텀 모델을 직접 학습시키기고 챗봇 애플리케이션에 사용할 수 있습니다.
+그러나 만약 built-in 프로세서를 사용하려면 아래의 몇가지 규칙을 반드시 따라야합니다.
+<br><br>
+
+#### 4.2.4.1. Gensim embed 모델
+임베딩의 경우 현재는 Gensim 모델만 지원합니다. 추후에 Pytorch로 된
+임베딩 모델(ELMO, BERT)등도 지원할 계획입니다.
+Gensim Embedding 모델은 아래와 같은 형태로 구현합니다.
+새로운 Gensim 임베딩 모델을 구현할 때 참고하시길 바랍니다.
+
+```python
+import torch
+from torch import Tensor
+from gensim.models import FastText
+from kochat.decorators import gensim
+
+
+# 1. @gensim 데코레이터를 설정하면 
+# config의 GENSIM에 있는 모든 데이터에 접근 가능합니다.
+
+@gensim 
+class FastText(FastText): 
+
+# 2. Gensim의 BaseWordEmbeddingsModel의 서브클래스를 상속받습니다.
 
  
+    def __init__(self):
+        super().__init__(size=self.vector_size,
+                         window=self.window_size,
+                         workers=self.workers,
+                         min_count=self.min_count,
+                         iter=self.iter)
+
+        # 3. self.XXX와 같은 방식으로 config 값에 접근 가능합니다.
+        # (단, @gensim 데코레이터를 설정했을시만 접근 가능)
+
+   
+    def forward(self, sequence: str) -> Tensor:
+        # 4. forward 함수를 구현합니다.
+        # forward 함수에는 문자열 입력이 주어집니다.
+
+        sentence_vector = []
+
+        for word in sequence:
+            word_vector = self.wv[word]  
+            # 4.1. self.wv[word]를 이용하여 word벡터를 불러옵니다.
+
+            word_vector = torch.tensor(word_vector)  
+            # 4.2. kochat은 torch로 만들어진 프레임워크이기 때문에 torch.tensor로 만들어줍니다.
+            
+            word_vector = torch.unsqueeze(word_vector, dim=0)  
+            # 4.3. 리스트에 담기 전에 concat을 위해 unsqueeze합니다.
+            
+            sentence_vector.append(word_vector)
+            # 4.4. 리스트에 벡터를 담습니다.
+
+        return torch.cat(sentence_vector, dim=0)  
+        # 4.5. 단어 벡터들이 담긴 리스트를 0번 dimension에서 concat합니다.
+
+
+    def __call__(self, sequence: str):
+        # 5. __call__ 함수를 구현합니다. 
+ 
+        return self.forward(sequence)
+        # __call__함수에서는 단순히 self.forward 함수를 반환합니다.
+```
 <br><br>
 
-## 4. 아키텍처와 컴포넌트
-
-### 4.0 데코레이터를 통한 Configuration 주입
-Kochat 프레임워크는 수 많은 Configuration을 적용할 때, 의존성 문제를 최소화시키기 위해
-데코레이터를 이용해 외부에서 Configuration을 주입해주는 방식을 선택했습니다.
-따라서 클래스나 메소드/함수 등을 만들 때 아래처럼 데코레이터만 붙여주면 의존성에 대한 걱정 없이
-해당 configuration에 정의된 데이터에 접근할 수 있습니다. 데코레이터의 소스코드는 각 패키지의 
-`decorators.py`에 정의되어 있습니다.
+#### 4.2.4.2. Intent 모델
+인텐트 모델은 torch로 구현합니다.
+인텐트 모델에는 `self.label_dict`, `self.features`, `self.classifier`가 반드시 존재해야합니다.
+아래 구현 예를 보면 더 자세히 알 수 있습니다.
 
 ```python
-# 데코레이터 예시
-
-from decorators import intent
-from decorators import entity
-from decorators import loss
 from torch import nn
+from torch import Tensor
+from kochat.decorators import intent
+from kochat.model.layers.convolution import Convolution
 
+
+# 1. @intent 데코레이터를 설정하면 
+# config의 INTENT에 있는 모든 데이터에 접근 가능합니다.
 
 @intent
-class YourIntentModel(nn.Module):
+class CNN(nn.Module):
 
-    def __init__(self):
-        super().__init__()
-        """your model's parameters"""
-   
-    def forward(self, x):
-        """your model's forwarding"""
+# 2. torch.nn의 Module을 상속받습니다.
+
+ 
+    def __init__(self, label_dict: dict, residual: bool = True):
+        super(CNN, self).__init__()
+        self.label_dict = label_dict
+        # 3. intent모델은 반드시 속성으로 self.label_dict를 가지고 있어야합니다.
+
+        self.stem = Convolution(self.vector_size, self.d_model, kernel_size=1, residual=residual)
+        self.hidden_layers = nn.Sequential(*[
+            Convolution(self.d_model, self.d_model, kernel_size=1, residual=residual)
+            for _ in range(self.layers)])
+
+        self.features = nn.Linear(self.d_model * self.max_len, self.d_loss)
+        self.classifier = nn.Linear(self.d_loss, len(self.label_dict))
+
+        # 4. self.features와 self.classifier를 반드시 가지고 있어야합니다.
+        # features : 이전 출력층으로부터 나온 feature들을 self.d_loss로 압축 (distance기반 loss 적용됨)
+        # classifier : 최종 출력층으로서 d_loss의 feature들을 분류할 클래스 갯수로 압축 (cross entropy 적용)
+
+
+    def forward(self, x: Tensor) -> Tensor:
+        x = x.permute(0, 2, 1)
+        x = self.stem(x)
+        x = self.hidden_layers(x)
+        x = x.view(x.size(0), -1)
+        
+        # 5. forward 함수에서는 self.features와 self.classifier를 forwarding 하지 않습니다.
+        # self.features 바로 이전까지만 forwarding하고 사이즈를 [batch_size, -1]로 만들어서 출력하면
+        # processor 클래스에서 알아서 self.features와 self.classifier를 적용합니다.
+
         return x
-
-@entity
-class YourEntityModel(nn.Module):
-
-    def __init__(self):
-        super().__init__()
-        """your model's parameters"""
-   
-    def forward(self, x):
-        """your model's forwarding"""
-        return x
-
-@loss
-class YourLoss(nn.Module):
-    def __init__(self):
-        super().__init__()
-        """your loss's parameters"""
-   
-    def forward(self, x):
-        """your loss's forwarding"""
-        return x
-```
-
-<br><br>
-
-
-
-### 4.1 `_backend/data` 패키지
-![diagram](docs/class_diagram_dataset.jpg)
-
-가장 먼저 `_backend/data`에 있는 컴포넌트에 대해 소개합니다. 
-`_backend/data` 패키지에는 총 3개의 클래스가 존재합니다. 각각에 대하여 간략하게 소개합니다.
-<br><br>
-
-#### 4.1.1. `Organizer`
-`Organizer` 클래스는 `raw` 폴더에 있는 데이터 파일들을 점검하여 유효성을 확인하고
-문제가 없다면 하나로 합쳐서 통합 intent 데이터파일과 통합 entity 데이터 파일을 만듭니다.
-그리고 label_dictionary를 만들어서 `Dataset`에게 반환합니다. 
-`Organizer` 클래스는 후술할 `Dataset` 클래스 내부에 포함되어있기 때문에 
-프레임워크의 사용자 입장에서 직접 사용할 일은 아마 없을 것 입니다.
-<br><br>
-
-#### 4.1.2. `Preprocessor`
-`Preprocessor` 클래스는 데이터의 맞춤법을 자동으로 검사하고, 토크나이징, 패드시퀀싱 등의 
-전처리 작업을 수행하는 클래스입니다. `Preprocessor`역시 `Dataset`클래스 안에 
-내장 되어있기 때문에 `Organizer`와 마찬가지로 프레임워크의 사용자 입장에서 직접 
-사용할 일은 아마 없을 것 입니다. 프레임워크 사용자의 경우 `Preprocessor`의 코드를 직접 
-사용하진 않지만 tokenizing의 작동 방식은 자세히 알아둘 필요가 있기 때문에 관련 내용은 
-아래에서 설명합니다. 
-
-```
-tokenizing 이슈
-
-1. 학습/테스트시에는 데이터 전처리 속도를 향상 시키기 위해 맞춤법 검사 및 konlpy 
-토크나이저의 사용이 모두 off됩니다. (오로지 띄어쓰기를 기준으로 split()합니다.) 
-때문에 학습 데이터를 만들 때는 맞춤법과 띄어쓰기를 유의해서 만들어주시길 바랍니다.
-
-2. 위에서 말한 것 처럼 추론시에만 네이버 맞춤법 검사기와 토크나이저가 사용됩니다. 
-그러나 네이버 맞춤법 검사기의 경우 네이버의 허락 없이 무단 크롤링하여 구현한 것이기 
-때문에 단순히 공부 및 과제 등의 프로젝트용으로 사용한다면 큰 문제가 되지 않겠지만 
-이 코드를 상업적 이용하게 되면 법적인 문제가 될 수 있습니다. 
-후술할 데이터셋 클래스의 load_predict() 함수에서 'naver_fix' 파라미터를 False로 
-끄게 되면 맞춤법 검사 기능은 사용하지 않고 konlpy 토크나이징만 사용할 수 있습니다.
-
-3. 맞춤법 부분의 이슈는 현재는 네이버 맞춤법 검사기를 사용하고 있지만 차후 버전에서는
-자체적인 띄어쓰기 및 맞춤법 모델들 구현하여 적용할 예정입니다.
-무단으로 네이버의 맞춤법 검사기를 사용해 구현한 점에 있어서 대단히 죄송합니다.
-```
-<br><br>
-
-#### 4.1.3. `Dataset`
-`Dataset` 클래스는 `Organizer`클래스가 만들어낸 통합 데이터셋 파일을 전처리하고 임베딩한 뒤
-미니배치 단위로 잘라서 학습/테스트용 데이터로서 사용할 수 있게 준비시킵니다.
-주로 학습에 필요한 데이터셋을 생성하거나, 모델이나 Loss 함수들이 필요한 label_dict를 반환할 때 
-사용됩니다.
-
+````
 ```python
-from data import Dataset
+import torch
+from torch import nn, autograd
+from torch import Tensor
+from kochat.decorators import intent
 
-dataset = Dataset(ood=False)
 
-emb_dataset = dataset.load_embed() # 임베딩 학습용 데이터셋
-intent_dataest = dataset.load_intent(emb_proc) # 인텐트 학습용 데이터셋
-entity_dataset = dataset.load_entity(emb_proc) # 엔티티 학습용 데이터셋
+# 1. @intent 데코레이터를 설정하면 
+# config의 INTENT에 있는 모든 데이터에 접근 가능합니다.
 
-intent_dict = dataset.intent_dict # 인텐트 라벨 딕셔너리
-entity_dict = dataset.entity_dict # 엔티티 라벨 딕셔너리
+@intent
+class LSTM(nn.Module):
+
+# 2. torch.nn의 Module을 상속받습니다.
+ 
+    def __init__(self, label_dict: dict, bidirectional: bool = True):
+
+        super().__init__()
+        self.label_dict = label_dict
+        # 3. intent모델은 반드시 속성으로 self.label_dict를 가지고 있어야합니다.
+
+        self.direction = 2 if bidirectional else 1
+        self.lstm = nn.LSTM(input_size=self.vector_size,
+                            hidden_size=self.d_model,
+                            num_layers=self.layers,
+                            batch_first=True,
+                            bidirectional=bidirectional)
+
+        self.features = nn.Linear(self.d_model, self.d_loss)
+        self.classifier = nn.Linear(self.d_loss, len(self.label_dict))
+
+        # 4. self.features와 self.classifier를 반드시 가지고 있어야합니다.
+        # features : 이전 출력층으로부터 나온 feature들을 self.d_loss로 압축 (distance기반 loss 적용됨)
+        # classifier : 최종 출력층으로서 d_loss의 feature들을 분류할 클래스 갯수로 압축 (cross entropy 적용)
+
+
+    def init_hidden(self, batch_size: int) -> autograd.Variable:
+        param1 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
+        param2 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
+        return autograd.Variable(param1), autograd.Variable(param2)
+
+    def forward(self, x: Tensor) -> Tensor:
+        b, l, v = x.size()
+        out, (h_s, c_s) = self.lstm(x, self.init_hidden(b))
+
+        # 5. forward 함수에서는 self.features와 self.classifier를 forwarding 하지 않습니다.
+        # self.features 바로 이전까지만 forwarding하고 사이즈를 [batch_size, -1]로 만들어서 출력하면
+        # processor 클래스에서 알아서 self.features에와 self.classifier를 적용합니다.
+
+        return h_s[0]
 ```
-<br><br>
-
-### 4.2. `_backend/proc` 패키지
-Kochat 프레임워크에서 가장 중요한 패키지로서 다양한 학습 프로세서를 보유하고 있습니다.
-프로세서란 모델과 데이터셋을 입력받고 학습, 추론, 테스트 등을 진행하는 클래스로서
-실질적으로 Kochat에서 작업 실행기로서 가장 자주 사용되는 클래스입니다.
-<br><br>
-
-#### 4.2.1. AbstractProcessor들의 상속구조
-
-![diagram](docs/class_diagram_abstract_processor.jpg)
 
 
-
-## 5. 사용법
 
 ## 5. 실험 및 시각화
 
