@@ -482,7 +482,6 @@ intent_dict = dataset.intent_dict
 # 엔티티 라벨 딕셔너리를 생성합니다.
 entity_dict = dataset.entity_dict
 ```
-
 <br>
 
 #### ⚠ Warning
@@ -498,7 +497,7 @@ entity_dict = dataset.entity_dict
 `False`로 설정해주시길 바랍니다. `False` 설정시에는 Konlpy 토큰화만 수행하며,
 추후 버전에서는 네이버 맞춤법 검사기를 자체적인 띄어쓰기 검사모듈 등으로 
 교체할 예정입니다.
-<br><br>
+<br><br><br>
 
 ### 4.2. `from kochat.model`
 `model` 패키지는 사전 정의된 다양한 built-in 모델들이 저장된 패키지입니다.
@@ -545,9 +544,9 @@ lstm = entity.LSTM(label_dict=dataset.entity_dict, bidirectional=True)
 <br>
 
 #### 4.2.4. 커스텀 모델
-Kochat은 프레임워크이기 때문에 커스텀 모델을 지원합니다. 
-Gensim, Pytorch로 작성한 커스텀 모델을 직접 학습시키기고 챗봇 애플리케이션에 사
-용할 수 있습니다. 그러나 만약 커스텀 모델을 사용하려면 아래의 몇가지 규칙을 반드시 
+Kochat은 커스텀 모델을 지원합니다. 
+Gensim이나 Pytorch로 작성한 커스텀 모델을 직접 학습시키기고 챗봇 애플리케이션에 
+사용할 수 있습니다. 그러나 만약 커스텀 모델을 사용하려면 아래의 몇가지 규칙을 반드시 
 따라야합니다.
 <br><br>
 
@@ -558,7 +557,7 @@ Gensim Embedding 모델은 아래와 같은 형태로 구현해야합니다.
 <br><br>
 
 1. `@gensim` 데코레이터 설정
-2. Gensim의 `BaseWordEmbeddingsModel`모델 중 한 가지 상속받기
+2. `BaseWordEmbeddingsModel`모델 중 한 가지 상속받기
 4. `super().__init__()`에 파라미터 삽입하기 (self.XXX로 접근가능)
 <br><br>
 
@@ -571,7 +570,6 @@ from kochat.decorators import gensim
 
 @gensim
 class FastText(FastText):
-
 # 2. BaseWordEmbeddingsModel 모델중 한 가지를  상속받습니다.
 
     def __init__(self):
@@ -587,14 +585,15 @@ class FastText(FastText):
 
 #### 4.2.4.2. Intent 모델
 인텐트 모델은 torch로 구현합니다.
-인텐트 모델에는 `self.label_dict` 가 반드시 존재해야하며, 
-더 세부적인 규칙은 다음과 같습니다.
+인텐트 모델에는 `self.label_dict` 가 반드시 존재해야합니다. 
+또한 최종 output 레이어는 자동생성되기 때문에 feature만 출력하면 됩니다.
+더욱 세부적인 규칙은 다음과 같습니다.
 <br><br>
 
 1. `@intent` 데코레이터 설정
 2. `torch.nn.Module` 상속받기
 3. 파라미터로 label_dict를 입력받고 `self.label_dict`에 할당하기
-6. `forward()` 함수에서 forwarding 후 [batch_size, -1] 로 만들어서 리턴하기
+4. `forward()` 함수에서 feature를 [batch_size, -1] 로 만들고 리턴
 <br><br>
 
 ```python
@@ -609,7 +608,6 @@ from kochat.model.layers.convolution import Convolution
 
 @intent
 class CNN(nn.Module):
-
 # 2. torch.nn의 Module을 상속받습니다.
 
     def __init__(self, label_dict: dict, residual: bool = True):
@@ -628,7 +626,8 @@ class CNN(nn.Module):
         x = self.hidden_layers(x)
 
         return x.view(x.size(0), -1)
-        # 4. 출력을 [batch_size, -1]로 만들고 반환합니다.
+        # 4. feature를 [batch_size, -1]로 만들고 반환합니다.
+        # 최종 output 레이어는 자동 생성되기 때문에 feature만 출력합니다.
 ````
 ```python
 import torch
@@ -642,7 +641,6 @@ from kochat.decorators import intent
 
 @intent
 class LSTM(nn.Module):
-
 # 2. torch.nn의 Module을 상속받습니다.
  
     def __init__(self, label_dict: dict, bidirectional: bool = True):
@@ -667,7 +665,8 @@ class LSTM(nn.Module):
         b, l, v = x.size()
         out, (h_s, c_s) = self.lstm(x, self.init_hidden(b))
 
-        # 4. 출력을 [batch_size, -1]로 만들고 반환합니다.
+        # 4. feature를 [batch_size, -1]로 만들고 반환합니다.
+        # 최종 output 레이어는 자동 생성되기 때문에 feature만 출력합니다.
         return h_s[0]
 ```
 
