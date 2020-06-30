@@ -17,7 +17,7 @@ from kochat.proc.intent_classifier import IntentClassifier
 @intent
 class SoftmaxClassifier(IntentClassifier):
 
-    def __init__(self, model: nn.Module, loss: BaseLoss, grid_search: bool = True):
+    def __init__(self, model: nn.Module, loss: BaseLoss):
         """
         Distance Intent 분류 모델을 학습시키고 테스트 및 추론합니다.
 
@@ -27,7 +27,7 @@ class SoftmaxClassifier(IntentClassifier):
 
         self.label_dict = model.label_dict
         self.loss = loss.to(self.device)
-        self.fallback_detector = FallbackDetector(self.label_dict, grid_search)
+        self.fallback_detector = FallbackDetector(self.label_dict, self.grid_search)
         self.softmax = nn.Softmax(dim=1)
         super().__init__(model, model.parameters())
 

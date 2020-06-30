@@ -9,7 +9,7 @@
 
 ## Table of contents
 
-<br>
+<br><br><br>
 
 ## 1. Kochat 이란?
 
@@ -205,7 +205,6 @@ matplotlib==3.2.1
 pandas==1.0.4
 gensim==3.8.3
 konlpy==0.5.2
-sklearn==0.0
 numpy==1.18.5
 joblib==0.15.1
 scikit-learn==0.23.1
@@ -219,22 +218,30 @@ flask==1.1.2
 ### 3.4 Configuration 파일 추가하기
 pip를 이용해 Kochat을 내려받았다면 프로젝트에, kochat의 configuration 파일을 추가해야합니다.
 [여기](https://github.com/gusdnd852/kochat/files/4843589/kochat_config.zip) 에서 Configuration파일을
-다운로드 받고, 압축을 풀어서 interpreter의 working directory에 넣습니다.
-(보통은 project root경로입니다. 만약 어떤 python 파일을 실행한다면, 그 실행파일과 동일한 경로에 반드시 
-kochat_config.py가 있어야합니다.)
+다운로드 받고, 압축을 풀어서 interpreter의 working directory에 넣습니다. (kochat api를 실행하는 파일과
+동일한 경로에 있어야합니다. 자세한 예시는 아래 데모에서 확인하실 수 있습니다.) 
+config 파일에는 다양한 설정 값들이 존재하니 확인하고 입맛대로 변경하시면 됩니다.
 
 <br>
 
 ### 3.5 데이터셋 넣기
 이제 여러분이 학습시킬 데이터셋을 넣어야합니다. 
-그 전에 데이터셋의 포맷에 대해서 간단하게 알아봅시다. Kochat은 기본적으로 Slot filling을 기반으로
-하고 있기 때문에 Intent와 Entity 데이터셋이 필요합니다. 그러나 이 두가지 데이터셋을 따로 만들면
-상당히 번거로워지기 때문에 한가지 포맷으로 두가지 데이터를 자동으로 생성합니다.
-아래와 같은 포맷으로 데이터셋을 만들어줍니다.
+그 전에 데이터셋의 포맷에 대해서 간단하게 알아봅시다. 
+Kochat은 기본적으로 Slot filling을 기반으로
+하고 있기 때문에 Intent와 Entity 데이터셋이 필요합니다. 
+그러나 이 두가지 데이터셋을 따로 만들면 상당히 번거로워지기 때문에 
+한가지 포맷으로 두가지 데이터를 자동으로 생성합니다.
+아래 데이터셋 규칙들에 맞춰서 데이터를 생성해주세요
+<br><br>
 
+#### 3.5.1. 데이터 포맷
+기본적으로 intent와 entity를 나누려면, 두가지를 모두 구분할 수 있어야합니다.
+그래서 선택한 방식은 인텐트는 파일로 구분, 엔티티는 라벨로 구분하는 것이였습니다.
+추후 릴리즈 버전에서는 Rasa처럼 훨씬 쉬운 방식으로 변경하려고 합니다만, 초기버전에서는
+다소 불편하더라도 아래의 포맷을 따라주시길 바랍니다. <br><br>
+
+- weather.csv
 ```
-weather.csv
-
 question,label
 날씨 알려주세요,O O
 월요일 인제 비오니,S-DATE S-LOCATION O
@@ -247,10 +254,10 @@ question,label
 오늘 제주도 날씨 알려줘,S-DATE S-LOCATION O O
 ... (생략)
 ```
+<br>
 
+- travel.csv
 ```
-travel.csv
-
 question,label
 어디 관광지 가겠냐,O O O
 파주 유명한 공연장 알려줘,S-LOCATION O S-TRAVEL O
@@ -261,11 +268,272 @@ question,label
 용인 가까운 축구장 어딨어,S-LOCATION O S-TRAVEL O
 붐비는 관광지,O O
 청주 가을 풍경 예쁜 산 가보고 싶어,S-LOCATION S-DATE O O S-TRAVEL O O
+... (생략)
 ```
 
+위 처럼 question,label이라는 헤더(컬럼명)을 가장 윗줄에 위치시키고,
+그 아래로 두개의 컬림 question과 label에 해당하는 내용을 작성합니다.
+각 단어 및 엔티티는 띄어쓰기로 구분됩니다.
+예시 데이터는 BIO태깅을 개선한 BIOES태깅을 사용하여 라벨링했는데, 엔티티 태그 방식은 자유롭게
+고르셔도 됩니다. (config에서 설정 가능합니다.) 엔티티 태깅 스키마에 관련된 자세한 내용은 
+[여기](https://en.wikipedia.org/wiki/Inside%E2%80%93outside%E2%80%93beginning_(tagging)) 를 참고하세요.
+<br><br>
+
+#### 3.5.2. 데이터셋 저장 경로
+데이터셋 저장경로는 기본적으로 config파일이 있는 곳을 root로 생각했을 때,
+"root/data/raw"입니다. 이 경로는 config의 DATA 챕터에서 변경 가능합니다.
+- 예시 : 
+```
+root
+  |_data
+    |_raw
+      |_weather.csv
+      |_dust.csv
+      |_retaurant.csv
+      |_...
+```
+<br><br>
+
+#### 3.5.3. 인텐트별로 파일 분할
+각 인텐트별로 파일을 분할합니다. 이 때, 파일명이 인텐트명이 됩니다.
+파일명은 한글로 해도 상관 없긴 하지만, 리눅스 운영체제의 경우 시각화시 
+matplotlib에 한글폰트가 설치되어있지 않다면 글자가 깨지니,
+가급적이면 시각화를 위해 영어로 하는 것을 권장합니다. 
+(만약 글자가 깨지지 않으면 한글로 해도 무방하니, 한글로 하려면 폰트를 설치해주세요.)
+
+- 예시 :
+```
+root
+  |_data
+    |_raw
+      |_weather.csv      ← intent : weather
+      |_dust.csv         ← intent : dust
+      |_retaurant.csv    ← intent : restaurant
+      |_...
+```
+<br><br>
+
+#### 3.5.4. 파일의 헤더(컬럼명) 설정
+파일의 헤더(컬럼명)은 반드시 question과 label로 해주세요.
+헤더를 config에서 바꿀 수 있게 할까도 생각했지만, 
+별로 큰 의미가 없는 것 같아서
+우선은 고정된 값인 question과 label로 설정하였습니다.
+- 예시
+```
+question,label ← 중요 !!!
+... (생략)
+전주 관광지 보여줘,S-LOCATION O O O
+용인 가까운 축구장 어딨어,S-LOCATION O S-TRAVEL O
+... (생략)
+```
+<br><br>
+
+#### 3.5.4. 라벨링 실수 검출기능
+샘플 당 question의 단어 갯수와 label의 엔티티 갯수는 동일해야하며 config에 정의한 엔티티만 사용 가능합니다.
+이러한 라벨링 실수는 Kochat이 데이터를 변환할때 검출해서 어디가 틀렸는지 알려줍니다.
+
+```
+case 1: 라벨링 매칭 실수 방지
+
+question = 전주 눈 올까 (size : 3)
+label = S-LOCATION O O O (size : 4)
+
+→ 에러 발생! (question과 label의 수가 다름)
+```
+
+```
+case 2: 라벨링 오타 방지
+
+(in kochat_config.py)
+DATA = {
+    ... (생략)
+
+    'NER_categories': ['DATE', 'LOCATION', 'RESTAURANT', 'TRAVEL'],  # 사용자 정의 태그
+    'NER_tagging': ['B', 'E', 'I', 'S'],  # NER의 BEGIN, END, INSIDE, SINGLE 태그
+    'NER_outside': 'O',  # NER의 O태그 (Outside를 의미)
+}
+
+question = 전주 눈 올까
+label = Z-LOC O O
+
+→ 에러 발생! (정의되지 않은 엔티티 : Z-LOC)
+NER_tagging + '-' + NER_categories의 형태가 아니면 에러를 반환합니다.
+```
+<br><br>
+
+#### 3.5.5. OOD 데이터셋
+OOD란 Out of distribution의 약자로, 분포 외 데이터셋을 의미합니다.
+즉, 현재 챗봇이 지원하는 기능 이외의 데이터를 의미하는데, OOD 데이터셋을 갖추면
+매우 귀찮은 몇몇 부분들을 효과적으로 자동화 할 수 있습니다. 
+(주로 Fallback Detection threshold 설정)
+OOD 데이터셋은 아래처럼 "root/data/ood"에 추가합니다.
+
+```
+root
+  |_data
+    |_raw
+      |_weather.csv      
+      |_dust.csv         
+      |_retaurant.csv
+      |_...
+    |_ood
+      |_ood_data_!.csv    ← ood폴더에 위치하게 합니다.
+      |_ood_data_2.csv    ← ood폴더에 위치하게 합니다.
+```
 <br>
 
+OOD 데이터셋은 아래와 같이 question과 OOD의 의도로 라벨링합니다.
+예시 데이터셋은 전부 의도대로 라벨링했지만, 이 의도를 사용하진 않기 때문에
+그냥 아무값으로나 라벨링해도 사실 무관합니다.
+
+```
+예시_ood_데이터.csv
+
+question,label
+최근 있던일 최근 이슈 알려줘,뉴스이슈
+최근 핫했던 것 알려줘,뉴스이슈
+나한테 좋은 명언해줄 수 있냐,명언
+나 좋은 명언 좀 들려주라,명언
+좋은 명언 좀 해봐,명언
+백재범 노래 들을래요,음악
+비 노래 깡 듣고 싶다,음악
+영화 ost 추천해줘,음악
+지금 시간 좀 알려달라고,날짜시간
+지금 시간 좀 알려줘,날짜시간
+지금 몇 시 몇 분인지 아니,날짜시간
+명절 스트레스 ㅜㅜ,잡담
+뭐하고 놀지 ㅎㅎ,잡담
+나랑 놀아주라 좀,잡담
+뭐하고 살지,잡담
+... (생략)
+```
+<br>
+
+이렇게 라벨링 해도 되지만 어차피 라벨 데이터를 사용하지 않기 때문에 아래처럼 라벨링해도 무관합니다.
+```
+예시_ood_데이터.csv
+
+question,label
+최근 있던일 최근 이슈 알려줘,OOD
+최근 핫했던 것 알려줘,OOD
+나한테 좋은 명언해줄 수 있냐,OOD
+나 좋은 명언 좀 들려주라,OOD
+좋은 명언 좀 해봐,OOD
+백재범 노래 들을래요,OOD
+비 노래 깡 듣고 싶다,OOD
+영화 ost 추천해줘,OOD
+지금 시간 좀 알려달라고,OOD
+지금 시간 좀 알려줘,OOD
+지금 몇 시 몇 분인지 아니,OOD
+명절 스트레스 ㅜㅜ,OOD
+뭐하고 놀지 ㅎㅎ,OOD
+나랑 놀아주라 좀,OOD
+뭐하고 살지,OOD
+... (생략)
+```
+
+OOD 데이터는 물론 많으면 좋겠지만 만드는 것 자체가 부담이기 때문에 적은 수만 넣어도 됩니다.
+예시 데이터의 경우는 총 3000라인의 데이터 중 600라인정도의 OOD 데이터를 삽입하였습니다.
+추후 버전에서는 가벼운 N-gram 기법(마르코프 체인 등)을 이용하여 OOD 데이터 생성을 자동화
+할 계획입니다. 데이터까지 모두 삽입하셨다면 kochat을 이용할 준비가 끝났습니다. 아래 챕터에서는 
+자세한 사용법에 대해 알려드리겠습니다.
+<br><br><br>
+
 ## 4. Usage
+### 4.1. `from kochat.data`
+data 패키지에는 Dataset 클래스가 있습니다. Dataset클래스는 분리된 raw 데이터 파일들을
+하나로 합쳐서 통합 intent파일과 통합 entity파일로 만들고, embedding, intent, entity,
+inference에 관련된 데이터셋을 미니배치로 잘라서 Dataloader형태로 제공합니다.
+또한 모델, Loss 함수 등을 생성할 때 파라미터로 입력하는 label_dict를 제공합니다.
+Dataset 클래스를 생성할 때 필요한 파라미터인 ood는 ood 데이터셋 사용 여부입니다. 
+True로 설정하면 ood 데이터셋을 사용합니다. 
+<br><br>
+
+- Dataset 기능 1. 데이터셋 생성
+```python
+from kochat.data import Dataset
+
+
+# 클래스 생성시 raw파일들을 검증하고 통합합니다.
+dataset = Dataset(ood=True)  
+
+# 임베딩 데이터셋 생성
+embed_dataset = dataset.load_embed() 
+
+# 인텐트 데이터셋 생성 (임베딩 프로세서 필요)
+intent_dataset = dataset.load_intent(emb) 
+
+# 엔티티 데이터셋 생성 (임베딩 프로세서 필요)
+entity_dataset = dataset.load_entity(emb) 
+
+# 추론용 데이터셋 생성 (임베딩 프로세서 필요)
+predict_dataset = dataset.load_predict("서울 맛집 추천해줘", emb) 
+```
+<br>
+
+- Dataset 기능 2. 라벨 딕셔너리 생성
+```python
+from kochat.data import Dataset
+
+
+# 클래스 생성시 raw파일들을 검증하고 통합합니다.
+dataset = Dataset(ood=True)  
+
+# 인텐트 라벨 딕셔너리를 생성합니다.
+intent_dict = dataset.intent_dict 
+
+# 엔티티 라벨 딕셔너리를 생성합니다.
+entity_dict = dataset.entity_dict
+```
+<br><br>
+
+### 4.2. `from kochat.model`
+model 패키지는 사전 정의된 다양한 built-in 모델들이 저장된 패키지입니다.
+현재 버전에서는 아래 목록에 해당하는 모델들을 지원합니다. 추후 버전이 업데이트 되면
+지금보다 훨씬 다양한 built-in 모델을 지원할 예정입니다. 아래 목록을 참고하여 사용해주시길 바랍니다.
+<br><br>
+
+#### 4.2.1. embed 모델
+```python
+from kochat.model import embed
+
+
+# 1. Gensim의 FastText 모델의 Wrapper입니다.
+fasttext = embed.FastText()
+```
+<br>
+
+#### 4.2.2. intent 모델
+```python
+from kochat.model import intent
+
+
+# 1. Residual Learning을 지원하는 1D CNN입니다.
+cnn = intent.CNN(label_dict=dataset.intent_dict, residual=True)
+
+# 2. Bidirectional을 지원하는 LSTM입니다.
+lstm = intent.LSTM(label_dict=dataset.intent_dict, bidirectional=True)
+```
+<br>
+
+#### 4.2.3. entity 모델
+```python
+from kochat.model import entity
+
+
+# 1. Bidirectional을 지원하는 LSTM입니다.
+lstm = entity.LSTM(label_dict=dataset.entity_dict, bidirectional=True)
+```
+<br>
+
+#### 4.2.4. 커스텀 모델
+Kochat은 프레임워크이기 때문에 커스텀 모델을 지원합니다. 
+Pytorch로 작성한 커스텀 모델을 직접 학습시키기고 챗봇 애플리케이션에 사용할 수 있습니다.
+<br><br>
+
+#### 4.2.4.1. 커스텀 gensim embed 모델
+현재는 
+
 
 ## 5. 실험 및 시각화
 

@@ -17,7 +17,7 @@ from kochat.proc.torch_processor import TorchProcessor
 @entity
 class EntityRecognizer(TorchProcessor):
 
-    def __init__(self, model: nn.Module, loss: BaseLoss, masking: bool = True):
+    def __init__(self, model: nn.Module, loss: BaseLoss):
 
         """
         개체명 인식 (Named Entity Recognition) 모델을 학습시키고
@@ -30,7 +30,7 @@ class EntityRecognizer(TorchProcessor):
 
         self.label_dict = model.label_dict
         self.loss = loss.to(self.device)
-        self.masking = Masking() if masking else None
+        self.mask = Masking() if self.masking else None
         self.parameters = list(model.parameters())
 
         if len(list(loss.parameters())) != 0:
@@ -132,6 +132,6 @@ class EntityRecognizer(TorchProcessor):
         if labels is None:
             return predicts
         else:
-            mask = self.masking(length) if self.masking else None
+            mask = self.mask(length) if self.mask else None
             loss = self.loss.compute_loss(labels, logits, feats, mask)
             return predicts, loss

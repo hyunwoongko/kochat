@@ -20,13 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d122a472-58ee-4a2b-8505-15e95560cd02" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/kochat/demo/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kochat_config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/app/kochat_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/app/kochat_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/data/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/loss/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/loss/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/proc/distance_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/distance_classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/proc/entity_recognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/entity_recognizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/proc/softmax_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/softmax_classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -359,7 +360,7 @@
       <workItem from="1593113733141" duration="23051000" />
       <workItem from="1593179284763" duration="10259000" />
       <workItem from="1593230152086" duration="47815000" />
-      <workItem from="1593291711820" duration="44098000" />
+      <workItem from="1593291711820" duration="55936000" />
     </task>
     <servers />
   </component>
@@ -461,26 +462,26 @@
     </state>
     <state x="755" y="294" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1591103888965" />
     <state x="755" y="322" key="FileChooserDialogImpl/0.39.1920.1041@0.39.1920.1041" timestamp="1593342821540" />
-    <state width="1921" height="302" key="GridCell.Tab.0.bottom" timestamp="1593399995253">
+    <state width="1921" height="302" key="GridCell.Tab.0.bottom" timestamp="1593494838691">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="302" key="GridCell.Tab.0.bottom/0.39.1920.1041@0.39.1920.1041" timestamp="1593399995253" />
-    <state width="1921" height="302" key="GridCell.Tab.0.center" timestamp="1593399995252">
+    <state width="1921" height="302" key="GridCell.Tab.0.bottom/0.39.1920.1041@0.39.1920.1041" timestamp="1593494838691" />
+    <state width="1921" height="302" key="GridCell.Tab.0.center" timestamp="1593494838691">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="302" key="GridCell.Tab.0.center/0.39.1920.1041@0.39.1920.1041" timestamp="1593399995252" />
-    <state width="1921" height="302" key="GridCell.Tab.0.left" timestamp="1593399995251">
+    <state width="1921" height="302" key="GridCell.Tab.0.center/0.39.1920.1041@0.39.1920.1041" timestamp="1593494838691" />
+    <state width="1921" height="302" key="GridCell.Tab.0.left" timestamp="1593494838691">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="302" key="GridCell.Tab.0.left/0.39.1920.1041@0.39.1920.1041" timestamp="1593399995251" />
-    <state width="1921" height="302" key="GridCell.Tab.0.right" timestamp="1593399995253">
+    <state width="1921" height="302" key="GridCell.Tab.0.left/0.39.1920.1041@0.39.1920.1041" timestamp="1593494838691" />
+    <state width="1921" height="302" key="GridCell.Tab.0.right" timestamp="1593494838691">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="302" key="GridCell.Tab.0.right/0.39.1920.1041@0.39.1920.1041" timestamp="1593399995253" />
+    <state width="1921" height="302" key="GridCell.Tab.0.right/0.39.1920.1041@0.39.1920.1041" timestamp="1593494838691" />
     <state width="1921" height="358" key="GridCell.Tab.1.bottom" timestamp="1593399991909">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
