@@ -238,7 +238,7 @@ Kochat은 기본적으로 Slot filling을 기반으로
 기본적으로 intent와 entity를 나누려면, 두가지를 모두 구분할 수 있어야합니다.
 그래서 선택한 방식은 인텐트는 파일로 구분, 엔티티는 라벨로 구분하는 것이였습니다.
 추후 릴리즈 버전에서는 Rasa처럼 훨씬 쉬운 방식으로 변경하려고 합니다만, 초기버전에서는
-다소 불편하더라도 아래의 포맷을 따라주시길 바랍니다. <br><br>
+다소 불편하더라도 아래의 포맷을 따라주시길 바랍니다. <br>
 
 - weather.csv
 ```
@@ -254,8 +254,6 @@ question,label
 오늘 제주도 날씨 알려줘,S-DATE S-LOCATION O O
 ... (생략)
 ```
-<br>
-
 - travel.csv
 ```
 question,label
@@ -277,12 +275,12 @@ question,label
 예시 데이터는 BIO태깅을 개선한 BIOES태깅을 사용하여 라벨링했는데, 엔티티 태그 방식은 자유롭게
 고르셔도 됩니다. (config에서 설정 가능합니다.) 엔티티 태깅 스키마에 관련된 자세한 내용은 
 [여기](https://en.wikipedia.org/wiki/Inside%E2%80%93outside%E2%80%93beginning_(tagging)) 를 참고하세요.
-<br><br>
+
+<br>
 
 #### 3.5.2. 데이터셋 저장 경로
 데이터셋 저장경로는 기본적으로 config파일이 있는 곳을 root로 생각했을 때,
 "root/data/raw"입니다. 이 경로는 config의 DATA 챕터에서 변경 가능합니다.
-- 예시 : 
 ```
 root
   |_data
@@ -292,7 +290,7 @@ root
       |_retaurant.csv
       |_...
 ```
-<br><br>
+<br>
 
 #### 3.5.3. 인텐트별로 파일 분할
 각 인텐트별로 파일을 분할합니다. 이 때, 파일명이 인텐트명이 됩니다.
@@ -300,8 +298,6 @@ root
 matplotlib에 한글폰트가 설치되어있지 않다면 글자가 깨지니,
 가급적이면 시각화를 위해 영어로 하는 것을 권장합니다. 
 (만약 글자가 깨지지 않으면 한글로 해도 무방하니, 한글로 하려면 폰트를 설치해주세요.)
-
-- 예시 :
 ```
 root
   |_data
@@ -311,14 +307,13 @@ root
       |_retaurant.csv    ← intent : restaurant
       |_...
 ```
-<br><br>
+<br>
 
 #### 3.5.4. 파일의 헤더(컬럼명) 설정
 파일의 헤더(컬럼명)은 반드시 question과 label로 해주세요.
 헤더를 config에서 바꿀 수 있게 할까도 생각했지만, 
 별로 큰 의미가 없는 것 같아서
 우선은 고정된 값인 question과 label로 설정하였습니다.
-- 예시
 ```
 question,label ← 중요 !!!
 ... (생략)
@@ -326,7 +321,7 @@ question,label ← 중요 !!!
 용인 가까운 축구장 어딨어,S-LOCATION O S-TRAVEL O
 ... (생략)
 ```
-<br><br>
+<br>
 
 #### 3.5.4. 라벨링 실수 검출기능
 샘플 당 question의 단어 갯수와 label의 엔티티 갯수는 동일해야하며 config에 정의한 엔티티만 사용 가능합니다.
@@ -359,7 +354,7 @@ label = Z-LOC O O
 → 에러 발생! (정의되지 않은 엔티티 : Z-LOC)
 NER_tagging + '-' + NER_categories의 형태가 아니면 에러를 반환합니다.
 ```
-<br><br>
+<br>
 
 #### 3.5.5. OOD 데이터셋
 OOD란 Out of distribution의 약자로, 분포 외 데이터셋을 의미합니다.
@@ -447,7 +442,8 @@ inference에 관련된 데이터셋을 미니배치로 잘라서 Dataloader형�
 또한 모델, Loss 함수 등을 생성할 때 파라미터로 입력하는 label_dict를 제공합니다.
 Dataset 클래스를 생성할 때 필요한 파라미터인 ood는 ood 데이터셋 사용 여부입니다. 
 True로 설정하면 ood 데이터셋을 사용합니다. 
-<br><br>
+
+<br>
 
 - Dataset 기능 1. 데이터셋 생성
 ```python
@@ -491,7 +487,8 @@ entity_dict = dataset.entity_dict
 model 패키지는 사전 정의된 다양한 built-in 모델들이 저장된 패키지입니다.
 현재 버전에서는 아래 목록에 해당하는 모델들을 지원합니다. 추후 버전이 업데이트 되면
 지금보다 훨씬 다양한 built-in 모델을 지원할 예정입니다. 아래 목록을 참고하여 사용해주시길 바랍니다.
-<br><br>
+
+<br>
 
 #### 4.2.1. embed 모델
 ```python
