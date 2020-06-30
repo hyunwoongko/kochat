@@ -216,9 +216,9 @@ flask==1.1.2
 <br>
 
 ### 3.4 Configuration 파일 추가하기
-pip를 이용해 Kochat을 내려받았다면 프로젝트에, kochat의 configuration 파일을 추가해야합니다.
-[여기](https://github.com/gusdnd852/kochat/files/4843589/kochat_config.zip) 에서 Configuration파일을
-다운로드 받고, 압축을 풀어서 interpreter의 working directory에 넣습니다. (kochat api를 실행하는 파일과
+pip를 이용해 Kochat을 다운로드 받았다면 프로젝트에, kochat의 configuration 파일을 추가해야합니다.
+[kochat_config.zip](https://github.com/gusdnd852/kochat/files/4853859/kochat_config.zip) 을 
+다운로드 받고 압축을 풀어서 interpreter의 working directory에 넣습니다. (kochat api를 실행하는 파일과
 동일한 경로에 있어야합니다. 자세한 예시는 아래 데모에서 확인하실 수 있습니다.) 
 config 파일에는 다양한 설정 값들이 존재하니 확인하고 입맛대로 변경하시면 됩니다.
 
