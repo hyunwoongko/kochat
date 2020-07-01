@@ -14,7 +14,10 @@ BASE = {
     'vector_size': 64,  # 단어 벡터 사이즈
     'batch_size': 512,  # 미니배치 사이즈
     'max_len': 8,  # 문장의 최대 길이 (패드 시퀀싱)
-    'delimeter': _
+    'delimeter': _,  # OS에 따른 폴더 delimeter
+
+    'PAD': 0,  # PAD 토큰 값 (전체가 0인 벡터)
+    'OOV': 1  # OOV 토큰 값 (전체가 1인 벡터)
 }
 
 DATA = {
@@ -61,6 +64,7 @@ INTENT = {
     'd_model': 512,  # 인텐트 모델의 차원
     'd_loss': 32,  # 인텐트 로스의 차원 (시각화차원, 높을수록 ood 디텍션이 정확해지지만 느려집니다.)
     'layers': 1,  # 인텐트 모델의 히든 레이어(층)의 수
+    'grid_search': True,  # KNN과 Fallback Detector 학습시 그리드 서치 여부
 
     'lr_scheduler_factor': 0.75,  # 러닝레이트 스케줄러 감소율
     'lr_scheduler_patience': 10,  # 러닝레이트 스케줄러 감소 에폭
@@ -72,17 +76,18 @@ INTENT = {
     'distance_fallback_detection_threshold': -1,  # mean 혹은 min 선택시 임계값
 
     'softmax_fallback_detection_criteria': 'auto',  # [auto, other]
-    'softmax_fallback_detection_threshold': -1,  # fallback이 되지 않는 최소 값
+    'softmax_fallback_detection_threshold': -1,  # other 선택시 fallback이 되지 않는 최소 값
 
-    'grid_search': True,  # KNN과 Fallback detector의 그리드 서치 사용여부
-    'dist_param': {  # KNN 학습시 사용하는 그리드 서치 파라미터
+    # KNN 학습시 사용하는 그리드 서치 파라미터
+    'dist_param': {
         'n_neighbors': list(range(5, 15)),  # K값 범위 설정
         'weights': ["uniform"],  # 'uniform' > 'distance'
         'p': [2],  # 유클리드[2] = 맨하튼[1]
         'algorithm': ['ball_tree']  # 'ball_tree' > 'kd_tree'
     },
 
-    'fallback_detectors': [  # 폴백 디텍터 후보 (선형 모델을 추천합니다)
+    # 폴백 디텍터 후보 (선형 모델을 추천합니다)
+    'fallback_detectors': [
         LogisticRegression(),
         LinearSVC()
     ]
@@ -92,10 +97,10 @@ ENTITY = {
     'model_lr': 1e-4,  # 엔티티 학습시 사용되는 모델 러닝레이트
     'loss_lr': 1e-4,  # 엔티티 학습시 사용되는 로스 러닝레이트 (아직 사용되지 않음)
     'weight_decay': 1e-4,  # 엔티티 학습시 사용되는 가중치 감쇠 정도
-    'epochs': 500,  # 엔티티 학습 횟수
-    'd_model': 512,  # 엔티티 모델의 차원
+    'epochs': 1000,  # 엔티티 학습 횟수
+    'd_model': 256,  # 엔티티 모델의 차원
     'layers': 1,  # 엔티티 모델의 히든 레이어(층)의 수
-    'masking': True,  # loss 함수 계산시 패딩은 계산에서 제외하는지(마스킹) 여부
+    'masking': True,  # loss 계산시 패딩 마스크 여부
 
     'lr_scheduler_factor': 0.75,  # 러닝레이트 스케줄러 감소율
     'lr_scheduler_patience': 10,  # 러닝레이트 스케줄러 감소 에폭

@@ -20,14 +20,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d122a472-58ee-4a2b-8505-15e95560cd02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/kochat/demo/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat_config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kochat/model/embed/word2vec.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kochat_config.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/distance_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/distance_classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/data/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/data/dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/data/preprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/data/preprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/decorators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/demo/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/loss/cosface.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/loss/cosface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/model/embed/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/embed/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/model/embed/fasttext.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/embed/fasttext.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/model/entity/lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/entity/lstm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/model/intent/cnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/intent/cnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/model/intent/lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/intent/lstm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kochat/proc/entity_recognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/entity_recognizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/softmax_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/softmax_classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/proc/gensim_embedder.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/gensim_embedder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/proc/intent_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/intent_classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat_config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,11 +126,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\Desktop\kochat" />
+      <recent name="C:\Users\ASUS\Desktop\kochat\demo" />
       <recent name="C:\Users\ASUS\Desktop\kochat\kochat\proc" />
       <recent name="C:\Users\ASUS\Desktop\kochat\kochat\loss" />
-      <recent name="C:\Users\ASUS\Desktop\kochat" />
       <recent name="C:\Users\ASUS\Desktop\kochat\test" />
-      <recent name="C:\Users\ASUS\Desktop\kochat\kochat\loss\intent" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS\Desktop\kochat\kochat" />
@@ -237,7 +248,7 @@
           </list>
         </option>
       </PathMappingSettings>
-      <option name="SCRIPT_NAME" value="C:\Users\ASUS\Desktop\kochat\test\test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -360,7 +371,9 @@
       <workItem from="1593113733141" duration="23051000" />
       <workItem from="1593179284763" duration="10259000" />
       <workItem from="1593230152086" duration="47815000" />
-      <workItem from="1593291711820" duration="55936000" />
+      <workItem from="1593291711820" duration="60148000" />
+      <workItem from="1593526775645" duration="21103000" />
+      <workItem from="1593575844018" duration="3121000" />
     </task>
     <servers />
   </component>
@@ -414,11 +427,11 @@
     </state>
     <state x="811" y="437" key="#Volume_binding/0.0.1920.1080@0.0.1920.1080" timestamp="1591029040179" />
     <state x="811" y="460" key="#Volume_binding/0.39.1920.1041@0.39.1920.1041" timestamp="1592884345915" />
-    <state x="401" y="227" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593399956832">
+    <state x="401" y="227" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593517974520">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state x="414" y="194" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591201352070" />
-    <state x="401" y="227" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1593399956832" />
+    <state x="401" y="227" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1593517974520" />
     <state x="108" y="365" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593325709816">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
@@ -462,26 +475,26 @@
     </state>
     <state x="755" y="294" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1591103888965" />
     <state x="755" y="322" key="FileChooserDialogImpl/0.39.1920.1041@0.39.1920.1041" timestamp="1593342821540" />
-    <state width="1921" height="302" key="GridCell.Tab.0.bottom" timestamp="1593494838691">
+    <state width="1921" height="276" key="GridCell.Tab.0.bottom" timestamp="1593573162741">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="302" key="GridCell.Tab.0.bottom/0.39.1920.1041@0.39.1920.1041" timestamp="1593494838691" />
-    <state width="1921" height="302" key="GridCell.Tab.0.center" timestamp="1593494838691">
+    <state width="1921" height="276" key="GridCell.Tab.0.bottom/0.39.1920.1041@0.39.1920.1041" timestamp="1593573162741" />
+    <state width="1921" height="276" key="GridCell.Tab.0.center" timestamp="1593573162740">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="302" key="GridCell.Tab.0.center/0.39.1920.1041@0.39.1920.1041" timestamp="1593494838691" />
-    <state width="1921" height="302" key="GridCell.Tab.0.left" timestamp="1593494838691">
+    <state width="1921" height="276" key="GridCell.Tab.0.center/0.39.1920.1041@0.39.1920.1041" timestamp="1593573162740" />
+    <state width="1921" height="276" key="GridCell.Tab.0.left" timestamp="1593573162740">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="302" key="GridCell.Tab.0.left/0.39.1920.1041@0.39.1920.1041" timestamp="1593494838691" />
-    <state width="1921" height="302" key="GridCell.Tab.0.right" timestamp="1593494838691">
+    <state width="1921" height="276" key="GridCell.Tab.0.left/0.39.1920.1041@0.39.1920.1041" timestamp="1593573162740" />
+    <state width="1921" height="276" key="GridCell.Tab.0.right" timestamp="1593573162741">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="302" key="GridCell.Tab.0.right/0.39.1920.1041@0.39.1920.1041" timestamp="1593494838691" />
+    <state width="1921" height="276" key="GridCell.Tab.0.right/0.39.1920.1041@0.39.1920.1041" timestamp="1593573162741" />
     <state width="1921" height="358" key="GridCell.Tab.1.bottom" timestamp="1593399991909">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
@@ -549,10 +562,10 @@
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state x="181" y="264" key="run.anything.popup/0.39.1920.1041@0.39.1920.1041" timestamp="1593028211120" />
-    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup" timestamp="1593273857122">
+    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup" timestamp="1593532160911">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
-    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup/0.39.1920.1041@0.39.1920.1041" timestamp="1593273857122" />
+    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup/0.39.1920.1041@0.39.1920.1041" timestamp="1593532160911" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -614,6 +627,6 @@
     <SUITE FILE_PATH="coverage/chatbot$test_crawler__1_.coverage" NAME="test_crawler (1) Coverage Results" MODIFIED="1592728338970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$trainer.coverage" NAME="trainer Coverage Results" MODIFIED="1589686565156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$python3__2_.coverage" NAME="python3 (2) Coverage Results" MODIFIED="1592235666681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/kochat$docker.coverage" NAME="docker Coverage Results" MODIFIED="1593399995227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/kochat$docker.coverage" NAME="docker Coverage Results" MODIFIED="1593573162726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

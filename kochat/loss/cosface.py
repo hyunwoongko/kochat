@@ -41,15 +41,6 @@ class CosFace(BaseLoss):
         return margin_logits
 
     def compute_loss(self, label: Tensor, logits: Tensor, feats: Tensor, mask: nn.Module = None) -> Tensor:
-        """
-        학습을 위한 total loss를 계산합니다.
-
-        :param label: label
-        :param logits: logits
-        :param feats: feature
-        :param mask: mask vector
-        :return: total loss
-        """
 
         mlogits = self(feats, label)
         return F.cross_entropy(mlogits, label)

@@ -4,12 +4,12 @@
 @see https://github.com/gusdnd852
 """
 
-from gensim.models import FastText
+from gensim.models import Word2Vec
 from kochat.decorators import gensim
 
 
 @gensim
-class FastText(FastText):
+class Word2Vec(Word2Vec):
 
     def __init__(self):
         """

@@ -216,9 +216,9 @@ flask==1.1.2
 <br>
 
 ### 3.4 Configuration 파일 추가하기
-pip를 이용해 Kochat을 내려받았다면 프로젝트에, kochat의 configuration 파일을 추가해야합니다.
-[여기](https://github.com/gusdnd852/kochat/files/4843589/kochat_config.zip) 에서 Configuration파일을
-다운로드 받고, 압축을 풀어서 interpreter의 working directory에 넣습니다. (kochat api를 실행하는 파일과
+pip를 이용해 Kochat을 다운로드 받았다면 프로젝트에, kochat의 configuration 파일을 추가해야합니다.
+[kochat_config.zip](https://github.com/gusdnd852/kochat/files/4853859/kochat_config.zip) 을 
+다운로드 받고 압축을 풀어서 interpreter의 working directory에 넣습니다. (kochat api를 실행하는 파일과
 동일한 경로에 있어야합니다. 자세한 예시는 아래 데모에서 확인하실 수 있습니다.) 
 config 파일에는 다양한 설정 값들이 존재하니 확인하고 입맛대로 변경하시면 됩니다.
 
@@ -272,7 +272,7 @@ question,label
 위 처럼 question,label이라는 헤더(컬럼명)을 가장 윗줄에 위치시키고,
 그 아래로 두개의 컬림 question과 label에 해당하는 내용을 작성합니다.
 각 단어 및 엔티티는 띄어쓰기로 구분됩니다.
-예시 데이터는 BIO태깅을 개선한 BIOES태깅을 사용하여 라벨링했는데, 엔티티 태그 방식은 자유롭게
+예시 데이터는 BIO태깅을 개선한 BIOES태깅을 사용하여 라벨링했는데, 엔티티 태깅 방식은 자유롭게
 고르셔도 됩니다. (config에서 설정 가능합니다.) 엔티티 태깅 스키마에 관련된 자세한 내용은 
 [여기](https://en.wikipedia.org/wiki/Inside%E2%80%93outside%E2%80%93beginning_(tagging)) 를 참고하세요.
 
@@ -292,8 +292,8 @@ root
 ```
 <br>
 
-#### 3.5.3. 인텐트별로 파일 분할
-각 인텐트별로 파일을 분할합니다. 이 때, 파일명이 인텐트명이 됩니다.
+#### 3.5.3. 인텐트 단위로 파일 분할
+각 인텐트 단위로 파일을 분할합니다. 이 때, 파일명이 인텐트명이 됩니다.
 파일명은 한글로 해도 상관 없긴 하지만, 리눅스 운영체제의 경우 시각화시 
 matplotlib에 한글폰트가 설치되어있지 않다면 글자가 깨지니,
 가급적이면 시각화를 위해 영어로 하는 것을 권장합니다. 
@@ -317,9 +317,6 @@ root
 ```
 question,label ← 중요 !!!
 ... (생략)
-전주 관광지 보여줘,S-LOCATION O O O
-용인 가까운 축구장 어딨어,S-LOCATION O S-TRAVEL O
-... (생략)
 ```
 <br>
 
@@ -330,6 +327,7 @@ question,label ← 중요 !!!
 ```
 case 1: 라벨링 매칭 실수 방지
 
+
 question = 전주 눈 올까 (size : 3)
 label = S-LOCATION O O O (size : 4)
 
@@ -338,6 +336,7 @@ label = S-LOCATION O O O (size : 4)
 
 ```
 case 2: 라벨링 오타 방지
+
 
 (in kochat_config.py)
 DATA = {
@@ -358,8 +357,9 @@ NER_tagging + '-' + NER_categories의 형태가 아니면 에러를 반환합니
 
 #### 3.5.5. OOD 데이터셋
 OOD란 Out of distribution의 약자로, 분포 외 데이터셋을 의미합니다.
-즉, 현재 챗봇이 지원하는 기능 이외의 데이터를 의미하는데, OOD 데이터셋을 갖추면
-매우 귀찮은 몇몇 부분들을 효과적으로 자동화 할 수 있습니다. 
+즉, 현재 챗봇이 지원하는 기능 이외의 데이터를 의미합니다.
+OOD 데이터셋이 없어도 Kochat을 이용하는데에는 아무런 문제가 없지만,
+OOD 데이터셋을 갖추면 매우 귀찮은 몇몇 부분들을 효과적으로 자동화 할 수 있습니다. 
 (주로 Fallback Detection threshold 설정)
 OOD 데이터셋은 아래처럼 "root/data/ood"에 추가합니다.
 
@@ -372,13 +372,13 @@ root
       |_retaurant.csv
       |_...
     |_ood
-      |_ood_data_!.csv    ← ood폴더에 위치하게 합니다.
-      |_ood_data_2.csv    ← ood폴더에 위치하게 합니다.
+      |_ood_data_1.csv    ← data/ood폴더에 위치하게 합니다.
+      |_ood_data_2.csv    ← data/ood폴더에 위치하게 합니다.
 ```
 <br>
 
 OOD 데이터셋은 아래와 같이 question과 OOD의 의도로 라벨링합니다.
-예시 데이터셋은 전부 의도대로 라벨링했지만, 이 의도를 사용하진 않기 때문에
+예시 데이터셋은 전부 의도대로 라벨링했지만, 이 의도값을 사용하진 않기 때문에
 그냥 아무값으로나 라벨링해도 사실 무관합니다.
 
 ```
@@ -436,11 +436,12 @@ OOD 데이터는 물론 많으면 좋겠지만 만드는 것 자체가 부담이
 
 ## 4. Usage
 ### 4.1. `from kochat.data`
-data 패키지에는 Dataset 클래스가 있습니다. Dataset클래스는 분리된 raw 데이터 파일들을
-하나로 합쳐서 통합 intent파일과 통합 entity파일로 만들고, embedding, intent, entity,
-inference에 관련된 데이터셋을 미니배치로 잘라서 Dataloader형태로 제공합니다.
-또한 모델, Loss 함수 등을 생성할 때 파라미터로 입력하는 label_dict를 제공합니다.
-Dataset 클래스를 생성할 때 필요한 파라미터인 ood는 ood 데이터셋 사용 여부입니다. 
+`kochat.data` 패키지에는 `Dataset` 클래스가 있습니다. `Dataset`클래스는 
+분리된 raw 데이터 파일들을 하나로 합쳐서 통합 intent파일과 통합 entity파일로 만들고, 
+embedding, intent, entity, inference에 관련된 데이터셋을 미니배치로 잘라서 
+pytorch의 `DataLoader`형태로 제공합니다. 
+또한 모델, Loss 함수 등을 생성할 때 파라미터로 입력하는 `label_dict`를 제공합니다.
+`Dataset` 클래스를 생성할 때 필요한 파라미터인 `ood`는 OOD 데이터셋 사용 여부입니다. 
 True로 설정하면 ood 데이터셋을 사용합니다. 
 
 <br>
@@ -451,7 +452,7 @@ from kochat.data import Dataset
 
 
 # 클래스 생성시 raw파일들을 검증하고 통합합니다.
-dataset = Dataset(ood=True)  
+dataset = Dataset(ood=True, naver_fix=True)  
 
 # 임베딩 데이터셋 생성
 embed_dataset = dataset.load_embed() 
@@ -473,7 +474,7 @@ from kochat.data import Dataset
 
 
 # 클래스 생성시 raw파일들을 검증하고 통합합니다.
-dataset = Dataset(ood=True)  
+dataset = Dataset(ood=True, naver_fix=True)  
 
 # 인텐트 라벨 딕셔너리를 생성합니다.
 intent_dict = dataset.intent_dict 
@@ -481,10 +482,25 @@ intent_dict = dataset.intent_dict
 # 엔티티 라벨 딕셔너리를 생성합니다.
 entity_dict = dataset.entity_dict
 ```
-<br><br>
+<br>
+
+#### ⚠ Warning
+
+`Dataset`클래스는 전처리시 토큰화를 수행할 때,
+학습/테스트 데이터는 띄어쓰기를 기준으로 토큰화를 수행하고, 실제 사용자의 입력에
+추론할 때는 네이버 맞춤법 검사기와 Konlpy 토크나이저를 사용하여 토큰화를 수행합니다.
+네이버 맞춤법 검사기를 사용하면 성능은 더욱 향상되겠지만, 상업적으로 이용시 문제가
+발생할 수 있고, 이에 대해 개발자는 어떠한 책임도 지지 않습니다.  <br><br>
+
+
+만약 Kochat을 상업적으로 이용하시려면 `Dataset` 생성시 `naver_fix`파라미터를 
+`False`로 설정해주시길 바랍니다. `False` 설정시에는 Konlpy 토큰화만 수행하며,
+추후 버전에서는 네이버 맞춤법 검사기를 자체적인 띄어쓰기 검사모듈 등으로 
+교체할 예정입니다.
+<br><br><br>
 
 ### 4.2. `from kochat.model`
-model 패키지는 사전 정의된 다양한 built-in 모델들이 저장된 패키지입니다.
+`model` 패키지는 사전 정의된 다양한 built-in 모델들이 저장된 패키지입니다.
 현재 버전에서는 아래 목록에 해당하는 모델들을 지원합니다. 추후 버전이 업데이트 되면
 지금보다 훨씬 다양한 built-in 모델을 지원할 예정입니다. 아래 목록을 참고하여 사용해주시길 바랍니다.
 
@@ -495,7 +511,11 @@ model 패키지는 사전 정의된 다양한 built-in 모델들이 저장된 �
 from kochat.model import embed
 
 
-# 1. Gensim의 FastText 모델의 Wrapper입니다.
+# 1. Gensim의 Word2Vec 모델의 Wrapper입니다.
+# (OOV 토큰의 값은 config에서 설정 가능합니다.)
+word2vec = embed.Word2Vec()
+
+# 2. Gensim의 FastText 모델의 Wrapper입니다.
 fasttext = embed.FastText()
 ```
 <br>
@@ -524,12 +544,356 @@ lstm = entity.LSTM(label_dict=dataset.entity_dict, bidirectional=True)
 <br>
 
 #### 4.2.4. 커스텀 모델
-Kochat은 프레임워크이기 때문에 커스텀 모델을 지원합니다. 
-Pytorch로 작성한 커스텀 모델을 직접 학습시키기고 챗봇 애플리케이션에 사용할 수 있습니다.
+Kochat은 커스텀 모델을 지원합니다. 
+Gensim이나 Pytorch로 작성한 커스텀 모델을 직접 학습시키기고 챗봇 애플리케이션에 
+사용할 수 있습니다. 그러나 만약 커스텀 모델을 사용하려면 아래의 몇가지 규칙을 반드시 
+따라야합니다.
 <br><br>
 
-#### 4.2.4.1. 커스텀 gensim embed 모델
-현재는 
+#### 4.2.4.1. 커스텀 Gensim embed 모델
+임베딩의 경우 현재는 Gensim 모델만 지원합니다. 추후에 Pytorch로 된
+임베딩 모델(ELMO, BERT)등도 지원할 계획입니다.
+Gensim Embedding 모델은 아래와 같은 형태로 구현해야합니다.
+<br><br>
+
+1. `@gensim` 데코레이터 설정
+2. `BaseWordEmbeddingsModel`모델 중 한 가지 상속받기
+4. `super().__init__()`에 파라미터 삽입하기 (self.XXX로 접근가능)
+<br><br>
+
+```python
+from gensim.models import FastText
+from kochat.decorators import gensim
+
+# 1. @gensim 데코레이터를 설정하면 
+# config의 GENSIM에 있는 모든 데이터에 접근 가능합니다.
+
+@gensim
+class FastText(FastText):
+# 2. BaseWordEmbeddingsModel 모델중 한 가지를  상속받습니다.
+
+    def __init__(self):
+        # 3. `super().__init__()`에 필요한 파라미터를 넣어서 초기화해줍니다.
+
+        super().__init__(size=self.vector_size,
+                         window=self.window_size,
+                         workers=self.workers,
+                         min_count=self.min_count,
+                         iter=self.iter)
+```
+<br><br>
+
+#### 4.2.4.2. 커스텀 Intent 모델
+인텐트 모델은 torch로 구현합니다.
+인텐트 모델에는 `self.label_dict` 가 반드시 존재해야합니다. 
+또한 최종 output 레이어는 자동생성되기 때문에 feature만 출력하면 됩니다.
+더욱 세부적인 규칙은 다음과 같습니다.
+<br><br>
+
+1. `@intent` 데코레이터 설정
+2. `torch.nn.Module` 상속받기
+3. 파라미터로 label_dict를 입력받고 `self.label_dict`에 할당하기
+4. `forward()` 함수에서 feature를 [batch_size, -1] 로 만들고 리턴
+<br><br>
+
+```python
+from torch import nn
+from torch import Tensor
+from kochat.decorators import intent
+from kochat.model.layers.convolution import Convolution
+
+
+# 1. @intent 데코레이터를 설정하면 
+# config의 INTENT에 있는 모든 설정값에 접근 가능합니다.
+
+@intent
+class CNN(nn.Module):
+# 2. torch.nn의 Module을 상속받습니다.
+
+    def __init__(self, label_dict: dict, residual: bool = True):
+        super(CNN, self).__init__()
+        self.label_dict = label_dict
+        # 3. intent모델은 반드시 속성으로 self.label_dict를 가지고 있어야합니다.
+
+        self.stem = Convolution(self.vector_size, self.d_model, kernel_size=1, residual=residual)
+        self.hidden_layers = nn.Sequential(*[
+            Convolution(self.d_model, self.d_model, kernel_size=1, residual=residual)
+            for _ in range(self.layers)])
+
+    def forward(self, x: Tensor) -> Tensor:
+        x = x.permute(0, 2, 1)
+        x = self.stem(x)
+        x = self.hidden_layers(x)
+
+        return x.view(x.size(0), -1)
+        # 4. feature를 [batch_size, -1]로 만들고 반환합니다.
+        # 최종 output 레이어 kochat이 자동 생성하기 때문에 feature만 출력합니다.
+````
+```python
+import torch
+from torch import nn, autograd
+from torch import Tensor
+from kochat.decorators import intent
+
+
+# 1. @intent 데코레이터를 설정하면 
+# config의 INTENT에 있는 모든 설정값에 접근 가능합니다.
+
+@intent
+class LSTM(nn.Module):
+# 2. torch.nn의 Module을 상속받습니다.
+ 
+    def __init__(self, label_dict: dict, bidirectional: bool = True):
+
+        super().__init__()
+        self.label_dict = label_dict
+        # 3. intent모델은 반드시 속성으로 self.label_dict를 가지고 있어야합니다.
+
+        self.direction = 2 if bidirectional else 1
+        self.lstm = nn.LSTM(input_size=self.vector_size,
+                            hidden_size=self.d_model,
+                            num_layers=self.layers,
+                            batch_first=True,
+                            bidirectional=bidirectional)
+
+    def init_hidden(self, batch_size: int) -> autograd.Variable:
+        param1 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
+        param2 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
+        return autograd.Variable(param1), autograd.Variable(param2)
+
+    def forward(self, x: Tensor) -> Tensor:
+        b, l, v = x.size()
+        out, (h_s, c_s) = self.lstm(x, self.init_hidden(b))
+
+        # 4. feature를 [batch_size, -1]로 만들고 반환합니다.
+        # 최종 output 레이어 kochat이 자동 생성하기 때문에 feature만 출력합니다.
+        return h_s[0]
+```
+<br><br>
+
+#### 4.2.4.3. 커스텀 Entity 모델
+엔티티 모델도 역시 torch로 구현합니다.
+엔티티 모델에도 역시 `self.label_dict` 가 반드시 존재해야하며, 
+또한 최종 output 레이어는 자동생성되기 때문에 feature만 출력하면 됩니다.
+더욱 세부적인 규칙은 다음과 같습니다.
+<br><br>
+
+1. `@entity` 데코레이터 설정
+2. `torch.nn.Module` 상속받기
+3. 파라미터로 label_dict를 입력받고 `self.label_dict`에 할당하기
+4. `forward()` 함수에서 feature를 [batch_size, max_len, -1] 로 만들고 리턴
+<br><br>
+
+```python
+import torch
+from torch import nn, autograd
+from torch import Tensor
+from kochat.decorators import entity
+
+# 1. @entity 데코레이터를 설정하면 
+# config의 ENTITY에 있는 모든 설정값에 접근 가능합니다.
+
+@entity
+class LSTM(nn.Module):
+# 2. torch.nn의 Module을 상속받습니다.
+ 
+    def __init__(self, label_dict: dict, bidirectional: bool = True):
+
+        super().__init__()
+        self.label_dict = label_dict
+        # 3. entity모델은 반드시 속성으로 self.label_dict를 가지고 있어야합니다.
+
+        self.direction = 2 if bidirectional else 1
+        self.lstm = nn.LSTM(input_size=self.vector_size,
+                            hidden_size=self.d_model,
+                            num_layers=self.layers,
+                            batch_first=True,
+                            bidirectional=bidirectional)
+
+    def init_hidden(self, batch_size: int) -> autograd.Variable:
+        param1 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
+        param2 = torch.randn(self.layers * self.direction, batch_size, self.d_model).to(self.device)
+        return torch.autograd.Variable(param1), torch.autograd.Variable(param2)
+
+    def forward(self, x: Tensor) -> Tensor:
+        b, l, v = x.size()
+        out, _ = self.lstm(x, self.init_hidden(b))
+
+        # 4. feature를 [batch_size, max_len, -1]로 만들고 반환합니다.
+        # 최종 output 레이어 kochat이 자동 생성하기 때문에 feature만 출력합니다.
+        return out
+```
+<br><br><br>
+
+### 4.3. `from kochat.loss`
+`loss` 패키지는 사전 정의된 다양한 built-in Loss 함수들이 저장된 패키지입니다.
+현재 버전에서는 아래 목록에 해당하는 Loss 함수들을 지원합니다. 추후 버전이 업데이트 되면
+지금보다 훨씬 다양한 built-in Loss 함수를 지원할 예정입니다. 아래 목록을 참고하여 사용해주시길 바랍니다.
+
+<br>
+
+#### 4.3.1. intent loss 함수
+Intent Loss 함수는 기본적인 CrossEntropyLoss와 다양한 Distance 기반의 Loss함수를
+활용할 수 있습니다. CrossEntropy는 후술할 Softmax 기반의 IntentClassifier에 주로
+활용하고, Distance 기반의 Loss 함수들은 Distance 기반의 IntentClassifier에 
+활용할 수 있습니다. Distance 기반의 Loss함수들은 컴퓨터 비전 영역 (주로 얼굴인식)
+분야에서 제안된 함수들이지만 Intent 분류의 Fallback 디텍션에도 매우 우수한 성능을 보입니다.
+
+<br>
+
+```python
+from kochat.loss import CrossEntropyLoss
+from kochat.loss import CenterLoss
+from kochat.loss import GaussianMixture
+from kochat.loss import COCOLoss
+from kochat.loss import CosFace
+
+# 1. 가장 기본적인 Cross Entropy Loss 함수입니다.
+cross_entropy = CrossEntropyLoss(label_dict=dataset.intent_dict)
+
+# 2. Intra Class 간의 거리를 좁힐 수 있는 Center Loss 함수입니다.
+center_loss = CenterLoss(label_dict=dataset.intent_dict)
+
+# 3. Intra Class 간의 거리를 좁힐 수 있는 Large Margin Gaussian Mixture Loss 함수입니다.
+lmgl = GaussianMixture(label_dict=dataset.intent_dict)
+
+# 4. Inter Class 간의 Cosine 마진을 키울 수 있는 COCO (Congenerous Cosine) Loss 함수입니다.
+coco_loss = COCOLoss(label_dict=dataset.intent_dict)
+
+# 5. Inter Class 간의 Cosine 마진을 키울 수 있는 Cosface (Large Margin Cosine) Loss함수입니다.
+cosface = CosFace(label_dict=dataset.intent_dict)
+```
+<br>
+
+#### 4.3.2. entity loss 함수
+Entity Loss 함수는 기본적인 CrossEntropyLoss와 확률적 모델인
+Conditional Random Field (이하 CRF) Loss를 지원합니다.
+CRF Loss를 적용하면, EntityRecognizer의 출력 결과를 다시한번 교정하는
+효과를 볼 수 있으며 CRF Loss를 적용하면, 출력 디코딩은 Viterbi 알고리즘을 
+통해 수행합니다.
+<br>
+
+```python
+from kochat.loss import CrossEntropyLoss
+from kochat.loss import CRFLoss
+
+# 1. 가장 기본적인 cross entropy 로스 함수입니다.
+cross_entropy = CrossEntropyLoss(label_dict=dataset.intent_dict)
+
+# 2. CRF Loss 함수입니다.
+center_loss = CRFLoss(label_dict=dataset.intent_dict)
+```
+<br>
+
+#### 4.3.3. 커스텀 loss 함수
+Kochat은 커스텀 모델을 지원합니다. 
+Pytorch로 작성한 커스텀 모델을 직접 학습시키기고 챗봇 애플리케이션에 
+사용할 수 있습니다. 그러나 만약 커스텀 모델을 사용하려면 아래의 몇가지 규칙을 반드시 
+따라야합니다.
+<br><br>
+
+1. forward 함수에서 해당 loss를 계산합니다.
+2. compute_loss 함수에서 라벨과 비교하여 최종 loss값을 계산합니다.
+이 때 위에서 구현한 forward 함수를 활용합니다.
+<br><br>
+
+```python
+@intent
+class CosFace(BaseLoss):
+
+    def __init__(self, label_dict: dict):
+        super(CosFace, self).__init__()
+        self.classes = len(label_dict)
+        self.centers = nn.Parameter(torch.randn(self.classes, self.d_loss))
+
+    def forward(self, feat: Tensor, label: Tensor) -> Tensor:
+        # 1. forward 함수에서 전체 loss를 계산합니다.
+
+        batch_size = feat.shape[0]
+        norms = torch.norm(feat, p=2, dim=-1, keepdim=True)
+        nfeat = torch.div(feat, norms)
+
+        norms_c = torch.norm(self.centers, p=2, dim=-1, keepdim=True)
+        ncenters = torch.div(self.centers, norms_c)
+        logits = torch.matmul(nfeat, torch.transpose(ncenters, 0, 1))
+
+        y_onehot = torch.FloatTensor(batch_size, self.classes)
+        y_onehot.zero_()
+        y_onehot = Variable(y_onehot).cuda()
+        y_onehot.scatter_(1, torch.unsqueeze(label, dim=-1), self.cosface_m)
+        margin_logits = self.cosface_s * (logits - y_onehot)
+        return margin_logits
+
+    def compute_loss(self, label: Tensor, logits: Tensor, feats: Tensor, mask: nn.Module = None) -> Tensor:
+        # 2. compute loss에서 최종 loss값을 계산합니다.
+
+        mlogits = self(feats, label) # forward 호출
+        return F.cross_entropy(mlogits, label)
+```
+```python
+@intent
+class CenterLoss(BaseLoss):
+    def __init__(self, label_dict: dict):
+        super(CenterLoss, self).__init__()
+        self.classes = len(label_dict)
+        self.centers = nn.Parameter(torch.randn(self.classes, self.d_loss))
+        self.center_loss_function = CenterLossFunction.apply
+
+    def forward(self, feat: Tensor, label: Tensor) -> Tensor:
+        # 1. forward 함수에서 전체 loss를 계산합니다.
+
+        batch_size = feat.size(0)
+        feat = feat.view(batch_size, 1, 1, -1).squeeze()
+
+        if feat.size(1) != self.d_loss:
+            raise ValueError("Center's dim: {0} should be equal to input feature's dim: {1}"
+                             .format(self.d_loss, feat.size(1)))
+
+        return self.center_loss_function(feat, label, self.centers)
+
+    def compute_loss(self, label: Tensor, logits: Tensor, feats: Tensor, mask: nn.Module = None) -> Tensor:
+        # 2. compute loss에서 최종 loss값을 계산합니다.
+
+        nll_loss = F.cross_entropy(logits, label)
+        center_loss = self(feats, label)  # forward 호출 
+        return nll_loss + self.center_factor * center_loss
+```
+<br><br><br>
+
+
+### 4.4. `from kochat.proc`
+`proc`은 Procssor의 줄임말로, 다양한 모델들의 
+학습/테스트을 수행하는 함수인 `fit()`과
+추론을 수행하는 함수인 `predict()` 등을 수행하는 클래스 집합입니다.
+현재 지원하는 프로세서는 총 4가지로 아래에서 자세하게 설명합니다.
+<br><br>
+
+#### 4.3.1. `from kochat.proc import GensimEmbedder`
+GensimEmbedder는 Gensim의 임베딩 모델을 학습시키고,
+학습된 모델을 사용해 문장을 임베딩하는 클래스입니다. 자세한 사용법은 다음과 같습니다.
+
+```python
+from kochat.data import Dataset
+from kochat.proc import GensimEmbedder
+from kochat.model import embed
+
+
+dataset = Dataset(ood=True)
+
+# 프로세서 생성
+emb = GensimEmbedder(
+    model=embed.FastText()
+)
+
+# 모델 학습
+emb.fit(dataset.load_embed())
+
+# 모델 추론 (임베딩)
+user_input = emb.predict("서울 홍대 맛집 알려줘")
+```
+
+
+
 
 
 ## 5. 실험 및 시각화

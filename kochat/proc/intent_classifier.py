@@ -5,11 +5,22 @@
 """
 from abc import ABCMeta, abstractmethod
 from time import time
+from typing import List
 
+import torch
+from torch import nn
+from torch.nn import Parameter
+
+from kochat.decorators import intent
 from kochat.proc.torch_processor import TorchProcessor
 
 
+@intent
 class IntentClassifier(TorchProcessor, metaclass=ABCMeta):
+
+    def __init__(self, model: nn.Module, parameters: Parameter or List[Parameter]):
+        model = self.__add_classifier(model)
+        super().__init__(model, parameters)
 
     def fit(self, dataset: tuple, test: bool = True):
         """
@@ -48,3 +59,14 @@ class IntentClassifier(TorchProcessor, metaclass=ABCMeta):
     @abstractmethod
     def _calibrate_msg(self, *args):
         raise NotImplementedError
+
+    def __add_classifier(self, model):
+        sample = torch.randn(1, self.max_len, self.vector_size)
+        sample = sample.to(self.device)
+        output_size = model.to(self.device)(sample)
+
+        features = nn.Linear(output_size.shape[1], self.d_loss)
+        classifier = nn.Linear(self.d_loss, len(model.label_dict))
+        setattr(model, 'features', features.to(self.device))
+        setattr(model, 'classifier', classifier.to(self.device))
+        return model

@@ -36,6 +36,7 @@ class EntityRecognizer(TorchProcessor):
         if len(list(loss.parameters())) != 0:
             self.parameters += list(loss.parameters())
 
+        model = self.__add_classifier(model)
         super().__init__(model, self.parameters)
 
     def predict(self, sequence: Tensor) -> list:
@@ -49,10 +50,11 @@ class EntityRecognizer(TorchProcessor):
         self._load_model()
         self.model.eval()
 
-        # pad는 전부 0이니까 입력 전체에 1을 더하고,
+        # 만약 i가 pad라면 i값에서 PAD를 빼면 전부 0이 되고
+        # 그 상태에서 입력 전체에 1을 더하면, pad토큰은 [1, 1, 1, ...]이 됩
         # all()로 체크하면 pad만 True가 나옴. (모두 1이여야 True)
         # 이 때 False 갯수를 세면 pad가 아닌 부분의 길이가 됨.
-        length = [all(map(int, (i + 1).tolist()))
+        length = [all(map(int, (i - self.PAD + 1).tolist()))
                   for i in sequence.squeeze()].count(False)
 
         predicts = self._forward(sequence).squeeze().t()
@@ -121,7 +123,9 @@ class EntityRecognizer(TorchProcessor):
         :return: 모델의 예측, loss
         """
 
-        logits = self.model(feats)
+        feats = self.model(feats)
+        logits = self.model.classifier(feats)
+        logits = logits.permute(0, 2, 1)
 
         if isinstance(self.loss, CRFLoss):
             # CRF인 경우, Viterbi Decoding으로 Inference 해야함.
@@ -135,3 +139,13 @@ class EntityRecognizer(TorchProcessor):
             mask = self.mask(length) if self.mask else None
             loss = self.loss.compute_loss(labels, logits, feats, mask)
             return predicts, loss
+
+    def __add_classifier(self, model):
+        sample = torch.randn(1, self.max_len, self.vector_size)
+        sample = sample.to(self.device)
+        output_size = model.to(self.device)(sample)
+        classes = len(model.label_dict)
+
+        classifier = nn.Linear(output_size.shape[2], classes)
+        setattr(model, 'classifier', classifier.to(self.device))
+        return model
