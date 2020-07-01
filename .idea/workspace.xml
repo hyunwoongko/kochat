@@ -20,25 +20,59 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d122a472-58ee-4a2b-8505-15e95560cd02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/kochat/model/embed/word2vec.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat_config.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/__init__.py~d409fd2e90ea3e4dbe2ae955d6f73bd262eab9d1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kochat/loss/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kochat/loss/utils/masking.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kochat/model/base/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kochat/model/base/convolution.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kochat/model/layers/convolution.py~HEAD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kochat/model/layers/convolution.py~c5c0fd00bd41c7909360765878bff7911663639c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kochat/proc/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kochat/proc/utils/metrics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kochat/proc/utils/visualizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kochat/utils/metrics.py~HEAD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kochat/utils/metrics.py~c5c0fd00bd41c7909360765878bff7911663639c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kochat/utils/visualizer.py~HEAD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kochat/utils/visualizer.py~c5c0fd00bd41c7909360765878bff7911663639c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kochat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Kochat.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/data/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/data/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/data/preprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/data/preprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/decorators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/demo/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/loss/cosface.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/loss/cosface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/entity_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/intent_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ood/close_domain.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/ood/close_domain.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ood/open_domain.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/ood/open_domain.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw/dust.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/raw/dust.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw/restaurant.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/raw/restaurant.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw/travel.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/raw/travel.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw/weather.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/raw/weather.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/app/kochat_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/app/kochat_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/app/scenario.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/app/scenario.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/app/scenario_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/app/scenario_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/data/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/loss/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/loss/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kochat/model/embed/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/embed/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/model/embed/fasttext.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/embed/fasttext.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/model/embed/word2vec.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/embed/word2vec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/model/entity/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/entity/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kochat/model/entity/lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/entity/lstm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/model/intent/cnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/intent/cnn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/model/intent/lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/intent/lstm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/model/intent/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/intent/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/model/layers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/layers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/proc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/proc/distance_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/distance_classifier.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kochat/proc/entity_recognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/entity_recognizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/gensim_embedder.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/gensim_embedder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/proc/fallback_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/fallback_detector.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kochat/proc/intent_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/intent_classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/proc/softmax_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/softmax_classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/utils/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/utils/metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/utils/metrics.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kochat_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat_config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -373,7 +407,7 @@
       <workItem from="1593230152086" duration="47815000" />
       <workItem from="1593291711820" duration="60148000" />
       <workItem from="1593526775645" duration="21103000" />
-      <workItem from="1593575844018" duration="3121000" />
+      <workItem from="1593575844018" duration="3882000" />
     </task>
     <servers />
   </component>

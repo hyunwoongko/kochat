@@ -10,7 +10,6 @@ from sklearn.metrics import \
     f1_score, \
     classification_report, \
     confusion_matrix, precision_score, recall_score
-from sklearn.utils._testing import ignore_warnings
 from torch import Tensor
 
 
@@ -22,7 +21,6 @@ class Metrics:
         self.test_label, self.test_predict = None, None
         self.ood_label, self.ood_predict = None, None
 
-    @ignore_warnings(category=Warning)
     def evaluate(self, label: Tensor, predict: Tensor, mode: str) -> dict:
         """
         여러가지 메트릭에 의한 결과를 반환합니다.
@@ -58,7 +56,6 @@ class Metrics:
                 'recall': recall_score(label, predict, average='macro'),
                 'f1_score': f1_score(label, predict, average='macro')}
 
-    @ignore_warnings(category=Warning)
     def report(self, label_dict: dict, mode: str) -> tuple:
         """
         분류 보고서와 confusion matrix를 출력합니다.

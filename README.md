@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Kochat
 [![PyPI version](https://badge.fury.io/py/kochat.svg)](https://badge.fury.io/py/kochat)
@@ -893,9 +894,6 @@ user_input = emb.predict("서울 홍대 맛집 알려줘")
 ```
 
 
-
-
-
 ## 5. 실험 및 시각화
 
 ## 6. 컨트리뷰터
@@ -925,4 +923,3 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-```
