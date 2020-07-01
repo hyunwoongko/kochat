@@ -22,15 +22,7 @@
     <list default="true" id="d122a472-58ee-4a2b-8505-15e95560cd02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/app/kochat_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/app/kochat_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/app/scenario.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/app/scenario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/app/scenario_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/app/scenario_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/decorators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/distance_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/distance_classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/distance_estimator.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/distance_estimator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/softmax_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/softmax_classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/__init__.py~d409fd2e90ea3e4dbe2ae955d6f73bd262eab9d1" beforeDir="false" afterPath="$PROJECT_DIR$/demo/chat_server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -365,7 +357,7 @@
       <workItem from="1593230152086" duration="47815000" />
       <workItem from="1593291711820" duration="60148000" />
       <workItem from="1593526775645" duration="21103000" />
-      <workItem from="1593575844018" duration="15890000" />
+      <workItem from="1593575844018" duration="19164000" />
     </task>
     <servers />
   </component>

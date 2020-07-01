@@ -1131,35 +1131,105 @@ class CenterLoss(BaseLoss):
 <br><br><br>
 
 ### 4.5. `from kochat.app`
-`app` 패키지는 kochat 모델을 restful api로 배포할 수 있게끔 해주는 Flask RESTful API와
-매우 손쉽게 대화 시나리오를 작성할 수 있게 자동화된 `Scenario`클래스를 제공합니다.
+`app` 패키지는 kochat 모델을 애플리케이션으로 배포할 수 있게끔 해주는 RESTful API은 `KochatApi`
+클래스와 API 호출에 관련된 시나리오를 작성할 수 있게끔 하는 `Scenario`클래스를 제공합니다.
 
 <br>
 
 #### 4.5.1 `from kochat.app import Scenario`
-`Scenario` 클래스는 어떤 intent에서 어떤 entity가 필요하고, 어떤 api를 호출하는지 정의하는
-일종의 명세서와 같습니다. 아래 구현 예제를 봅시다.
+`Scenario` 클래스는 어떤 intent에서는 어떤 entity가 필요하고, 
+어떤 api를 호출하는지 정의하는 일종의 명세서와 같습니다. 
+시나리오 작성시 아래와 같은 몇가지 주의사항이 있습니다.
 
-```python
-
-
-```
-
-## 5. 실험 및 시각화
-
-## 6. 컨트리뷰터
-
-#### 7.2. TODO (앞으로 할 일)
-- [ ] 간단한 웹 인터페이스 기반 데모 페이지 제작하기
-- [x] 엔티티 학습에 CRF 및 로스 마스킹 추가하기 
-- [ ] Transformer 기반 모델 추가 (한국어 BERT, GPT2)
-- [ ] Jupyter Note Example 작성하기 + Binder 실행 환경
-- [ ] 다양한 Seq2Seq 모델을 추가해서 Fallback시 대처할 수 있게 만들기
-- [ ] 대화 흐름관리를 위한 Story기능 논문 조사하고 구현하기
-- [ ] 크롤러 패키지의 개발을 자동화 할 방법 찾아보기 (중요)
+1. intent는 반드시 raw데이터 파일 명과 동일하게 설정하기
+2. api는 함수 그 자체를 넣습니다 (반드시 callable 해야합니다.)
+3. scenario_dict 정의시에 KEY값은 api 함수와 순서/철자가 동일해야합니다.
+4. 기본값(default) 설정을 원하면 scenario_dict 리스트에 값을 첨가합니다.
 <br><br>
 
-## 7. 라이센스
+- kocrawl (날씨) 예제
+```python
+from kochat.app import Scenario
+from kocrawl.weather import WeatherCrawler
+
+# kocrawl은 kochat을 만들면서 함께 개발한 크롤러입니다.
+# (https://github.com/gusdnd852/kocrawl)
+# pip install kocrawl로 손쉽게 설치할 수 있습니다.
+
+
+weather_scenario = Scenario(
+    intent='weather',  # intent는 인텐트 명을 적습니다 (raw 데이터 파일명과 동일해야합니다)
+    api=WeatherCrawler().request, # API는 함수 이름 자체를 넣습니다. (callable해야합니다)
+
+    scenario_dict={
+        'LOCATION': [],
+        # 기본적으로 'KEY' : []의 형태로 만듭니다.
+
+        'DATE': ['오늘']        
+        # entity가 검출되지 않았을 때 default 값을 지정하고 싶으면 리스트 안에 원하는 값을 넣습니다.
+        # [전주, 날씨, 알려줘] => [S-LOCATION, O, O] => api('오늘', S-LOCATION) call
+        # 만약 ['오늘', '현재']처럼 2개 이상 넣으면 랜덤으로 선택해서 default 값으로 지정합니다.
+    }
+
+    # 시나리오 딕셔너리를 정의합니다.
+    # 주의점 1 : scenario_dict 키값(LOCATION, DATE)의 순서는 API 함수의 파라미터 순서와 동일해야합니다.
+    # 주의점 2 : scenario_dict 키값(LOCATION, DATE)의 철자는 API 함수의 파라미터 철자와 동일해야합니다.
+    # 대/소문자까지 동일할 필요는 없습니다. 정확한 값 전달을 위해 일부러 만든 두 가지 제한사항입니다.
+    
+    # WeatherCrawler().request의 파라미터는 WeatherCrawler().request(location, date)입니다.
+    # 주의점 1인 순서와 주의점 2인 철자가 모두 동일합니다. (만약 틀리면 어디서 틀렸는지 에러로 알려드립니다) 
+)      
+```
+
+<br>
+
+- 레스토랑 예약 시나리오
+```python
+from kochat.app import Scenario
+
+
+reservation_scenario = Scenario(
+    intent='reservation',
+    api=reservation_check, 
+    # reservation_check(num_people, reservation_time)와 같은
+    # 함수를 호출하지 말고 그 자체를 파라미터로 입력합니다.
+    # 함수를 받아서 저장해뒀다가 요청 발생시 Api 내부에서 call 합니다
+    
+    scenario_dict={
+        'NUM_PEOPLE': [4],
+        'RESERVATION_TIME': []
+
+        # 파라미터와 순서/철자가 일치합니다.
+        # NUM_PEOPLE의 default를 4명으로 설정했습니다.
+    }
+)     
+```
+<br><br>
+
+
+## 5. Visualization Support
+
+## 6. Demo Application
+
+## 7. Performance Issue
+
+## 8. Contributor
+
+## 9. TODO List
+- [x] ver 1.0 : 엔티티 학습에 CRF 및 로스 마스킹 추가하기 
+- [x] ver 1.0 : 상세한 README 문서 작성 및 PyPI 배포하기
+- [x] ver 1.0 : 간단한 웹 인터페이스 기반 데모 애플리케이션 제작하기
+- [ ] ver 1.0 : Jupyter Note Example 작성하기 + Binder 실행 환경
+- [ ] ver 1.1 : 데이터셋 포맷 RASA처럼 markdown에 대괄호 형태로 변경
+- [ ] ver 1.2 : Transformer 기반 모델 추가 (SK KOBERT)
+- [ ] ver 1.3 : Pytorch Embedding 모델 추가 (CharCNN + ELMO 추가)
+- [ ] ver 1.4 : Seq2Seq 추가해서 Fallback시 대처할 수 있게 만들기 (SK KOGPT2)
+- [ ] ver 1.5 : 네이버 맞춤법 검사기 제거하고, 자체적인 띄어쓰기 검사모듈 추가
+- [ ] ver 1.5 : BERT와 Markov 체인을 이용한 자동 OOD 데이터 생성기능 추가
+- [ ] ver 1.7 : 대화 흐름관리를 위한 Story 관리 기능 구현해서 추가하기
+<br><br><br>
+
+## 9. License
 ```
 Copyright 2020 Kochat.
 
