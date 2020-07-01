@@ -223,5 +223,5 @@ class DistanceClassifier(IntentClassifier):
               '현재 입력하신 문장과 기존 문장들 사이의 거리 평균은 {0}이고\n'
               '가까운 샘플들과의 거리는 {1}입니다.\n'
               '이 수치를 보고 Config의 fallback_detection_threshold를 맞추세요.\n'
-              'Fallback Detection은 거리평균/최솟값으로 설정할 수 있습니다.\n'
+              'criteria는 거리평균(mean) / 최솟값(min)으로 설정할 수 있습니다.\n'
               .format(distance.mean(), distance[0][:5]))

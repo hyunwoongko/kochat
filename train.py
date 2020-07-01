@@ -5,7 +5,7 @@
 """
 
 from kochat.data import Dataset
-from kochat.loss import CRFLoss
+from kochat.loss import CRFLoss, CosFace, CenterLoss
 from kochat.loss import CrossEntropyLoss
 from kochat.model import intent, embed, entity
 from kochat.proc import DistanceClassifier
@@ -20,13 +20,13 @@ emb = GensimEmbedder(
 )
 
 softmax = SoftmaxClassifier(
-    model=intent.LSTM(dataset.intent_dict),
+    model=intent.CNN(dataset.intent_dict),
     loss=CrossEntropyLoss(dataset.intent_dict)
 )
 
 distance = DistanceClassifier(
-    model=intent.LSTM(dataset.intent_dict),
-    loss=CrossEntropyLoss(dataset.intent_dict)
+    model=intent.CNN(dataset.intent_dict),
+    loss=CenterLoss(dataset.intent_dict)
 )
 
 entity = EntityRecognizer(
@@ -35,5 +35,5 @@ entity = EntityRecognizer(
 )
 
 # emb.fit(dataset.load_embed())
-softmax.fit(dataset.load_intent(emb))
 distance.fit(dataset.load_intent(emb))
+# softmax.fit(dataset.load_intent(emb))

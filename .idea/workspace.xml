@@ -20,58 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d122a472-58ee-4a2b-8505-15e95560cd02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/demo/__init__.py~d409fd2e90ea3e4dbe2ae955d6f73bd262eab9d1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/loss/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/loss/utils/masking.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/model/base/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/model/base/convolution.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/model/layers/convolution.py~HEAD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/model/layers/convolution.py~c5c0fd00bd41c7909360765878bff7911663639c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/proc/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/proc/utils/metrics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/proc/utils/visualizer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/utils/metrics.py~HEAD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/utils/metrics.py~c5c0fd00bd41c7909360765878bff7911663639c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/utils/visualizer.py~HEAD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kochat/utils/visualizer.py~c5c0fd00bd41c7909360765878bff7911663639c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kochat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Kochat.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/entity_data.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/intent_data.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ood/close_domain.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/ood/close_domain.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ood/open_domain.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/ood/open_domain.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/raw/dust.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/raw/dust.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/raw/restaurant.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/raw/restaurant.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/raw/travel.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/raw/travel.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/raw/weather.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/raw/weather.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/app/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kochat/app/kochat_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/app/kochat_api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kochat/app/scenario.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/app/scenario.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kochat/app/scenario_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/app/scenario_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/data/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/loss/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/loss/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/model/embed/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/embed/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/model/embed/word2vec.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/embed/word2vec.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/model/entity/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/entity/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/model/entity/lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/entity/lstm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/model/intent/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/intent/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/model/layers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/model/layers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/decorators.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kochat/proc/distance_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/distance_classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/entity_recognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/entity_recognizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/fallback_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/fallback_detector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/intent_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/intent_classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/proc/distance_estimator.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/distance_estimator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kochat/proc/softmax_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/softmax_classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/utils/metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/utils/metrics.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kochat_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,7 +89,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/kochat" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kocrawl" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -407,7 +365,7 @@
       <workItem from="1593230152086" duration="47815000" />
       <workItem from="1593291711820" duration="60148000" />
       <workItem from="1593526775645" duration="21103000" />
-      <workItem from="1593575844018" duration="3882000" />
+      <workItem from="1593575844018" duration="15890000" />
     </task>
     <servers />
   </component>
@@ -461,11 +419,11 @@
     </state>
     <state x="811" y="437" key="#Volume_binding/0.0.1920.1080@0.0.1920.1080" timestamp="1591029040179" />
     <state x="811" y="460" key="#Volume_binding/0.39.1920.1041@0.39.1920.1041" timestamp="1592884345915" />
-    <state x="401" y="227" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593517974520">
+    <state x="401" y="227" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593584445311">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state x="414" y="194" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591201352070" />
-    <state x="401" y="227" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1593517974520" />
+    <state x="401" y="227" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1593584445311" />
     <state x="108" y="365" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593325709816">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
@@ -504,31 +462,31 @@
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state x="796" y="308" key="EnvironmentVariablesDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1592887341483" />
-    <state x="755" y="322" key="FileChooserDialogImpl" timestamp="1593342821540">
+    <state x="755" y="322" key="FileChooserDialogImpl" timestamp="1593584484512">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state x="755" y="294" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1591103888965" />
-    <state x="755" y="322" key="FileChooserDialogImpl/0.39.1920.1041@0.39.1920.1041" timestamp="1593342821540" />
-    <state width="1921" height="276" key="GridCell.Tab.0.bottom" timestamp="1593573162741">
+    <state x="755" y="322" key="FileChooserDialogImpl/0.39.1920.1041@0.39.1920.1041" timestamp="1593584484512" />
+    <state width="1921" height="233" key="GridCell.Tab.0.bottom" timestamp="1593594395997">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="276" key="GridCell.Tab.0.bottom/0.39.1920.1041@0.39.1920.1041" timestamp="1593573162741" />
-    <state width="1921" height="276" key="GridCell.Tab.0.center" timestamp="1593573162740">
+    <state width="1921" height="233" key="GridCell.Tab.0.bottom/0.39.1920.1041@0.39.1920.1041" timestamp="1593594395997" />
+    <state width="1921" height="233" key="GridCell.Tab.0.center" timestamp="1593594395996">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="276" key="GridCell.Tab.0.center/0.39.1920.1041@0.39.1920.1041" timestamp="1593573162740" />
-    <state width="1921" height="276" key="GridCell.Tab.0.left" timestamp="1593573162740">
+    <state width="1921" height="233" key="GridCell.Tab.0.center/0.39.1920.1041@0.39.1920.1041" timestamp="1593594395996" />
+    <state width="1921" height="233" key="GridCell.Tab.0.left" timestamp="1593594395996">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="276" key="GridCell.Tab.0.left/0.39.1920.1041@0.39.1920.1041" timestamp="1593573162740" />
-    <state width="1921" height="276" key="GridCell.Tab.0.right" timestamp="1593573162741">
+    <state width="1921" height="233" key="GridCell.Tab.0.left/0.39.1920.1041@0.39.1920.1041" timestamp="1593594395996" />
+    <state width="1921" height="233" key="GridCell.Tab.0.right" timestamp="1593594395997">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="276" key="GridCell.Tab.0.right/0.39.1920.1041@0.39.1920.1041" timestamp="1593573162741" />
+    <state width="1921" height="233" key="GridCell.Tab.0.right/0.39.1920.1041@0.39.1920.1041" timestamp="1593594395997" />
     <state width="1921" height="358" key="GridCell.Tab.1.bottom" timestamp="1593399991909">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
@@ -661,6 +619,6 @@
     <SUITE FILE_PATH="coverage/chatbot$test_crawler__1_.coverage" NAME="test_crawler (1) Coverage Results" MODIFIED="1592728338970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$trainer.coverage" NAME="trainer Coverage Results" MODIFIED="1589686565156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$python3__2_.coverage" NAME="python3 (2) Coverage Results" MODIFIED="1592235666681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/kochat$docker.coverage" NAME="docker Coverage Results" MODIFIED="1593573162726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/kochat$docker.coverage" NAME="docker Coverage Results" MODIFIED="1593594395976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

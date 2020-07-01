@@ -20,7 +20,7 @@ class DistanceEstimator(SklearnProcessor):
         :param grid_search: 그리드 서치 사용 여부
         """
 
-        self.model = KNeighborsClassifier(n_neighbors=10)
+        self.model = KNeighborsClassifier(n_neighbors=self.num_neighbors)
         self.grid_search = grid_search
         super().__init__(self.model)
 

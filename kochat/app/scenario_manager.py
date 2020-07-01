@@ -3,7 +3,7 @@
 @since 6/28/2020
 @see https://github.com/gusdnd852
 """
-from app.scenario import Scenario
+from kochat.app import Scenario
 
 
 class ScenarioManager:

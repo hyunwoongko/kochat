@@ -82,6 +82,46 @@ class KochatApi:
             entity = self.entity_recognizer.predict(prep)
             return self.scenario_manager.apply_scenario(text, intent, entity)
 
+        @app.route('/get_intent/<text>', methods=['GET'])
+        def get_intent(text: str) -> dict:
+            """
+            Kochat NLU 기능입니다.
+            Intent Classification을 수행합니다.
+
+            :param text: 유저 입력 문자열
+            :return: json 딕셔너리
+            """
+
+            prep = self.dataset.load_predict(text, self.embed_processor)
+            intent = self.intent_classifier.predict(prep, calibrate=False)
+            return {
+                'input': text,
+                'intent': intent,
+                'entity': None,
+                'state': 'REQUEST_INTENT',
+                'answer': None
+            }
+
+        @app.route('/get_entity/<text>', methods=['GET'])
+        def get_entity(text: str) -> dict:
+            """
+            Kochat NLU 기능입니다.
+            Entity Recognition을 수행합니다.
+
+            :param text: 유저 입력 문자열
+            :return: json 딕셔너리
+            """
+
+            prep = self.dataset.load_predict(text, self.embed_processor)
+            entity = self.entity_recognizer.predict(prep)
+            return {
+                'input': text,
+                'intent': None,
+                'entity': entity,
+                'state': 'REQUEST_ENTITY',
+                'answer': None
+            }
+
     def run(self, port: int, ip: str = '0.0.0.0'):
         """
         Kochat 서버를 실행합니다.

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # Kochat
 [![PyPI version](https://badge.fury.io/py/kochat.svg)](https://badge.fury.io/py/kochat)
 ![GitHub](https://img.shields.io/github/license/gusdnd852/kochat)
@@ -151,7 +149,33 @@ Slot Filling 방식은 미리 기능을 수행할 정보를 담는 '슬롯'을 �
 어떤 API를 사용해야할지 알아냅니다.
 <br><br>
 
-#### 2.2.2.2. 엔티티(개체명) 인식하기
+#### 2.2.2.2. 폴백 검출하기 : 모르겠으면 모른다고 말하기
+그러나 여기에 신경써야할 부분이 한 부분 존재합니다. 
+일반적인 딥러닝 분류모델은 모델이 학습한 클래스 내에서만 분류가 가능합니다.
+그러나 사용자가 네 가지의 발화의도 안에서만 말할 것이라는 보장은 없습니다.
+만약 위처럼 "날씨 정보제공", "미세먼지 정보제공", "맛집 정보제공", "여행지 정보제공"의 데이터만
+학습한 인텐트 분류모델에 "안녕 반갑다."라는 말을 하게 되면 어떻게 될까요? 위 4가지에 속하지 않은
+발화 의도인 "인사"에 해당하지만 모델은 인삿말은 한번도 본적이 없기 때문에 이것도 역시 
+4가지 중 하나로 분류하게 됩니다. 이러한 문제를 해결하기 위해 의도 분류모델에는 반드시
+폴백 (Fallback) 검출 전략이 포함되어야합니다.
+
+![fallback](https://user-images.githubusercontent.com/38183241/86210679-f7d7b000-bbaf-11ea-9083-d83cea2fe540.png)
+
+보통의 챗봇빌더들은 입력 단어들의 임베딩인 문장 벡터와
+기존 데이터셋에 있는 문장 벡터들의 Cosine 유사도를 비교합니다. 
+이 때 가장 가까운 인접 클래스와의 각도가 임계치 이상이면 Fallback이고,
+그렇지 않으면 가장 가까운 인접 클래스로 데이터 샘플을 분류하게 됩니다.
+아래 그림을 보면 일반적인 챗봇 빌더들이 
+어떤식으로 Fallback을 검출하는지 알 수 있습니다.
+
+![fallback](https://user-images.githubusercontent.com/38183241/86210681-f908dd00-bbaf-11ea-8d8b-478f929a1f3a.png)
+
+Kochat은 이렇게 단순히 문장들의 벡터 Cosine 유사도를 비교하지 않고 
+더욱 고차원적인 방법을 사용하여 Fallback 디텍션을 보다 더 잘 수행하도록
+설계하였는데 이에 대한 자세한 내용은 "4. Usage"에서 언급하도록 하겠습니다.
+<br><br>
+
+#### 2.2.2.3. 엔티티(개체명) 인식하기 : 슬롯 채우기
 
 ![02_chatbot_entity_recognition](https://user-images.githubusercontent.com/38183241/85957992-17fb4980-b9cd-11ea-9a57-de36bc37a979.jpg)
 
@@ -162,7 +186,7 @@ Slot Filling 방식은 미리 기능을 수행할 정보를 담는 '슬롯'을 �
 지역에 관련된 정보는 아직 찾아내지 못했기 때문에 다시 되물어서 찾아내야합니다. 
 <br><br>
 
-#### 2.2.2.3. 대답 생성하기
+#### 2.2.2.4. 대답 생성하기
 
 ![02_chatbot_response_generation](https://user-images.githubusercontent.com/38183241/85957995-19c50d00-b9cd-11ea-8f88-50fea23df8d5.jpg)
 
@@ -628,7 +652,7 @@ class CNN(nn.Module):
 
         return x.view(x.size(0), -1)
         # 4. feature를 [batch_size, -1]로 만들고 반환합니다.
-        # 최종 output 레이어 kochat이 자동 생성하기 때문에 feature만 출력합니다.
+        # 최종 output 레이어는 kochat이 자동 생성하기 때문에 feature만 출력합니다.
 ````
 ```python
 import torch
@@ -667,7 +691,7 @@ class LSTM(nn.Module):
         out, (h_s, c_s) = self.lstm(x, self.init_hidden(b))
 
         # 4. feature를 [batch_size, -1]로 만들고 반환합니다.
-        # 최종 output 레이어 kochat이 자동 생성하기 때문에 feature만 출력합니다.
+        # 최종 output 레이어는 kochat이 자동 생성하기 때문에 feature만 출력합니다.
         return h_s[0]
 ```
 <br><br>
@@ -721,19 +745,260 @@ class LSTM(nn.Module):
         out, _ = self.lstm(x, self.init_hidden(b))
 
         # 4. feature를 [batch_size, max_len, -1]로 만들고 반환합니다.
-        # 최종 output 레이어 kochat이 자동 생성하기 때문에 feature만 출력합니다.
+        # 최종 output 레이어는 kochat이 자동 생성하기 때문에 feature만 출력합니다.
         return out
 ```
 <br><br><br>
 
-### 4.3. `from kochat.loss`
+### 4.3. `from kochat.proc`
+`proc`은 Procssor의 줄임말로, 다양한 모델들의 
+학습/테스트을 수행하는 함수인 `fit()`과
+추론을 수행하는 함수인 `predict()` 등을 수행하는 클래스 집합입니다.
+현재 지원하는 프로세서는 총 4가지로 아래에서 자세하게 설명합니다.
+<br><br>
+
+#### 4.3.1. `from kochat.proc import GensimEmbedder`
+GensimEmbedder는 Gensim의 임베딩 모델을 학습시키고,
+학습된 모델을 사용해 문장을 임베딩하는 클래스입니다. 자세한 사용법은 다음과 같습니다.
+
+```python
+from kochat.data import Dataset
+from kochat.proc import GensimEmbedder
+from kochat.model import embed
+
+
+dataset = Dataset(ood=True)
+
+# 프로세서 생성
+emb = GensimEmbedder(
+    model=embed.FastText()
+)
+
+# 모델 학습
+emb.fit(dataset.load_embed())
+
+# 모델 추론 (임베딩)
+user_input = emb.predict("서울 홍대 맛집 알려줘")
+```
+<br><br>
+
+#### 4.3.2. `from kochat.proc import SoftmaxClassifier`
+`SoftmaxClassifier`는 가장 기본적인 Intent 분류 프로세서입니다.
+이름이 SoftmaxClassifier인 이유는 Softmax Score를 이용해 Fallback Detection을 수행하기 때문에
+이렇게 명명하게 되었습니다. 그러나 몇몇 [논문](https://arxiv.org/abs/1412.1897)
+에서 Calibrate되지 않은 Softmax Score을 마치 Confidence처럼
+착각해서 사용하면 심각한 문제가 발생할 수 있다는 것을 보여주었습니다. 
+
+![mnist](https://user-images.githubusercontent.com/38183241/86215372-784ddf00-bbb7-11ea-8370-f1ab148e92e4.png)
+
+<br>
+
+위의 그림은 MNIST 분류모델에서 0.999 이상의 Softmax Score를 가지는 이미지들입니다.
+실제로 0 ~ 9까지의 숫자와는 전혀 상관없는 이미지들이기 때문에 낮은 Softmax Score를
+가질 것이라고 생각되지만 실제로는 그렇지 않습니다. 
+사실 `SoftmaxClassifier`를 실제 챗봇의 Intent Classification 기능을 위해
+사용하는 것은 적절하지 못합니다. `SoftmaxClassifier`는 아래 후술할 `DistanceClassifier`
+와의 성능 비교를 위해, 또 아래에 후술할 Kochat NLU 기능 중 한 가지로 제공하기 위해 구현하였습니다.
+사용법은 아래와 같습니다.
+
+```python
+from kochat.data import Dataset
+from kochat.proc import SoftmaxClassifier
+from kochat.model import intent
+from kochat.loss import CrossEntropyLoss
+
+
+dataset = Dataset(ood=True)
+
+# 프로세서 생성
+clf = SoftmaxClassifier(
+    model=intent.CNN(dataset.intent_dict),
+    loss=CrossEntropyLoss(dataset.intent_dict)
+)
+
+# 되도록이면 SoftmaxClassifier는 CrossEntropyLoss를 이용해주세요
+# 다른 Loss 함수들은 거리 기반의 Metric Learning을 수행하기 때문에 
+# Softmax Classifiaction에 적절하지 못할 수 있습니다.
+
+
+# 모델 학습
+clf.fit(dataset.load_intent(emb))
+
+# 모델 추론 (임베딩)
+clf.predict(dataset.load_predict("오늘 서울 날씨 어떨까", emb))
+```
+
+<br>
+
+#### 4.3.2. `from kochat.proc import DistanceClassifier`
+`DistanceClassifier`는 `SoftmaxClassifier`와는 다르게 거리기반으로 작동하며,
+일종의 Memory Network입니다. [batch_size, -1] 의 사이즈로 출력된 출력벡터와 기존 데이터셋에 있는 벡터들 사이의
+거리를 계산하여 데이터셋에서 가장 가까운 K개의 샘플을 찾고 최다 샘플 클래스로 분류하는 
+최근접 이웃 Retrieval 기반의 분류 모델입니다.
+<br><br>
+
+이 때 각 클래스들 사이의 거리가 멀어야 분류하는데 좋기 때문에 사용자가 설정한 
+Loss함수(주로 Margin 기반 Loss)를 적용해 Metric Learning을 수행해서 클래스 간의 
+Margin을 최대치로 벌리는 메커니즘이 구현되어있습니다.
+또한 최근접 이웃 알고리즘의 K값은 config에서 직접 지정 할 수도 있고 
+GridSearch를 적용하여 자동으로 최적의 K값을 찾을 수 있게 설계하였습니다. 
+최근접 샘플을 찾을 때 Brute force하게 직접 거리를 일일이 다 구하면 굉장히 느리기 
+때문에 다차원 검색트리인 `KDTree` 혹은 `BallTree` (KDTree의 개선 형태)를 통해서 
+거리를 계산하며 결과로 만들어진 트리 구조를 메모리에 저장합니다. 
+트리기반의 검색 알고리즘을 사용하기 때문에 `SoftmaxClassifier`와 
+거의 비슷한 속도로 학습 및 추론이 가능합니다. 사용법은 아래와 같습니다.
+
+
+```python
+from kochat.data import Dataset
+from kochat.proc import DistanceClassifier
+from kochat.model import intent
+from kochat.loss import CenterLoss
+
+
+dataset = Dataset(ood=True)
+
+# 프로세서 생성
+clf = DistanceClassifier(
+    model=intent.CNN(dataset.intent_dict),
+    loss=CenterLoss(dataset.intent_dict)
+)
+
+# 되도록이면 DistanceClassifier는 Margin 기반의 Loss 함수를 이용해주세요
+# 현재는 CenterLoss, COCOLoss, Cosface, GausianMixture 등의 Metric Learning용 
+# Loss함수를 지원합니다. Loss 함수별 성능 비교 및 피쳐분포는 아래에 첨부할 예정입니다.
+
+
+# 모델 학습
+clf.fit(dataset.load_intent(emb))
+
+# 모델 추론 (임베딩)
+clf.predict(dataset.load_predict("오늘 서울 날씨 어떨까", emb))
+```
+<br><br>
+
+#### 4.3.3. `FallbackDetector (Classifier에 내장됨)`
+`SoftmaxClassifier`와 `DistanceClassifier` 모두 Fallback Detection 기능을 구현되어있습니다.
+Fallback Detection 기능을 이용하는 방법은 아래와 같이 두 가지 방법을 제공합니다.
+
+```
+1. OOD 데이터가 없는 경우 : 직접 config의 Threshold를 맞춰야합니다.
+2. OOD 데이터가 있는 경우 : 머신러닝을 이용하여 Threshold를 자동 학습합니다.
+```
+
+<br>
+
+바로 여기에서 OOD 데이터셋이 사용됩니다. 
+`SoftmaxClassifier`는 out distribution 샘플들과 in distribution 샘플간의 
+maximum softmax score (size = [batch_size, 1])를 feature로 하여 
+머신러닝 모델을 학습하고, 
+`DistanceClassifier`는 out distribution 샘플들과 in distribution 샘플들의 
+K개의 최근접 이웃의 거리 (size = [batch_size, K])를 feature로 하여 
+머신러닝 모델을 학습합니다. 
+
+<br>
+
+이러한 머신러닝 모델을 `FallbackDetector`라고 합니다. `FallbackDetector`는 각 
+Classifier안에 내장 되어있기 때문에 별다른 추가 소스코드 없이 `Dataset`의 `ood` 
+파라미터만 `True`로 설정되어있다면 Classifier학습이 끝나고나서 자동으로 학습되고, 
+`predict()`시 저장된 `FallbackDetector`가 있다면 자동으로 동작합니다.
+또한 `FallbackDetector`로 사용할 모델은 아래처럼 config에서 사용자가 직접 설정할 수 있으며
+GridSearch를 지원하여 여러개의 모델을 리스트에 넣어두면 Kochat 프레임워크가
+현재 데이터셋에 가장 적합한 `FallbackDetector`를 자동으로 골라줍니다. 
+
+```python
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import LinearSVC
+
+
+INTENT = {
+    # ... (생략)
+
+    # 폴백 디텍터 후보 (선형 모델을 추천합니다)
+    'fallback_detectors': [
+        LogisticRegression(max_iter=10000),
+        LinearSVC(max_iter=10000)
+
+        # 가능한 max_iter를 높게 설정해주세요
+    ]
+}
+```
+<br>
+
+Fallback Detection 문제는 Fallback 메트릭(거리 or score)가 일정 임계치를 넘어가면 
+샘플을 in / out distribution 샘플로 분류하는데 그 임계치를 현재 모르는 상황이므로 
+선형 문제로 해석할 수 있습니다. 따라서 FallbackDetector로는 위 처럼 선형 모델인 
+선형 SVM, 로지스틱 회귀 등을 주로 이용합니다. 물론 위의 리스트에 
+`RandomForestClassifier()`나 `BernoulliNB()`, `GradientBoostingClassifier()` 등
+다양한 sklearn 모델을 입력해도 동작은 하지만, 일반적으로 선형모델이 가장 우수하고 
+안정적인 성능을 보였습니다. (이에 대한 실험결과는 아래에 첨부할 예정입니다.)
+
+<br>
+
+이렇게 Fallback의 메트릭으로 머신러닝 모델을 학습하면 Threshold를 직접 유저가 
+설정하지 않아도 됩니다. OOD 데이터셋이 필요하다는 치명적인 단점이 있지만, 
+차후 버전에서는 BERT와 Markov Chain을 이용해 OOD 데이터셋을 자동으로 빠르게 생성하는 
+모델을 구현하여 추가할 예정입니다. (업데이트 이후부터는 OOD 데이터셋이 필요 없어집니다.)
+
+<br>
+
+그러나 아직 OOD 데이터셋 생성기능은 지원하지 않기 때문에 
+현재 버전에서는 만약 OOD 데이터셋이 없다면 사용자가 직접 Threshold를 설정해야 하므로 눈으로
+샘플들이 어느정도 score 혹은 거리를 갖는지 확인해야합니다. 따라서 Kochat은 Calibrate 모드를 지원합니다.
+
+```python
+while True:
+    user_input = dataset.load_predict(input(), emb) 
+    # 터미널에 직접 ood로 생각될만한 샘플을 입력해서 
+    # 눈으로 결과를 직접 확인하고, threshold를 직접 조정합니다.
+
+    result = clf.predict(user_input, calibrate=True)
+    print("classification result : {}".format(result))
+
+
+# DistanceClassifier
+>>> '=====================CALIBRATION_MODE====================='
+    '현재 입력하신 문장과 기존 문장들 사이의 거리 평균은 2.912이고'
+    '가까운 샘플들과의 거리는 [2.341, 2.351, 2.412, 2.445 ...]입니다.'
+    '이 수치를 보고 Config의 fallback_detection_threshold를 맞추세요.'
+    'criteria는 거리평균(mean) / 최솟값(min)으로 설정할 수 있습니다.'
+
+
+# SoftmaxClassifier
+>>> '=====================CALIBRATION_MODE====================='
+    '현재 입력하신 문장의 softmax logits은 0.997입니다.'
+    '이 수치를 보고 Config의 fallback_detection_threshold를 맞추세요.'
+```
+<br>
+
+이렇게 얻어진 threshold와 원하는 criteria를 config에 설정하면 ood 데이터셋 없이도
+FallbackDetector를 이용할 수 있습니다. 그러나 지금 버전에서는 가급적 OOD 데이터셋을 이용해주세요. 
+(정 없으시면 예제 데이터라도...)
+
+```python
+INTENT = {
+    'distance_fallback_detection_criteria': 'mean', # or 'min'  
+    # [auto, min, mean], auto는 OOD 데이터 있을때만 가능
+    'distance_fallback_detection_threshold': 3.2,  
+    # mean 혹은 min 선택시 임계값
+    
+    'softmax_fallback_detection_criteria': 'other',  
+    # [auto, other], auto는 OOD 데이터 있을때만 가능
+    'softmax_fallback_detection_threshold': 0.88,  
+    # other 선택시 fallback이 되지 않는 최소 값
+}
+```
+<br><br>
+
+
+### 4.4. `from kochat.loss`
 `loss` 패키지는 사전 정의된 다양한 built-in Loss 함수들이 저장된 패키지입니다.
 현재 버전에서는 아래 목록에 해당하는 Loss 함수들을 지원합니다. 추후 버전이 업데이트 되면
 지금보다 훨씬 다양한 built-in Loss 함수를 지원할 예정입니다. 아래 목록을 참고하여 사용해주시길 바랍니다.
 
 <br>
 
-#### 4.3.1. intent loss 함수
+#### 4.4.1. intent loss 함수
 Intent Loss 함수는 기본적인 CrossEntropyLoss와 다양한 Distance 기반의 Loss함수를
 활용할 수 있습니다. CrossEntropy는 후술할 Softmax 기반의 IntentClassifier에 주로
 활용하고, Distance 기반의 Loss 함수들은 Distance 기반의 IntentClassifier에 
@@ -748,6 +1013,7 @@ from kochat.loss import CenterLoss
 from kochat.loss import GaussianMixture
 from kochat.loss import COCOLoss
 from kochat.loss import CosFace
+
 
 # 1. 가장 기본적인 Cross Entropy Loss 함수입니다.
 cross_entropy = CrossEntropyLoss(label_dict=dataset.intent_dict)
@@ -766,7 +1032,7 @@ cosface = CosFace(label_dict=dataset.intent_dict)
 ```
 <br>
 
-#### 4.3.2. entity loss 함수
+#### 4.4.2. entity loss 함수
 Entity Loss 함수는 기본적인 CrossEntropyLoss와 확률적 모델인
 Conditional Random Field (이하 CRF) Loss를 지원합니다.
 CRF Loss를 적용하면, EntityRecognizer의 출력 결과를 다시한번 교정하는
@@ -778,6 +1044,7 @@ CRF Loss를 적용하면, EntityRecognizer의 출력 결과를 다시한번 교�
 from kochat.loss import CrossEntropyLoss
 from kochat.loss import CRFLoss
 
+
 # 1. 가장 기본적인 cross entropy 로스 함수입니다.
 cross_entropy = CrossEntropyLoss(label_dict=dataset.intent_dict)
 
@@ -786,7 +1053,7 @@ center_loss = CRFLoss(label_dict=dataset.intent_dict)
 ```
 <br>
 
-#### 4.3.3. 커스텀 loss 함수
+#### 4.4.3. 커스텀 loss 함수
 Kochat은 커스텀 모델을 지원합니다. 
 Pytorch로 작성한 커스텀 모델을 직접 학습시키기고 챗봇 애플리케이션에 
 사용할 수 있습니다. 그러나 만약 커스텀 모델을 사용하려면 아래의 몇가지 규칙을 반드시 
@@ -797,6 +1064,8 @@ Pytorch로 작성한 커스텀 모델을 직접 학습시키기고 챗봇 애플
 2. compute_loss 함수에서 라벨과 비교하여 최종 loss값을 계산합니다.
 이 때 위에서 구현한 forward 함수를 활용합니다.
 <br><br>
+
+아래의 구현 예제를 보면 더욱 쉽게 이해할 수 있습니다.
 
 ```python
 @intent
@@ -861,38 +1130,20 @@ class CenterLoss(BaseLoss):
 ```
 <br><br><br>
 
+### 4.5. `from kochat.app`
+`app` 패키지는 kochat 모델을 restful api로 배포할 수 있게끔 해주는 Flask RESTful API와
+매우 손쉽게 대화 시나리오를 작성할 수 있게 자동화된 `Scenario`클래스를 제공합니다.
 
-### 4.4. `from kochat.proc`
-`proc`은 Procssor의 줄임말로, 다양한 모델들의 
-학습/테스트을 수행하는 함수인 `fit()`과
-추론을 수행하는 함수인 `predict()` 등을 수행하는 클래스 집합입니다.
-현재 지원하는 프로세서는 총 4가지로 아래에서 자세하게 설명합니다.
-<br><br>
+<br>
 
-#### 4.3.1. `from kochat.proc import GensimEmbedder`
-GensimEmbedder는 Gensim의 임베딩 모델을 학습시키고,
-학습된 모델을 사용해 문장을 임베딩하는 클래스입니다. 자세한 사용법은 다음과 같습니다.
+#### 4.5.1 `from kochat.app import Scenario`
+`Scenario` 클래스는 어떤 intent에서 어떤 entity가 필요하고, 어떤 api를 호출하는지 정의하는
+일종의 명세서와 같습니다. 아래 구현 예제를 봅시다.
 
 ```python
-from kochat.data import Dataset
-from kochat.proc import GensimEmbedder
-from kochat.model import embed
 
 
-dataset = Dataset(ood=True)
-
-# 프로세서 생성
-emb = GensimEmbedder(
-    model=embed.FastText()
-)
-
-# 모델 학습
-emb.fit(dataset.load_embed())
-
-# 모델 추론 (임베딩)
-user_input = emb.predict("서울 홍대 맛집 알려줘")
 ```
-
 
 ## 5. 실험 및 시각화
 

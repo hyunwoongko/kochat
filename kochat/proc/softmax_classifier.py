@@ -208,5 +208,4 @@ class SoftmaxClassifier(IntentClassifier):
         print('\n=====================CALIBRATION_MODE=====================\n'
               '현재 입력하신 문장의 softmax logits은 {0}입니다.\n'
               '이 수치를 보고 Config의 fallback_detection_threshold를 맞추세요.\n'
-              'SoftmaxClassifier는 cireteria가 "auto" 혹은 아무값으로 설정해주세요.\n'
               .format(logits.item()))

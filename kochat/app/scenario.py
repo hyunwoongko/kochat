@@ -3,7 +3,7 @@
 @since {6/21/2020}
 @see : https://github.com/gusdnd852
 """
-import collections
+
 from collections import Callable
 from random import randint
 

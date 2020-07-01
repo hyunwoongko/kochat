@@ -53,14 +53,3 @@ def entity(cls):
     for key, val in config.ENTITY.items():
         setattr(cls, key, val)
     return cls
-
-
-def entity_model(cls):
-    cls = entity(cls)
-    sample = torch.randn(1, cls.max_len, cls.vector_size)
-    sample = sample.to(cls.device)
-    output_size = cls(None).to(cls.device)(sample)
-
-    classifier = nn.Linear(output_size, len(cls.label_dict))
-    setattr(cls, 'classifier', classifier.to(cls.device))
-    return cls
