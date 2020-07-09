@@ -22,7 +22,7 @@ emb = GensimEmbedder(model=embed.FastText())
 # 3. 의도(Intent) 분류기 생성
 clf = DistanceClassifier(
     model=intent.CNN(dataset.intent_dict),                  
-    loss=CosFace(dataset.intent_dict)                    
+    loss=CenterLoss(dataset.intent_dict)                    
 )
 
 # 4. 개체명(Named Entity) 인식기 생성                                                     

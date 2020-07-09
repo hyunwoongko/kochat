@@ -395,7 +395,7 @@ K개의 샘플을 찾고 최다 샘플 클래스로 분류하는 최근접 이�
 from kochat.data import Dataset
 from kochat.proc import BaseClassifier
 from kochat.model import intent
-from kochat.loss import CosFace
+from kochat.loss import CenterLoss
 
 
 dataset = Dataset(ood=True)
@@ -403,7 +403,7 @@ dataset = Dataset(ood=True)
 # 프로세서 생성
 clf = DistanceClassifier(
     model=intent.CNN(dataset.intent_dict),
-    loss=CosFace(dataset.intent_dict)
+    loss=CenterLoss(dataset.intent_dict)
 )
 
 # 되도록이면 DistanceClassifier는 Margin 기반의 Loss 함수를 이용해주세요
