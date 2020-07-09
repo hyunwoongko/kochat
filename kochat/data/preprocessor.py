@@ -26,7 +26,7 @@ class Preprocessor:
         """
 
         self.okt = Okt()
-        self.nave_fix = naver_fix
+        self.naver_fix = naver_fix
 
     def pad_sequencing(self, sequence: Tensor) -> tuple:
         """

@@ -41,7 +41,7 @@ PROC = {
     'logging_precision': 5,  # 결과 저장시 반올림 소수점 n번째에서 반올림
     'model_dir': BASE['root_dir'] + "saved{_}".format(_=_),  # 모델 파일, 시각화 자료 저장 경로
     'visualization_epoch': 50,  # 시각화 빈도 (애폭마다 시각화 수행)
-    'save_epoch': 100  # 저장 빈도 (에폭마다 모델 저장)
+    'save_epoch': 10  # 저장 빈도 (에폭마다 모델 저장)
 }
 
 LOSS = {
@@ -58,17 +58,17 @@ GENSIM = {
     'workers': 8,  # 학습시 사용되는 쓰레드 워커 갯수
     'min_count': 2,  # 데이터에서 min count보다 많이 등장해야 단어로 인지
     'sg': 1,  # 0 : CBOW = 1 \\ SkipGram = 2
-    'iter': 3000  # 임베딩 학습 횟수
+    'iter': 2000  # 임베딩 학습 횟수
 }
 
 INTENT = {
     'model_lr': 1e-4,  # 인텐트 학습시 사용되는 러닝레이트
     'loss_lr': 1e-2,  # 인텐트 학습시 사용되는 러닝레이트
     'weight_decay': 1e-4,  # 인텐트 학습시 사용되는 가중치 감쇠 정도
-    'epochs': 500,  # 인텐트 학습 횟수
-    'd_model': 1024,  # 인텐트 모델의 차원
+    'epochs': 300,  # 인텐트 학습 횟수
+    'd_model': 512,  # 인텐트 모델의 차원
     'd_loss': 32,  # 인텐트 로스의 차원 (시각화차원, 높을수록 ood 디텍션이 정확해지지만 느려집니다.)
-    'layers': 3,  # 인텐트 모델의 히든 레이어(층)의 수
+    'layers': 1,  # 인텐트 모델의 히든 레이어(층)의 수
     'grid_search': True,  # KNN과 Fallback Detector 학습시 그리드 서치 여부
 
     'lr_scheduler_factor': 0.75,  # 러닝레이트 스케줄러 감소율
@@ -105,8 +105,8 @@ ENTITY = {
     'loss_lr': 1e-4,  # 엔티티 학습시 사용되는 로스 러닝레이트 (아직 사용되지 않음)
     'weight_decay': 1e-4,  # 엔티티 학습시 사용되는 가중치 감쇠 정도
     'epochs': 1000,  # 엔티티 학습 횟수
-    'd_model': 1024,  # 엔티티 모델의 차원
-    'layers': 3,  # 엔티티 모델의 히든 레이어(층)의 수
+    'd_model': 512,  # 엔티티 모델의 차원
+    'layers': 1,  # 엔티티 모델의 히든 레이어(층)의 수
     'masking': True,  # loss 계산시 패딩 마스크 여부
 
     'lr_scheduler_factor': 0.75,  # 러닝레이트 스케줄러 감소율

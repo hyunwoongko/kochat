@@ -58,7 +58,7 @@ class DistanceClassifier(IntentClassifier):
             self._calibrate_msg(distance)
 
         if self.distance_fallback_detection_criteria == 'auto':
-            if self.fallback_detection.predict(distance) == 0:
+            if self.fallback_detector.predict(distance) == 0:
                 return list(self.label_dict)[predict[0]]
 
         elif self.distance_fallback_detection_criteria == 'mean':
