@@ -21,9 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d122a472-58ee-4a2b-8505-15e95560cd02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/kochat_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/kochat_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/data/preprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/data/preprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kochat/proc/distance_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/distance_classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -360,7 +358,7 @@
       <workItem from="1593526775645" duration="21103000" />
       <workItem from="1593575844018" duration="19164000" />
       <workItem from="1594312414021" duration="651000" />
-      <workItem from="1594313097131" duration="3416000" />
+      <workItem from="1594313097131" duration="3844000" />
     </task>
     <servers />
   </component>
