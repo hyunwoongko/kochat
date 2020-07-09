@@ -1,19 +1,32 @@
-"""
-@auther Hyunwoong
-@since {6/21/2020}
-@see : https://github.com/gusdnd852
-"""
+# Copyright 2020 Kochat. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
+
+import inspect
 from collections import Callable
+from copy import deepcopy
 from random import randint
+from kochat.decorators import data
 
 
+@data
 class Scenario:
 
-    def __init__(self, intent, api, scenario_dict):
+    def __init__(self, intent, api, scenario=None):
         self.intent = intent
-        self.scenario_dict, self.default_dict = \
-            self.__make_empty_dict(scenario_dict)
+        self.scenario, self.default = \
+            self.__make_empty_dict(scenario)
 
         self.api, self.dict_keys, self.params = \
             self.__check_api(api)
@@ -25,10 +38,11 @@ class Scenario:
                             '입력하신 api의 타입은 {}입니다.\n'
                             '가급적이면 함수 이름 자체를 입력해주세요.'.format(type(api)))
 
-        parameters = list(api.__code__.co_varnames)
+        dict_keys = list(self.scenario.keys())
+        pre_defined_entity = [entity.lower() for entity in self.NER_categories]
+        parameters = inspect.getfullargspec(api).args
         if 'self' in parameters: del parameters[0]
         # 만약 클래스의 멤버라면 self 인자를 지웁니다.
-        dict_keys = list(self.scenario_dict.keys())
 
         if len(parameters) != len(dict_keys):
             raise Exception('\n\n'
@@ -42,6 +56,13 @@ class Scenario:
             api_param = entity[0]
             dict_key = entity[1]
 
+            if dict_key.lower() not in pre_defined_entity:
+                raise Exception('\n\n'
+                                'Kochat은 최대한 정확한 기능 수행을 위해 Config값에 정의된 Entity만 허용합니다. \n'
+                                '- config에 정의된 엔티티 : {0}\n'
+                                '- 시나리오 엔티티 : {1}\n'
+                                '- 일치하지 않은 부분 : {2} not in {0}'.format(pre_defined_entity, dict_keys, dict_key))
+
             if api_param.lower() != dict_key.lower():
                 raise Exception('\n\n'
                                 'Kochat은 최대한 정확한 기능 수행을 위해 API의 파라미터의 이름과 순서를 고려하여 엔티티와 맵핑합니다.\n'
@@ -54,22 +75,22 @@ class Scenario:
 
         return api, dict_keys, parameters
 
-    def __make_empty_dict(self, scenario_dict):
-        default_dict = {}
+    def __make_empty_dict(self, scenario):
+        default = {}
 
-        for k, v in scenario_dict.items():
-            if len(scenario_dict[k]) > 0:
-                default_dict[k] = v
+        for k, v in scenario.items():
+            if len(scenario[k]) > 0:
+                default[k] = v
                 # 디폴트 딕셔너리로 일단 빼놓고
 
-                scenario_dict[k] = []
+                scenario[k] = []
                 # 해당 엔티티의 리스트를 비워둠
 
             else:
-                default_dict[k] = []
+                default[k] = []
                 # 디폴드 없으면 리스트로 초기화
 
-        return scenario_dict, default_dict
+        return scenario, default
 
     def __check_entity(self, entity: list, text: list, dict_: dict) -> dict:
         """
@@ -84,25 +105,26 @@ class Scenario:
 
         for t, e in zip(text, entity):
             for k, v in dict_.items():
-                if k in e:
+                if k.lower() in e.lower():
                     v.append(t)
 
         return dict_
 
-    def __set_default(self, result_dict):
-        for k, v in result_dict.items():
-            if len(result_dict[k]) == 0 and len(self.default_dict[k]) != 0:
+    def __set_default(self, result):
+        for k, v in result.items():
+            if len(result[k]) == 0 and len(self.default[k]) != 0:
                 # 디폴트 값 중에서 랜덤으로 하나 골라서 넣음
-                result_dict[k] = \
-                    [self.default_dict[k][randint(0, len(self.default_dict[k]) - 1)]]
+                result[k] = \
+                    [self.default[k][randint(0, len(self.default[k]) - 1)]]
 
-            result_dict[k] = ' '.join(result_dict[k])
-        return result_dict
+            result[k] = ' '.join(result[k])
+        return result
 
     def apply(self, entity, text):
-        result_dict = self.__check_entity(entity, text, self.scenario_dict)
-        result_dict = self.__set_default(result_dict)
-        required_entity = [k for k, v in result_dict.items() if len(v) == 0]
+        scenario = deepcopy(self.scenario)
+        result = self.__check_entity(entity, text, scenario)
+        result = self.__set_default(result)
+        required_entity = [k for k, v in result.items() if len(v) == 0]
 
         if len(required_entity) == 0:
             return {
@@ -110,7 +132,7 @@ class Scenario:
                 'intent': self.intent,
                 'entity': entity,
                 'state': 'SUCCESS',
-                'answer': self.api(*result_dict.values())
+                'answer': self.api(*result.values())
             }
 
         else:
