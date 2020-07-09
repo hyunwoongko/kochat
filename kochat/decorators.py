@@ -53,3 +53,10 @@ def entity(cls):
     for key, val in config.ENTITY.items():
         setattr(cls, key, val)
     return cls
+
+
+def api(cls):
+    cls = backend(cls)
+    for key, val in config.API.items():
+        setattr(cls, key, val)
+    return cls

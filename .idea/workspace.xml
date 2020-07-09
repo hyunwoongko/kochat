@@ -21,12 +21,17 @@
   <component name="ChangeListManager">
     <list default="true" id="d122a472-58ee-4a2b-8505-15e95560cd02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/entity_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/intent_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ood/ood_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw/dust.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw/restaurant.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw/travel.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw/weather.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/data/ood/ood_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/demo/data/ood/ood_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/kochat_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/kochat_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/demo/static/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/decorators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kochat/proc/entity_recognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/kochat/proc/entity_recognizer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +200,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="docker://gusdnd852/chatbot:latest/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -236,7 +241,7 @@
           </list>
         </option>
       </PathMappingSettings>
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/application.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -363,7 +368,7 @@
       <workItem from="1593526775645" duration="21103000" />
       <workItem from="1593575844018" duration="19164000" />
       <workItem from="1594312414021" duration="651000" />
-      <workItem from="1594313097131" duration="99000" />
+      <workItem from="1594313097131" duration="587000" />
     </task>
     <servers />
   </component>
@@ -417,11 +422,11 @@
     </state>
     <state x="811" y="437" key="#Volume_binding/0.0.1920.1080@0.0.1920.1080" timestamp="1591029040179" />
     <state x="811" y="460" key="#Volume_binding/0.39.1920.1041@0.39.1920.1041" timestamp="1592884345915" />
-    <state x="401" y="227" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594312850485">
+    <state x="401" y="227" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594313698696">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state x="414" y="194" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591201352070" />
-    <state x="401" y="227" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1594312850485" />
+    <state x="401" y="227" width="1123" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.39.1920.1041@0.39.1920.1041" timestamp="1594313698696" />
     <state x="108" y="365" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593325709816">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
@@ -465,26 +470,26 @@
     </state>
     <state x="755" y="294" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1591103888965" />
     <state x="755" y="322" key="FileChooserDialogImpl/0.39.1920.1041@0.39.1920.1041" timestamp="1593584484512" />
-    <state width="1921" height="233" key="GridCell.Tab.0.bottom" timestamp="1593594395997">
+    <state width="1544" height="281" key="GridCell.Tab.0.bottom" timestamp="1594313677006">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="233" key="GridCell.Tab.0.bottom/0.39.1920.1041@0.39.1920.1041" timestamp="1593594395997" />
-    <state width="1921" height="233" key="GridCell.Tab.0.center" timestamp="1593594395996">
+    <state width="1544" height="281" key="GridCell.Tab.0.bottom/0.39.1920.1041@0.39.1920.1041" timestamp="1594313677006" />
+    <state width="1544" height="281" key="GridCell.Tab.0.center" timestamp="1594313677006">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="233" key="GridCell.Tab.0.center/0.39.1920.1041@0.39.1920.1041" timestamp="1593594395996" />
-    <state width="1921" height="233" key="GridCell.Tab.0.left" timestamp="1593594395996">
+    <state width="1544" height="281" key="GridCell.Tab.0.center/0.39.1920.1041@0.39.1920.1041" timestamp="1594313677006" />
+    <state width="1544" height="281" key="GridCell.Tab.0.left" timestamp="1594313677006">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="233" key="GridCell.Tab.0.left/0.39.1920.1041@0.39.1920.1041" timestamp="1593594395996" />
-    <state width="1921" height="233" key="GridCell.Tab.0.right" timestamp="1593594395997">
+    <state width="1544" height="281" key="GridCell.Tab.0.left/0.39.1920.1041@0.39.1920.1041" timestamp="1594313677006" />
+    <state width="1544" height="281" key="GridCell.Tab.0.right" timestamp="1594313677006">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
     <state width="781" height="181" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1591104292739" />
-    <state width="1921" height="233" key="GridCell.Tab.0.right/0.39.1920.1041@0.39.1920.1041" timestamp="1593594395997" />
+    <state width="1544" height="281" key="GridCell.Tab.0.right/0.39.1920.1041@0.39.1920.1041" timestamp="1594313677006" />
     <state width="1921" height="358" key="GridCell.Tab.1.bottom" timestamp="1593399991909">
       <screen x="0" y="39" width="1920" height="1041" />
     </state>
@@ -617,6 +622,6 @@
     <SUITE FILE_PATH="coverage/chatbot$test_crawler__1_.coverage" NAME="test_crawler (1) Coverage Results" MODIFIED="1592728338970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$trainer.coverage" NAME="trainer Coverage Results" MODIFIED="1589686565156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Chatbot$python3__2_.coverage" NAME="python3 (2) Coverage Results" MODIFIED="1592235666681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/kochat$docker.coverage" NAME="docker Coverage Results" MODIFIED="1593594395976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/kochat$docker.coverage" NAME="docker Coverage Results" MODIFIED="1594313743490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/demo" />
   </component>
 </project>

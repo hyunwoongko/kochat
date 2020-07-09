@@ -18,7 +18,7 @@ BASE = {
     'device': 'cuda' if torch.cuda.is_available() else 'cpu',
     'vector_size': 128,  # 단어 벡터 사이즈
     'batch_size': 512,  # 미니배치 사이즈
-    'max_len': 12,  # 문장의 최대 길이 (패드 시퀀싱)
+    'max_len': 8,  # 문장의 최대 길이 (패드 시퀀싱)
     'delimeter': _,  # OS에 따른 폴더 delimeter
 
     'PAD': 0,  # PAD 토큰 값 (전체가 0인 벡터)
@@ -56,7 +56,7 @@ LOSS = {
 GENSIM = {
     'window_size': 2,  # 임베딩 학습시 사용되는 윈도우 사이즈
     'workers': 8,  # 학습시 사용되는 쓰레드 워커 갯수
-    'min_count': 1,  # 데이터에서 min count보다 많이 등장해야 단어로 인지
+    'min_count': 2,  # 데이터에서 min count보다 많이 등장해야 단어로 인지
     'sg': 1,  # 0 : CBOW = 1 \\ SkipGram = 2
     'iter': 3000  # 임베딩 학습 횟수
 }
@@ -67,17 +67,37 @@ INTENT = {
     'weight_decay': 1e-4,  # 인텐트 학습시 사용되는 가중치 감쇠 정도
     'epochs': 500,  # 인텐트 학습 횟수
     'd_model': 1024,  # 인텐트 모델의 차원
-    'd_loss': 64,  # 인텐트 로스의 차원 (시각화차원, 높을수록 ood 디텍션이 정확해지지만 느려집니다.)
+    'd_loss': 32,  # 인텐트 로스의 차원 (시각화차원, 높을수록 ood 디텍션이 정확해지지만 느려집니다.)
     'layers': 3,  # 인텐트 모델의 히든 레이어(층)의 수
+    'grid_search': True,  # KNN과 Fallback Detector 학습시 그리드 서치 여부
 
     'lr_scheduler_factor': 0.75,  # 러닝레이트 스케줄러 감소율
     'lr_scheduler_patience': 10,  # 러닝레이트 스케줄러 감소 에폭
     'lr_scheduler_min_lr': 1e-12,  # 최소 러닝레이트
-    'lr_scheduler_warm_up': 10,  # 러닝레이트 감소 시작시점
+    'lr_scheduler_warm_up': 100,  # 러닝레이트 감소 시작시점
 
     # auto를 쓰려면 ood dataset을 함께 넣어줘야합니다.
-    'distance_fallback_detection_criteria': 'auto',  # 'auto' or 거리값(int), auto는 OOD 데이터 있을때만 가능
-    'softmax_fallback_detection_criteria': 'auto',  # 'auto' or Score값(int), auto는 OOD 데이터 있을때만 가능
+    'distance_fallback_detection_criteria': 'auto',  # [auto, min, mean], auto는 OOD 데이터 있을때만 가능
+    'distance_fallback_detection_threshold': -1,  # mean 혹은 min 선택시 임계값
+    'softmax_fallback_detection_criteria': 'auto',  # [auto, other], auto는 OOD 데이터 있을때만 가능
+    'softmax_fallback_detection_threshold': -1,  # other 선택시 fallback이 되지 않는 최소 값
+
+    # 그리드 서치를 사용하지 않을때 KNN의 K값
+    'num_neighbors': 10,
+
+    # 그리드 서치를 사용할 때의 파라미터 목록
+    'dist_param': {
+        'n_neighbors': list(range(5, 15)),  # K값 범위 설정
+        'weights': ["uniform"],  # ['uniform', 'distance']
+        'p': [2],  # [1, 2] (맨하튼 vs 유클리디언)
+        'algorithm': ['ball_tree']  # ['ball_tree', 'kd_tree']
+    },
+
+    # 폴백 디텍터 후보 (선형 모델을 추천합니다)
+    'fallback_detectors': [
+        LogisticRegression(max_iter=30000),
+        LinearSVC(max_iter=30000)
+    ]
 }
 
 ENTITY = {

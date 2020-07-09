@@ -9,7 +9,7 @@ from kochat.app import KochatApi
 from kochat.data import Dataset
 from kochat.loss import CRFLoss, CosFace, CenterLoss, COCOLoss, CrossEntropyLoss
 from kochat.model import intent, embed, entity
-from kochat.proc import IntentClassifier, GensimEmbedder, EntityRecognizer, SoftmaxClassifier
+from kochat.proc import DistanceClassifier, GensimEmbedder, EntityRecognizer, SoftmaxClassifier
 
 from demo.scenrios import restaurant, travel, dust, weather
 # from scenrios import restaurant, travel, dust, weather
@@ -19,7 +19,7 @@ from demo.scenrios import restaurant, travel, dust, weather
 dataset = Dataset(ood=True)
 emb = GensimEmbedder(model=embed.FastText())
 
-clf = IntentClassifier(
+clf = DistanceClassifier(
     model=intent.CNN(dataset.intent_dict),
     loss=CenterLoss(dataset.intent_dict),
 )
