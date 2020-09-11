@@ -1,7 +1,6 @@
 # Kochat
 [![PyPI version](https://badge.fury.io/py/kochat.svg)](https://badge.fury.io/py/kochat)
 ![GitHub](https://img.shields.io/github/license/gusdnd852/kochat)
-[![CodeFactor](https://www.codefactor.io/repository/github/gusdnd852/kochat/badge)](https://www.codefactor.io/repository/github/gusdnd852/kochat)
 
 ![introduction_kochat](https://user-images.githubusercontent.com/38183241/85958000-1b8ed080-b9cd-11ea-99d6-69b472f3e2ff.jpg)
 <br>
