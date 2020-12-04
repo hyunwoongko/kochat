@@ -93,25 +93,6 @@ if __name__ == '__main__':
 
 <br>
 
-
-## TODO List
-- [x] ver 1.0 : 엔티티 학습에 CRF 및 로스 마스킹 추가하기 
-- [x] ver 1.0 : 상세한 README 문서 작성 및 PyPI 배포하기
-- [x] ver 1.0 : 간단한 웹 인터페이스 기반 데모 애플리케이션 제작하기
-- [ ] ver 1.0 : Jupyter Note Example 작성하기 + Colab 실행 환경
-- [x] ver 1.0 : 데모 데이터셋 10배로 확장 (intent 당 600 → 5000 라인)
-- [ ] ver 1.1 : OOD 데이터셋 없이 OOD 분류기능 학습 (구현완료, 마무리필요)
-- [ ] ver 1.2 : 데이터셋 포맷 RASA처럼 markdown에 대괄호 형태로 변경
-- [ ] ver 1.2 : System Entity & Intent 데이터셋 지원 (일단 NER 데이터 긁어모으고 인텐트는 음..)
-- [ ] ver 1.3 : Pretrain Embedding 적용 가능하게 변경 (Gensim)
-- [ ] ver 1.4 : Transformer 기반 모델 추가 (Etri BERT, SK BERT) with Hugging face
-- [ ] ver 1.5 : Pytorch Embedding 모델 추가 + Pretrain 적용 가능하게
-- [ ] ver 1.4 : Intent & Entity 멀티모달 지원 (학습속도 및 추론 개선을 위함)
-- [ ] ver 1.7 : Seq2Seq 추가해서 Fallback시 대처할 수 있게 만들기 (LSTM, SK GPT2)
-- [ ] ver 1.8 : 네이버 맞춤법 검사기 제거하고, 자체적인 띄어쓰기 검사모듈 추가
-- [ ] ver 1.9 : 대화 흐름관리를 위한 Story 관리 기능 구현해서 추가하기
-<br><br><br>
-
 ## Reference
 - [챗봇 분류 그림](https://towardsdatascience.com/chatbots-are-cool-a-framework-using-python-part-1-overview-7c69af7a7439)
 - [seq2seq 그림](https://mc.ai/implement-of-seq2seq-model/)
