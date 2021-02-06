@@ -94,7 +94,7 @@ if __name__ == '__main__':
 
 ## License
 ```
-Copyright 2020 Kochat.
+Copyright 2020 Hyunwoong Ko.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
