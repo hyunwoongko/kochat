@@ -11,8 +11,8 @@ from kochat.loss import CRFLoss, CosFace, CenterLoss, COCOLoss, CrossEntropyLoss
 from kochat.model import intent, embed, entity
 from kochat.proc import DistanceClassifier, GensimEmbedder, EntityRecognizer, SoftmaxClassifier
 
-from demo.scenrios import restaurant, travel, dust, weather
-# from scenrios import restaurant, travel, dust, weather
+from demo.scenario import restaurant, travel, dust, weather
+# from scenario import restaurant, travel, dust, weather
 # 에러 나면 이걸로 실행해보세요!
 
 
