@@ -29,7 +29,7 @@ dust = Scenario(
 
 restaurant = Scenario(
     intent='restaurant',
-    api=RestaurantCrawler().request,
+    api=MapCrawler().request,
     scenario={
         'LOCATION': [],
         'RESTAURANT': ['맛집']
