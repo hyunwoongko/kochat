@@ -6,7 +6,7 @@
 
 from kocrawl.dust import DustCrawler
 from kocrawl.map import MapCrawler
-from kocrawl.retaurant import RestaurantCrawler
+from kocrawl.restaurant import RestaurantCrawler
 from kocrawl.weather import WeatherCrawler
 from kochat.app import Scenario
 
