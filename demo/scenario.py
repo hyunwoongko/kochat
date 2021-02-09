@@ -32,7 +32,7 @@ restaurant = Scenario(
     api=MapCrawler().request,
     scenario={
         'LOCATION': [],
-        'RESTAURANT': ['맛집']
+        'PLACE': ['맛집']
     }
 )
 
