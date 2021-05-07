@@ -73,7 +73,7 @@ if __name__ == '__main__':
 
 ## Documentation
 
-1. [Kochat이란?](https://github.com/gusdnd852/kochat/tree/master/docs/01_kocaht_이란.md)
+1. [Kochat이란?](https://github.com/gusdnd852/kochat/tree/master/docs/01_kochat_이란.md)
 2. [About Chatbot](https://github.com/gusdnd852/kochat/tree/master/docs/02_about_chatbot.md)
 3. [Getting Started](https://github.com/gusdnd852/kochat/tree/master/docs/03_getting_started.md)
 4. [Usage](https://github.com/gusdnd852/kochat/tree/master/docs/04_usage.md)
